@@ -21,7 +21,9 @@ with sync_playwright() as p:
     assert page.evaluate("getComputedStyle(document.querySelector('.tabs')).position") == "sticky"
     assert "studio-horizon.svg" in page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage")
     def navigate(section):
-        if section in ("dashboard","scan","inventory","lots"):
+        if not page.locator(".mobile-dock").is_visible():
+            page.locator(f'.tab[data-tab="{section}"]').click(timeout=10000)
+        elif section in ("dashboard","scan","inventory","lots"):
             page.locator(f'.dock-item[data-dock="{section}"]').click(timeout=10000)
         else:
             page.locator("#mobileMore").click(timeout=10000)
