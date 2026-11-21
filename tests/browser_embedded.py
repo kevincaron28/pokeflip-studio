@@ -2,6 +2,7 @@
 Uses isolated in-memory localStorage; not a test of real persistence or network.
 """
 from pathlib import Path
+import tempfile
 from playwright.sync_api import sync_playwright
 import re
 ROOT=Path(__file__).resolve().parents[1]
@@ -43,7 +44,7 @@ with sync_playwright() as p:
  page.locator('[data-tab="dashboard"]').click()
  assert page.locator(".portfolio-heading").count()==1
  assert not errors,errors
- page.screenshot(path='/mnt/data/pokeflip-embedded-browser-qa.png',full_page=True)
+ page.screenshot(path=str(Path(tempfile.gettempdir())/'pokeflip-embedded-browser-qa.png'),full_page=True)
  # A large physical collection must not create thousands of inventory DOM rows at once.
  page.evaluate('''() => {
    const d=window.pokeflipLedger.getData(); const seed=d.items[0];
