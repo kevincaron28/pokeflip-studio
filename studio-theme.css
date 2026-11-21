@@ -195,9 +195,11 @@ section>.muted:first-of-type{
 }
 section:has(>h1)>h1{
  background:
-  radial-gradient(ellipse 65% 100% at 94% 0%,#e8465377,transparent 88%),
-  linear-gradient(115deg,#5a2539,#321e38 62%,#15253c);
+  linear-gradient(90deg,#451f36ee 0%,#37233bda 42%,#18253d80 100%),
+  url('./studio-horizon.svg') center right / cover no-repeat;
  border-radius:18px 18px 0 0;
+ border:1px solid #83445375;
+ border-bottom:0;
 }
 section>h1 + .muted:not(:first-of-type){margin-top:2px}
 section h2,section h3{font-family:"Avenir Next","Trebuchet MS",system-ui,sans-serif;letter-spacing:-.4px}
