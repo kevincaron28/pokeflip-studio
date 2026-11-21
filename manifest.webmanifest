@@ -1,13 +1,13 @@
 {
   "id": "./",
-  "name": "Pok\u00e9Flip Studio",
-  "short_name": "Pok\u00e9Flip",
-  "description": "French and English Pok\u00e9mon card inventory and resale ledger",
+  "name": "PokéFlip Studio",
+  "short_name": "PokéFlip",
+  "description": "Your collector field guide for Pokémon cards, French/English inventory, and evidence-backed resale in CAD.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1220",
-  "theme_color": "#0b1220",
+  "background_color": "#0b1120",
+  "theme_color": "#111a2e",
   "icons": [
     {
       "src": "icon-192.png",
