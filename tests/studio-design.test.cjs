@@ -26,7 +26,7 @@ test('all ten original routes and controls remain in redesigned navigation',()=>
 });
 test('offline shell caches visual assets, not personal data',()=>{
   for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg'])assert.ok(sw.includes("'./"+file+"'"));
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.0'/);
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.1'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });
