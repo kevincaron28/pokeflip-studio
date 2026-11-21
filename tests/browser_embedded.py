@@ -44,6 +44,22 @@ with sync_playwright() as p:
  assert page.locator(".portfolio-heading").count()==1
  assert not errors,errors
  page.screenshot(path='/mnt/data/pokeflip-embedded-browser-qa.png',full_page=True)
+ # A large physical collection must not create thousands of inventory DOM rows at once.
+ page.evaluate('''() => {
+   const d=window.pokeflipLedger.getData(); const seed=d.items[0];
+   const items=Array.from({length:1200},(_,i)=>({...seed,id:'volume-'+i,name:'Card #'+i,qty:1}));
+   window.pokeflipLedger.replaceFromCloud({lots:d.lots,items,sales:[]},[]);
+ }''')
+ page.locator('[data-tab="inventory"]').click()
+ assert page.locator('#inventoryTable tbody tr').count()==100
+ assert 'Showing 100 of 1200' in page.locator('#inventoryTable').inner_text()
+ page.locator('[data-loadinventory]').click()
+ assert page.locator('#inventoryTable tbody tr').count()==200
+ page.locator('#inventorySearch').fill('Card #1199')
+ assert page.locator('#inventoryTable tbody tr').count()==1
+ assert page.locator('[data-loadinventory]').count()==0
+ assert not errors,errors
+ print('PASS: Large collection (1,200 entries) paginates 100 at a time and filters by card name')
  print('PASS: Chromium mobile-width render, all tab navigation, lot creation, bulk inventory, dashboard; 0 runtime exceptions')
  print('LIMITATION: localStorage shim; no live network, production site, OAuth or actual device camera tested')
  browser.close()
