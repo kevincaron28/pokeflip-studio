@@ -1,7 +1,7 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');
-const {validate,median,summarize,searchUrl,fees}=require('../ebay-pricing.js');
+const {validate,evidenceKey,median,summarize,searchUrl,fees}=require('../ebay-pricing.js');
 const item={id:'i',name:'Pikachu',idCode:'sv1-25',lang:'fr',finish:'Holo',condition:'Near Mint'};
-function comp(p={}){return {id:'c',itemId:'i',date:'2026-11-20',price:18,shipping:2,currency:'CAD',lang:'fr',finish:'Holo',condition:'Near Mint',provenance:'sold',url:'https://www.ebay.ca/itm/1234',...p}}
+function comp(p={}){return {id:'c',itemId:'i',date:'2026-11-20',price:18,shipping:2,currency:'CAD',lang:'fr',finish:'Holo',condition:'Near Mint',provenance:'sold',url:'https://www.ebay.ca/itm/'+(Object.hasOwn(p,'id')?String(10000+p.id.charCodeAt(0)):'1234'),...p}}
 test('eBay sold comps insist on exact language, finish and condition',()=>{let a=[comp(),comp({id:'b',price:30}),comp({id:'c',price:22}),comp({id:'d',lang:'en',price:999}),comp({id:'e',finish:'Reverse Holo',price:999}),comp({id:'f',condition:'Damaged',price:999})];let v=summarize(a,item,{now:'2026-11-21'});assert.equal(v.count,3);assert.equal(v.median,24);assert.equal(v.eligible,true)});
 test('insufficient or outdated comps cannot be marked eligible',()=>{assert.equal(summarize([comp(),comp({id:'b'})],item,{now:'2026-11-21'}).eligible,false);assert.equal(summarize([comp({date:'2026-01-01'})],item,{now:'2026-11-21'}).count,0)});
 test('USD comps are not silently converted to CAD',()=>{let v=summarize([comp({currency:'USD'}),comp({id:'b'}),comp({id:'c'})],item,{now:'2026-11-21'});assert.equal(v.count,2);assert.equal(v.eligible,false)});
@@ -9,3 +9,9 @@ test('rejects untrusted URL domains and inconsistent data',()=>{assert.throws(()
 test('fees account for percentage and per-order charge',()=>{const f=fees({sale:25,rate:13.25,postage:3,packaging:.5});assert.equal(f.orderFee,.4);assert.ok(Math.abs(f.fee-3.7125)<.00001);assert.ok(Math.abs(f.net-17.7875)<.00001)});
 test('sold search link includes exact card ID and search filter',()=>{const url=new URL(searchUrl(item));assert.equal(url.hostname,'www.ebay.ca');assert.equal(url.searchParams.get('LH_Sold'),'1');assert.ok(url.searchParams.get('_nkw').includes('sv1-25'))});
 test('median robust to a single high price',()=>assert.equal(median([4,5,6,900,7]),6));
+
+test('one sold listing cannot count as three independent prices',()=>{const a=[comp(),comp({id:'b',url:'https://www.ebay.com/itm/1234?tracking=1',price:900}),comp({id:'c',url:'https://www.ebay.ca/itm/1234',price:500})];const result=summarize(a,item,{now:'2026-11-21'});assert.equal(result.count,1);assert.equal(result.eligible,false);});
+test('unsubstantiated entries do not qualify for a valuation',()=>{const rows=[comp({url:''}),comp({id:'b',url:''}),comp({id:'c',url:''})];const result=summarize(rows,item,{now:'2026-11-21'});assert.equal(result.count,0);assert.equal(result.eligible,false)});
+test('Product Research can use unique references if listing URLs are unavailable',()=>{const rows=[comp({url:'',reference:'research-001',provenance:'product-research'}),comp({id:'b',url:'',reference:'research-002',provenance:'product-research'}),comp({id:'c',url:'',reference:'research-003',provenance:'product-research'})];const result=summarize(rows,item,{now:'2026-11-21'});assert.equal(result.count,3);assert.equal(result.eligible,true);assert.equal(evidenceKey(rows[0]),'research:research-001')});
+
+test('search pages cannot masquerade as a sold listing',()=>{assert.equal(evidenceKey(comp({url:'https://www.ebay.ca/sch/i.html?LH_Sold=1'})), '');});
