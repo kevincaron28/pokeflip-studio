@@ -1,11 +1,11 @@
 {
   "name": "pokeflip-studio",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "private": true,
   "description": "Pokemon TCG inventory, collection and resale workbench",
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node --check app.js && node --check cloud-sync.js && node --check card-lookup.js && node --check ebay-pricing.js && node --check restock-watch.js && node --check sealed-guide.js && node --test tests/*.test.cjs"
+    "check": "node --check app.js && node --check cloud-sync.js && node --check card-lookup.js && node --check market-reference.js && node --check ebay-pricing.js && node --check restock-watch.js && node --check sealed-guide.js && node --test tests/*.test.cjs"
   },
   "engines": {
     "node": ">=22"
