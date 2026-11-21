@@ -20,23 +20,28 @@ with sync_playwright() as p:
     assert page.evaluate("getComputedStyle(document.querySelector('header')).position") == "relative"
     assert page.evaluate("getComputedStyle(document.querySelector('.tabs')).position") == "sticky"
     assert "studio-horizon.svg" in page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage")
-    page.locator('[data-tab="dashboard"]').click(timeout=10000)
+    def navigate(section):
+        if section in ("dashboard","scan","inventory","lots"):
+            page.locator(f'.dock-item[data-dock="{section}"]').click(timeout=10000)
+        else:
+            page.locator("#mobileMore").click(timeout=10000)
+            page.locator(f'.drawer-link[data-target="{section}"]').click(timeout=10000)
+    navigate("dashboard")
     assert page.locator("section#dashboard").is_visible()
     assert page.locator("#metrics .metric").count() == 4  # inside collapsed legacy details
     assert page.locator(".portfolio-heading").is_visible()  # current dashboard
     assert page.locator(".tab").count() >= 5
-    for tab in page.locator(".tab").all():
-        tab.click(timeout=4000)
-        target = tab.get_attribute("data-tab")
+    for target in ("dashboard","scan","deal","lots","inventory","sales","ebay","sealed","restock","settings"):
+        navigate(target)
         assert page.locator(f"section#{target}").is_visible(), target
-    page.locator('[data-tab="lots"]').click()
+    navigate("lots")
     page.locator('#lotForm [name="name"]').fill("Temporary live QA purchase")
     page.locator('#lotForm [name="cost"]').fill("42.50")
     page.locator('#lotForm [name="source"]').fill("QA only")
     page.locator('#lotForm button').click()
     data = page.evaluate("JSON.parse(localStorage.getItem('pokeflip-v1'))")
     assert data and len(data["lots"]) == 1 and data["lots"][0]["cost"] == 42.5
-    page.locator('[data-tab="dashboard"]').click()
+    navigate("dashboard")
     assert page.locator(".portfolio-heading").count() == 1
     assert not errors, "JavaScript errors in hosted app: " + repr(errors)
     print("PASS live hosted Chromium: HTTP 200, tabs, metrics, temporary purchase lot, dashboard, zero page errors")
