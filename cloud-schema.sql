@@ -1,5 +1,7 @@
--- PokéFlip cloud v2: deploy ONLY to a dedicated new Supabase project.
--- Authenticated users can SELECT only their own snapshot. All writes are an atomic RPC.
+-- PokéFlip Studio: dedicated Supabase project only. NEVER run in another app's project.
+-- Authoritative schema as deployed 2026-11-21. Authenticated clients can SELECT their
+-- own snapshot and invoke a minimal SECURITY INVOKER wrapper; guarded privileged writes
+-- reside in a non-exposed internal schema, never in the public API schema.
 create table if not exists public.pokeflip_snapshots (
   user_id uuid primary key references auth.users(id) on delete cascade,
   revision bigint not null default 1 check (revision > 0),
@@ -17,9 +19,11 @@ drop policy if exists pokeflip_owner_update on public.pokeflip_snapshots;
 create policy pokeflip_owner_select on public.pokeflip_snapshots
  for select to authenticated using (user_id = (select auth.uid()));
 
--- SECURITY DEFINER is intentionally used ONLY for this narrow, guarded atomic write.
--- No dynamic SQL; fixed qualified table; authenticated ownership from auth.uid().
-create or replace function public.pokeflip_save_snapshot(expected_revision bigint, next_payload jsonb)
+create schema if not exists pokeflip_private;
+revoke all on schema pokeflip_private from public, anon;
+grant usage on schema pokeflip_private to authenticated;
+-- Internal writer is not exposed via PostgREST; no dynamic SQL or user-controlled owner.
+create or replace function pokeflip_private.save_snapshot(expected_revision bigint,next_payload jsonb)
 returns bigint language plpgsql security definer set search_path = '' as $$
 declare new_rev bigint; actor uuid;
 begin
@@ -37,18 +41,27 @@ begin
     jsonb_typeof(next_payload->'restockWatch') <> 'object'
  then raise exception 'Invalid snapshot'; end if;
  if expected_revision = 0 then
-  insert into public.pokeflip_snapshots(user_id, revision, payload)
-  values (actor, 1, next_payload)
-  on conflict (user_id) do nothing
+  insert into public.pokeflip_snapshots(user_id,revision,payload)
+  values(actor,1,next_payload)
+  on conflict(user_id) do nothing
   returning revision into new_rev;
  else
   update public.pokeflip_snapshots
-  set revision = revision + 1, payload = next_payload, updated_at = now()
+  set revision = revision + 1, payload=next_payload, updated_at=now()
   where user_id = actor and revision = expected_revision
   returning revision into new_rev;
  end if;
  if new_rev is null then raise exception 'SYNC_CONFLICT: cloud changed; download and reconcile first'; end if;
  return new_rev;
-end;$$;
+end; $$;
+revoke all on function pokeflip_private.save_snapshot(bigint,jsonb) from public,anon;
+grant execute on function pokeflip_private.save_snapshot(bigint,jsonb) to authenticated;
+
+-- Public RPC is deliberately unprivileged. Its sole operation is calling the internal
+-- writer; it cannot bypass table permissions or accept a user_id from the client.
+create or replace function public.pokeflip_save_snapshot(expected_revision bigint,next_payload jsonb)
+returns bigint language sql security invoker set search_path = '' as $$
+ select pokeflip_private.save_snapshot(expected_revision,next_payload);
+$$;
 revoke all on function public.pokeflip_save_snapshot(bigint,jsonb) from public,anon;
 grant execute on function public.pokeflip_save_snapshot(bigint,jsonb) to authenticated;
