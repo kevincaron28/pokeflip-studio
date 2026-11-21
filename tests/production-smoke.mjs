@@ -26,6 +26,12 @@ if(page) {
   if(page.headers.get('x-content-type-options')!=='nosniff') failures.push('Missing nosniff security header');
   if(page.headers.get('x-frame-options')!=='DENY') failures.push('Missing frame-denial security header');
 }
+const design = await get('./studio-theme.css');
+if(design && !design.body.toString('utf8').includes('--pf-red:#ec4b55')) failures.push('Collector theme is missing or stale');
+for(const name of ['studio-mark.svg','studio-horizon.svg']){
+ const item=await get('./'+name);
+ if(item && !item.body.toString('utf8').includes('<svg')) failures.push('Invalid design vector '+name);
+}
 const manifest=await get('./manifest.webmanifest');
 if(manifest) {
  try {
