@@ -57,6 +57,22 @@ function init(){
  const observer=new MutationObserver(active);
  for(const t of mainNav)observer.observe(t,{attributes:true,attributeFilter:['class']});
  active();
+ // Preserve all existing scanner controls while folding deep-review tools on small screens.
+ for(const [node,title] of [
+  [document.querySelector('#setDetailPreview')?.closest('.panel'),'Set details & symbol matching'],
+  [document.querySelector('#conditionScreen'),'Grading potential · front / back review'],
+  [document.querySelector('#marketPanel'),'Advanced marketplace price references'],
+  [document.querySelector('#scanMarketQuotes')?.closest('.panel'),'Extra market context']
+ ]){
+  if(!node||node.closest('.scan-advanced-details'))continue;
+  const details=document.createElement('details');
+  details.className='scan-advanced-details';
+  details.open=root.matchMedia('(min-width:761px)').matches;
+  const summary=document.createElement('summary');
+  summary.textContent=title;
+  node.parentNode.insertBefore(details,node);
+  details.append(summary,node);
+ }
  // Single-camera capture shares the existing, tested queue handler with normal batch uploads.
  const camera=$('mobileCameraInput'),batch=$('photoInput'),queueStatus=$('scanQueueStatus'),mobileStatus=$('mobileScanStatus');
  function syncStatus(){if(queueStatus&&mobileStatus)mobileStatus.textContent=queueStatus.textContent}
