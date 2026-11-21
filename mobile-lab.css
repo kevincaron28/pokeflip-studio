@@ -88,6 +88,10 @@
  .scan-corner.tr{top:14px;right:14px;border-width:3px 3px 0 0;border-radius:0 8px 0 0}
  .scan-corner.bl{bottom:14px;left:14px;border-width:0 0 3px 3px;border-radius:0 0 0 8px}
  .scan-corner.br{bottom:14px;right:14px;border-width:0 3px 3px 0;border-radius:0 0 8px 0}
+ .scan-finder>img{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-fit:contain;border-radius:8px;filter:drop-shadow(0 10px 12px #0006)}
+ .scan-finder.has-photo{min-height:310px;background:linear-gradient(130deg,#121b2e,#29334a)}
+ .scan-finder.has-photo .scan-finder-art{display:none}
+ .scan-finder.has-photo .scan-corner{z-index:2}
  .scan-finder-art{display:flex;align-items:center;flex-direction:column;gap:8px;text-align:center}
  .scan-finder-symbol{font-size:48px;line-height:1;color:#f4c968;transform:rotate(-13deg)}
  .scan-finder-art strong{font-size:16px;color:#fff3d9}
