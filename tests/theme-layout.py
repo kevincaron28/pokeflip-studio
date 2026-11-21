@@ -29,9 +29,17 @@ try:
             header_pos = page.evaluate("getComputedStyle(document.querySelector('header')).position")
             nav_pos = page.evaluate("getComputedStyle(document.querySelector('.tabs')).position")
             assert (header_pos, nav_pos) == (("fixed", "fixed") if width == 1440 else ("relative", "sticky"))
-            page.locator('[data-tab="scan"]').click()
+            if width <= 760:
+                assert page.locator(".mobile-dock").is_visible()
+                assert not page.locator(".tabs").is_visible()
+                page.locator('.dock-item[data-dock="scan"]').click()
+            else:
+                page.locator('[data-tab="scan"]').click()
             assert page.locator("section#scan").is_visible()
-            page.locator('[data-tab="inventory"]').click()
+            if width <= 760:
+                page.locator('.dock-item[data-dock="inventory"]').click()
+            else:
+                page.locator('[data-tab="inventory"]').click()
             assert page.locator("section#inventory").is_visible()
             assert not errors, errors
             print(f"PASS collector layout: viewport {width}x{height}, navigation and CSS active, zero runtime errors")
