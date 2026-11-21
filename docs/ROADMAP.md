@@ -5,6 +5,7 @@
 - [x] Deployed to Vercel at https://pokeflip-studio.vercel.app (READY on latest published commit).
 - [x] Dedicated Canada Central Supabase project; RLS, owner-only SELECT, atomic revision-controlled saves; unprivileged public RPC wrapper around non-exposed internal writer. Supabase security advisor shows zero warnings.
 - [x] Browser tested mobile navigation, lot purchase, 100-card bulk intake, cloud autosave conflicts in a mocked environment, and filtering 1,200 separate inventory records.
+- [x] TCGdex TCGplayer/Cardmarket reference quotes shown as USD/EUR with source/age warnings, never treated as confirmed CAD sold sales.
 - [x] Conservative eBay documented sold-price comparisons; duplicate and unsubstantiated observations do not count toward an estimated price.
 
 ## P0: Live acceptance before broad public launch

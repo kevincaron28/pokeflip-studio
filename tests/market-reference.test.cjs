@@ -1,0 +1,10 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const {getQuotes,dateInfo}=require('../market-reference.js');
+const now=Date.parse('2026-11-21T10:00:00Z');
+const sample={tcgplayer:{unit:'USD',updated:'2026-11-20T10:00:00Z',normal:{marketPrice:4},holofoil:{marketPrice:18},'reverse-holofoil':{marketPrice:9}},cardmarket:{unit:'EUR',updated:'2026-11-19T10:00:00Z',trend:3,'trend-holo':11}};
+test('market references preserve USD/EUR without CAD conversion',()=>{const quotes=getQuotes(sample,'Normal',now);assert.equal(quotes.length,2);assert.deepEqual(quotes.map(x=>x.unit),['USD','EUR']);assert.deepEqual(quotes.map(x=>x.price),[4,3])});
+test('holofoil prices never use the normal printing',()=>{const q=getQuotes(sample,'Holo',now);assert.deepEqual(q.map(x=>x.price),[18,11])});
+test('reverse holo does not reuse unrelated Cardmarket holo pricing',()=>{const q=getQuotes(sample,'Reverse Holo',now);assert.equal(q.length,1);assert.equal(q[0].price,9)});
+test('unsupported finish and missing prices produce no guesses',()=>{assert.deepEqual(getQuotes(sample,'Other / special',now),[]);assert.deepEqual(getQuotes({},'Holo',now),[])});
+test('stale or unknown timestamps are flagged',()=>{const p={tcgplayer:{unit:'USD',updated:'2026-10-01T00:00:00Z',normal:{marketPrice:10}}};assert.equal(getQuotes(p,'Normal',now)[0].stale,true);assert.equal(dateInfo('nonsense',now).date,'Unknown')});
+test('reject NaN, nonpositive and absurd values',()=>{const p={tcgplayer:{unit:'USD',updated:'2026-11-20',normal:{marketPrice:-5}},cardmarket:{unit:'EUR',updated:'2026-11-20',avg:0}};assert.equal(getQuotes(p,'Normal',now).length,0)});
