@@ -73,6 +73,29 @@ function init(){
   node.parentNode.insertBefore(details,node);
   details.append(summary,node);
  }
+ // Show the real queued image in the primary camera viewport; never fabricate a match.
+ const photo=$('currentPhoto'),preview=$('mobilePhotoPreview'),finder=$('scan')?.querySelector('.scan-finder');
+ function mirrorPhoto(){
+  if(!photo||!preview)return;
+  const src=photo.getAttribute('src');
+  const visible=!!src&&!photo.classList.contains('hidden');
+  preview.hidden=!visible;
+  if(visible)preview.src=src;else preview.removeAttribute('src');
+  finder?.classList.toggle('has-photo',visible);
+ }
+ if(photo&&preview){new MutationObserver(mirrorPhoto).observe(photo,{attributes:true,attributeFilter:['src','class']});mirrorPhoto()}
+ // Keep essential card fields in view; put optional bookkeeping in a single disclosure.
+ const cardForm=$('cardForm'),cardFields=cardForm?.querySelector(':scope > .grid2');
+ if(cardForm&&cardFields){
+  const optional=['cardPrice','cardPriceSource','cardAllocated','cardLocation','cardStatus'];
+  const advanced=document.createElement('details');advanced.className='scan-advanced-details scan-card-optional';
+  advanced.open=root.matchMedia('(min-width:761px)').matches;
+  const title=document.createElement('summary');title.textContent='Optional pricing, storage & status';
+  const grid=document.createElement('div');grid.className='grid2';grid.style.marginTop='12px';
+  for(const id of optional){const el=$(id);const wrapper=el?.parentElement;if(wrapper&&cardFields.contains(wrapper))grid.append(wrapper)}
+  advanced.append(title,grid);
+  cardFields.insertAdjacentElement('afterend',advanced);
+ }
  // Single-camera capture shares the existing, tested queue handler with normal batch uploads.
  const camera=$('mobileCameraInput'),batch=$('photoInput'),queueStatus=$('scanQueueStatus'),mobileStatus=$('mobileScanStatus');
  function syncStatus(){if(queueStatus&&mobileStatus)mobileStatus.textContent=queueStatus.textContent}
