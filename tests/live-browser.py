@@ -16,6 +16,7 @@ with sync_playwright() as p:
     page.on("pageerror", lambda err: errors.append(str(err)))
     response = page.goto(URL, wait_until="domcontentloaded", timeout=30000)
     assert response and response.status == 200, "Production homepage not HTTP 200"
+    page.locator('[data-tab="dashboard"]').click(timeout=10000)
     page.locator("#metrics .metric").first.wait_for(timeout=15000)
     assert page.locator("#metrics .metric").count() == 4
     assert page.locator(".tab").count() >= 5
