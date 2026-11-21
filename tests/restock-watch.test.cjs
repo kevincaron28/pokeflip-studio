@@ -1,0 +1,11 @@
+const {test}=require('node:test'), assert=require('node:assert/strict'), fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const dir=path.join(__dirname,'..'),html=fs.readFileSync(path.join(dir,'index.html'),'utf8'),app=fs.readFileSync(path.join(dir,'app.js'),'utf8'),sw=fs.readFileSync(path.join(dir,'sw.js'),'utf8'),ctx={URL,Date,Number,Intl,Math};
+vm.runInNewContext(fs.readFileSync(path.join(dir,'restock-watch.js'),'utf8'),ctx);const R=ctx.PokeFlipRestock;
+const w={id:'w1',product:'Exact ETB edition',format:'etb',language:'fr',region:'Montérégie',ceiling:65,enabled:true};
+const o={id:'o1',watchId:'w1',status:'in',price:50,store:'Example',source:'manual',checkedAt:new Date(Date.now()-5000).toISOString(),url:'https://www.walmart.ca'};
+test('restock tab is packaged and service worker caches module',()=>{assert.ok(html.includes('data-tab="restock"'));assert.ok(html.includes('id="restockWatchForm"'));assert.ok(html.includes('restock-watch.js'));assert.ok(sw.includes('restock-watch.js'))});
+test('watchlist and observations are included in backup and validation before restore',()=>{assert.ok(app.includes('restockWatch:window.PokeFlipRestock'));assert.ok(app.includes('validateBackup(data.restockWatch)'));assert.ok(app.includes('setData(data.restockWatch||'))});
+test('only reported in-stock at or below ceiling qualifies',()=>{assert.equal(R.qualifying(o,w),true);assert.equal(R.qualifying({...o,price:66},w),false);assert.equal(R.qualifying({...o,status:'unknown'},w),false);assert.equal(R.qualifying(o,{...w,enabled:false}),false)});
+test('only a new qualifying observation triggers an in-app alert',()=>{assert.equal(R.transition({...o,status:'out'},o,w),true);assert.equal(R.transition(o,o,w),false);assert.equal(R.transition(null,o,w),true)});
+test('invalid or untrusted values are rejected',()=>{assert.throws(()=>R.validateWatch({...w,ceiling:-1}));assert.throws(()=>R.validateObservation({...o,url:'javascript:alert(1)'}));assert.throws(()=>R.validateBackup({watches:[w],observations:[{...o,watchId:'missing'}]}))});
+test('local directories and independent alert providers are distinguished',()=>{assert.ok(R.SOURCES.some(s=>s.region.includes('Saint-Jean')&&s.kind==='local'));assert.ok(R.SOURCES.some(s=>s.kind==='alerts'));assert.ok(R.SOURCES.every(s=>s.url.startsWith('https://')))});

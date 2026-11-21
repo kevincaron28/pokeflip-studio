@@ -1,0 +1,5 @@
+const assert=require('node:assert/strict');const {test}=require('node:test');const m=require('../symbol-match.js');
+const W=80,H=80;function pic(draw,invert=false){let d=new Uint8ClampedArray(W*H*4);for(let y=0;y<H;y++)for(let x=0;x<W;x++){let ink=draw(x,y),c=ink?(invert?240:20):(invert?20:240),i=(y*W+x)*4;d[i]=d[i+1]=d[i+2]=c;d[i+3]=255;}return d}
+test('same reference shape ranks above unrelated shape',()=>{let query=m.normalize(pic((x,y)=>x>30&&x<50&&y>22&&y<59),W,H);let same=m.normalize(pic((x,y)=>x>33&&x<53&&y>20&&y<57),W,H);let different=m.normalize(pic((x,y)=>(x-40)**2+(y-40)**2<180),W,H);assert.ok(m.compare(query,same)>m.compare(query,different));assert.equal(m.rank(query,[{id:'round',signature:different},{id:'rect',signature:same}])[0].id,'rect')});
+test('empty and excessively noisy crops are rejected',()=>{assert.throws(()=>m.normalize(pic(()=>false),W,H));assert.throws(()=>m.normalize(pic(()=>true),W,H))});
+test('symbol template normalization preserves shape',()=>{let shape=m.normalize(pic((x,y)=>x>30&&x<50&&y>22&&y<59),W,H);assert.equal(shape.length,1296);assert.ok(m.compare(shape,shape)>.99)});
