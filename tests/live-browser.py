@@ -17,7 +17,15 @@ with sync_playwright() as p:
     response = page.goto(URL, wait_until="domcontentloaded", timeout=30000)
     assert response and response.status == 200, "Production homepage not HTTP 200"
     page.locator('[data-tab="dashboard"]').click(timeout=10000)
-    page.locator("#metrics .metric").first.wait_for(timeout=15000)
+    page.wait_for_timeout(1500)
+    print("Live browser diagnostics:", {
+        "active_tabs": page.locator(".tab.on").all_text_contents(),
+        "dashboard_class": page.locator("section#dashboard").get_attribute("class"),
+        "metrics": page.locator("#metrics .metric").count(),
+        "runtime_errors": errors,
+        "app_ready": page.evaluate("typeof window.pokeflipLedger"),
+    }, flush=True)
+    page.locator("#metrics .metric").first.wait_for(timeout=5000)
     assert page.locator("#metrics .metric").count() == 4
     assert page.locator(".tab").count() >= 5
     for tab in page.locator(".tab").all():
