@@ -1,26 +1,27 @@
-# Release backlog — blockers in priority order
+# PokéFlip Studio — release backlog (2026-11-21)
 
-## P0: Hosted acceptance
-- [ ] Create private `pokeflip-studio` GitHub repository under the owner's account and push all files from this source package.
-- [ ] Connect repo to existing Vercel project `pokeflip-studio` and deploy a preview; verify routing/assets/security headers and all tabs.
-- [ ] Set Supabase Auth Site URL and redirect allowlist to deployed URL and verify magic-link/OTP sign-in from a real inbox.
-- [ ] Verify manual cloud push/pull from two different devices, revision conflict, expired sessions, and backup restore.
-- [ ] Independent security review for `pokeflip_save_snapshot` SECURITY DEFINER/RLS/payload limits.
+## Delivered and verified
+- [x] Source committed to GitHub: https://github.com/kevincaron28/pokeflip-studio
+- [x] Deployed to Vercel at https://pokeflip-studio.vercel.app (READY on latest published commit).
+- [x] Dedicated Canada Central Supabase project; RLS, owner-only SELECT, atomic revision-controlled saves; unprivileged public RPC wrapper around non-exposed internal writer. Supabase security advisor shows zero warnings.
+- [x] Browser tested mobile navigation, lot purchase, 100-card bulk intake, cloud autosave conflicts in a mocked environment, and filtering 1,200 separate inventory records.
+- [x] Conservative eBay documented sold-price comparisons; duplicate and unsubstantiated observations do not count toward an estimated price.
 
-## P0: Card scanning acceptance
-- [ ] Collect owner-authorized, labeled photos of 100+ physical cards: FR/EN, reverse-holo, duplicate art across sets, vintage symbol layouts, blurry photos, different light.
-- [ ] Measure exact printing top-1/top-3 accuracy, false confident matches, OCR/number extraction, per-scan latency, symbol crop accuracy and review rate.
-- [ ] Improve capture guidance, autofocus, manual fallback, dataset coverage, and reject uncertain matches.
-- [ ] Validate preliminary grading screen on front/back/angled photos; do not predict PSA grades without scientific validation.
+## P0: Live acceptance before broad public launch
+- [ ] Configure Supabase Authentication Site URL and redirect allowlist for https://pokeflip-studio.vercel.app; verify real magic link or OTP email.
+- [ ] Verify the actual Pixel camera, lighting, bottom-symbol focus and French/English card identification from real photos.
+- [ ] Run live two-account RLS tests, two-device cloud backup/restore and conflict exercises using authorized test identities (current browser test uses a mock).
+- [ ] Enable Vercel GitHub App authorization for automatic push-to-deploy; confirm GitHub Actions checks are visible and green.
+- [ ] Real HTTPS assets, PWA install and operational monitoring acceptance checks.
 
-## P1: Pricing and restocks
-- [ ] Obtain authorized eBay sold-history feed/license or preserve user-verified sold comparisons; add sold-price provenance and currency conversion tests.
-- [ ] Add authorized retailer/feed integrations for regional restocks, scheduled refresh, deduplication, and rate limits; no scraping protected sites.
-- [ ] Add opt-in push notifications with subscriptions, unsubscribe, and a tested notification service.
+## P1: External integrations requiring source authorization
+- [ ] Obtain legal/authorized eBay sold-sales data access or maintain user-supplied Product Research comparables. No scraping protected APIs.
+- [ ] Authorized Canadian retailer/alert-provider feeds, recurring server polling, freshness/deduplication, and opt-in push notifications to Android. Do not fabricate live stock.
+- [ ] Optional saved scan photos and scalable encrypted backing storage with a documented privacy policy.
 
-## P1: Product quality
-- [ ] Persistent photo storage, privacy controls, backup policy, 1000+ item performance tests, observability, accessibility testing, and French UI localization.
-- [ ] Define documented beta exit criteria, recovery strategy and on-call/error monitoring.
+## Quality and expansion
+- [ ] Benchmark a labeled set of at least 100 real FR/EN cards (exact printing, holo variant, symbol, condition) before advertising automatic accuracy.
+- [ ] Accessibility and French-UI localization review; recoverability and 10,000-entry load benchmark.
+- [ ] Clear support/incident protocol, backed-up data export and rollback playbook.
 
-## Currently verified
-- 50 Node tests; embedded Chromium test for navigation, lot creation, 100-card bulk entry. Neither tests real camera nor hosted cloud.
+Production build readiness is **not** equivalent to completion of all live acceptance gates. See GitHub issues #1–#6.
