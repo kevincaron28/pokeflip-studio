@@ -1,11 +1,12 @@
-# PokéFlip Studio v3.4 — Hosted collection and resale workbench
+# PokéFlip Studio v3.5 — Hosted collection and resale workbench
 
 **App:** https://pokeflip-studio.vercel.app  
 **Source:** https://github.com/kevincaron28/pokeflip-studio
 
 A mobile-first inventory and Pokémon resale tracker for bilingual Canadian collectors. Record bulk purchases, scan and review card identities, track eBay comparable sales, and compare sealed-product prices. This is a deployed application, but several real-device and external-data validation gates remain open.
 
-## New in v3.4
+## New in v3.5
+- **TCGdex pricing context:** once an exact card is selected, display available USD TCGplayer and EUR Cardmarket quotes for the selected finish, with timestamps and stale-data warnings. This is informational only, not eBay/CAD resale valuation.
 - **Paginated inventory browsing:** display 100 rows at a time, search the full inventory and load more without creating thousands of rows in the page. Verified using 1,200 simulated inventory entries.
 - Optional **automatic cloud backup while the app is open** once you have signed in and completed an initial manual upload/download.
 - Every automatic save uses an optimistic revision check. If another device changes the cloud snapshot, automation disables itself and requires you to reconcile; no silent overwrite.
