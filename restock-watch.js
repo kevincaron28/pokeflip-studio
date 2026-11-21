@@ -1,0 +1,49 @@
+/* PokéFlip Restock Watch: user-managed watchlist, sourced observations, on-page alerts.
+   No background polling or invented inventory data. */
+(function(root){'use strict';
+ const KEY='pokeflip-restock-v1';
+ const SOURCES=[
+  {name:'Pokémon Center Canada',region:'Canada online',url:'https://www.pokemoncenter.com/en-ca',kind:'retailer'},
+  {name:'Walmart Canada',region:'Canada online',url:'https://www.walmart.ca',kind:'retailer'},
+  {name:'GameStop Canada',region:'Canada online',url:'https://www.gamestop.ca',kind:'retailer'},
+  {name:'Costco Canada',region:'Canada online',url:'https://www.costco.ca',kind:'retailer'},
+  {name:'Best Buy Canada',region:'Canada online',url:'https://www.bestbuy.ca',kind:'retailer'},
+  {name:'La carte cachée',region:'Saint-Jean-sur-Richelieu',url:'https://www.google.com/maps/search/?api=1&query=La+carte+cach%C3%A9e+Saint-Jean-sur-Richelieu',kind:'local'},
+  {name:'Zone Collection St-Jean',region:'Saint-Jean-sur-Richelieu',url:'https://www.google.com/maps/search/?api=1&query=Zone+Collection+St-Jean',kind:'local'},
+  {name:'All-In Hobby Sports',region:'Brossard',url:'https://www.google.com/maps/search/?api=1&query=All-In+Hobby+Sports+Brossard',kind:'local'},
+  {name:'Jeux A-Z Games',region:'Châteauguay',url:'https://www.google.com/maps/search/?api=1&query=Jeux+A-Z+Games+Chateauguay',kind:'local'},
+  {name:'Sousa Collects',region:'Châteauguay',url:'https://www.google.com/maps/search/?api=1&query=Sousa+Collects+Chateauguay',kind:'local'},
+  {name:'Pokénnoisseur alerts',region:'Canada alert provider',url:'https://www.pokennoisseur.ca/',kind:'alerts'},
+  {name:'The Drop Watch',region:'Canada stock tracker',url:'https://thedropwatch.com/p/pokemon-restock-canada',kind:'alerts'},
+  {name:'Card Restock Tracker',region:'Canada stock tracker',url:'https://cardrestocktracker.com/ca',kind:'alerts'},
+  {name:'DropScouts',region:'Canada stock tracker',url:'https://restocks.dropscouts.com/',kind:'alerts'}
+ ];
+ const validUrl=u=>{try{let x=new URL(u);return x.protocol==='https:'}catch{return false}};
+ const money=v=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(v);
+ function validateWatch(w){if(!w||typeof w.id!=='string'||w.id.length>100||typeof w.product!=='string'||!w.product.trim()||w.product.length>160||typeof w.region!=='string'||w.region.length>90||typeof w.format!=='string'||!['pack','box','etb','bundle','collection','tin','any'].includes(w.format)||!Number.isFinite(w.ceiling)||w.ceiling<=0||w.ceiling>100000||!['any','fr','en'].includes(w.language)||typeof w.enabled!=='boolean')throw Error('Invalid watch rule');return true}
+ function validateObservation(o){if(!o||typeof o.id!=='string'||typeof o.watchId!=='string'||!['in','out','unknown'].includes(o.status)||!Number.isFinite(o.price)||o.price<0||o.price>1e6||!Number.isFinite(Date.parse(o.checkedAt))||o.checkedAt>new Date(Date.now()+300000).toISOString()||typeof o.store!=='string'||!o.store.trim()||o.store.length>160||(o.url&&!validUrl(o.url))||typeof o.source!=='string'||!['manual','external'].includes(o.source))throw Error('Invalid stock observation');return true}
+ function validateBackup(value){if(!value||!Array.isArray(value.watches)||!Array.isArray(value.observations)||value.watches.length>500||value.observations.length>20000)throw Error('Invalid restock backup');value.watches.forEach(validateWatch);value.observations.forEach(validateObservation);const ids=new Set(value.watches.map(w=>w.id));if(ids.size!==value.watches.length||value.observations.some(o=>!ids.has(o.watchId)))throw Error('Restock observation references unknown watch');return true}
+ function qualifying(o,w){return !!(o&&w&&w.enabled&&o.status==='in'&&o.price>0&&o.price<=w.ceiling)}
+ function transition(before,after,w){return qualifying(after,w)&&!qualifying(before,w)}
+ const API={SOURCES,validateWatch,validateObservation,validateBackup,qualifying,transition};root.PokeFlipRestock=API;
+ if(typeof document==='undefined')return;
+ const $=id=>document.getElementById(id); const el=(t,cls,s)=>{const n=document.createElement(t);if(cls)n.className=cls;if(s!==undefined)n.textContent=s;return n};
+ let state={watches:[],observations:[]};
+ function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v){validateBackup(v);state=v}}catch(e){$('restockMessage').textContent='Saved restock data failed validation; import a known-good backup.'}}
+ function persist(){localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new Event('pokeflip:saved'))}
+ function id(){return globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2)}
+ function link(url,label){const a=el('a','btn smallbtn',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a}
+ function sourceRows(){const host=$('restockSources');host.replaceChildren();const local=$('restockRegion').value==='local';for(const s of SOURCES.filter(s=>local?s.kind==='local':s.kind!=='local')){const d=el('div','source-row');const l=el('div');l.append(el('strong','',s.name),el('div','note',s.region));d.append(l,link(s.url,'Visit source'));host.append(d)}}
+ function latest(wid){return state.observations.filter(o=>o.watchId===wid).sort((a,b)=>b.checkedAt.localeCompare(a.checkedAt))[0]||null}
+ function render(){const h=$('restockWatches');h.replaceChildren();$('restockCount').textContent=state.watches.length+' watch rule(s) · '+state.observations.length+' recorded checks';for(const w of state.watches){const d=el('div','watch-row');const title=el('div');title.append(el('strong','',w.product),el('div','note',`${w.format.toUpperCase()} · ${w.language.toUpperCase()} · ${w.region||'Canada'} · target ≤ ${money(w.ceiling)}`));const o=latest(w.id);if(o)title.append(el('div','note',`${o.status==='in'?'Reported in stock':o.status==='out'?'Reported sold out':'Unverified'} at ${o.store} · ${money(o.price)} · ${new Date(o.checkedAt).toLocaleString('en-CA')}`));else title.append(el('div','note','No stock check recorded; availability unknown'));
+ const actions=el('div','row');const toggle=el('button','btn smallbtn',w.enabled?'Pause':'Resume');toggle.onclick=()=>{w.enabled=!w.enabled;persist();render()};const record=el('button','btn smallbtn','Record check');record.onclick=()=>{ $('restockWatchSelect').value=w.id;$('restockRecord').scrollIntoView({behavior:'smooth',block:'center'})};const remove=el('button','btn smallbtn','Delete');remove.onclick=()=>{if(!confirm('Delete this rule and its recorded checks?'))return;state.watches=state.watches.filter(x=>x.id!==w.id);state.observations=state.observations.filter(x=>x.watchId!==w.id);persist();render()};actions.append(toggle,record,remove);d.append(title,actions);h.append(d)}
+ $('restockEmpty').classList.toggle('hidden',!!state.watches.length);const sel=$('restockWatchSelect'),old=sel.value;sel.replaceChildren(new Option('Choose a watched product…',''));state.watches.forEach(w=>sel.add(new Option(w.product+' ('+w.region+')',w.id)));sel.value=old;
+ const list=$('restockLog');list.replaceChildren();for(const o of state.observations.slice().sort((a,b)=>b.checkedAt.localeCompare(a.checkedAt)).slice(0,30)){const w=state.watches.find(w=>w.id===o.watchId);const d=el('tr');for(const text of [new Date(o.checkedAt).toLocaleString('en-CA'),w?.product||'?',o.store,o.status==='in'?'Reported in stock':o.status==='out'?'Sold out':'Unknown',money(o.price)])d.append(el('td','',text));const cell=el('td');if(o.url)cell.append(link(o.url,'Source'));d.append(cell);list.append(d)}
+ }
+ function notify(w,o){const text=`${w.product}: ${money(o.price)} at ${o.store} (reported in stock)`;$('restockMessage').textContent='Potential restock: '+text+' — verify with store before traveling.';if('Notification'in window&&Notification.permission==='granted')new Notification('PokéFlip watched product',{body:text});}
+ function init(){if(!$('restock'))return;load();$('restockRegion').onchange=sourceRows;sourceRows();$('restockWatchForm').onsubmit=e=>{e.preventDefault();try{const w={id:id(),product:$('restockProduct').value.trim(),format:$('restockFormat').value,language:$('restockLanguage').value,region:$('restockArea').value.trim(),ceiling:Number($('restockCeiling').value),enabled:true};validateWatch(w);state.watches.push(w);persist();render();$('restockWatchForm').reset();$('restockMessage').textContent='Watch added. External alerts are separate; this app is not a live stock monitor.'}catch(err){$('restockMessage').textContent=err.message}};
+ $('restockRecordForm').onsubmit=e=>{e.preventDefault();try{const watchId=$('restockWatchSelect').value,w=state.watches.find(x=>x.id===watchId);if(!w)throw Error('Choose a watched product');const o={id:id(),watchId,status:$('restockStatus').value,price:Number($('restockPrice').value||0),store:$('restockStore').value.trim(),url:$('restockUrl').value.trim(),source:'manual',checkedAt:new Date().toISOString()};validateObservation(o);const previous=latest(watchId);state.observations.push(o);persist();render();$('restockMessage').textContent='Stock observation saved. Only a store can confirm availability.';if(transition(previous,o,w))notify(w,o);$('restockRecordForm').reset()}catch(err){$('restockMessage').textContent=err.message}};
+ $('restockNotifications').onclick=async()=>{if(!('Notification'in window)){$('restockMessage').textContent='Notifications are unsupported in this browser.';return}const status=await Notification.requestPermission();$('restockMessage').textContent=status==='granted'?'Browser alerts enabled for qualifying checks recorded while PokéFlip is open.':'Notifications not enabled.'};
+ API.getData=()=>JSON.parse(JSON.stringify(state));API.setData=data=>{validateBackup(data);state=JSON.parse(JSON.stringify(data));persist();render()};render();}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})(typeof window!=='undefined'?window:globalThis);

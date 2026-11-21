@@ -1,0 +1,6 @@
+const CACHE='pokeflip-shell-v3.1';
+const SHELL=['./','./index.html','./app.js','./card-lookup.js','./cloud-sync.js','./portfolio.js','./deal.js','./symbol-match.js','./symbol-ui.js','./ebay-pricing.js','./sealed-guide.js','./restock-watch.js','./alert-hub.js','./condition-screen.js','./variant-guard.js','./identity-guard.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
+const allowed=new Set(SHELL.map(p=>new URL(p,self.registration.scope).pathname));
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('pokeflip-shell-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const r=e.request,u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||!allowed.has(u.pathname))return;e.respondWith(fetch(r).then(res=>{if(res.ok&&res.type==='basic'){const clone=res.clone();e.waitUntil(caches.open(CACHE).then(c=>c.put(r,clone)))}return res}).catch(()=>caches.match(r)))});
