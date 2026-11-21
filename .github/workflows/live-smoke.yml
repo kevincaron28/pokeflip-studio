@@ -17,3 +17,4 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/production-smoke.mjs
+      - run: node tests/anon-access-smoke.mjs
