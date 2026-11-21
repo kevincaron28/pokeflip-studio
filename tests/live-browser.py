@@ -16,6 +16,10 @@ with sync_playwright() as p:
     page.on("pageerror", lambda err: errors.append(str(err)))
     response = page.goto(URL, wait_until="domcontentloaded", timeout=30000)
     assert response and response.status == 200, "Production homepage not HTTP 200"
+    assert page.locator(".brand-lockup img").is_visible(), "Collector crest missing"
+    assert page.evaluate("getComputedStyle(document.querySelector('header')).position") == "relative"
+    assert page.evaluate("getComputedStyle(document.querySelector('.tabs')).position") == "sticky"
+    assert "studio-horizon.svg" in page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage")
     page.locator('[data-tab="dashboard"]').click(timeout=10000)
     assert page.locator("section#dashboard").is_visible()
     assert page.locator("#metrics .metric").count() == 4  # inside collapsed legacy details
