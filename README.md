@@ -1,52 +1,36 @@
-# PokéFlip Studio
+# PokéFlip Studio v3.3 — Hosted collection and resale workbench
 
-A mobile-first Pokémon TCG collection and resale workbench focused on **Canadian dollars**, **French/English cards**, **bulk purchases**, and **true resale profitability**.
+**App:** https://pokeflip-studio.vercel.app  
+**Source:** https://github.com/kevincaron28/pokeflip-studio
 
-**Hosted app:** https://pokeflip-studio.vercel.app  
-**Source:** https://github.com/kevincaron28/pokeflip-studio  
-**Status:** Deployed release candidate, **not fully production-validated**. See [RELEASE-STATUS.md](RELEASE-STATUS.md) and [open issues](https://github.com/kevincaron28/pokeflip-studio/issues).
+A mobile-first inventory and Pokémon resale tracker for bilingual Canadian collectors. Record bulk purchases, scan and review card identities, track eBay comparable sales, and compare sealed-product prices. This is a deployed application, but several real-device and external-data validation gates remain open.
 
-## What works now
+## New in v3.3
+- Optional **automatic cloud backup while the app is open** once you have signed in and completed an initial manual upload/download.
+- Every automatic save uses an optimistic revision check. If another device changes the cloud snapshot, automation disables itself and requires you to reconcile; no silent overwrite.
+- eBay comparable sales and imported restock alerts now trigger the same changed-data signal as inventory edits.
+- Browser acceptance tests simulate first upload, auto-upload, and a concurrent-device conflict. These tests use a fake Supabase client, not real network auth.
 
-- Purchase lots, bulk quantity entry, individual inventory, storage boxes, sales, expenses and true realized profit.
-- Portfolio dashboard with invested capital, estimated resale value, pricing coverage, eBay comparisons and lot recovery.
-- OCR-assisted English/French card lookup and exact set + collector-number search, reference-based symbol matching and manual finish/condition review.
-- Conservative grade-potential screening (not a PSA grade predictor).
-- Sealed products comparison, CAD landed cost and Buy-or-Pass calculator.
-- Québec/Montérégie restock watchlists, external source links and manually imported/deduplicated alerts.
-- JSON backup/restore, CSV exports, mobile-capable PWA shell.
-- Dedicated Supabase project for optional **explicit** cloud upload/download with account ownership and conflict protection.
+## Getting started
+1. Open the hosted site and create a purchase lot.
+2. Bulk-enter commons by language and quantity; scan cards worth investigating individually.
+3. For cloud backup open **Settings**, sign in with email, then Upload your local data to the empty account or Download any existing cloud snapshot.
+4. Optionally enable automatic cloud backup while the app is open. Do not keep two editing tabs with unsynced changes. Export JSON backups regularly.
+5. Before buying a collection, use Buy or Pass and independently verify card identities and sold-price evidence.
 
-## Important limitations
+## Limitations
+- Card matching is **OCR and reference-assisted**, not validated to reliably auto-identify every expansion, foil type, or special variant. Errors go to Review.
+- Card grade potential is a screening aid, not a PSA grade or financial guarantee.
+- Live eBay Product Research sold history requires authorized source access; current comparable sale entry is manual. Do not use active asking prices as verified sales.
+- Regional restock alerts are currently user imports/watchlists and external provider links; they are not a continuous authorized server monitor.
+- Cloud email signup/OTP and two real devices still require end-to-end acceptance. No automated sync runs while the tab is closed.
+- A dedicated Canadian Supabase project is configured with owner-only RLS and revision-controlled writes; review [SECURITY.md](SECURITY.md) before public multi-user launch.
 
-- **Camera recognition is not accuracy-certified.** Confirm exact expansion, number, symbol, language, foil finish and condition; uncertain cards go to Review.
-- **eBay sold prices are not automatically imported.** Use verified eBay Product Research/sold comparable entries; active asking prices are not actual sales.
-- **Continuous third-party restock monitoring is not active.** Alerts are imported manually or followed through the source provider until licensed, server-side integrations are built.
-- **Cloud synchronization is manual** and cross-device sign-in/restore has not yet passed real-device acceptance. Export a JSON backup before replacing local data.
-- Browser tests cover simulated mobile interactions, not real Pixel camera focus or actual card conditions.
-
-## Run checks
-
-Node.js 22+ is recommended:
-
-```bash
-npm run check
-```
-
-The included GitHub Actions workflow runs JavaScript tests and a simulated Chromium UI test. A passing local test is not a substitute for live user-device acceptance.
+## Tests
+Run `npm run check`, `python tests/browser_embedded.py`, and `python tests/cloud_autosave_browser.py` (Playwright + Chromium required). See [release status](RELEASE-STATUS.md) and [GitHub issues](https://github.com/kevincaron28/pokeflip-studio/issues).
 
 ## Deployment
+The existing Vercel project hosts https://pokeflip-studio.vercel.app. Production source can be deployed directly from a chosen GitHub SHA. Installing and authorizing Vercel's GitHub integration is still needed for automatic push-to-deploy. Preview protection is enabled, production frontend public; inventory requires Supabase account authentication.
 
-The site is deployed from GitHub source to the existing Vercel project `pokeflip-studio`; current production URL: https://pokeflip-studio.vercel.app.
-
-**Automatic GitHub push-to-deploy is not yet set up** because Vercel's GitHub integration must be installed/authorized for this repository. See [issue #5](https://github.com/kevincaron28/pokeflip-studio/issues/5).
-
-Cloud account login uses dedicated Supabase Canada Central. Configure the production URL as an allowed auth redirect before testing email links. Do not put secret/service-role keys in this repository; the frontend uses a public publishable key only.
-
-## For collaborators and coding agents
-
-Read [AGENTS.md](AGENTS.md), [architecture](docs/ARCHITECTURE.md), and [the open issues](https://github.com/kevincaron28/pokeflip-studio/issues) before editing. Work from branches and PRs, keep identity and profit calculations conservative, add tests, and protect user data.
-
-## First bulk purchase
-
-See [FIRST-BULK-PURCHASE.md](FIRST-BULK-PURCHASE.md). Do not base a buying decision solely on unverified scan results or projected portfolio values.
+## Collaboration
+Read [AGENTS.md](AGENTS.md) and the [architecture](docs/ARCHITECTURE.md) first. Use feature branches and PRs with tests, and never commit personal data or service-role keys.
