@@ -1,0 +1,4 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');
+const root=path.join(__dirname,'..');const html=fs.readFileSync(path.join(root,'index.html'),'utf8');const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+test('eBay pricing UI is navigable and script loaded',()=>{for(const v of ['data-tab="ebay"','id="ebay"','id="compForm"','id="feeForm"','src="./ebay-pricing.js"'])assert.ok(html.includes(v),v)});
+test('verified comps included in export and restore',()=>{assert.ok(app.includes('ebayComparables:JSON.parse'));assert.ok(app.includes('data.ebayComparables'));assert.ok(app.includes('pokeflipEbay.setComps'))});
