@@ -21,7 +21,8 @@ try:
    assert not page.locator(".tabs").is_visible()
    assert page.locator('.dock-item').count()==5
    page.locator('#mobileMore').click()
-   assert page.locator("#mobileDrawer").is_visible()
+   page.locator("#mobileDrawer").wait_for(state="visible",timeout=3000)
+   assert page.locator("#mobileMore").get_attribute("aria-expanded")=="true"
    page.locator('.drawer-link[data-target="ebay"]').click()
    assert page.locator("section#ebay").is_visible()
    assert page.locator("#mobileDrawer").get_attribute("aria-hidden")=="true"
