@@ -40,3 +40,13 @@ test('Seedot English fallback when French lookup returns no results',async()=>{
  assert.equal(list.length,1);assert.equal(list[0].name,'Seedot');assert.equal(list[0].lookupLanguage,'en');
  assert.equal(seen.length,2);
 });
+
+test('fixed guide requires removal of previous card before another capture',()=>{
+ const g=gate.makeGate({requireRemoval:true,cooldownMs:0}),a=Uint8Array.from({length:320},(_,i)=>i%2?210:35),b=Uint8Array.from({length:320},(_,i)=>i%2?25:235);
+ g.inspect(a,100);g.inspect(a,500);assert.equal(g.inspect(a,900).capture,true);
+ for(let i=0;i<5;i++)assert.equal(g.inspect(b,1300+i*400).capture,false);
+ g.inspect(null,4000,false);g.inspect(null,4300,false);
+ g.inspect(b,4700);g.inspect(b,5000);
+ assert.equal(g.inspect(b,5300).capture,true);
+ assert.equal(g.captures,2);
+});
