@@ -43,6 +43,8 @@ try:
   response=page.goto(f'http://127.0.0.1:{server.server_port}/',wait_until='domcontentloaded')
   assert response and response.status==200
   page.locator('.dock-item[data-dock="scan"]').click()
+  page.locator('#liveMode').select_option('stack')
+  page.locator('#liveTarget').fill('2')
   page.locator('#liveStart').click()
   page.locator('#liveCamera:not([hidden])').wait_for(timeout=12000)
   # Avoid worker initialization on test-generated artwork; focus on automatic capture mechanics.
@@ -55,10 +57,21 @@ try:
   page.evaluate("window.__drawCard('second')")
   page.wait_for_function("document.querySelector('#liveCount').textContent.startsWith('2 ')",timeout=15000)
   assert page.locator('#currentPhoto').get_attribute('src').startswith('blob:'),'Active review disappeared'
-  page.locator('#liveStop').click()
-  assert page.locator('#liveBadge').inner_text()=='Camera off'
+  assert page.locator('#liveBadge').inner_text()=='Camera off', 'Target count should stop camera automatically'
   assert not errors,errors
-  print('PASS continuous scan: live camera, automatic two-card capture, no stationary duplicates, persistent review, stop')
+  print('PASS Stack Mode: two cards placed on top, no shutter taps or same-card repeats, automatic target stop')
+  page.locator('#liveMode').select_option('single')
+  page.locator('#liveTarget').fill('0')
+  page.locator('#liveStart').click()
+  page.locator('#liveCamera:not([hidden])').wait_for(timeout=12000)
+  before=page.locator('#liveCount').inner_text()
+  page.wait_for_timeout(2100)
+  assert page.locator('#liveCount').inner_text()==before, 'Single mode must not automatically capture'
+  page.locator('#liveManual').click()
+  page.wait_for_function("document.querySelector('#liveCount').textContent.startsWith('3 ')",timeout=10000)
+  page.locator('#liveStop').click()
+  assert not errors,errors
+  print('PASS Single Card: manual capture only, continuous video stays open between cards')
   ctx.close();browser.close()
 finally:
  server.shutdown()
