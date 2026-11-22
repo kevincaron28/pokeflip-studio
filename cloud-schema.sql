@@ -29,16 +29,20 @@ declare new_rev bigint; actor uuid;
 begin
  actor := auth.uid();
  if actor is null then raise exception 'Sign in first'; end if;
- if expected_revision is null or expected_revision < 0 or
-    next_payload is null or jsonb_typeof(next_payload) <> 'object' or
-    octet_length(next_payload::text) > 4000000 or
-    next_payload->>'schema' <> '5' or
-    jsonb_typeof(next_payload->'ledger') <> 'object' or
-    jsonb_typeof(next_payload->'portfolioHistory') <> 'array' or
-    jsonb_typeof(next_payload->'ebayComparables') <> 'array' or
-    jsonb_typeof(next_payload->'sealedObservations') <> 'array' or
-    jsonb_typeof(next_payload->'alertHub') <> 'array' or
-    jsonb_typeof(next_payload->'restockWatch') <> 'object'
+ -- Every check is NULL-safe: a missing key must fail validation, never skip it
+ -- (e.g. NULL <> '5' is NULL, which would let '{}' through an OR chain).
+ if expected_revision is null or expected_revision < 0 or next_payload is null or
+    not (
+      jsonb_typeof(next_payload) = 'object' and
+      octet_length(next_payload::text) <= 4000000 and
+      coalesce(next_payload->>'schema','') = '5' and
+      coalesce(jsonb_typeof(next_payload->'ledger'),'') = 'object' and
+      coalesce(jsonb_typeof(next_payload->'portfolioHistory'),'') = 'array' and
+      coalesce(jsonb_typeof(next_payload->'ebayComparables'),'') = 'array' and
+      coalesce(jsonb_typeof(next_payload->'sealedObservations'),'') = 'array' and
+      coalesce(jsonb_typeof(next_payload->'alertHub'),'') = 'array' and
+      coalesce(jsonb_typeof(next_payload->'restockWatch'),'') = 'object'
+    )
  then raise exception 'Invalid snapshot'; end if;
  if expected_revision = 0 then
   insert into public.pokeflip_snapshots(user_id,revision,payload)

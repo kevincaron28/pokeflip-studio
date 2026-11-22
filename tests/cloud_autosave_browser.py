@@ -2,14 +2,15 @@
 This tests app interactions and revision conflicts, NOT live Supabase authentication.
 """
 from pathlib import Path
+import os
 from playwright.sync_api import sync_playwright
 import re
 ROOT=Path(__file__).resolve().parents[1]
-html=(ROOT/'index.html').read_text()
+html=(ROOT/'index.html').read_text(encoding='utf-8')
 head=html.split('<script src=')[0]+'</body></html>'
 scripts=re.findall(r'<script src="\./([^"]+)"',html)
 with sync_playwright() as p:
- browser=p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
+ browser=p.chromium.launch(headless=True,executable_path=os.environ.get('CHROMIUM_PATH') or None,args=['--no-sandbox','--disable-dev-shm-usage'])
  page=browser.new_page(viewport={'width':390,'height':844})
  errors=[]
  page.on('pageerror',lambda err: errors.append(str(err)))
@@ -28,7 +29,7 @@ with sync_playwright() as p:
   window.supabase={createClient:()=>api};
  }""")
  for script in scripts:
-  page.add_script_tag(content=(ROOT/script).read_text())
+  page.add_script_tag(content=(ROOT/script).read_text(encoding='utf-8'))
  page.wait_for_timeout(200)
  page.locator('[data-tab="settings"]').click()
  print('Cloud:',page.locator('#cloudStatus').inner_text(),'visible:',page.locator('#cloudPush').is_visible(),'enabled:',page.locator('#cloudPush').is_enabled(),'errors:',errors,flush=True)

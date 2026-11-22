@@ -3,21 +3,22 @@ Uses isolated in-memory localStorage; not a test of real persistence or network.
 """
 from pathlib import Path
 import tempfile
+import os
 from playwright.sync_api import sync_playwright
 import re
 ROOT=Path(__file__).resolve().parents[1]
-html=(ROOT/'index.html').read_text()
+html=(ROOT/'index.html').read_text(encoding='utf-8')
 head=html.split('<script src=')[0]+'</body></html>'
 scripts=re.findall(r'<script src="\./([^"]+)"',html)
 with sync_playwright() as p:
- browser=p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-dev-shm-usage'])
+ browser=p.chromium.launch(headless=True,executable_path=os.environ.get('CHROMIUM_PATH') or None,args=['--no-sandbox','--disable-dev-shm-usage'])
  page=browser.new_page(viewport={'width':390,'height':844})
  errors=[]
  page.on('pageerror', lambda e:errors.append(str(e)))
  page.set_content(head,wait_until='domcontentloaded',timeout=6000)
  page.evaluate("""() => {let data=new Map(); Object.defineProperty(window,'localStorage',{configurable:true,value:{getItem:k=>data.has(k)?data.get(k):null,setItem:(k,v)=>data.set(k,String(v)),removeItem:k=>data.delete(k),clear:()=>data.clear(),key:i=>Array.from(data.keys())[i]||null,get length(){return data.size}}});}""")
  for script in scripts:
-  page.add_script_tag(content=(ROOT/script).read_text())
+  page.add_script_tag(content=(ROOT/script).read_text(encoding='utf-8'))
  page.wait_for_timeout(500)
  assert not errors, errors
  assert page.locator('#metrics .metric').count()==4
@@ -59,6 +60,23 @@ with sync_playwright() as p:
  page.locator('#inventorySearch').fill('Card #1199')
  assert page.locator('#inventoryTable tbody tr').count()==1
  assert page.locator('[data-loadinventory]').count()==0
+ # Regression: CSV rows without a readable language must go to Review, never silently become French.
+ page.evaluate('''()=>{window.pokeflipLedger.replaceFromCloud({lots:window.pokeflipLedger.getData().lots,items:[],sales:[]},[])}''')
+ page.locator('#importCsv').set_input_files(files=[{'name':'in.csv','mimeType':'text/csv','buffer':b'name,qty,language,category\nBlank lang,1,,single\nEnglish card,2,English,single\nFrench card,1,fr,single\nBad qty,0,en,single\n'}])
+ page.wait_for_timeout(300)
+ rows={i['name']:i for i in page.evaluate("window.pokeflipLedger.getData().items")}
+ assert set(rows)=={'Blank lang','English card','French card'},rows.keys()
+ assert rows['Blank lang']['category']=='review' and rows['Blank lang']['status']=='unsorted'
+ assert rows['English card']['lang']=='en' and rows['English card']['category']=='single'
+ assert rows['French card']['lang']=='fr'
+ assert 'Review' in page.locator('#toast').inner_text() and 'skipped' in page.locator('#toast').inner_text()
+ # Regression: Android Chrome throws on new Notification(); a granted permission must not surface an error.
+ page.evaluate('''()=>{Object.defineProperty(Notification,'permission',{configurable:true,get:()=>'granted'});window.Notification=function(){throw new TypeError('Illegal constructor')};window.Notification.permission='granted'}''')
+ page.locator('[data-tab="restock"]').click()
+ page.locator('#restockProduct').fill('Test ETB');page.locator('#restockCeiling').fill('60');page.locator('#restockWatchForm button[type=submit]').click()
+ page.locator('#restockWatchSelect').select_option(index=1);page.locator('#restockStatus').select_option('in');page.locator('#restockPrice').fill('50');page.locator('#restockStore').fill('Test store')
+ page.locator('#restockRecordForm button[type=submit]').click();page.wait_for_timeout(300)
+ assert 'Potential restock' in page.locator('#restockMessage').inner_text(),page.locator('#restockMessage').inner_text()
  assert not errors,errors
  print('PASS: Large collection (1,200 entries) paginates 100 at a time and filters by card name')
  print('PASS: Chromium mobile-width render, all tab navigation, lot creation, bulk inventory, dashboard; 0 runtime exceptions')
