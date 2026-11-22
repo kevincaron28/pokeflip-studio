@@ -11,27 +11,30 @@ function makeGate(options={}){
  const stableFrames=options.stableFrames||3;
  const stableThreshold=options.stableThreshold||DIFF_STABLE;
  const newThreshold=options.newThreshold||DIFF_NEW;
- const cooldown=options.cooldownMs||1800;
- let last=null,lastCaptured=null,steady=0,needsChange=false,changed=0,lastCaptureTime=-Infinity,captures=0;
+ const cooldown=options.cooldownMs??1800;
+ const requireRemoval=!!options.requireRemoval;
+ const removalFrames=options.removalFrames??2;
+ let last=null,lastCaptured=null,steady=0,needsChange=false,changed=0,lastCaptureTime=-Infinity,captures=0,removed=0,cardRemoved=false;
  return {
   inspect(fingerprint,time=Date.now(),valid=true){
-   if(!valid||!fingerprint||!fingerprint.length){last=null;steady=0;if(needsChange)changed++;return {capture:false,reason:'no-card'};}
+   if(!valid||!fingerprint||!fingerprint.length){last=null;steady=0;if(needsChange){changed++;removed++;if(removed>=removalFrames)cardRemoved=true}return {capture:false,reason:'no-card'};}
    const motion=difference(fingerprint,last);const novel=difference(fingerprint,lastCaptured);
    if(motion<=stableThreshold)steady++;else steady=1;
    last=Uint8Array.from(fingerprint);
    if(needsChange){
+    if(requireRemoval&&!cardRemoved)return {capture:false,reason:'remove-first',motion,novel};
     if(novel>newThreshold)changed++;else changed=0;
-    if(changed>=2&&steady>=stableFrames){needsChange=false;changed=0}
+    if(changed>=2&&steady>=stableFrames){needsChange=false;changed=0;removed=0}
     else return {capture:false,reason:'move-next',motion,novel};
    }
    if(time-lastCaptureTime<cooldown)return {capture:false,reason:'cooldown'};
    if(lastCaptured&&novel<=newThreshold)return {capture:false,reason:'same-card'};
    if(steady<stableFrames)return {capture:false,reason:'hold-still',steady,motion};
    lastCaptured=Uint8Array.from(fingerprint);
-   lastCaptureTime=time;needsChange=true;steady=0;changed=0;captures++;
+   lastCaptureTime=time;needsChange=true;steady=0;changed=0;removed=0;cardRemoved=false;captures++;
    return {capture:true,reason:'stable',captures};
   },
-  reset(){last=null;lastCaptured=null;steady=0;needsChange=false;changed=0;lastCaptureTime=-Infinity;captures=0},
+  reset(){last=null;lastCaptured=null;steady=0;needsChange=false;changed=0;lastCaptureTime=-Infinity;captures=0;removed=0;cardRemoved=false},
   get captures(){return captures}
  };
 }
