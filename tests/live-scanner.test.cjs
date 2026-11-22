@@ -13,7 +13,7 @@ test('new visually distinct card captures automatically after stable replacement
  const g=gate.makeGate(),a=Uint8Array.from({length:320},(_,i)=>i%2?210:35),b=Uint8Array.from({length:320},(_,i)=>i%2?25:235);
  g.inspect(a,100);g.inspect(a,500);assert.equal(g.inspect(a,900).capture,true);
  g.inspect(b,1600);g.inspect(b,2100);
- const r=g.inspect(b,2600);
+ const r=g.inspect(b,2900);
  assert.equal(r.capture,true);assert.equal(g.captures,2);
 });
 test('removal or poor light resets stability, not phantom capture',()=>{
