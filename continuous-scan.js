@@ -35,7 +35,7 @@ function init(){
   if(!stream)return;
   timer=root.setTimeout(()=>{timer=null;inspect().finally(nextFrame)},380);
  }
- async function enqueueFrame(){
+ async function enqueueFrame(manual=false){
   if(saving||!stream)return;
   saving=true;
   try{
@@ -50,6 +50,7 @@ function init(){
    const transfer=new DataTransfer();transfer.items.add(file);
    const input=$('photoInput');input.files=transfer.files;
    input.dispatchEvent(new Event('change',{bubbles:true}));
+   if(manual){ctx.drawImage(video,0,0,stage.width,stage.height);const snap=root.PokeFlipLiveGate.sample(ctx,stage.width,stage.height);gate.markManual(snap.fingerprint,Date.now())}
    captured++;paint();
    const target=Math.max(0,Math.floor(Number($('liveTarget').value)||0));
    if(target>0&&captured>=target){stop();status('Target reached: '+captured+' cards captured. Review and confirm the queue below.');return}
@@ -87,7 +88,7 @@ function init(){
   }catch(e){status('Could not start camera. Grant access in Chrome, or use Open camera instead.')}
  }
  $('liveMode').addEventListener('change',()=>{if(stream)stop();paint();status($('liveMode').value==='stack'?'Stack Mode will capture automatically after each card settles.':'Single Card will capture only when you tap the button.')});
- $('liveManual').addEventListener('click',()=>{if(stream)enqueueFrame()});
+ $('liveManual').addEventListener('click',()=>{if(stream)enqueueFrame(true)});
  $('liveStart').addEventListener('click',start);
  $('liveStop').addEventListener('click',stop);
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&stream)stop()});
