@@ -34,6 +34,7 @@ function makeGate(options={}){
    lastCaptureTime=time;needsChange=true;steady=0;changed=0;removed=0;cardRemoved=false;captures++;
    return {capture:true,reason:'stable',captures};
   },
+  markManual(fingerprint,time=Date.now()){if(!fingerprint?.length)return false;last=Uint8Array.from(fingerprint);lastCaptured=Uint8Array.from(fingerprint);steady=0;needsChange=true;changed=0;removed=0;cardRemoved=false;lastCaptureTime=time;captures++;return true},
   reset(){last=null;lastCaptured=null;steady=0;needsChange=false;changed=0;lastCaptureTime=-Infinity;captures=0;removed=0;cardRemoved=false},
   get captures(){return captures}
  };
