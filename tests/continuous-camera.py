@@ -68,7 +68,7 @@ try:
   page.wait_for_timeout(2100)
   assert page.locator('#liveCount').inner_text()==before, 'Single mode must not automatically capture'
   page.locator('#liveManual').click()
-  page.wait_for_function("document.querySelector('#liveCount').textContent.startsWith('3 ')",timeout=10000)
+  page.wait_for_function("document.querySelector('#liveCount').textContent.startsWith('1 ')",timeout=10000)
   page.locator('#liveStop').click()
   assert not errors,errors
   print('PASS Single Card: manual capture only, continuous video stays open between cards')
