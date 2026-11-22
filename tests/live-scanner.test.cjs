@@ -41,12 +41,17 @@ test('Seedot English fallback when French lookup returns no results',async()=>{
  assert.equal(seen.length,2);
 });
 
-test('fixed guide requires removal of previous card before another capture',()=>{
- const g=gate.makeGate({requireRemoval:true,cooldownMs:0}),a=Uint8Array.from({length:320},(_,i)=>i%2?210:35),b=Uint8Array.from({length:320},(_,i)=>i%2?25:235);
+test('stacked cards are detected without removing previous card',()=>{
+ const g=gate.makeGate({cooldownMs:0}),a=Uint8Array.from({length:320},(_,i)=>i%2?210:35),b=Uint8Array.from({length:320},(_,i)=>i%2?25:235);
  g.inspect(a,100);g.inspect(a,500);assert.equal(g.inspect(a,900).capture,true);
- for(let i=0;i<5;i++)assert.equal(g.inspect(b,1300+i*400).capture,false);
- g.inspect(null,4000,false);g.inspect(null,4300,false);
- g.inspect(b,4700);g.inspect(b,5000);
- assert.equal(g.inspect(b,5300).capture,true);
+ g.inspect(b,1300);g.inspect(b,1700);
+ assert.equal(g.inspect(b,2100).capture,true);
  assert.equal(g.captures,2);
+ for(let i=0;i<6;i++)assert.equal(g.inspect(b,2400+i*500).capture,false);
+});
+test('manual one-at-a-time capture suppresses automatic duplicate for same visible card',()=>{
+ const g=gate.makeGate({cooldownMs:0}),card=Uint8Array.from({length:320},(_,i)=>i%2?210:35);
+ assert.equal(g.markManual(card,100),true);
+ for(let i=0;i<7;i++)assert.equal(g.inspect(card,200+i*500).capture,false);
+ assert.equal(g.captures,1);
 });
