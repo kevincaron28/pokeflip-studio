@@ -22,5 +22,16 @@ function number(raw){
  const arr=[...String(raw||'').matchAll(/\b(\d{1,4}[A-Z]?)\s*\/\s*(\d{1,4})\b/gi)];
  return arr.length?{number:arr.at(-1)[1],total:arr.at(-1)[2]}:null;
 }
-root.PokeFlipScanHeuristics={candidates,number};
+/** Name from an OCR of ONLY the (rectified) header strip: first plausible line, HP/stage noise and
+ * trailing 1-2 character debris removed. Returns '' when nothing letter-like remains. */
+function headerName(raw){
+ for(const line of String(raw||'').split(/\r?\n/)){
+  let t=line.replace(/[©®™•*\[\]{}|_=~<>]+/g,' ').replace(/\s+/g,' ').trim();
+  t=t.replace(/^(?:basic|stage\s*[12]?|stade\s*[12]?|pok[eé]mon|de base)\s*[:—-]?\s+/i,'').replace(/\s+(?:HP|PV)\b.*$/i,'').replace(/\s+\d+\s*$/,'');
+  const words=t.split(' ').filter(Boolean);while(words.length>1&&words.at(-1).length<=2&&!/^(?:ex|gx|v)$/i.test(words.at(-1)))words.pop();
+  t=words.join(' ');if(/^\p{L}[\p{L}\p{M}'’ .\-]{2,27}$/u.test(t))return t;
+ }
+ return '';
+}
+root.PokeFlipScanHeuristics={candidates,number,headerName};
 })(typeof window!=='undefined'?window:globalThis);

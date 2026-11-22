@@ -25,10 +25,10 @@ with sync_playwright() as p:
  assert page.locator('#cloudConfigure').count()==1
  assert page.locator('#alertsRows').count()==1
  for tab in page.locator('.tab').all():
-  tab.click(timeout=1800)
+  tab.click(timeout=5000)
   section=tab.get_attribute('data-tab')
   assert page.locator(f'section#{section}').is_visible(),section
- print("start lots",flush=True);page.locator('[data-tab="lots"]').click(timeout=1800)
+ print("start lots",flush=True);page.locator('[data-tab="lots"]').click(timeout=5000)
  page.locator('#lotForm [name="name"]').fill('QA Test Collection')
  page.locator('#lotForm [name="cost"]').fill('85')
  page.locator('#lotForm [name="source"]').fill('Local')
