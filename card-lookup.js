@@ -6,7 +6,7 @@ function normal(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f
 function parseId(s){const x=String(s||'').trim().match(/^([a-z0-9]{2,24})-([a-z0-9]{1,12})$/i);return x?{set:x[1].toLowerCase(),number:x[2].toLowerCase()}:null}
 function numeric(s){return /^\d{1,4}[a-z]?$/i.test(String(s||'').trim())}
 function sameNumber(a,b){return String(a||'').toLowerCase().replace(/^0+(?=\d)/,'')===String(b||'').toLowerCase().replace(/^0+(?=\d)/,'')}
-function label(items,lang){return (items||[]).filter(c=>c&&c.id).map(c=>({...c,lookupLanguage:lang}))}
+function label(items,lang,selected){return (items||[]).filter(c=>c&&c.id).map(c=>lang===selected?c:{...c,lookupLanguage:lang})}
 function rank(cards,q){const n=normal(q);return cards.sort((a,b)=>{const aExact=normal(a.name)===n?1:0,bExact=normal(b.name)===n?1:0;return bExact-aExact||String(a.id).localeCompare(String(b.id))})}
 async function lookup(query,language,setHint,request=fetch){
  let q=String(query||'').trim(),set=String(setHint||'').trim().toLowerCase(),lang=language==='fr'?'fr':'en';if(!q)return [];
@@ -20,7 +20,7 @@ async function lookup(query,language,setHint,request=fetch){
   if(!card||!card.id)return [];
   if(set&&!card.id.toLowerCase().startsWith(set+'-'))return [];
   if(set&&numeric(q)&&!sameNumber(card.localId,q))return [];
-  return label([card],resultLang);
+  return label([card],resultLang,lang);
  }
  if(set){
   let details=await get('/sets/'+encodeURIComponent(set));let resultLang=lang;
@@ -33,7 +33,7 @@ async function lookup(query,language,setHint,request=fetch){
    found=(Array.isArray(other?.cards)?other.cards:[]).filter(c=>normal(c.name).includes(normal(q))&&String(c.id||'').toLowerCase().startsWith(set+'-'));
    if(found.length)resultLang=alt;
   }
-  return rank(label(found,resultLang),q).slice(0,60);
+  return rank(label(found,resultLang,lang),q).slice(0,60);
  }
  const search=async inLang=>{
   const params=new URLSearchParams();
@@ -47,7 +47,7 @@ async function lookup(query,language,setHint,request=fetch){
    cards.push(...list);
    if(list.length<100)break;
   }
-  return rank(label(cards,inLang),q).slice(0,60);
+  return rank(label(cards,inLang,lang),q).slice(0,60);
  };
  let results=await search(lang);
  if(results.length)return results;
