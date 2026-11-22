@@ -72,7 +72,6 @@ function init(){
  async function start(){
   if(stream)return;
   if(!root.navigator.mediaDevices?.getUserMedia){status('Live camera is not available in this browser. Try Chrome or the Open camera button.');return}
-  if(!$('scanLot').value){status('Create or select a purchase lot first so cards go to the right collection.');return}
   status('Requesting rear-camera access…');
   try{
    const acquired=await root.navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:1920}}});
@@ -80,7 +79,7 @@ function init(){
    stream=acquired;video.srcObject=stream;video.hidden=false;
    try{await video.play()}catch(e){/* autoplay may settle after metadata */}
    gate.reset();paint();$('autoOCR').checked=true;
-   status('Auto-scan running. Place one card in the frame and hold still. The camera will capture it.');
+   status('Auto-scan running. Hold each card still, then swap it. Select a purchase lot before saving inventory.');
    nextFrame();
   }catch(e){status('Could not start camera. Grant access in Chrome, or use Open camera instead.')}
  }
