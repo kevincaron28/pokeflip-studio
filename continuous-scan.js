@@ -82,7 +82,7 @@ function init(){
    if($('scan').classList.contains('hidden')){acquired.getTracks().forEach(t=>t.stop());return}
    stream=acquired;video.srcObject=stream;video.hidden=false;
    try{await video.play()}catch(e){/* autoplay may settle after metadata */}
-   gate=root.PokeFlipLiveGate.makeGate();paint();$('autoOCR').checked=true;
+   captured=0;gate=root.PokeFlipLiveGate.makeGate();paint();$('autoOCR').checked=true;
    status($('liveMode').value==='stack'?'Stack Mode: place a card, let it settle, then place the next directly on top.':'Single Card: tap Capture this card whenever the card is ready.');
    if($('liveMode').value==='stack')nextFrame();
   }catch(e){status('Could not start camera. Grant access in Chrome, or use Open camera instead.')}
