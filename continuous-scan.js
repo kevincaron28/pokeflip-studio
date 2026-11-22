@@ -10,6 +10,7 @@ function init(){
  const controls=document.createElement('div');controls.className='live-controls';
  controls.innerHTML='<div class="live-heading"><strong>Continuous bulk scan</strong><span id="liveBadge" class="pill">Camera off</span></div>'+
  '<p class="live-description">Keep your camera on. Hold a card steady, then swap to the next. No shutter button required.</p>'+
+ '<div class="live-options"><label><input type="checkbox" id="liveFixture"> Fixed card guide (detect removal)</label><label>Target <input id="liveTarget" type="number" min="0" max="10000" step="1" value="0" aria-label="Scan target, zero for unlimited"> <small>0 = unlimited</small></label></div>'+
  '<div class="live-actions"><button id="liveStart" type="button" class="btn primary">Start continuous scan</button><button id="liveStop" type="button" class="btn" hidden>Stop camera</button></div>'+
  '<div class="live-progress"><span id="liveCount">0 captured</span><span id="livePrompt">Center the card in the frame</span></div>'+
  '<p class="live-disclaimer" id="liveMessage" role="status" aria-live="polite">Card photos stay on this device. Check each suggested printing before saving.</p>';
@@ -18,7 +19,7 @@ function init(){
  frame.insertAdjacentElement('afterbegin',video);
  const stage=document.createElement('canvas');stage.width=160;stage.height=200;
  const ctx=stage.getContext('2d',{willReadFrequently:true});
- const gate=root.PokeFlipLiveGate.makeGate();
+ let gate=root.PokeFlipLiveGate.makeGate();
  let stream=null,timer=null,saving=false,captured=0;
  const status=msg=>{$('liveMessage').textContent=msg};
  const paint=()=>{$('liveBadge').textContent=stream?'● Live':'Camera off';$('liveBadge').classList.toggle('green',!!stream);
@@ -50,6 +51,8 @@ function init(){
    const input=$('photoInput');input.files=transfer.files;
    input.dispatchEvent(new Event('change',{bubbles:true}));
    captured++;paint();
+   const target=Math.max(0,Math.floor(Number($('liveTarget').value)||0));
+   if(target>0&&captured>=target){stop();status('Target reached: '+captured+' cards captured. Review and confirm the queue below.');return}
    $('livePrompt').textContent='Swap cards to continue';
    status('Captured '+captured+'. Move this card away and place the next one. Review results below.');
    root.navigator.vibrate?.(35);
@@ -65,7 +68,7 @@ function init(){
    const photo=root.PokeFlipLiveGate.sample(ctx,stage.width,stage.height);
    const result=gate.inspect(photo.fingerprint,Date.now(),photo.valid);
    if(result.capture){await enqueueFrame();return}
-   const messages={'no-card':'Move a card into good light','hold-still':'Hold the card still','move-next':'Swap cards to continue','same-card':'Move this card away','cooldown':'Reading…'};
+   const messages={'no-card':'Slot empty · place a card','remove-first':'Remove this card before the next','hold-still':'Hold the card still','move-next':'Swap cards to continue','same-card':'Move this card away','cooldown':'Reading…'};
    $('livePrompt').textContent=messages[result.reason]||'Center the card in the frame';
   }catch(e){status('Live frame processing paused. You can still capture photos manually.')}
  }
@@ -78,7 +81,7 @@ function init(){
    if($('scan').classList.contains('hidden')){acquired.getTracks().forEach(t=>t.stop());return}
    stream=acquired;video.srcObject=stream;video.hidden=false;
    try{await video.play()}catch(e){/* autoplay may settle after metadata */}
-   gate.reset();paint();$('autoOCR').checked=true;
+   gate=root.PokeFlipLiveGate.makeGate({requireRemoval:$('liveFixture').checked});paint();$('autoOCR').checked=true;
    status('Auto-scan running. Hold each card still, then swap it. Select a purchase lot before saving inventory.');
    nextFrame();
   }catch(e){status('Could not start camera. Grant access in Chrome, or use Open camera instead.')}
