@@ -23,7 +23,7 @@ function init(){
  let stream=null,timer=null,saving=false,captured=0;
  const status=msg=>{$('liveMessage').textContent=msg};
  const paint=()=>{$('liveBadge').textContent=stream?'● Live':'Camera off';$('liveBadge').classList.toggle('green',!!stream);
-  $('liveStart').hidden=!!stream;$('liveManual').hidden=!stream||$('liveMode').value!=='single';$('liveStop').hidden=!stream;$('liveCount').textContent=captured+' captured';
+  $('liveStart').hidden=!!stream;$('liveManual').hidden=!stream;$('liveManual').textContent=$('liveMode').value==='stack'?'Capture missed card':'Capture this card';$('liveStop').hidden=!stream;$('liveCount').textContent=captured+' captured';
   frame.classList.toggle('live-on',!!stream)};
  const stop=()=>{
   if(timer!==null){root.clearTimeout(timer);timer=null}
@@ -87,7 +87,7 @@ function init(){
   }catch(e){status('Could not start camera. Grant access in Chrome, or use Open camera instead.')}
  }
  $('liveMode').addEventListener('change',()=>{if(stream)stop();paint();status($('liveMode').value==='stack'?'Stack Mode will capture automatically after each card settles.':'Single Card will capture only when you tap the button.')});
- $('liveManual').addEventListener('click',()=>{if(stream&&$('liveMode').value==='single')enqueueFrame()});
+ $('liveManual').addEventListener('click',()=>{if(stream)enqueueFrame()});
  $('liveStart').addEventListener('click',start);
  $('liveStop').addEventListener('click',stop);
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&stream)stop()});
