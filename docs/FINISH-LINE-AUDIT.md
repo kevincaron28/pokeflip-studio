@@ -94,3 +94,33 @@ Sources: competitor store listings and reviews (TCGplayer, Collectr, DittoDex, P
 7. Approve adding a CSP header after one device test.
 
 **Owner device/accounts needed:** Pixel (camera, PWA install, notifications, OTP email), the physical cards for the benchmark, Supabase dashboard access, Vercel dashboard, eBay developer account.
+
+---
+
+## 8. Addendum — v4.3 scanner pipeline, benchmark harness, CSP (branch `feat/scanner-bench-csp`)
+
+What was built (all client-side, no new dependencies, nothing sent off-device):
+
+| Piece | File | Notes |
+|---|---|---|
+| Card detection + perspective crop | `card-detect.js` | Background plane-fit (uneven light), largest blob, corner extremes, shape validation (aspect, opposite sides, near-square corners), retry with stricter thresholds for glare. Returns `ok:false` rather than guessing; callers fall back to the original photo. ~60 ms per 1600 px photo |
+| Scan pipeline | `scan-pipeline.js`, wired in `app.js` `startOCR` | Rectify, OCR the name header and the number strip separately (upscaled), fall back to whole-photo OCR for whatever is missing. Fills observed number/total so the existing identity cross-check uses them |
+| Artwork-similarity re-rank | `art-rank.js` + `rerank()` | dHash (structure) + lighting-normalised colour grid over the art window; re-orders TCGdex candidates, labelled "aid only" in the UI. Never auto-selects |
+| Benchmark harness | `tests/benchmark/` | `run_benchmark.py` (variants baseline/rectified/roi/hybrid/shipped), `make_synthetic.py`, `rerank_eval.py`, README with the `labels.json` format for the owner's ~100 photos |
+| CSP | `vercel.json`, `tests/csp-check.py` | `default-src 'self'`; scripts self + jsDelivr (+ `wasm-unsafe-eval` for Tesseract); connect only to Supabase project, TCGdex, jsDelivr, tessdata; images self/blob/data/assets.tcgdex.net; `frame-ancestors 'none'`, `object-src 'none'`, `base-uri`/`form-action` self; plus CORP same-origin. The test loads the app under the exact header, runs real OCR, Supabase client creation and TCGdex lookup + artwork, and checks a negative control (inline script blocked) |
+| Cloud hardening | `cloud-sync.js` | B7 fixed: a change saved while another cloud operation is running is now backed up afterwards |
+
+### Measurements (honest scope)
+
+**Synthetic capture set** (40 original cards, rotated/perspective/uneven light/glare/blur; ground truth exact; Tesseract.js in Chromium, same machine):
+
+| Pipeline | Name top-1 | Collector no. | Set total | Name+no.+total | Card found | Median s/card |
+|---|---|---|---|---|---|---|
+| Before (whole-photo OCR) | 50.0 % | 77.5 % | 62.5 % | **37.5 %** | n/a | 1.53 |
+| After (shipped `scan-pipeline.js`) | 87.5 % | 90.0 % | 87.5 % | **75.0 %** | 100 % | 1.15 |
+
+**Artwork re-ranking on real catalogue art** (private run: TCGdex results for Pikachu/Eevee/Charizard/Mewtwo, each target rendered as a virtual photo with white-balance/exposure/contrast/saturation changes, JPEG q60, rotation, perspective, glare; 23 targets, 20 with a detected card): true card at rank 1 in **5 %** of lookups before vs **80 %** after (mean rank 16.6 -> 1.8). The 3 undetected cards (low-contrast borders) fall back to the old order.
+
+**Caveats, please read:** (1) the synthetic set tests the pipeline, not real-card recognition: real fonts, foils, sleeves, holo glare and full-art cards are harder. (2) The re-rank test photographs a digital catalogue image, which is easier than a physical card under a phone camera; treat 80 % as an upper-ish bound. (3) On real catalogue art the detector found the card in 20/23 cases, so expect the fallback path to be used on low-contrast or borderless cards. (4) None of this is a gate-#2 result: that needs the owner's labelled photos run through `tests/benchmark/run_benchmark.py`. Do not advertise automatic identification yet.
+
+Known limits: one card per photo, upside-down cards are not detected (OCR then returns nothing and falls back), the name/number regions are tuned to the modern layout and must be re-checked on vintage and full-art cards with the owner's set.

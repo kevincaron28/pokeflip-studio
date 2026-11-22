@@ -10,3 +10,9 @@ __pycache__/
 playwright-report/
 test-results/
 *.log
+
+# scanner benchmark: real photos, reports, generated sets stay local
+tests/benchmark/photos/
+tests/benchmark/synthetic*/
+tests/benchmark/*.report.json
+report.json
