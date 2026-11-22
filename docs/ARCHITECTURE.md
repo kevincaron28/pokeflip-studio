@@ -10,3 +10,6 @@
 
 ## Data integrity rules
 Server-side ownership is from authenticated session, not an email or client-supplied user ID. Cloud save checks optimistic `revision`; do not grant direct UPDATE. Imported JSON needs schema validation. Existing cloud snapshots should be downloaded before the first upload on a new device.
+
+## Android (Capacitor)
+`mobile/scripts/build-web.mjs` copies the PWA shell files (list parsed from `sw.js`) into `mobile/www`, replaces the CDN scripts with vendored copies, and adds `native-bridge.js`/`ocr-local.js`. Shared web files talk to native features only through `window.PokeFlipNative` when present. Auth return uses the `top.kcaron.cardstudio://auth` scheme. Details: `docs/ANDROID.md`.

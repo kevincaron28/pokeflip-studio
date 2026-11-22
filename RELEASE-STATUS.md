@@ -11,3 +11,7 @@
 - Vercel GitHub integration not yet authorized for push-triggered deployments. Manual GitHub-SHA deployment is available and previously confirmed READY.
 
 The product is useful for pilot inventory, but the outstanding external/accuracy gates are tracked in GitHub issues #1–#6. Never describe them as completed until verified.
+
+## Android wrapper (branch feat/android-capacitor)
+- Added `mobile/` (Capacitor 8), CI `android.yml`, `docs/ANDROID.md`, `docs/PLAY-STORE-READINESS.md`. Web bundle assembly and unit tests pass locally; the Gradle/APK build is checked only by the GitHub Actions run.
+- **Not verified:** installation on a Pixel, camera permission and live scan in the WebView, offline OCR in the WebView, email deep-link return, local notifications, back button, Play Store acceptance (name "PokéFlip" is a trademark risk).
