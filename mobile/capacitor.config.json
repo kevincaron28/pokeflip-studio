@@ -1,0 +1,11 @@
+{
+  "appId": "top.kcaron.cardstudio",
+  "appName": "PokéFlip Studio",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "backgroundColor": "#0b1120", "allowMixedContent": false },
+  "plugins": {
+    "SplashScreen": { "launchShowDuration": 600, "launchAutoHide": true, "backgroundColor": "#0b1120", "showSpinner": false },
+    "LocalNotifications": { "smallIcon": "ic_stat_icon", "iconColor": "#50ddaf" }
+  }
+}
