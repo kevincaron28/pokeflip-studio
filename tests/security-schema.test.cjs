@@ -17,3 +17,13 @@ test('internal snapshot writer only modifies authenticated owner at exact revisi
  assert.match(sql,/new_rev is null then raise exception 'SYNC_CONFLICT/i);
  assert.doesNotMatch(sql,/next_payload->>'user_id'/i);
 });
+
+test('snapshot validation is NULL-safe so missing keys cannot bypass it',()=>{
+ const mig=fs.readFileSync(__dirname+'/../migrations/001-null-safe-snapshot-validation.sql','utf8');
+ for(const text of [sql,mig]){
+  assert.ok(text.includes("coalesce(next_payload->>'schema','') = '5'"));
+  for(const key of ['ledger','portfolioHistory','ebayComparables','sealedObservations','alertHub','restockWatch'])assert.ok(text.includes("coalesce(jsonb_typeof(next_payload->'"+key+"'),'')"),key);
+  assert.ok(!text.includes("next_payload->>'schema' <> '5'"));
+  assert.match(text,/security definer set search_path = ''/i);
+ }
+});
