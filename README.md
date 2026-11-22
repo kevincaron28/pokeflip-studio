@@ -36,3 +36,12 @@ The existing Vercel project hosts https://pokeflip-studio.vercel.app. Production
 
 ## Collaboration
 Read [AGENTS.md](AGENTS.md) and the [architecture](docs/ARCHITECTURE.md) first. Use feature branches and PRs with tests, and never commit personal data or service-role keys.
+
+## Scanner — Single Card and Stack Mode (v4.2)
+
+On mobile, go to **Scan → Start camera** and choose the capture mode:
+
+- **Single Card — tap capture:** Keep the rear camera running and tap **Capture this card** for each card. Good for individual cards, slow inspection, and similar-looking cards.
+- **Stack Mode — automatic:** Fix the camera over a stable card guide, add a card, let it settle, then place the next card **directly on top**. You do not need to remove the earlier cards. PokéFlip captures a new frame after a sufficiently large, stable visual change. Set the target count to 20, 50, or 0 for unlimited captures. Use **Capture missed card** when two cards look nearly identical.
+
+Each frame goes to the existing review queue. Captured count is **photos**, not verified card identities or saved inventory. Review exact expansion/collector number, language, foil variant, and condition before saving or valuing. Auto-capture and OCR are not a benchmarked guarantee of accuracy. A matte backdrop, fixed camera, and diffuse glare-free lighting help; the stack gets taller, so maintain focus. The camera is released when you stop, leave Scan, hide the tab, or close the app. Queue photos are temporary until reviewed—keep the page open or finish saving before closing.
