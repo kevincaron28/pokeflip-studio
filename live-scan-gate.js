@@ -1,7 +1,7 @@
 /* Continuous scan gate: wait for a clear, stable, changed image before queueing.
    This is a motion/stability detector, not Pokémon recognition. */
 (function(root){'use strict';
-const DIFF_STABLE=0.043,DIFF_NEW=0.14;
+const DIFF_STABLE=0.042,DIFF_NEW=0.065;
 function difference(a,b){
  if(!a||!b||a.length!==b.length||!a.length)return 1;
  let sum=0;for(let i=0;i<a.length;i++)sum+=Math.abs(a[i]-b[i]);
@@ -42,14 +42,15 @@ function makeGate(options={}){
 function sample(ctx,width,height){
  const size=16,h=20;
  const data=ctx.getImageData(0,0,width,height).data;
- const result=new Uint8Array(size*h);
- let mean=0,min=255,max=0,edge=0;
+ const result=new Uint8Array(size*h*3);
+ let mean=0,min=255,max=0,edge=0;let rowPrev=0;
  for(let y=0;y<h;y++)for(let x=0;x<size;x++){
   const px=Math.max(0,Math.min(width-1,Math.floor((x+.5)*width/size)));
   const py=Math.max(0,Math.min(height-1,Math.floor((y+.5)*height/h)));
   const i=(py*width+px)*4,val=Math.round(data[i]*.299+data[i+1]*.587+data[i+2]*.114);
-  result[y*size+x]=val;mean+=val;min=Math.min(min,val);max=Math.max(max,val);
-  if(x>0)edge+=Math.abs(val-result[y*size+x-1]);
+  const k=(y*size+x)*3;result[k]=data[i];result[k+1]=data[i+1];result[k+2]=data[i+2];
+  mean+=val;min=Math.min(min,val);max=Math.max(max,val);
+  if(x>0)edge+=Math.abs(val-rowPrev);rowPrev=val;
  }
  mean/=size*h;
  // Reject dark/washed out/out-of-focus cards, blank mats and almost uniform frames.
