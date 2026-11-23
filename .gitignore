@@ -18,3 +18,8 @@ tests/benchmark/*.report.json
 report.json
 
 tools/.cache/
+
+# Cloudflare Pages build output and local wrangler state
+dist/
+.wrangler/
+.dev.vars
