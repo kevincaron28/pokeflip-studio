@@ -184,3 +184,10 @@
 .live-options input[type=number]{width:66px;padding:6px 8px;font-size:12px}
 .live-options input[type=checkbox]{width:17px;height:17px}
 .live-options small{color:#adbbce}
+
+/* Polish audit: 44px minimum touch targets on phones (WCAG 2.5.5 / Material guidance). */
+@media (pointer:coarse),(max-width:760px){
+ html .btn,html .smallbtn,html select,html textarea,html input:not([type=checkbox]):not([type=radio]):not([type=hidden]){min-height:44px}
+ html .smallbtn{padding-block:10px}
+ .source-row input[type=checkbox]{width:24px;height:24px}
+}

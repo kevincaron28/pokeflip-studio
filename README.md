@@ -3,7 +3,7 @@
 **App:** https://pokeflip-studio.vercel.app  
 **Source:** https://github.com/kevincaron28/pokeflip-studio
 
-A mobile-first inventory and Pokémon resale tracker for bilingual Canadian collectors. Record bulk purchases, scan and review card identities, track eBay comparable sales, and compare sealed-product prices. This is a deployed application, but several real-device and external-data validation gates remain open.
+A mobile-first inventory and trading-card resale tracker for bilingual Canadian collectors. Record bulk purchases, scan and review card identities, track eBay comparable sales, and compare sealed-product prices. This is a deployed application, but several real-device and external-data validation gates remain open.
 
 ## New in v3.5
 - **TCGdex pricing context:** once an exact card is selected, display available USD TCGplayer and EUR Cardmarket quotes for the selected finish, with timestamps and stale-data warnings. This is informational only, not eBay/CAD resale valuation.

@@ -14,7 +14,7 @@ hits=[]
 def shop(route):
     hits.append(route.request.url)
     route.fulfill(status=200,content_type="application/json",headers={"access-control-allow-origin":"*"},body=json.dumps({"products":[
-      {"title":"Pokemon - Mega Evolution - Flowing Fist - Booster Bundle","handle":"flowing-fist-bundle","variants":[{"available":True,"price":"54.99"}]},
+      {"title":"Pokemon - Mega Evolution - Flowing Fist - Booster Bundle","handle":"flowing-fist-bundle","variants":[{"id":555001,"available":True,"price":"54.99"}]},
       {"title":"Unrelated Sleeves","handle":"sleeves","variants":[{"available":True,"price":"9.00"}]}]}))
 try:
  with sync_playwright() as p:
@@ -34,6 +34,9 @@ try:
   assert "possible match" in txt and "Available" in txt and "$54.99" in txt and "Unrelated" not in txt, txt
   assert "Possible match for" in page.locator("#restockMessage").inner_text()
   assert page.evaluate("PokeFlipRestock.getData().observations.length")==0
+  # regional possible match appears in Ready to buy with a quantity-bearing cart link (watch has quantity 1 by default)
+  href=page.locator("#restockBuy a").first.get_attribute("href");assert href.endswith("/cart/555001:1"), href
+  assert page.locator("#restockWatches a",has_text="Buy now").count()==1
   page.wait_for_function('true');page.wait_for_timeout(2500*len(shops)+3000)
   assert all(u.endswith("/products.json?limit=250") for u in hits) and len(hits)==len(shops)>=1, (hits,len(shops))
   n=len(hits);page.evaluate("document.dispatchEvent(new Event('visibilitychange'))");page.wait_for_timeout(2500);assert len(hits)==n

@@ -6,7 +6,7 @@
  const SOURCES=[
   {name:'Pokémon Center Canada',region:'Canada online',url:'https://www.pokemoncenter.com/en-ca',kind:'retailer'},
   {name:'Walmart Canada',region:'Canada online',url:'https://www.walmart.ca',kind:'retailer'},
-  {name:'GameStop Canada',region:'Canada online',url:'https://www.gamestop.ca',kind:'retailer'},
+  {name:'EB Games Canada',region:'Canada online',url:'https://www.ebgames.ca',kind:'retailer'},
   {name:'Costco Canada',region:'Canada online',url:'https://www.costco.ca',kind:'retailer'},
   {name:'Best Buy Canada',region:'Canada online',url:'https://www.bestbuy.ca',kind:'retailer'},
   {name:'La carte cachée',region:'Saint-Jean-sur-Richelieu',url:'https://www.google.com/maps/search/?api=1&query=La+carte+cach%C3%A9e+Saint-Jean-sur-Richelieu',kind:'local'},
@@ -79,7 +79,7 @@
     matches=matches.filter(m=>m.host!==shop.host);
     for(const w of watches)for(const m of root.PokeFlipRetailers.matchCatalog(w.product,data,shop.host)){const key=w.id+'|'+shop.host+'|'+m.handle;matches.push({watchId:w.id,host:shop.host,shop:shop.name,title:m.title,url:m.url,variantId:m.variantId,available:m.available,price:m.price,checkedAt:new Date().toISOString()});
      if(m.available&&!seen[key]&&m.price>0&&m.price<=w.ceiling)deliver(`Possible match for “${w.product}”: ${m.title} at ${shop.name}, ${money(m.price)}. Verify the exact product, set and language before buying.`);seen[key]=m.available}
-    jset(MATCH_KEY,matches.slice(-300));jset(SEEN_KEY,seen);matchRows()}
+    jset(MATCH_KEY,matches.slice(-300));jset(SEEN_KEY,seen);matchRows();buyPanel();render()}
    catch(e){failed++}
    await new Promise(r=>setTimeout(r,2000))}
    if(msg){delete msg.dataset.busy;msg.textContent=`Last regional check ${new Date().toLocaleTimeString('en-CA')}: ${ok} shop(s) read, ${failed} unavailable.`}}
