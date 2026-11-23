@@ -489,3 +489,11 @@ td,th{padding:12px 11px}
 .area-store:last-child{border-bottom:0}
 .area-store input{width:auto;min-width:20px;height:20px}
 .area-store .note{font-size:12px}
+/* eBay deals */
+.deal-settings{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;margin:8px 0 14px}
+.deal-settings>div{flex:0 1 260px}
+.deal-watch-list{margin-top:10px;max-height:560px;overflow:auto}
+.deal-watch{display:grid;grid-template-columns:minmax(0,1fr) 110px auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #29384e}
+.deal-watch a{color:var(--pf-ice)}
+.deal-target{display:grid;gap:2px}
+@media(max-width:520px){.deal-watch{grid-template-columns:minmax(0,1fr) 96px}.deal-watch>button{grid-column:1/-1;justify-self:start}}
