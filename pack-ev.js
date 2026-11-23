@@ -176,7 +176,7 @@ function renderDetail(groupId){
  <div class="grid4 pack-metrics"><div class="metric"><label>MSRP (Canada)</label><strong>${isNum(r.msrpCad)?cad(r.msrpCad):'unknown'}</strong><span class="small muted">${isNum(r.msrpUsd)?'US MSRP '+usd(r.msrpUsd):'USD unknown'}</span></div><div class="metric"><label>Sealed pack (market)</label><strong>${cad(r.sealedCad)}</strong><span class="small muted">${usd(r.sealedUsd)} · ${link(product(s.pack.id),'TCGplayer')}</span></div><div class="metric"><label>EV if opened${r.ev.complete?'':' (lower bound)'}</label><strong>${isNum(r.evCad)?cad(r.evCad):'unknown'}</strong><span class="small muted">${isNum(r.evUsd)?usd(r.evUsd):''}${isNum(r.ev.hitsUsd)?' · hits '+cad(r.ev.hitsUsd*fx*(1-r.fee)):''}</span></div><div class="metric"><label>EV − sealed</label><strong>${isNum(r.gapCad)?signed(r.gapCad):'—'}</strong><span class="small muted">${isNum(r.ratio)?'EV = '+Math.round(r.ratio*100)+'% of sealed':''}${r.ev.complete&&isNum(r.evUsd)&&isNum(r.msrpUsd)?' · EV − US MSRP '+(r.evUsd-r.msrpUsd>=0?'+':'−')+usd(Math.abs(r.evUsd-r.msrpUsd)):''}</span></div></div>
  <p class="pack-verdict pack-${esc(r.verdict.code)}"><strong>${esc(r.verdict.label)}.</strong> ${esc(r.verdict.why)}${r.fee?' Values are after '+round(r.fee*100,2)+'% selling fees.':''}</p>
  <div class="pack-yourprice"><div><label class="field" for="packYourPrice">Price you would pay for one pack · CAD</label><input id="packYourPrice" type="number" min="0" max="10000" step="0.01" inputmode="decimal" placeholder="e.g. a Canadian store price"></div><p class="note" id="packYourResult" aria-live="polite">${isNum(r.msrpCad)?'':'No Canadian MSRP is published for this pack, so enter what a store charges you.'}</p></div>
- <div id="packCompare" class="cmp cmp-inline"></div>
+ <div id="packChart" class="g-box"></div><div id="packCompare" class="cmp cmp-inline"></div>
  <h3>EV by rarity slot</h3>${breakdown}
  ${r.ev.status==='hits-only'?'<p class="note">The source gives hit odds but not the pack layout, so commons, uncommons and reverse holos are left out: this EV is a lower bound.</p>':''}
  <h3>Top hits in the set</h3>${top?`<ol class="pack-top">${top}</ol>`:'<p class="note">No priced cards.</p>'}
@@ -188,6 +188,7 @@ function renderDetail(groupId){
  <li class="muted">EV assumes every card of a rarity is equally likely and uses TCGplayer market prices for Near Mint English cards, before selling fees and shipping. Single packs vary a lot: most packs return far less than the EV and a few return far more.</li></ul>`;
  box.classList.remove('hidden');
  root.CardsteadCompare?.render($('packCompare'),{product:s.name+' Booster Pack',format:'pack'});
+ root.CardsteadChart?.load().then(h=>root.CardsteadChart.render($('packChart'),h,String(s.pack.id),{msrpCad:Number.isFinite(r.msrpUsd)?r.msrpUsd*fx:null}));
  const price=$('packYourPrice'),out=$('packYourResult');
  price.addEventListener('input',()=>{const v=Number(price.value);out.textContent=yourPrice(r,v)});
  $('packClose').onclick=()=>{box.classList.add('hidden');state.selected=null;const row=doc.querySelector(`[data-pack="${CSS.escape(String(s.groupId))}"]`);row?.focus()};

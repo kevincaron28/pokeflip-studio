@@ -16,3 +16,5 @@ tests/benchmark/photos/
 tests/benchmark/synthetic*/
 tests/benchmark/*.report.json
 report.json
+
+tools/.cache/

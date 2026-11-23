@@ -26,12 +26,14 @@ try:
             page.on("pageerror", lambda e: errors.append(str(e)))
             page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
             page.goto(url, wait_until="domcontentloaded")
-            assert page.evaluate("window.CardsteadPackData") is None, "snapshot must load only when the tab opens"
+            # Home (the start page) loads the price snapshot for its verdicts; Pack value reuses it.
+            page.wait_for_function("!!window.CardsteadPackData", timeout=15000)
             if width <= 760:
-                page.locator("#mobileMore").click()
-                page.locator('.drawer-link[data-target="packs"]').click()
+                page.locator('.dock-item[data-dock="prices"]').click()
+                page.locator('#subnav [data-page="packs"]').click()
             else:
-                page.locator('[data-tab="packs"]').click()
+                page.locator('[data-tab="prices"]').click()
+                page.locator('#subnav [data-page="packs"]').click()
             page.locator(".pack-table tbody tr").first.wait_for(timeout=15000)
             assert page.locator("section#packs").is_visible()
             status = page.locator("#packStatus").inner_text()

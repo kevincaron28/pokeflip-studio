@@ -28,7 +28,7 @@ try:
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.goto(f"http://127.0.0.1:{server.server_port}/", wait_until="domcontentloaded")
         page.wait_for_function("typeof go==='function'")
-        page.evaluate("go('restock')")
+        page.evaluate("go('settings')")
         assert page.locator("#areaProvince").input_value() == "QC"
         assert page.locator("#areaRegion").input_value() == "", "region is never guessed"
         summary = page.locator("#areaSummary").inner_text()
@@ -37,6 +37,7 @@ try:
         checked = page.eval_on_selector_all("#restockRegions label", "ls=>ls.filter(l=>l.querySelector('input').checked).map(l=>l.innerText)")
         assert any("Montréal" in c for c in checked) and any("Outaouais" in c for c in checked) and any("Canada-wide" in c for c in checked), checked
         assert not any("Toronto" in c for c in checked), checked
+        page.evaluate("go('restock')")
         # The inbox defaults to "My stores": the Québec shop shows, the Ontario shop does not.
         assert page.locator("#alertsFilter").input_value() == "mine"
         page.locator("#alertsRows .alert-card").first.wait_for(timeout=15000)
@@ -44,6 +45,7 @@ try:
         assert "Collect-Edition" in inbox and "401 Games" not in inbox, inbox
         page.select_option("#alertsFilter", "all")
         assert "401 Games" in page.locator("#alertsRows").inner_text()
+        page.evaluate("go('settings')")
         # Set a region and city, untick one store.
         page.select_option("#areaRegion", "south-shore")
         page.fill("#areaCity", "Longueuil"); page.locator("#areaCity").dispatch_event("change")

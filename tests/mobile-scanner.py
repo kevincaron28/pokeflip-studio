@@ -20,13 +20,11 @@ try:
    assert page.locator(".mobile-dock").is_visible()
    assert not page.locator(".tabs").is_visible()
    assert page.locator('.dock-item').count()==5
-   page.locator('#mobileMore').click()
-   page.locator("#mobileDrawer").wait_for(state="visible",timeout=3000)
-   assert page.locator("#mobileMore").get_attribute("aria-expanded")=="true"
-   page.locator('.drawer-link[data-target="ebay"]').click()
+   page.locator('.dock-item[data-dock="settings"]').click()
+   assert page.locator("section#settings").is_visible()
+   page.locator('#subnav [data-page="ebay"]').click()
    assert page.locator("section#ebay").is_visible()
-   assert page.locator("#mobileDrawer").get_attribute("aria-hidden")=="true"
-   page.locator('.dock-item[data-dock="scan"]').click()
+   page.locator('.dock-item[data-dock="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
    assert page.locator("section#scan").is_visible()
    assert page.locator(".scan-launch").is_visible()
    assert page.locator(".scan-capture-cta").is_visible()
@@ -42,10 +40,10 @@ try:
    assert page.locator("#cardPrice").is_visible()
    page.locator('.dock-item[data-dock="inventory"]').click()
    assert page.locator("section#inventory").is_visible()
-   page.locator('.dock-item[data-dock="scan"]').click()
+   page.locator('.dock-item[data-dock="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
    assert page.locator("#mobilePhotoPreview").is_visible()
    assert not errors,errors
-   print(f"PASS mobile scanner {width}px: bottom dock, More drawer, camera queue, preview, disclosure, navigation")
+   print(f"PASS mobile scanner {width}px: bottom dock, five-tab dock, camera queue, preview, disclosure, navigation")
    context.close()
   # Preserve desktop sidebar and all navigation tabs.
   ctx=browser.new_context(viewport={"width":1440,"height":900},service_workers="block")
@@ -53,7 +51,7 @@ try:
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   assert not page.locator(".mobile-dock").is_visible()
   assert page.locator(".tabs").is_visible()
-  assert page.locator(".tab").count()==12
+  assert page.locator(".tab").count()==5
   print("PASS desktop: original sidebar still available")
   ctx.close()
   browser.close()

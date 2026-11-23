@@ -28,7 +28,7 @@ with sync_playwright() as p:
   tab.click(timeout=5000)
   section=tab.get_attribute('data-tab')
   assert page.locator(f'section#{section}').is_visible(),section
- print("start lots",flush=True);page.locator('[data-tab="lots"]').click(timeout=5000)
+ print("start lots",flush=True);page.evaluate("CardsteadNav.show('lots')")
  page.locator('#lotForm [name="name"]').fill('QA Test Collection')
  page.locator('#lotForm [name="cost"]').fill('85')
  page.locator('#lotForm [name="source"]').fill('Local')
@@ -42,7 +42,7 @@ with sync_playwright() as p:
  page.locator('#bulkForm button').click()
  db=page.evaluate("JSON.parse(localStorage.getItem('pokeflip-v1'))")
  assert db['items'][0]['qty']==100
- page.locator('[data-tab="dashboard"]').click()
+ page.evaluate("CardsteadNav.show('dashboard')")
  assert page.locator(".portfolio-heading").count()==1
  assert not errors,errors
  page.screenshot(path=str(Path(tempfile.gettempdir())/'pokeflip-embedded-browser-qa.png'),full_page=True)
@@ -52,7 +52,7 @@ with sync_playwright() as p:
    const items=Array.from({length:1200},(_,i)=>({...seed,id:'volume-'+i,name:'Card #'+i,qty:1}));
    window.pokeflipLedger.replaceFromCloud({lots:d.lots,items,sales:[]},[]);
  }''')
- page.locator('[data-tab="inventory"]').click()
+ page.evaluate("CardsteadNav.show('inventory')")
  assert page.locator('#inventoryTable tbody tr').count()==100
  assert 'Showing 100 of 1200' in page.locator('#inventoryTable').inner_text()
  page.locator('[data-loadinventory]').click()
@@ -72,7 +72,8 @@ with sync_playwright() as p:
  assert 'Review' in page.locator('#toast').inner_text() and 'skipped' in page.locator('#toast').inner_text()
  # Regression: Android Chrome throws on new Notification(); a granted permission must not surface an error.
  page.evaluate('''()=>{Object.defineProperty(Notification,'permission',{configurable:true,get:()=>'granted'});window.Notification=function(){throw new TypeError('Illegal constructor')};window.Notification.permission='granted'}''')
- page.locator('[data-tab="restock"]').click()
+ page.evaluate("CardsteadNav.show('restock')")
+ page.evaluate("document.querySelectorAll('details.advanced').forEach(d=>d.open=true)")
  page.locator('#restockProduct').fill('Test ETB');page.locator('#restockCeiling').fill('60');page.locator('#restockWatchForm button[type=submit]').click()
  page.locator('#restockWatchSelect').select_option(index=1);page.locator('#restockStatus').select_option('in');page.locator('#restockPrice').fill('50');page.locator('#restockStore').fill('Test store')
  page.locator('#restockRecordForm button[type=submit]').click();page.wait_for_timeout(300)

@@ -31,13 +31,13 @@ with sync_playwright() as p:
  for script in scripts:
   page.add_script_tag(content=(ROOT/script).read_text(encoding='utf-8'))
  page.wait_for_timeout(200)
- page.locator('[data-tab="settings"]').click()
+ page.evaluate("CardsteadNav.show('settings')")
  print('Cloud:',page.locator('#cloudStatus').inner_text(),'visible:',page.locator('#cloudPush').is_visible(),'enabled:',page.locator('#cloudPush').is_enabled(),'errors:',errors,flush=True)
  page.locator('#cloudPush').click()
  page.wait_for_function("window.fakeCloud.revision===1")
  page.locator('#cloudAutoToggle').click()
  page.wait_for_function("localStorage.getItem('pokeflip-cloud-autosave-v1')!==null")
- page.locator('[data-tab="lots"]').click()
+ page.evaluate("CardsteadNav.show('lots')")
  page.locator('#lotForm [name="name"]').fill('Autobackup lot')
  page.locator('#lotForm [name="cost"]').fill('60')
  page.locator('#lotForm button').click()
@@ -45,7 +45,7 @@ with sync_playwright() as p:
  assert page.evaluate("window.fakeCloud.payload.ledger.lots.length") == 1
  # A second device changes the cloud revision; the next local edit MUST NOT overwrite it.
  page.evaluate("window.fakeCloud.revision++")
- page.locator('[data-tab="lots"]').click()
+ page.evaluate("CardsteadNav.show('lots')")
  page.locator('#lotForm [name="name"]').fill('Conflicting local lot')
  page.locator('#lotForm [name="cost"]').fill('10')
  page.locator('#lotForm button').click()
