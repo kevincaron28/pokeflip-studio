@@ -1,0 +1,19 @@
+<!-- Supabase > Authentication > Emails > Templates > "Confirm signup". Paste this whole file as the message body.
+     Subject: Bienvenue dans Cardstead : ton code {{ .Token }} / Welcome to Cardstead
+     Sent the first time an address signs in (Cardstead creates the account on the first sign-in).
+     Bilingual because Supabase sends one template to everyone; French first (Québec users), "tu". -->
+<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:0 auto;padding:24px;color:#1d2330">
+  <h2 style="margin:0 0 12px;font-size:20px">Cardstead</h2>
+
+  <p style="margin:0 0 8px">Bienvenue! Pour confirmer ton adresse, entre ce code dans Cardstead&nbsp;:</p>
+  <p style="margin:0 0 16px;font-size:32px;font-weight:bold;letter-spacing:6px">{{ .Token }}</p>
+  <p style="margin:0 0 16px">Ou <a href="{{ .ConfirmationURL }}">touche ce lien</a> sur l’appareil où tu utilises Cardstead. Ta synchronisation infonuagique sera ensuite prête.</p>
+  <p style="margin:0 0 24px;color:#5b6475;font-size:13px">Tu n’as pas créé de compte? Ignore ce courriel : rien ne sera créé sans ce code.</p>
+
+  <hr style="border:none;border-top:1px solid #d8dce4;margin:0 0 24px">
+
+  <p style="margin:0 0 8px">Welcome! To confirm your address, type this code in Cardstead:</p>
+  <p style="margin:0 0 16px;font-size:32px;font-weight:bold;letter-spacing:6px">{{ .Token }}</p>
+  <p style="margin:0 0 16px">Or <a href="{{ .ConfirmationURL }}">tap this link</a> on the device where you use Cardstead. Your cloud sync will then be ready.</p>
+  <p style="margin:0;color:#5b6475;font-size:13px">Didn’t create an account? Ignore this email: nothing is created without this code.</p>
+</div>

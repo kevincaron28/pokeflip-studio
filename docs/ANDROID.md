@@ -63,7 +63,7 @@ top.kcaron.cardstudio://**
 ```
 
 
-**Email template — NOT done, blocked:** Supabase locks email-template editing until a custom SMTP provider is configured, so the 6-digit `{{ .Token }}` code is **not in the email yet** (the owner needs an SMTP provider first, then add `{{ .Token }}` next to `{{ .ConfirmationURL }}` in Authentication → Email Templates → Magic Link). Until then sign-in on the phone depends on the magic link opening the app via the custom scheme; this is untested on a device. The app already accepts a typed code once the email carries it.
+**Email template — NOT done, blocked:** Supabase locks email-template editing until a custom SMTP provider is configured, so the 6-digit `{{ .Token }}` code is **not in the email yet** (the owner needs an SMTP provider first, then add `{{ .Token }}` next to `{{ .ConfirmationURL }}` in Authentication → Email Templates → Magic Link). Until then sign-in on the phone depends on the magic link opening the app via the custom scheme; this is untested on a device. The app already accepts a typed code once the email carries it. **Ready to do:** the owner steps (Resend, DNS, Supabase SMTP fields) and the bilingual templates are in [AUTH-EMAIL-SMTP.md](AUTH-EMAIL-SMTP.md) and `supabase/email-templates/`.
 
 Behaviour implemented: `#access_token=…&refresh_token=…` → `client.auth.setSession`; `?code=…` → `exchangeCodeForSession`; links from any other scheme or host are ignored; an `error` fragment is shown to the user.
 

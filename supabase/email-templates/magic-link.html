@@ -1,0 +1,19 @@
+<!-- Supabase > Authentication > Emails > Templates > "Magic Link". Paste this whole file as the message body.
+     Subject: Ton code Cardstead : {{ .Token }} / Your Cardstead code
+     The 6-digit code works everywhere (type it in Cardstead); the link signs in on the device that opens it.
+     Bilingual because Supabase sends one template to everyone; French first (Québec users), "tu". -->
+<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:0 auto;padding:24px;color:#1d2330">
+  <h2 style="margin:0 0 12px;font-size:20px">Cardstead</h2>
+
+  <p style="margin:0 0 8px">Voici ton code de connexion&nbsp;:</p>
+  <p style="margin:0 0 16px;font-size:32px;font-weight:bold;letter-spacing:6px">{{ .Token }}</p>
+  <p style="margin:0 0 16px">Entre-le dans Cardstead (Réglages &gt; Synchronisation infonuagique) ou <a href="{{ .ConfirmationURL }}">touche ce lien</a> sur l’appareil où tu veux te connecter. Le code expire bientôt.</p>
+  <p style="margin:0 0 24px;color:#5b6475;font-size:13px">Tu n’as pas demandé ce courriel? Ignore-le : personne ne peut se connecter sans ce code.</p>
+
+  <hr style="border:none;border-top:1px solid #d8dce4;margin:0 0 24px">
+
+  <p style="margin:0 0 8px">Here is your sign-in code:</p>
+  <p style="margin:0 0 16px;font-size:32px;font-weight:bold;letter-spacing:6px">{{ .Token }}</p>
+  <p style="margin:0 0 16px">Type it in Cardstead (Settings &gt; cloud synchronization) or <a href="{{ .ConfirmationURL }}">tap this link</a> on the device you want to sign in on. The code expires soon.</p>
+  <p style="margin:0;color:#5b6475;font-size:13px">Didn’t ask for this email? Ignore it: nobody can sign in without this code.</p>
+</div>
