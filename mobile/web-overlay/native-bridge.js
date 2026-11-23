@@ -29,6 +29,8 @@ async function handleBack(){
  await P().App?.exitApp?.();
 }
 async function requestNotifications(){try{const r=await P().LocalNotifications.requestPermissions();return r.display==='granted'}catch{return false}}
+// Checkout and retailer pages open in the system browser (Chrome Custom Tab) so saved logins, Shop Pay and autofill work.
+async function openExternal(url){try{if(!/^https:\/\//i.test(String(url)))return false;const B=P().Browser;if(B&&B.open){await B.open({url:String(url)});return true}}catch{}try{root.open(String(url),'_blank','noopener');return true}catch{return false}}
 async function notify(title,body){
  try{const LN=P().LocalNotifications;if(!LN)return false;const perm=await LN.checkPermissions();if(perm.display!=='granted')return false;
   await LN.schedule({notifications:[{id:Math.floor(Date.now()%2147483000),title,body,schedule:{at:new Date(Date.now()+400)}}]});return true}catch{return false}
@@ -41,5 +43,5 @@ if(isNative&&root.document){
  plugins.StatusBar?.setBackgroundColor?.({color:'#111a2e'});plugins.StatusBar?.setStyle?.({style:'DARK'});
  root.addEventListener('load',()=>setTimeout(()=>plugins.SplashScreen?.hide?.(),150));
 }
-return {isNative,AUTH_URL,SCHEME,parseAuthUrl,takePendingAuth,notify,requestNotifications};
+return {isNative,AUTH_URL,SCHEME,parseAuthUrl,takePendingAuth,notify,requestNotifications,openExternal};
 });
