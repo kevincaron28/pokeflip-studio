@@ -54,7 +54,7 @@ async function handler(req,res){
  if(req.method==='OPTIONS'){res.statusCode=204;return res.end()}
  if(req.method!=='GET'){res.statusCode=405;return res.end()}
  const send=(code,obj)=>{res.statusCode=code;res.setHeader('Content-Type','application/json; charset=utf-8');res.end(JSON.stringify(obj))};
- if(!configured())return send(503,{configured:false,message:'eBay search is not set up yet: add EBAY_CLIENT_ID and EBAY_CLIENT_SECRET in Vercel (see docs/EBAY-SETUP.md).'});
+ if(!configured())return send(503,{configured:false,message:'eBay not connected yet: add EBAY_CLIENT_ID and EBAY_CLIENT_SECRET in Vercel (see docs/EBAY-SETUP.md).'});
  const url=new URL(req.url,'https://x');
  if(url.searchParams.get('status')==='1')return send(200,{configured:true});
  const q=(url.searchParams.get('q')||'').trim();

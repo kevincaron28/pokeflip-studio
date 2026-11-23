@@ -129,7 +129,7 @@ async function checkStatus(){
  try{const r=await fetch(API()+'?status=1',{cache:'no-store'});const j=await r.json().catch(()=>({}));status=j.configured?'ready':'setup'}catch{status='offline'}
  box.classList.toggle('hidden',status==='ready');
  $('dealsScan').disabled=status!=='ready';
- if(status==='offline')box.querySelector('p').textContent='eBay search could not be reached. It needs an internet connection and the Cardstead website.';
+ if(status==='offline')box.querySelector('p').textContent='eBay not connected: the search service could not be reached. It needs an internet connection and the Cardstead website.';
  return status;
 }
 function notifyDeal(r){

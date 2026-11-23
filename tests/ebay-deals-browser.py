@@ -59,7 +59,7 @@ try:
             assert "2 cards watched" in page.locator("#dealsWatchCount").inner_text()
             if not configured:
                 page.locator("#dealsSetup").wait_for(state="visible", timeout=10000)
-                assert "EBAY_CLIENT_ID" in page.locator("#dealsSetup").inner_text()
+                assert "eBay not connected yet" in page.locator("#dealsSetup").inner_text() and "EBAY_CLIENT_ID" in page.locator("#dealsSetup").inner_text()
                 assert page.locator("#dealsScan").is_disabled()
                 print("PASS eBay deals without keys: setup steps shown, scan disabled, watchlist still works")
             else:
