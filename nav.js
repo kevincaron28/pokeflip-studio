@@ -49,8 +49,35 @@ function foldRestock(){
  sec.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&/Record check/.test(b.textContent))det.open=true},true);
  const area=$('areaPanel'),settings=$('settings');if(area&&settings)settings.insertBefore(area,settings.querySelector('.panel'));
 }
+// Settings: reading material (sorting guide, limitations, checkout tips) folds into one "Help & tips".
+const HELP=[/^Beginner.s physical sorting system/i,/^Current limitations/i,/^Fast checkout tips/i];
+function foldSettings(){
+ const sec=$('settings');if(!sec||$('settingsHelp'))return;
+ const det=doc.createElement('details');det.id='settingsHelp';det.className='panel advanced';
+ const sum=doc.createElement('summary');sum.dataset.i18n='s.help';sum.textContent='Help & tips';det.append(sum);
+ for(const panel of [...sec.querySelectorAll('.panel')]){const h=panel.querySelector('h2');if(h&&HELP.some(re=>re.test(h.textContent.trim())))det.append(panel)}
+ if(det.children.length>1)sec.append(det);
+}
+// Watch form: product and max price first; format (detected from the name), language, area (from My area),
+// quantity, shop limit and Shopify link under "More options". Product names come from the catalog as you type.
+function simplifyWatchForm(){
+ const form=$('restockWatchForm');if(!form||$('restockMore'))return;
+ const grid=form.querySelector('.grid2');if(!grid)return;
+ const det=doc.createElement('details');det.id='restockMore';det.className='form-more';
+ const sum=doc.createElement('summary');sum.dataset.i18n='w.more';sum.textContent='More options';
+ const inner=doc.createElement('div');inner.className='grid2';det.append(sum,inner);
+ for(const id of ['restockFormat','restockLanguage','restockArea','restockQuantity','restockLimit','restockAutoUrl']){const f=$(id)?.closest('.grid2 > div');if(f)inner.append(f)}
+ grid.after(det);
+ const P=root.CardsteadStorePrefs,area=$('restockArea');
+ if(P&&area&&(!area.value||/^Montérégie \/ Canada$/.test(area.value))){const p=P.get();const label=[p.city,(P.QC_REGIONS.find(r=>r[0]===p.region)||[])[1]].filter(Boolean).join(', ');area.value=label||(p.province==='QC'?'Québec':'Canada')}
+ const input=$('restockProduct');
+ if(input&&!$('restockCatalog')){const dl=doc.createElement('datalist');dl.id='restockCatalog';doc.body.append(dl);input.setAttribute('list','restockCatalog');
+  root.addEventListener('cardstead:show',async e=>{if(e.detail!=='restock'||dl.options.length)return;try{await root.CardsteadProduct?.ensure?.()}catch{}
+   const items=(root.CardsteadProduct?.items?.()||[]).filter(x=>x.kind==='sealed');dl.replaceChildren(...items.map(x=>{const o=doc.createElement('option');o.value=x.name;return o}))})}
+}
 function init(){
  if(typeof root.go!=='function')return;
+ foldSettings();simplifyWatchForm();
  const orig=root.go;
  root.go=function(page){orig(page);after(page)};
  doc.addEventListener('click',e=>{const c=e.target.closest('#subnav [data-page],[data-page-link]');if(c){e.preventDefault();show(c.dataset.page||c.dataset.pageLink)}});

@@ -28,16 +28,21 @@ function getQuotes(pricing,finish,now=Date.now()){
  }
  return quotes;
 }
-const core={positive,dateInfo,matchingKeys,getQuotes};
+/** CAD equivalent of a USD or EUR quote at the Bank of Canada rate stored with the price snapshot. Pure. */
+function toCad(q,fx){const r=q.unit==='USD'?fx?.usdToCad:q.unit==='EUR'?fx?.eurToCad:q.unit==='CAD'?1:null;return Number.isFinite(r)&&r>0?{cad:Math.round(q.price*r*100)/100,rate:r,date:q.unit==='EUR'?fx.eurDate:fx.date}:null}
+const core={positive,dateInfo,matchingKeys,getQuotes,toCad};
 root.PokeFlipMarketReferences=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 core.render=(pricing,finish,lang)=>{
+ const fx=root.CardsteadPackData?.fx;
+ // The Bank of Canada rates come with the price snapshot; load it once, then draw again.
+ if(!fx&&root.CardsteadPackEv?.loadData&&!core._waiting){core._waiting=true;root.CardsteadPackEv.loadData().then(()=>{core._waiting=false;core.render(pricing,finish,lang)}).catch(()=>{core._waiting=false})}
  const box=root.document.getElementById('scanMarketQuotes');if(!box)return;
  const quotes=getQuotes(pricing,finish);
  const scope=lang==='fr'?'French-card pricing is NOT confirmed by these marketplaces.':'Language/edition may differ from the listed offer.';
- box.innerHTML=quotes.length?quotes.map(q=>`<div class="row spread" style="border-bottom:1px solid #29384e;padding:9px 0"><span><strong>${esc(q.provider)}</strong> <span class="pill">${esc(q.variant)}</span><span class="small muted"> · ${esc(q.date)}${q.stale?' · Stale or undated':''}</span></span><strong>${new Intl.NumberFormat('en-CA',{style:'currency',currency:q.unit}).format(q.price)}</strong></div>`).join(''):`<p class="note">No finish-matched market reference is available for this selection. Do not infer a price.</p>`;
+ box.innerHTML=quotes.length?quotes.map(q=>`<div class="row spread" style="border-bottom:1px solid #29384e;padding:9px 0"><span><strong>${esc(q.provider)}</strong> <span class="pill">${esc(q.variant)}</span><span class="small muted"> · ${esc(q.date)}${q.stale?' · Stale or undated':''}</span></span><span style="text-align:right"><strong>${new Intl.NumberFormat('en-CA',{style:'currency',currency:q.unit}).format(q.price)}</strong>${(c=>c&&q.unit!=='CAD'?`<span class="small muted" style="display:block">≈ ${new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(c.cad)} CAD · Bank of Canada ${esc(c.date)}</span>`:'')(toCad(q,fx))}</span></div>`).join(''):`<p class="note">No finish-matched market reference is available for this selection. Do not infer a price.</p>`;
  const warning=root.document.createElement('p');warning.className='note';warning.textContent='Market context only, not a Canadian sold price or guaranteed French-language valuation. '+scope+' Use matched eBay sold evidence before pricing inventory.';box.appendChild(warning);
 };
 })(typeof window!=='undefined'?window:globalThis);

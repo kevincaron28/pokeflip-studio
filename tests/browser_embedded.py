@@ -73,7 +73,7 @@ with sync_playwright() as p:
  # Regression: Android Chrome throws on new Notification(); a granted permission must not surface an error.
  page.evaluate('''()=>{Object.defineProperty(Notification,'permission',{configurable:true,get:()=>'granted'});window.Notification=function(){throw new TypeError('Illegal constructor')};window.Notification.permission='granted'}''')
  page.evaluate("CardsteadNav.show('restock')")
- page.evaluate("document.querySelectorAll('details.advanced').forEach(d=>d.open=true)")
+ page.evaluate("document.querySelectorAll('details.advanced,details.form-more').forEach(d=>d.open=true)")
  page.locator('#restockProduct').fill('Test ETB');page.locator('#restockCeiling').fill('60');page.locator('#restockWatchForm button[type=submit]').click()
  page.locator('#restockWatchSelect').select_option(index=1);page.locator('#restockStatus').select_option('in');page.locator('#restockPrice').fill('50');page.locator('#restockStore').fill('Test store')
  page.locator('#restockRecordForm button[type=submit]').click();page.wait_for_timeout(300)

@@ -25,7 +25,7 @@ const S={
   'g.notEnough':n=>`Not enough history yet (${n} day${n===1?'':'s'} of prices).`,'g.source':'TCGplayer market price, converted to CAD at each day\'s Bank of Canada rate.',
   'g.summary':(a,b,c)=>`From ${a} to ${b}, ${c}.`,
   's.language':'Language','s.advancedTitle':'Advanced tools','s.advancedNote':'Calculators and manual logs for experienced sellers. Everything else is detected or defaulted.',
-  'w.advanced':'Advanced restock tools (sources, regions, manual checks, imports, logs)','kind.pack':'Booster pack','kind.box':'Booster box','kind.etb':'Elite Trainer Box','kind.bundle':'Booster bundle','kind.tin':'Tin','kind.collection':'Collection','kind.blister':'Blister','kind.other':'Product'
+  'w.advanced':'Advanced restock tools (sources, regions, manual checks, imports, logs)','w.more':'More options (format, language, area, quantity, shop limit, shop link)','s.help':'Help & tips','kind.pack':'Booster pack','kind.box':'Booster box','kind.etb':'Elite Trainer Box','kind.bundle':'Booster bundle','kind.tin':'Tin','kind.collection':'Collection','kind.blister':'Blister','kind.other':'Product'
  },
  fr:{
   'nav.home':'Accueil','nav.prices':'Prix','nav.watch':'Surveiller','nav.collection':'Collection','nav.settings':'Réglages',
@@ -48,7 +48,7 @@ const S={
   'g.notEnough':n=>`Pas encore assez d’historique (${n} jour${n>1?'s':''} de prix).`,'g.source':'Prix du marché TCGplayer, converti en CAD au taux de la Banque du Canada de chaque jour.',
   'g.summary':(a,b,c)=>`Du ${a} au ${b}, ${c}.`,
   's.language':'Langue','s.advancedTitle':'Outils avancés','s.advancedNote':'Calculatrices et journaux manuels pour les vendeurs expérimentés. Tout le reste est détecté ou réglé par défaut.',
-  'w.advanced':'Outils de restock avancés (sources, régions, vérifications manuelles, imports, journaux)','kind.pack':'Booster','kind.box':'Boîte de boosters','kind.etb':'Coffret Dresseur d’élite','kind.bundle':'Lot de boosters','kind.tin':'Boîte en métal','kind.collection':'Coffret','kind.blister':'Blister','kind.other':'Produit'
+  'w.advanced':'Outils de restock avancés (sources, régions, vérifications manuelles, imports, journaux)','w.more':'Plus d’options (format, langue, région, quantité, limite par client, lien de boutique)','s.help':'Aide et conseils','kind.pack':'Booster','kind.box':'Boîte de boosters','kind.etb':'Coffret Dresseur d’élite','kind.bundle':'Lot de boosters','kind.tin':'Boîte en métal','kind.collection':'Coffret','kind.blister':'Blister','kind.other':'Produit'
  }
 };
 function lang(){try{const v=JSON.parse(root.localStorage?.getItem(KEY)||'null');if(v==='fr'||v==='en')return v}catch{}return /^fr/i.test(root.navigator?.language||'')?'fr':'en'}

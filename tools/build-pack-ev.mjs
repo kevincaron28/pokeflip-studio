@@ -160,6 +160,10 @@ async function main() {
   const fx = {usdToCad: Number(fxObs.FXUSDCAD.v), date: fxObs.d, source: 'Bank of Canada daily average (FXUSDCAD)',
     url: 'https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/'};
   if (!(fx.usdToCad > 0.5 && fx.usdToCad < 3)) throw new Error('Implausible USD/CAD rate ' + fx.usdToCad);
+  // EUR/CAD too: the scanner shows Cardmarket (EUR) quotes with their CAD equivalent.
+  const eurObs = (await getJson('https://www.bankofcanada.ca/valet/observations/FXEURCAD/json?recent=1')).observations.at(-1);
+  fx.eurToCad = Number(eurObs.FXEURCAD.v); fx.eurDate = eurObs.d;
+  if (!(fx.eurToCad > 0.5 && fx.eurToCad < 3)) throw new Error('Implausible EUR/CAD rate ' + fx.eurToCad);
 
   const sets = [];
   for (const g of groups) {
