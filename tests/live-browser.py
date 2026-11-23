@@ -10,6 +10,7 @@ with sync_playwright() as p:
         viewport={"width": 390, "height": 844},
         service_workers="block",
         accept_downloads=False,
+        locale="en-CA",
     )
     page = context.new_page()
     errors = []
@@ -21,7 +22,10 @@ with sync_playwright() as p:
     assert page.evaluate("getComputedStyle(document.querySelector('.tabs')).position") == "sticky"
     assert "studio-horizon.svg" in page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage")
     def navigate(section):
-        if not page.locator(".mobile-dock").is_visible():
+        # Since the simplified app (5 tabs): every older page is still reachable through CardsteadNav.
+        if page.evaluate("typeof CardsteadNav!=='undefined'"):
+            page.evaluate(f"CardsteadNav.show('{section}')")
+        elif not page.locator(".mobile-dock").is_visible():
             page.locator(f'.tab[data-tab="{section}"]').click(timeout=10000)
         elif section in ("dashboard","scan","inventory","lots"):
             page.locator(f'.dock-item[data-dock="{section}"]').click(timeout=10000)
