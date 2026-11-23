@@ -103,3 +103,37 @@ Nothing is deleted: all data, watches, alerts, the eBay watchlist, Drop Assist a
 ### Phases
 - **Phase 1 (this PR)**: five tabs and chips, the new Home, the product view with graph and Watch button, Prices search, graphs on Pack value, the Advanced sections, auto defaults for new watches, EN/FR for all new screens.
 - **Phase 2**: Scanner defaults (remember the last language and condition, Bank of Canada FX), a shorter Collection dashboard, French for the remaining older screens, and a scheduled refresh of the snapshot and history (GitHub Action opening a PR).
+
+## Phase 1b (owner follow-ups, 23 Nov 2026)
+
+### "A nice list of retailers with their stock in the app instead of links"
+- **Compare stores is now an in-app list, not a table of links.** Each store shows:
+  - a name badge and the store name;
+  - where it is: the city for a local shop, "Online", or "Chain · stores and online";
+  - where the information came from (your check, automatic shop check, imported alert);
+  - in stock / sold out / unknown, and when it was last checked;
+  - the **purchase limit** when known (from the watch's "Shop limit per customer");
+  - the price with its own verdict.
+
+  The Buy / Open link is a **small secondary button**. Followed stores with no record are listed as "Not tracked · No check yet" with a small Search button.
+- **Watch rows** get a **Stores** button that opens that list for the product.
+- **"Check Canadian retailers now"** (Advanced) shows, for the selected watch, each store's last recorded stock, price and time, or "No check recorded for this product yet". "Check now" stays a secondary link.
+- Store logos are not shown: using retailers' logos needs their permission. A two-letter badge stands in.
+
+### "Easy option to remove the most recent picture when scanning cards"
+Research (store listings, help centres; several apps' flows could not be verified):
+- CardCastle has a one-tap **Undo** that removes the last scan and is lit only when there is one.
+- ManaBox keeps a running scanned-cards list.
+- TCGplayer remembers condition, printing and language for the batch, and lets you review the queue before confirming.
+- Dex+ shows an overview after scanning.
+- Ludex saves nothing until "Add to Collection".
+
+Adopted in the scanner's new **scan tray**:
+1. **Undo last photo**: one tap, always in the same place, enabled only when there is a photo.
+2. **Recent photos strip**: the last 8 captures with now / next / done labels and a **×** on each, to remove any one. The scanner moves to the right photo.
+3. **Saved this scan session**: a review list of every card saved since opening the scanner, with **Edit** (the usual editor) and **×** to remove a mistake. It refuses if a sale is recorded. **Undo last saved card** sits next to Undo last photo.
+4. **Remembered defaults**: card language, condition and finish stay as you last set them.
+
+Already in Cardstead and kept: continuous **Stack mode** (camera stays open), the match list to confirm or adjust the printing, quantity, and condition.
+
+Next (phase 2): merge consecutive scans of the same card into a quantity, and a "set lock" to narrow matches to one set.

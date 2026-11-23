@@ -12,14 +12,14 @@ const T={
   notTracked:'Not tracked',noData:n=>`${n} followed store${n===1?'':'s'} with no record for this product yet`,showAll:'Show all stores (not only my area)',mine:'Stores I follow (my area)',
   msrp:'MSRP',market:'Market value (sealed)',ev:'Expected value of the packs inside',best:'Best in-stock price',none:'No store has a record for this product yet. Record a stock check or import an alert in Restock watch.',
   unknownV:'unknown',unknownM:'unknown',sep:': ',asOf:d=>'TCGplayer, as of '+d,cadUnknown:'CAD unknown',evNote:n=>n+(n>1?' packs':' pack')+' × pack EV',matched:'Matched product',noMatch:'Not matched to a TCGplayer product: values unknown.',
-  srcCheck:'your check',srcAuto:'automatic shop check (possible match)',srcAlert:'imported alert',lang:'Français',close:'Close',ago:m=>m<1?'just now':m<60?m+' min ago':m<1440?Math.round(m/60)+' h ago':Math.round(m/1440)+' d ago',
+  srcCheck:'your check',online:'Online',chain:'Chain · stores and online',limit:n=>`Limit ${n} per customer`,noCheck:'No check yet',srcAuto:'automatic shop check (possible match)',srcAlert:'imported alert',lang:'Français',close:'Close',ago:m=>m<1?'just now':m<60?m+' min ago':m<1440?Math.round(m/60)+' h ago':Math.round(m/1440)+' d ago',
   under:(d,p)=>`Under value by ${d} (${p})`,over:(d,p)=>`Over value by ${d} (${p})`,fair:'Fair: about market value',scalp:x=>` · scalper price (${x}× US MSRP)`,noValue:'Value unknown',count:(a,b)=>`${a} store${a===1?'':'s'} with a record · ${b} in stock`,
   msrpScalp:x=>`Scalper price (${x}× US MSRP converted)`,msrpOver:p=>`Over MSRP by ${p} (US MSRP converted)`,msrpFair:'Around MSRP (US MSRP converted; market value unknown)',msrpUnder:p=>`Under MSRP by ${p} (US MSRP converted)`},
  fr:{title:'Comparer les magasins',store:'Magasin',price:'Prix',status:'État',checked:'Vérifié',link:'Lien',in:'En stock',out:'Épuisé',unknown:'Inconnu',buy:'Acheter',open:'Ouvrir',search:'Chercher',
   notTracked:'Non suivi',noData:n=>`${n} magasin${n===1?'':'s'} suivi${n===1?'':'s'} sans relevé pour ce produit`,showAll:'Voir tous les magasins (pas seulement ma région)',mine:'Les magasins que je suis (ma région)',
   msrp:'PDSF',market:'Valeur marchande (scellé)',ev:'Valeur attendue des paquets à l’intérieur',best:'Meilleur prix en stock',none:'Aucun magasin n’a encore de relevé pour ce produit. Note une vérification ou importe une alerte dans Restock watch.',
   unknownV:'inconnue',unknownM:'inconnu',sep:' : ',asOf:d=>'TCGplayer, au '+d,cadUnknown:'CAD inconnu',evNote:n=>n+(n>1?' paquets':' paquet')+' × VA du paquet',matched:'Produit associé',noMatch:'Pas associé à un produit TCGplayer : valeurs inconnues.',
-  srcCheck:'ta vérification',srcAuto:'vérification auto de la boutique (correspondance possible)',srcAlert:'alerte importée',lang:'English',close:'Fermer',ago:m=>m<1?'à l’instant':m<60?'il y a '+m+' min':m<1440?'il y a '+Math.round(m/60)+' h':'il y a '+Math.round(m/1440)+' j',
+  srcCheck:'ta vérification',online:'En ligne',chain:'Chaîne · magasins et en ligne',limit:n=>`Limite de ${n} par client`,noCheck:'Pas encore vérifié',srcAuto:'vérification auto de la boutique (correspondance possible)',srcAlert:'alerte importée',lang:'English',close:'Fermer',ago:m=>m<1?'à l’instant':m<60?'il y a '+m+' min':m<1440?'il y a '+Math.round(m/60)+' h':'il y a '+Math.round(m/1440)+' j',
   under:(d,p)=>`Sous la valeur de ${d} (${p})`,over:(d,p)=>`Au-dessus de la valeur de ${d} (${p})`,fair:'Prix juste : environ la valeur marchande',scalp:x=>` · prix de revendeur (${x}× le PDSF américain)`,noValue:'Valeur inconnue',count:(a,b)=>`${a} magasin${a===1?'':'s'} avec relevé · ${b} en stock`,
   msrpScalp:x=>`Prix de revendeur (${x}× le PDSF américain converti)`,msrpOver:p=>`Au-dessus du PDSF de ${p} (PDSF américain converti)`,msrpFair:'Environ le PDSF (PDSF américain converti; valeur marchande inconnue)',msrpUnder:p=>`Sous le PDSF de ${p} (PDSF américain converti)`}
 };
@@ -39,13 +39,15 @@ function collect(target,{restock,matches,hub,data}){
  const add=r=>{if(!r.store)return;const k=r.store.toLowerCase();const old=rows.get(k);if(!old||Date.parse(r.at)>Date.parse(old.at))rows.set(k,r)};
  const watches=restock?.watches||[];
  for(const o of restock?.observations||[]){const w=watches.find(x=>x.id===o.watchId);if(!w||keyOf(w.product,w.format,data)!==want)continue;
-  add({store:o.store,price:isNum(o.price)&&o.price>0?o.price:null,status:o.status,at:o.checkedAt,url:o.url||null,source:'check'})}
+  add({store:o.store,price:isNum(o.price)&&o.price>0?o.price:null,status:o.status,at:o.checkedAt,url:o.url||null,source:'check',limit:w.limit??null})}
  for(const m of matches||[]){const w=watches.find(x=>x.id===m.watchId);const text=m.title||w?.product;if(keyOf(text,w?.format,data)!==want)continue;
-  add({store:m.shop,host:m.host,price:isNum(m.price)?m.price:null,status:m.available?'in':'out',at:m.checkedAt,url:m.url||null,source:'auto'})}
+  add({store:m.shop,host:m.host,price:isNum(m.price)?m.price:null,status:m.available?'in':'out',at:m.checkedAt,url:m.url||null,source:'auto',limit:w?.limit??null})}
  for(const a of hub||[]){if(keyOf(a.product,null,data)!==want)continue;
   add({store:a.retailer,price:isNum(a.price)?a.price:null,status:a.status,at:a.observedAt,url:a.url||null,source:'alert'})}
  return [...rows.values()];
 }
+/** Where a store is (city, online or chain) and a short badge, from My area & stores' catalogue. Pure. */
+function storeInfo(name,host,P,cat){const s=host?cat.find(x=>x.host===host):P?.storeFor(name,cat);const words=String(name||'?').replace(/[^\p{L}\p{N} ]/gu,' ').trim().split(/\s+/);const badge=(words.length>1?words[0][0]+words[1][0]:words[0].slice(0,2)).toUpperCase();return {store:s||null,badge,kind:s?.kind||null,city:s?.kind==='local'?s.city||'':''}}
 const RANK={in:0,unknown:1,out:2};
 /** In stock first, then cheapest; unknown prices after known ones. */
 function sort(rows){return rows.slice().sort((a,b)=>(RANK[a.status]??1)-(RANK[b.status]??1)||(a.price??Infinity)-(b.price??Infinity)||String(a.store).localeCompare(String(b.store)))}
@@ -73,7 +75,7 @@ function verdictText(l,price,a){
 }
 function money(l){const f=new Intl.NumberFormat(l==='fr'?'fr-CA':'en-CA',{style:'currency',currency:'CAD'});return v=>isNum(v)?f.format(v):'—'}
 
-const core={T,KEYS,keyOf,collect,sort,inArea,untracked,verdictText,lang};
+const core={T,KEYS,keyOf,collect,sort,inArea,untracked,verdictText,storeInfo,lang};
 root.CardsteadCompare=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
@@ -109,8 +111,14 @@ async function render(host,target){
  <p class="cmp-verdict ac-verdict-${esc(v.code)}">${esc(v.text)}</p>
  <label class="checkline"><input type="checkbox" data-cmp-all ${all?'checked':''}> ${esc(t.showAll)}</label>
  <p class="note">${esc(t.count(rows.length,rows.filter(r=>r.status==='in').length))}</p>
- ${rows.length?`<table class="cmp-table"><thead><tr><th scope="col">${esc(t.store)}</th><th scope="col">${esc(t.price)}</th><th scope="col">${esc(t.status)}</th><th scope="col">${esc(t.checked)}</th><th scope="col">${esc(t.link)}</th></tr></thead><tbody>${rows.map(r=>{const u=safe(r.url);const rv=verdictText(l,r.price,a);return `<tr class="cmp-${esc(r.status)}"><td data-label="${esc(t.store)}"><strong>${esc(r.store)}</strong><div class="ac-sub">${esc(src[r.source])}</div></td><td data-label="${esc(t.price)}"><strong>${fmt(r.price)}</strong>${rv.code!=='unknown'?`<div class="cmp-pill cmp-pill-${esc(rv.code)}">${esc(rv.text)}</div>`:''}</td><td data-label="${esc(t.status)}"><span class="ac-dot ac-dot-${(st[r.status]||st.unknown)[1]}" aria-hidden="true"></span>${esc((st[r.status]||st.unknown)[0])}</td><td data-label="${esc(t.checked)}">${esc(t.ago(mins(r.at)))}</td><td data-label="${esc(t.link)}">${u?`<a class="btn smallbtn${r.status==='in'?' primary':''}" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(r.status==='in'?t.buy:t.open)}</a>`:'—'}</td></tr>`}).join('')}</tbody></table>`:`<p class="empty">${esc(t.none)}</p>`}
- ${none.length?`<details class="cmp-untracked"><summary>${esc(t.noData(none.length))}</summary><ul>${none.map(s=>{const u=safe(searchLink(s,target.product));return `<li><span>${esc(s.name)}</span> <span class="ac-sub">${esc(t.notTracked)}</span>${u?` <a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(t.search)}</a>`:''}</li>`}).join('')}</ul></details>`:''}`;
+ ${rows.length?`<ul class="cmp-list">${rows.map(r=>{const u=safe(r.url),rv=verdictText(l,r.price,a),info=storeInfo(r.store,r.host,P,cat),sx=st[r.status]||st.unknown;
+  const where=info.kind==='online'?t.online:info.kind==='chain'?t.chain:info.city;
+  return `<li class="cmp-store cmp-${esc(r.status)}"><span class="cmp-badge" aria-hidden="true">${esc(info.badge)}</span>
+  <div class="cmp-store-main"><strong class="cmp-store-name">${esc(r.store)}</strong><span class="ac-sub">${esc([where,src[r.source]].filter(Boolean).join(' · '))}</span>
+  <span class="cmp-meta"><span class="ac-dot ac-dot-${sx[1]}" aria-hidden="true"></span>${esc(sx[0])} · ${esc(t.ago(mins(r.at)))}${isNum(r.limit)?' · '+esc(t.limit(r.limit)):''}</span></div>
+  <div class="cmp-store-price"><strong>${fmt(r.price)}</strong>${rv.code!=='unknown'?`<span class="cmp-pill cmp-pill-${esc(rv.code)}">${esc(rv.text)}</span>`:''}${u?`<a class="cmp-link" href="${esc(u)}" target="_blank" rel="noopener noreferrer" aria-label="${esc((r.status==='in'?t.buy:t.open)+': '+r.store)}">${esc(r.status==='in'?t.buy:t.open)} ↗</a>`:''}</div></li>`}).join('')}</ul>`:`<p class="empty">${esc(t.none)}</p>`}
+ ${none.length?`<details class="cmp-untracked"><summary>${esc(t.noData(none.length))}</summary><ul class="cmp-list">${none.map(s=>{const u=safe(searchLink(s,target.product)),info=storeInfo(s.name,s.host,P,cat);const where=s.kind==='online'?t.online:s.kind==='chain'?t.chain:s.city||'';
+  return `<li class="cmp-store cmp-none"><span class="cmp-badge" aria-hidden="true">${esc(info.badge)}</span><div class="cmp-store-main"><strong class="cmp-store-name">${esc(s.name)}</strong><span class="ac-sub">${esc(where)}</span><span class="cmp-meta">${esc(t.notTracked)} · ${esc(t.noCheck)}</span></div><div class="cmp-store-price">${u?`<a class="cmp-link" href="${esc(u)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(t.search+': '+s.name)}">${esc(t.search)} ↗</a>`:''}</div></li>`}).join('')}</ul></details>`:''}`;
  // In the dialog, its label and Close button follow the panel language.
  const dlg=host.closest('dialog');if(dlg){const ttl=dlg.querySelector('#compareTitle');if(ttl)ttl.textContent=t.title+t.sep+target.product;const cl=dlg.querySelector('[data-cmp-close]');if(cl)cl.textContent=t.close}
  host.querySelector('[data-cmp-lang]').onclick=()=>{setLang(l==='fr'?'en':'fr');render(host,target)};
