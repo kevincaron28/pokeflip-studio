@@ -157,3 +157,13 @@ Next (phase 2): merge consecutive scans of the same card into a quantity, and a 
 
 ## Phase 2b
 English and French ("tu") on every older screen.
+- **How**:
+  - `i18n-fr.js` holds about 1,150 English → French entries for the screens built before the bilingual rewrite: Business, Deal check, Lots, Scanner, Inventory, Sales, eBay sold, Sealed guide, Settings and Watch.
+  - `dom-i18n.js` translates what is on screen when the language is French: whole texts, texts with numbers or names in them (`{0}` patterns), known phrases inside longer sentences, placeholders, labels, buttons, toasts and confirm dialogs.
+  - Text added later is translated as it appears. Switching back to English restores the English text without a reload.
+- **Kept as is**: shop, store, brand and set names, card names and anything you typed.
+- **Saved data**: never touched, because only the screen changes. The browser test seeds data from an older version, switches FR → EN and checks the data byte for byte.
+- **Tests**:
+  - `tests/i18n-coverage.test.cjs`: every English text `tools/extract-ui-strings.mjs` finds has a French entry or is kept on purpose; no "vous"; placeholders kept.
+  - `tests/i18n-fr-browser.py`: walks the 10 older pages at 390 px in English, then in French. It fails on any text that stays identical and reads as English, and on any text the dictionary knows but left in English.
+- **Adding a screen**: write its text in English as usual, run `node tools/extract-ui-strings.mjs`, and add the new lines to `i18n-fr.js`. The coverage test lists what is missing.

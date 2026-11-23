@@ -14,7 +14,7 @@ try:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         for width, height in ((1440, 900), (390, 844)):
-            ctx = browser.new_context(viewport={"width": width, "height": height}, service_workers="block")
+            ctx = browser.new_context(viewport={"width": width, "height": height}, service_workers="block", locale="en-CA")
             page = ctx.new_page()
             errors = []
             page.on("pageerror", lambda e: errors.append(str(e)))

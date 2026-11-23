@@ -11,7 +11,7 @@ head=html.split('<script src=')[0]+'</body></html>'
 scripts=re.findall(r'<script src="\./([^"]+)"',html)
 with sync_playwright() as p:
  browser=p.chromium.launch(headless=True,executable_path=os.environ.get('CHROMIUM_PATH') or None,args=['--no-sandbox','--disable-dev-shm-usage'])
- page=browser.new_page(viewport={'width':390,'height':844})
+ page=browser.new_page(viewport={'width':390,'height':844},locale='en-CA')
  errors=[]
  page.on('pageerror',lambda err: errors.append(str(err)))
  page.set_default_timeout(4000)

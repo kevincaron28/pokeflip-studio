@@ -12,7 +12,7 @@ try:
  with sync_playwright() as p:
   browser=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
   for width in (390,360):
-   context=browser.new_context(viewport={"width":width,"height":844},service_workers="block")
+   context=browser.new_context(viewport={"width":width,"height":844},service_workers="block", locale="en-CA")
    page=context.new_page()
    errors=[]
    page.on("pageerror",lambda e:errors.append(str(e)))
@@ -46,7 +46,7 @@ try:
    print(f"PASS mobile scanner {width}px: bottom dock, five-tab dock, camera queue, preview, disclosure, navigation")
    context.close()
   # Preserve desktop sidebar and all navigation tabs.
-  ctx=browser.new_context(viewport={"width":1440,"height":900},service_workers="block")
+  ctx=browser.new_context(viewport={"width":1440,"height":900},service_workers="block", locale="en-CA")
   page=ctx.new_page()
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   assert not page.locator(".mobile-dock").is_visible()
