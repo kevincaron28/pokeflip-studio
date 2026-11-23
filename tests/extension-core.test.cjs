@@ -55,5 +55,6 @@ test('manifest: MV3, narrow permissions, no secrets collected',()=>{
  for(const bad of ['<all_urls>','cookies','webRequest','debugger','scripting'])assert.ok(!JSON.stringify(m).includes(bad),bad);
  const ui=fs.readFileSync(path.join(root,'extension/options.html'),'utf8');
  for(const input of ui.match(/<input[^>]*>/gi)||[])assert.ok(!/password|\bcard\b|card.?number|cvv|cvc|expir|iban|\baccount\b/i.test(input),'no password or card fields: '+input);
- for(const f of ['background.js','content/assist.js','options.js'])assert.ok(!/\.click\(\)/.test(fs.readFileSync(path.join(root,'extension',f),'utf8').replace(/function safeClick[\s\S]*?el\.click\(\);return true;\n\}/,'')),f+': every click goes through safeClick');
+ // assist.js: its only direct presses are the two automatic-checkout ones (tests/extension-auto.test.cjs).
+ for(const f of ['background.js','options.js'])assert.ok(!/\.click\(\)/.test(fs.readFileSync(path.join(root,'extension',f),'utf8').replace(/function safeClick[\s\S]*?el\.click\(\);return true;\n\}/,'')),f+': every click goes through safeClick');
 });
