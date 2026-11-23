@@ -4,13 +4,13 @@ Status: **draft for the owner; nothing has been submitted.** No Play Console, si
 
 ## 1. NAME RISK — read before creating the Play listing
 
-**"PokéFlip Studio" is likely to be rejected or taken down.** Google Play's Intellectual Property and Impersonation policies let a trademark owner (here Nintendo / Creatures / GAME FREAK / The Pokémon Company) force removal of an app whose title, icon or developer name uses their mark. "Poké" + a word is commonly treated as confusingly similar to POKÉMON. A removal also counts against the developer account. Do not buy the Play listing under this name.
+**"PokéFlip Studio" was likely to be rejected or taken down.** Google Play's Intellectual Property and Impersonation policies let a trademark owner (here Nintendo / Creatures / GAME FREAK / The Pokémon Company) force removal of an app whose title, icon or developer name uses their mark. "Poké" + a word is commonly treated as confusingly similar to POKÉMON. A removal also counts against the developer account. Do not buy the Play listing under this name.
 
 Also keep out of the **title, short description, icon, feature graphic and screenshots' captions**: "Pokémon", "Poké", "Pikachu", character names, the Poké Ball, official logos/fonts. The existing icon (tile with a ring) is original and fine. In the long description, a plain factual mention of the card game is a grey area; safest is "trading cards" / "collectible card game cards", plus a disclaimer: *"Not affiliated with, endorsed or sponsored by Nintendo, Creatures Inc., GAME FREAK inc. or The Pokémon Company. Card names and images belong to their respective owners."*
 
 **Card images:** the app does not bundle any card art. Images and card data are loaded at run time from the public TCGdex API (`api.tcgdex.net`) for cards the user looks up. TCGdex is a community catalogue; it does not give the app ownership of the artwork, which remains the trademark/copyright of the card publisher. Reviewers can still flag an app that displays card art. Mitigations: keep images runtime-only (never in the APK, never in store screenshots unless the owner accepts the risk), keep the disclaimer in the listing and in Settings, and use screenshots of the app's own UI with the inventory/lookup screens cropped or with generic content.
 
-**Three original name candidates** (none contains a third-party mark; **availability on Play, trademark databases (CIPO/USPTO) and domains has NOT been checked** — do that before choosing):
+**Original name candidates considered** (none contains a third-party mark; **availability on Play, trademark databases (CIPO/USPTO) and domains has NOT been checked** — do that before choosing):
 
 1. **Binderly** — a binder-style collection and resale tracker.
 2. **Foilbook** — collection log with a holo/foil nod.
@@ -18,13 +18,13 @@ Also keep out of the **title, short description, icon, feature graphic and scree
 
 The Android `applicationId` is already `top.kcaron.cardstudio` (neutral). **applicationId can never change after the first upload**, so it is safe now; the visible name is only `app_name` in `mobile/android/app/src/main/res/values/strings.xml` and `appName` in `mobile/capacitor.config.json`, plus a few strings in `index.html`/`manifest.webmanifest` (the website may keep its name).
 
-Rename checklist: `strings.xml` (`app_name`, `title_activity_main`) · `capacitor.config.json` `appName` · header/title text and `manifest.webmanifest` in the web layer if the app should match · Play listing title (max 30 characters) · developer name (do not use the same mark) · privacy policy title.
+Rename checklist (done for the app/web layer; remaining items are Play listing title, developer name and privacy policy host): `strings.xml` (`app_name`, `title_activity_main`) · `capacitor.config.json` `appName` · header/title text and `manifest.webmanifest` in the web layer if the app should match · Play listing title (max 30 characters) · developer name (do not use the same mark) · privacy policy title.
 
 ## 2. Privacy policy (text to host at a public URL, e.g. GitHub Pages or the website; required by Play)
 
-> **Privacy Policy — [App name]**  *Last updated: [date]*
+> **Privacy Policy — Cardstead**  *Last updated: [date]*
 >
-> **Who we are.** [App name] is a collection-tracking and resale-planning app published by [Developer legal name / contact email].
+> **Who we are.** Cardstead is a collection-tracking and resale-planning app published by [Developer legal name / contact email].
 >
 > **Data that stays on your phone.** The cards, purchase lots, sales, notes, prices and settings you enter are stored on your device. If you never sign in, none of this leaves your phone.
 >
@@ -100,9 +100,9 @@ No location, contacts, storage-wide, microphone or background permissions.
 
 ## 7. Release checklist for the owner
 
-1. Pick a final name (section 1); create the Play developer account (one-time fee; identity verification; personal accounts created after Nov 2023 must run a closed test with ≥12 testers for 14 days before production — confirm current rules).
+1. Name is decided (Cardstead, section 1); the Play developer account already exists (fee paid). Note Google's closed-testing requirement for new personal accounts (≥12 testers for 14 days before production — confirm current rules).
 2. Create the upload keystore and add the four GitHub secrets (`docs/ANDROID.md`).
-3. Supabase redirect URLs + email template change (`docs/ANDROID.md`).
+3. Supabase redirect URLs are configured; the email template (`{{ .Token }}` code) still needs a custom SMTP provider first (`docs/ANDROID.md`).
 4. Host the privacy policy; add an account-deletion request page.
 5. Push a tag `vX.Y.Z` → download the AAB artifact → upload to an internal test track.
 6. Test on a Pixel: scan, offline launch, sign-in via emailed code and link, notification, back button. Only then promote.

@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "PokéFlip Studio",
-  "short_name": "PokéFlip",
-  "description": "Your collector field guide for Pokémon cards, French/English inventory, and evidence-backed resale in CAD.",
+  "name": "Cardstead",
+  "short_name": "Cardstead",
+  "description": "Your collector field guide for trading cards, French/English inventory, and evidence-backed resale in CAD.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">PokéFlip Studio</string>
-    <string name="title_activity_main">PokéFlip Studio</string>
+    <string name="app_name">Cardstead</string>
+    <string name="title_activity_main">Cardstead</string>
     <string name="package_name">top.kcaron.cardstudio</string>
     <string name="custom_url_scheme">top.kcaron.cardstudio</string>
 </resources>

@@ -17,9 +17,9 @@ async function get(path) {
 const page = await get('./');
 if(page) {
   const html=page.body.toString('utf8');
-  if(!html.includes('PokéFlip Studio') || !html.includes('pokeflipLedger')) {
+  if(!/Cardstead|PokéFlip Studio/.test(html) || !html.includes('pokeflipLedger')) {
     // The page may not refer to the global ledger directly; the app title is essential.
-    if(!html.includes('PokéFlip Studio')) failures.push('index: missing PokéFlip title');
+    if(!/Cardstead|PokéFlip Studio/.test(html)) failures.push('index: missing app title');
   }
   const scripts=[...html.matchAll(/<script[^>]+src=["'](\.\/[^"']+)["']/g)].map(x=>x[1]);
   for(const path of new Set(scripts)) await get(path);

@@ -1,4 +1,4 @@
-# Release verification — PokéFlip Studio v3.5 (2026-11-21)
+# Release verification — Cardstead (formerly PokéFlip Studio) v3.5 (2026-11-21)
 
 - Source: https://github.com/kevincaron28/pokeflip-studio
 - Hosted Vercel project: https://pokeflip-studio.vercel.app
@@ -14,4 +14,5 @@ The product is useful for pilot inventory, but the outstanding external/accuracy
 
 ## Android wrapper (branch feat/android-capacitor)
 - Added `mobile/` (Capacitor 8), CI `android.yml`, `docs/ANDROID.md`, `docs/PLAY-STORE-READINESS.md`. Web bundle assembly and unit tests pass locally; the Gradle/APK build is checked only by the GitHub Actions run.
-- **Not verified:** installation on a Pixel, camera permission and live scan in the WebView, offline OCR in the WebView, email deep-link return, local notifications, back button, Play Store acceptance (name "PokéFlip" is a trademark risk).
+- **Not verified:** installation on a Pixel, camera permission and live scan in the WebView, offline OCR in the WebView, email deep-link return, local notifications, back button, Play Store acceptance (the old name "PokéFlip" was a trademark risk; renamed Cardstead).
+- Supabase Auth configured 2026-11-22 (Site URL https://pokeflip-studio.vercel.app; redirects `top.kcaron.cardstudio://auth`, `top.kcaron.cardstudio://**`, `https://pokeflip-studio.vercel.app/**`). Magic-link email template could not be edited (needs custom SMTP), so the typed `{{ .Token }}` code is not in the email yet. Remaining owner items: SMTP provider, upload keystore + 4 GitHub secrets, Pixel test. The Play developer account exists.

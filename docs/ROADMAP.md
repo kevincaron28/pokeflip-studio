@@ -1,4 +1,4 @@
-# PokéFlip Studio — release backlog (2026-11-21)
+# Cardstead — release backlog (2026-11-21)
 
 ## Delivered and verified
 - [x] Source committed to GitHub: https://github.com/kevincaron28/pokeflip-studio
@@ -26,3 +26,5 @@
 - [ ] Clear support/incident protocol, backed-up data export and rollback playbook.
 
 Production build readiness is **not** equivalent to completion of all live acceptance gates. See GitHub issues #1–#6.
+
+- [ ] Android (Cardstead): set up custom SMTP so the Supabase magic-link email can carry the 6-digit code; add upload keystore secrets; test on a Pixel (camera, offline OCR, deep link, notifications); host privacy policy and account-deletion page.
