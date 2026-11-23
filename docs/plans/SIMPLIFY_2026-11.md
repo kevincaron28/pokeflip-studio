@@ -153,7 +153,7 @@ Next (phase 2): merge consecutive scans of the same card into a quantity, and a 
   - Format is **detected from the product name** when left on "Any".
   - The area **defaults from My area & stores**.
   - Product names are **suggested from the catalog** as you type.
-- **Weekly price refresh**: `.github/workflows/refresh-prices.yml` rebuilds `pack-ev-data.js` and `price-history.js` every Monday and opens a pull request. It never pushes to `main`. It needs the repository setting "Allow GitHub Actions to create and approve pull requests". Close and reopen its pull request to run CI.
+- **Weekly price refresh**: `.github/workflows/refresh-prices.yml` rebuilds `pack-ev-data.js` and `price-history.js` (daily since the daily price refresh) and opens a pull request. It never pushes to `main`. It needs the repository setting "Allow GitHub Actions to create and approve pull requests". Close and reopen its pull request to run CI.
 
 ## Phase 2b
 English and French ("tu") on every older screen.
@@ -167,3 +167,33 @@ English and French ("tu") on every older screen.
   - `tests/i18n-coverage.test.cjs`: every English text `tools/extract-ui-strings.mjs` finds has a French entry or is kept on purpose; no "vous"; placeholders kept.
   - `tests/i18n-fr-browser.py`: walks the 10 older pages at 390 px in English, then in French. It fails on any text that stays identical and reads as English, and on any text the dictionary knows but left in English.
 - **Adding a screen**: write its text in English as usual, run `node tools/extract-ui-strings.mjs`, and add the new lines to `i18n-fr.js`. The coverage test lists what is missing.
+
+## Daily price refresh
+Owner request after phase 2: "can we have daily price refreshes".
+
+- **What runs when**:
+  - Every day at 08:30 UTC (03:30 in Québec in winter, 04:30 in summer), `.github/workflows/refresh-prices.yml` rebuilds:
+    - `pack-ev-data.js`: market values, pack EV inputs and the Bank of Canada USD/EUR rates;
+    - `price-history.js`: the graphs.
+  - tcgcsv.com updates once a day around 20:00 UTC, so the run picks up the previous evening's prices.
+  - Manual runs: "Run workflow".
+- **Graphs**:
+  - One point per day for the last 35 days, which covers the 7d and 30d ranges.
+  - Every Monday back to a year for the 1y range. Mondays are fixed dates, so old points never move.
+  - About 340 KB, stable over time.
+  - Running twice in one day keeps one point for that day.
+- **Limits checked (23 November 2026)**:
+  - **tcgcsv.com**:
+    - It updates "exactly once per day", wants a custom User-Agent (we send `Cardstead-PackEV/1.0`), and may ban more than 10,000 requests a day.
+    - It may also ban applications that "repeatedly download price archives day-after-day".
+    - The builder now keeps the points already in `price-history.js`, since archives never change. It downloads only the one new day (~3-4 MB) and pauses between downloads. The snapshot makes about 100 requests.
+    - The old weekly job re-downloaded about 80 archives (~320 MB) on every run. That is fixed.
+    - The one-time switch to Mondays was downloaded once locally and is committed.
+  - **GitHub Actions**: the repository is public, so standard runners are free. A run takes a few minutes. Daily commits add roughly 0.1-0.2 MB of compressed history a day to the repository.
+  - **Vercel**: it does not run the refresh. Each publish is one deploy a day, well under the Hobby limit of 100 deploys a day.
+  - **Supabase**: unaffected. Market prices are not stored there. Each user's own value history is already capped at 366 points and the synced snapshot at 3.5 MB.
+  - **Result**: no limit gets in the way, so every product refreshes daily. There is no watched/popular split.
+- **Publishing**:
+  - By default each run updates **one** rolling pull request (`data/price-refresh`). Merging it on any day publishes that day's prices.
+  - To skip the click, set the repository variable `PRICE_REFRESH_PUBLISH=main`. A run that passes `npm run check` then commits straight to `main`, and the site deploys new prices every morning.
+- **Backfill**: a product added later gets points from the next day on. To fill its past from cached archives, run `python tools/build-price-history.py --backfill` on a machine.

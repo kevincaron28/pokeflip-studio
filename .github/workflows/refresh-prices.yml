@@ -1,13 +1,25 @@
 name: Refresh prices
-# Weekly: rebuild the price snapshot (pack-ev-data.js) and the price history (price-history.js) from
-# tcgcsv.com (TCGplayer prices and daily archives) and the Bank of Canada, then open a pull request for review.
-# Nothing is pushed to main. Needs the repository setting
-# "Settings > Actions > General > Allow GitHub Actions to create and approve pull requests".
-# Pull requests opened with GITHUB_TOKEN do not start the CI workflow by themselves: close and reopen the
-# pull request (or push a commit) to run CI before merging.
+# Daily: rebuild the price snapshot (pack-ev-data.js: market values and pack EV inputs) and the price history
+# (price-history.js: the graphs) from tcgcsv.com (TCGplayer prices and daily archives) and the Bank of Canada.
+#
+# When: 08:30 UTC = 03:30 in Québec in winter (04:30 in summer), a quiet hour, after tcgcsv.com's daily update
+# (about 20:00 UTC) and the Bank of Canada rate (published about 16:30 Eastern on business days).
+#
+# Limits kept (see docs/plans/SIMPLIFY_2026-11.md, "Daily price refresh"):
+#  - tcgcsv.com: one update a day, a custom User-Agent, at most ~10,000 requests a day, and never download an
+#    archive twice. A run makes about 100 snapshot requests and downloads ONE new archive (~3-4 MB): the points
+#    already in price-history.js are kept, archives never change.
+#  - GitHub Actions: public repository, standard runner minutes are free; a run takes a few minutes.
+#  - Size: price-history.js keeps one point per day for 35 days, then Mondays back to a year (about 340 KB, stable).
+#
+# Publishing: by default the run updates ONE pull request (branch data/price-refresh) for review, never main.
+# Set the repository variable PRICE_REFRESH_PUBLISH=main to have a run that passes the checks commit straight to
+# main instead (the site then deploys the new prices every morning with no click).
+# Needs "Settings > Actions > General > Allow GitHub Actions to create and approve pull requests" for the pull
+# request mode. Pull requests opened with GITHUB_TOKEN do not start CI by themselves: close and reopen it to run CI.
 on:
   schedule:
-    - cron: '0 11 * * 1'   # Mondays 11:00 UTC (06:00 in Québec)
+    - cron: '30 8 * * *'
   workflow_dispatch:
 permissions:
   contents: write
@@ -18,7 +30,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -30,23 +42,26 @@ jobs:
       - run: pip install py7zr==1.1.4
       - name: Rebuild the price snapshot (pack-ev-data.js)
         run: node tools/build-pack-ev.mjs
-      - name: Rebuild the price history (price-history.js)
+      - name: Add today's point to the price history (price-history.js)
         run: python tools/build-price-history.py
       - name: Check the rebuilt data
         run: npm run check
-      - name: Open a pull request when prices changed
+      - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
+          PUBLISH: ${{ vars.PRICE_REFRESH_PUBLISH }}
         run: |
           if git diff --quiet -- pack-ev-data.js price-history.js; then echo "No change."; exit 0; fi
           day=$(date -u +%F)
-          branch="data/refresh-prices-$day"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branch"
           git add pack-ev-data.js price-history.js
           git commit -m "Price data refresh $day (TCGplayer via tcgcsv, Bank of Canada)"
-          git push origin "$branch"
-          gh pr create --base main --head "$branch" \
-            --title "Price data refresh $day" \
-            --body "Weekly automatic refresh of pack-ev-data.js and price-history.js (TCGplayer prices via tcgcsv.com, Bank of Canada USD/CAD and EUR/CAD). Data only. Close and reopen this pull request to run CI, then merge if it is green."
+          if [ "$PUBLISH" = "main" ]; then git push origin HEAD:main; exit 0; fi
+          branch="data/price-refresh"
+          git push --force origin "HEAD:refs/heads/$branch"
+          if [ -z "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base main --head "$branch" \
+              --title "Price data refresh (daily)" \
+              --body "Daily automatic refresh of pack-ev-data.js and price-history.js (TCGplayer prices via tcgcsv.com, Bank of Canada USD/CAD and EUR/CAD). Data only. Each morning's run replaces this branch with the newest prices, so merging it on any day publishes that day's prices. Close and reopen to run CI, then merge if it is green."
+          fi

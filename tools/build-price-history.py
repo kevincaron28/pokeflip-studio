@@ -2,8 +2,15 @@
 Cardstead shows, from tcgcsv.com's daily price archives (one 7z file per day, all of TCGplayer), plus the
 Bank of Canada USD/CAD rate for each date so graphs can be drawn in CAD.
 
-Dates: every day of the last 35 days, then one per week back to a year (archives start 2024-02-08).
-Archives are cached in tools/.cache/ (gitignored), so later runs only download new days.
+Dates: every day of the last 35 days (one point per day), then every Monday back to a year (archives start
+2024-02-08). Mondays are fixed dates, so a point never moves between runs and the file stays about the same size.
+
+tcgcsv.com asks that an archive is never downloaded twice ("Applications that repeatedly download price archives
+day-after-day may be banned"). So the points already in price-history.js are kept as they are (archives never
+change) and only dates the file does not have yet are read: a daily run downloads one archive. Archives are also
+cached in tools/.cache/ (gitignored). A product added later gets history from the days read from then on; to fill
+its past, run with --backfill on a machine that has the archives cached (it reads cached archives, it downloads
+only missing ones).
 
 Needs Node (to read pack-ev-data.js and sought-cards.js) and py7zr:  python -m pip install py7zr
 Run: python tools/build-price-history.py
@@ -37,16 +44,32 @@ def targets():
     return data
 
 def schedule(last):
+    """Every day of the last 35 days, then every Monday back to a year."""
     days = [last - dt.timedelta(days=i) for i in range(35)]
     d = last - dt.timedelta(days=35)
+    d -= dt.timedelta(days=d.weekday())          # the Monday on or before
     while d >= max(FIRST, last - dt.timedelta(days=365)):
         days.append(d); d -= dt.timedelta(days=7)
     return sorted(set(days))
+
+def previous():
+    """The points already published: {date: {key: price}} and {date: usdcad}."""
+    f = ROOT / "price-history.js"
+    if not f.exists(): return {}, {}
+    txt = f.read_text(encoding="utf-8")
+    a = txt.index("root.CardsteadPriceHistory=") + len("root.CardsteadPriceHistory=")
+    old = json.loads(txt[a:txt.index(";if(typeof module", a)])
+    by_day = {d: {} for d in old["dates"]}
+    for k, vals in old["series"].items():
+        for d, v in zip(old["dates"], vals):
+            if v is not None: by_day[d][k] = v
+    return by_day, dict(zip(old["dates"], old.get("fx") or []))
 
 def archive(day):
     f = CACHE / f"prices-{day.isoformat()}.ppmd.7z"
     if not f.exists():
         f.write_bytes(get(f"https://tcgcsv.com/archive/tcgplayer/prices-{day.isoformat()}.ppmd.7z"))
+        time.sleep(0.25)  # tcgcsv.com asks for a pause between requests
     return f
 
 def fx_rates(start, end):
@@ -62,8 +85,16 @@ def main():
     series = {x["key"]: [None] * len(days) for x in t["items"]}
     by_group = {}
     for x in t["items"]: by_group.setdefault(x["group"], []).append(x)
+    old, _ = previous()
+    backfill = "--backfill" in sys.argv
+    read = 0
     for i, day in enumerate(days):
-        f = archive(day)
+        known = old.get(day.isoformat())
+        if known is not None:
+            for k in series:
+                if k in known: series[k][i] = known[k]
+            if not backfill: continue
+        f = archive(day); read += 1
         names = [f"{day.isoformat()}/3/{g}/prices" for g in groups]
         with py7zr.SevenZipFile(f) as z:
             have = set(z.getnames()); want = [n for n in names if n in have]
@@ -100,7 +131,7 @@ def main():
             "if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadPriceHistory;"
             "})(typeof window!=='undefined'?window:globalThis);\n")
     (ROOT / "price-history.js").write_text(body, encoding="utf-8")
-    print(f"\nWrote price-history.js: {len(series)} products, {len(days)} dates ({days[0]} to {days[-1]}), {len(body)//1024} KB")
+    print(f"\nWrote price-history.js: {len(series)} products, {len(days)} dates ({days[0]} to {days[-1]}), {len(body)//1024} KB; {read} archive(s) read")
 
 if __name__ == "__main__":
     main()
