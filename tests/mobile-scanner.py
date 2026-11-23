@@ -53,7 +53,7 @@ try:
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   assert not page.locator(".mobile-dock").is_visible()
   assert page.locator(".tabs").is_visible()
-  assert page.locator(".tab").count()==10
+  assert page.locator(".tab").count()==11
   print("PASS desktop: original sidebar still available")
   ctx.close()
   browser.close()
