@@ -18,9 +18,11 @@ button.primary{background:#58d7b0;border-color:#58d7b0;color:#081e1a}
 .log{font:12px/1.5 ui-monospace,monospace;max-height:260px;overflow:auto;white-space:pre-wrap;background:#0b1424;border-radius:9px;padding:8px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 a{color:#91c8ed}
+.warnbox{background:#4e2836;border-left:4px solid #ec4b55;border-radius:9px;padding:10px 12px;color:#ffd1d1;font-size:13px;line-height:1.5}
+.auto-on{color:#ffdd8b;font-weight:700}
 </style></head><body>
 <h1>Cardstead Drop Assist</h1>
-<p class="note">Watches the Amazon.ca and Pokémon Center Canada products you add. When one is in stock at or under your max price, it alerts you loudly, adds your quantity to the cart and opens checkout with your saved address and payment. <strong>You click "Place order" yourself.</strong> It never stores passwords or card numbers, never solves a CAPTCHA and never skips the Pokémon Center line.</p>
+<p class="note">Watches the Amazon.ca and Pokémon Center Canada products you add. When one is in stock at or under your max price, it alerts you loudly, adds your quantity to the cart and opens checkout with your saved address and payment. <strong>You click "Place order" yourself</strong>, unless you switch on automatic checkout for an Amazon.ca product (see the warning below). It never stores passwords or card numbers, never solves a CAPTCHA and never skips the Pokémon Center line.</p>
 
 <div class="panel"><h2>Add a product</h2>
 <form id="add"><div class="grid">
@@ -40,6 +42,21 @@ a{color:#91c8ed}
 <label class="row"><input type="checkbox" id="sound"> Loud alarm sound on a drop</label>
 <p class="note">Phone push uses <a href="https://ntfy.sh" target="_blank" rel="noopener noreferrer">ntfy.sh</a> (free, no account). Install the ntfy app, subscribe to a long random topic name, and type the same name here. Anyone who knows the name can read the alerts, so make it hard to guess.</p>
 <button id="save" class="primary" type="button">Save settings</button> <span id="saveMsg" class="note" aria-live="polite"></span></div>
+
+<div class="panel warn" id="autoPanel"><h2>Automatic checkout (Amazon.ca only, off by default)</h2>
+<p class="warnbox"><strong>Read this first.</strong> Amazon's Conditions of Use forbid robots and automated buying. Amazon can cancel orders placed this way, and it can suspend or close your account, including your order history and any gift card balance. You use this at your own risk. Pokémon Center is never bought automatically.</p>
+<p class="note">When it is on for a product, Drop Assist presses "Buy Now" and then "Place your order", using only the address and payment already saved in your Amazon account. Just before the final click it re-reads the checkout page. If any of these is wrong, it buys nothing, leaves checkout open and alerts you:
+the order total (with tax and shipping) is above the product's max order total or today's cap; the unit price is above your max; the quantity is not exactly your quantity; there is more than one item; the seller is not Amazon.ca or your allowlist; the address does not match the postal code below; Amazon asks for a payment choice, a CVV, a CAPTCHA or a code.
+At most one order per product per drop, never retried. Every attempt is logged, and you get a loud alert and a phone push with a link to cancel the order.</p>
+<label class="row"><input type="checkbox" id="autoAck"> I understand the Amazon terms risk and want automatic checkout available</label>
+<div class="grid">
+<div><label for="dailyCap">Daily spending cap, all products · CAD</label><input id="dailyCap" type="number" min="0" step="1" placeholder="e.g. 250"></div>
+<div><label for="postalCode">Shipping postal code saved in Amazon</label><input id="postalCode" maxlength="7" placeholder="e.g. J4K 1A1" autocomplete="postal-code"></div>
+<div><label for="street">Street (optional extra check)</label><input id="street" maxlength="80" placeholder="e.g. 100 Rue Exemple" autocomplete="address-line1"></div>
+<div><label for="sellers">Also allow these sellers (comma separated)</label><input id="sellers" maxlength="200" placeholder="Amazon.ca is always allowed"></div>
+</div>
+<button id="saveAuto" class="primary" type="button">Save automatic checkout settings</button> <span id="autoMsg" class="note" aria-live="polite"></span>
+<h2>Orders and attempts</h2><p class="note" id="spent"></p><div id="orders" class="log" tabindex="0"></div></div>
 
 <div class="panel"><h2>What Drop Assist did</h2><div class="row"><button id="clearLog" type="button">Clear log</button></div><div id="log" class="log" tabindex="0"></div></div>
 <script src="lib/core.js"></script><script src="options.js"></script>

@@ -21,10 +21,25 @@ async function render(){
   const edit=el('div',undefined,'grid');
   const field=(lab,val,key,attrs)=>{const w=el('div');const l=el('label',lab);const i=document.createElement('input');Object.assign(i,attrs,{value:val});i.onchange=()=>{const n=Number(i.value);if(n>0)update(p.id,{[key]:key==='maxQty'?Math.min(10,Math.floor(n)):n})};l.htmlFor=i.id=key+'-'+p.id;w.append(l,i);return w};
   edit.append(field('Max price · CAD',p.maxPrice,'maxPrice',{type:'number',min:1,step:0.01}),field('Max quantity',p.maxQty,'maxQty',{type:'number',min:1,max:10,step:1}));
-  if(p.store==='amazon'){const w=el('label');const c=document.createElement('input');c.type='checkbox';c.checked=p.amazonOnly!==false;c.onchange=()=>update(p.id,{amazonOnly:c.checked});w.className='row';w.append(c,' Only when sold by Amazon.ca (skips third-party resellers)');edit.append(w)}
+  if(p.store==='amazon'){const w=el('label');const c=document.createElement('input');c.type='checkbox';c.checked=p.amazonOnly!==false;c.onchange=()=>update(p.id,{amazonOnly:c.checked});w.className='row';w.append(c,' Only when sold by Amazon.ca (skips third-party resellers)');edit.append(w);
+   // Automatic checkout: off by default, per product, only after the warning is accepted.
+   edit.append(field('Max order total incl. tax & shipping · CAD',p.maxOrderTotal??'','maxOrderTotal',{type:'number',min:1,step:0.01}));
+   const aw=el('label');aw.className='row';const ac=document.createElement('input');ac.type='checkbox';ac.id='auto-'+p.id;ac.checked=!!p.autoBuy;ac.disabled=!settings.autoAck;
+   ac.onchange=()=>{if(ac.checked&&!(p.maxOrderTotal>0)){ac.checked=false;alert('Set a max order total for this product first.');return}update(p.id,{autoBuy:ac.checked})};
+   aw.append(ac,el('span',' Automatic checkout (places the order for you)',p.autoBuy?'auto-on':''));edit.append(aw);
+   if(p.autoBuy){const e2=A.autoEligible(p,settings);if(!e2.ok)edit.append(el('div','Will use checkout assist until fixed: '+e2.why.join('; ')+'.','status'))}
+   else if(!settings.autoAck)edit.append(el('div','Automatic checkout needs the Amazon terms warning accepted below.','status'))}
   row.append(info,btns,edit);host.append(row);
  }
  $('interval').value=settings.intervalMin||A.DEFAULT_INTERVAL_MIN;$('assist').value=settings.assist||'checkout';$('ntfy').value=settings.ntfyTopic||'';$('sound').checked=settings.sound!==false;
+ $('autoAck').checked=!!settings.autoAck;$('dailyCap').value=settings.dailyCap||'';$('postalCode').value=settings.postalCode||'';$('street').value=settings.street||'';$('sellers').value=(settings.sellerAllowlist||[]).join(', ');
+ const {orders=[]}=await store.get('orders');const spent=A.spentToday(orders);
+ $('spent').textContent=settings.dailyCap>0?`Today: ${fmt(spent)} of your ${fmt(Number(settings.dailyCap))} cap.`:'No daily cap set: automatic checkout stays off.';
+ $('orders').replaceChildren();
+ if(!orders.length)$('orders').textContent='No automatic order or attempt yet.';
+ for(const o of orders.slice().reverse()){const line=el('div',`${new Date(o.at).toLocaleString('en-CA')}  ${products.find(x=>x.id===o.productId)?.name||o.productId}  ${o.status.toUpperCase()}  qty ${o.qty??'?'}  unit ${fmt(o.unit)}  total ${fmt(o.total)}${o.reason?'  · '+o.reason:''}  `);
+  if(o.status==='placed'||o.status==='unknown'){const a=el('a',o.orderId?'Open order #'+o.orderId+' (cancel)':'Open your orders');a.href=A.cancelUrl(o.orderId);a.target='_blank';a.rel='noopener noreferrer';line.append(a)}
+  $('orders').append(line)}
  $('log').textContent=log.slice().reverse().map(l=>`${new Date(l.at).toLocaleString('en-CA')}  ${products.find(p=>p.id===l.productId)?.name||''}  ${l.message}`).join('\n')||'Nothing yet.';
 }
 async function update(id,patch){const {products=[]}=await store.get('products');await store.set({products:products.map(p=>p.id===id?{...p,...patch}:p)});render()}
@@ -39,7 +54,17 @@ $('add').onsubmit=async e=>{e.preventDefault();const msg=$('addMsg');
  products.push({...ref,name:$('addName').value.trim().slice(0,80),maxPrice,maxQty,enabled:true,amazonOnly:true});
  await store.set({products});e.target.reset();msg.textContent='Added. The first check runs within a minute.';render()};
 $('save').onclick=async()=>{const topic=$('ntfy').value.trim();if(topic&&!A.ntfyTopicOk(topic)){$('saveMsg').textContent='The ntfy topic needs 8 to 64 letters, digits, - or _.';return}
- await store.set({settings:{intervalMin:Math.max(A.MIN_INTERVAL_MIN,Math.min(60,Number($('interval').value)||A.DEFAULT_INTERVAL_MIN)),assist:$('assist').value,ntfyTopic:topic,sound:$('sound').checked}});$('saveMsg').textContent='Saved.';render()};
+ const {settings:old={}}=await store.get('settings');
+ await store.set({settings:{...old,intervalMin:Math.max(A.MIN_INTERVAL_MIN,Math.min(60,Number($('interval').value)||A.DEFAULT_INTERVAL_MIN)),assist:$('assist').value,ntfyTopic:topic,sound:$('sound').checked}});$('saveMsg').textContent='Saved.';render()};
+$('saveAuto').onclick=async()=>{const m=$('autoMsg');const {settings:old={},products=[]}=await store.get(['settings','products']);
+ const ack=$('autoAck').checked,cap=Number($('dailyCap').value)||0,postal=$('postalCode').value.trim().toUpperCase();
+ if(ack&&!(cap>0)){m.textContent='Set a daily spending cap above $0.';return}
+ if(ack&&!/^[A-Z]\d[A-Z] ?\d[A-Z]\d$/.test(postal)){m.textContent='Enter the Canadian postal code of the address saved in Amazon (like J4K 1A1).';return}
+ const sellers=$('sellers').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,10);
+ await store.set({settings:{...old,autoAck:ack,dailyCap:cap,postalCode:postal,street:$('street').value.trim().slice(0,80),sellerAllowlist:sellers}});
+ // Turning the acknowledgement off switches automatic checkout off everywhere.
+ if(!ack)await store.set({products:products.map(p=>({...p,autoBuy:false}))});
+ m.textContent=ack?'Saved. Now switch automatic checkout on for each Amazon.ca product you want.':'Saved. Automatic checkout is off for every product.';render()};
 $('clearLog').onclick=async()=>{await store.set({log:[]});render()};
 chrome.storage.onChanged.addListener(render);
 render();

@@ -109,7 +109,85 @@ function signalsFromCardstead(entries,products){
 }
 function ntfyTopicOk(t){return /^[A-Za-z0-9_-]{8,64}$/.test(String(t||''))}
 
-const api={MIN_INTERVAL_MIN,DEFAULT_INTERVAL_MIN,ROBOT_BACKOFF_MIN,DROP_COOLDOWN_MIN,ASSIST_TTL_MIN,productFromInput,money,parseAmazon,parsePokemonCenter,quantity,decide,nextDelayMs,isFinalPurchaseControl,signalsFromCardstead,ntfyTopicOk};
+/* ---------- Automatic checkout (Amazon.ca only, off by default) ----------
+ * The owner accepted the Amazon terms risk. Every guard below must pass on the live checkout page,
+ * re-read just before the single "Place your order" click; anything else falls back to assist mode. */
+const normPostal=s=>String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+const normText=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+
+/** Amazon.ca checkout page -> totals, quantity, sellers, address and every reason to stop. */
+function parseAmazonCheckout(html){
+ const h=String(html||''),text=strip(h);
+ const captcha=/validateCaptcha|enter the characters you see|type the characters|solve this puzzle|captcha/i.test(h);
+ const otp=/one-time password|one time password|\bOTP\b|verification code|enter the code|code de vérification|approve the notification|two-step verification|vérification en deux étapes/i.test(text);
+ const paymentPrompt=/choose a payment method|select a payment method|add a (credit or debit )?card|enter (your )?(card )?security code|\bCVV\b|\bCVC\b|card verification|verify your card|re-?enter your card|choisir un mode de paiement|ajouter une carte|code de sécurité|change payment method to continue/i.test(text);
+ const line=label=>{const m=text.match(new RegExp('(?:'+label+')\\s*:?\\s*((?:CDN|CA)?\\$\\s?[\\d,]+(?:\\.\\d{2})?|[\\d\\s,]+(?:[.,]\\d{2})?\\s?\\$)','i'));return m?money(m[1]):null};
+ const orderTotal=line('Order total|Total de la commande|Montant total');
+ const items=line('Items|Articles');
+ const shipping=line('Shipping (?:&|and) handling|Livraison');
+ const qtys=[...text.matchAll(/\b(?:Qty|Quantity|Quantité|Qté)\s*:?\s*(\d{1,2})\b/gi)].map(m=>Number(m[1]));
+ const selQ=[...h.matchAll(/<select[^>]*name=["'][^"']*quantity[^"']*["'][^>]*>[\s\S]*?<option[^>]*selected[^>]*value=["'](\d+)["']|<option[^>]*value=["'](\d+)["'][^>]*selected/gi)].map(m=>Number(m[1]||m[2]));
+ const quantities=qtys.length?qtys:selQ;
+ // The seller name is the text right after "Sold by:", up to the end of its element.
+ const sellers=[...h.matchAll(/(?:Sold by|Vendu par)\s*:?\s*(?:<[^>]*>\s*)*([^<]{2,80}?)\s*</gi)].map(m=>m[1].replace(/&amp;/g,'&').trim()).filter(Boolean);
+ const addrBlock=(()=>{const m=text.match(/(?:Delivering to|Shipping address|Ship to|Adresse de livraison|Livraison à)\s*:?\s*(.{0,220})/i);return m?m[1]:''})();
+ const placeOrder=/name=["']placeYourOrder1["']|id=["'](submitOrderButtonId|placeYourOrder|bottomSubmitOrderButtonId)["']|>\s*Place your order\s*<|value=["']Place your order["']|aria-label=["']Place your order["']|Passer (votre|la) commande/i.test(h);
+ return {captcha,otp,paymentPrompt,orderTotal,items,shipping,quantities,sellers,address:addrBlock,placeOrder};
+}
+
+/** Can this product be bought automatically at all (before a drop)? */
+function autoEligible(product,settings){
+ const why=[];
+ if(product.store!=='amazon')why.push('automatic checkout is Amazon.ca only');
+ if(!product.autoBuy)why.push('automatic checkout is off for this product');
+ if(!settings?.autoAck)why.push('the Amazon terms warning is not accepted in Settings');
+ if(!(settings?.dailyCap>0))why.push('no daily spending cap set');
+ if(!normPostal(settings?.postalCode))why.push('no shipping postal code set');
+ if(!(product.maxOrderTotal>0))why.push('no max order total set');
+ if(!(product.maxPrice>0))why.push('no max price per unit set');
+ return {ok:!why.length,why};
+}
+
+/** Orders that count against today's cap (placed, or attempted with the result unknown). */
+function spentToday(orders,now=Date.now()){
+ const d=new Date(now),start=new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime();
+ return (orders||[]).filter(o=>Date.parse(o.at)>=start&&o.status!=='not-placed').reduce((a,o)=>a+(Number(o.total)||0),0);
+}
+
+/** Every check on the re-read checkout page. Any failure -> do not click, fall back to assist. */
+function verifyCheckout(product,settings,parsed,expectedQty,spent=0){
+ const why=[];
+ if(parsed.captcha)why.push('Amazon shows a CAPTCHA');
+ if(parsed.otp)why.push('Amazon asks for a one-time code or approval');
+ if(parsed.paymentPrompt)why.push('Amazon asks to pick or confirm payment (or a CVV)');
+ if(!parsed.placeOrder)why.push('no "Place your order" button found');
+ if(!Number.isFinite(parsed.orderTotal))why.push('order total not found');
+ if(parsed.quantities.length!==1)why.push(parsed.quantities.length?'more than one item in this order':'quantity not found');
+ else if(parsed.quantities[0]!==expectedQty)why.push(`quantity is ${parsed.quantities[0]}, expected ${expectedQty}`);
+ const qty=parsed.quantities[0]||expectedQty;
+ if(Number.isFinite(parsed.items)&&qty>0&&parsed.items/qty>product.maxPrice+0.005)why.push(`unit price $${(parsed.items/qty).toFixed(2)} is above your max $${product.maxPrice.toFixed(2)}`);
+ if(!Number.isFinite(parsed.items))why.push('item price not found');
+ if(Number.isFinite(parsed.orderTotal)&&parsed.orderTotal>product.maxOrderTotal+0.005)why.push(`order total $${parsed.orderTotal.toFixed(2)} is above your max $${product.maxOrderTotal.toFixed(2)}`);
+ if(Number.isFinite(parsed.orderTotal)&&spent+parsed.orderTotal>settings.dailyCap+0.005)why.push(`today's spending would reach $${(spent+parsed.orderTotal).toFixed(2)}, above your daily cap $${Number(settings.dailyCap).toFixed(2)}`);
+ const allowed=['amazon.ca','amazon.com.ca',...(settings.sellerAllowlist||[])].map(normText).filter(Boolean);
+ if(!parsed.sellers.length)why.push('seller not found');
+ else for(const s of parsed.sellers)if(!allowed.includes(normText(s)))why.push(`sold by "${s}", not Amazon.ca or your allowlist`);
+ const addr=normPostal(parsed.address);
+ if(!addr.includes(normPostal(settings.postalCode)))why.push('shipping address does not match your saved postal code');
+ if(settings.street&&!normText(parsed.address).includes(normText(settings.street)))why.push('shipping address does not match your saved street');
+ return {ok:!why.length,why,total:parsed.orderTotal,qty,unit:Number.isFinite(parsed.items)&&qty?parsed.items/qty:null};
+}
+
+/** Order confirmation page -> order id (for the cancel link), or null. */
+function parseOrderPlaced(html,url=''){
+ const t=strip(html);
+ const placed=/order placed|thank you,? your order has been placed|merci,? votre commande a été passée|commande passée/i.test(t)||/\/(thankyou|thank-you)\b/i.test(url);
+ const id=(String(html).match(/\b(\d{3}-\d{7}-\d{7})\b/)||[])[1]||null;
+ return {placed,orderId:id};
+}
+function cancelUrl(orderId){return orderId?'https://www.amazon.ca/gp/your-account/order-details?orderID='+encodeURIComponent(orderId):'https://www.amazon.ca/gp/css/order-history'}
+
+const api={parseAmazonCheckout,autoEligible,spentToday,verifyCheckout,parseOrderPlaced,cancelUrl,normPostal,MIN_INTERVAL_MIN,DEFAULT_INTERVAL_MIN,ROBOT_BACKOFF_MIN,DROP_COOLDOWN_MIN,ASSIST_TTL_MIN,productFromInput,money,parseAmazon,parsePokemonCenter,quantity,decide,nextDelayMs,isFinalPurchaseControl,signalsFromCardstead,ntfyTopicOk};
 root.CardsteadAssist=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof self!=='undefined'?self:globalThis);

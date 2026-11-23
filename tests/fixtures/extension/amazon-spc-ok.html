@@ -1,0 +1,8 @@
+<!doctype html><html><body><h1>Checkout (2 items)</h1>
+<div id="shipping-address"><h3>Delivering to Alex Tremblay</h3><p>100 Rue Exemple, LONGUEUIL, QC, J4K 1A1, Canada</p></div>
+<div id="payment-information"><p>Paying with Visa ending in 0000</p></div>
+<div class="item"><p>Pokémon TCG: Surging Sparks Elite Trainer Box</p><p>$64.99</p><p>Qty: 2</p><p>Sold by: Amazon.ca</p></div>
+<table id="subtotals-marketplace-table"><tr><td>Items:</td><td>$129.98</td></tr><tr><td>Shipping &amp; handling:</td><td>$0.00</td></tr><tr><td>Estimated GST/HST:</td><td>$6.50</td></tr><tr><td>Estimated PST/RST/QST:</td><td>$12.96</td></tr><tr><td>Order total:</td><td>$149.44</td></tr></table>
+<span id="submitOrderButtonId"><input name="placeYourOrder1" type="submit" value="Place your order" aria-label="Place your order"></span>
+<script>document.querySelector('input[name=placeYourOrder1]').addEventListener('click',e=>{e.preventDefault();sessionStorage.setItem('placed',String(Number(sessionStorage.getItem('placed')||0)+1));location.assign('/gp/buy/thankyou/handlers/display.html')})</script>
+</body></html>

@@ -39,11 +39,47 @@ function banner(text,loud=true){
 }
 function beep(){try{const c=new (window.AudioContext||window.webkitAudioContext)();let t=c.currentTime;for(let i=0;i<6;i++){const o=c.createOscillator(),g=c.createGain();o.frequency.value=i%2?660:990;g.gain.value=0.25;o.connect(g).connect(c.destination);o.start(t);o.stop(t+0.18);t+=0.24}}catch{}}
 
+/* Automatic checkout, last step: re-read this checkout page, let the background re-check every guard,
+ * then press "Place your order" ONCE. Any doubt -> nothing pressed, the owner is alerted. */
+async function autoCheckout(p,job){
+ await wait(1500); // let the page settle so totals and address are final
+ const parsed=A.parseAmazonCheckout(document.documentElement.outerHTML);
+ const key='cardstead-placed-'+job.attemptId;
+ if(sessionStorage.getItem(key)){return} // already pressed on this page: never twice
+ const r=await send({type:'auto-verify',id:p.id,parsed});
+ if(!r||!r.go){banner('Not bought automatically: '+((r&&r.why)||['no answer']).join('; ')+'. Review it and click Place your order yourself.');return}
+ const btn=document.querySelector('input[name="placeYourOrder1"]')||document.querySelector('#submitOrderButtonId input,#submitOrderButtonId button,#placeYourOrder input,#placeYourOrder button,#bottomSubmitOrderButtonId input')||[...document.querySelectorAll('input[type=submit],button')].find(b=>/^\s*place your order\s*$/i.test(label(b)));
+ if(!btn){await send({type:'auto-unconfirmed',id:p.id,reason:'Place your order button not found; nothing pressed'});banner('Not bought: the Place your order button was not found.');return}
+ sessionStorage.setItem(key,'1');
+ banner('Placing your order for '+p.name+'…');
+ btn.click(); // the single automatic "Place your order" press, after every guard passed
+ setTimeout(async()=>{if(/\/(gp\/buy|checkout)\//i.test(location.pathname)&&!/thank/i.test(location.pathname)&&!A.parseOrderPlaced(document.documentElement.outerHTML,location.href).placed){
+  await send({type:'auto-unconfirmed',id:p.id,reason:'still on the checkout page 20 seconds after Place your order'});banner('Amazon did not confirm the order. Check your orders: Drop Assist will not try again.')}},20000);
+}
+
 async function assist(){
  const got=await send({type:'assist-get',url:location.href,store});if(!got)return;
  const {product:p,job}=got;
- if(job.mode!=='checkout'){banner('DROP: '+p.name+' is in stock. Buy it now.');return}
  const path=location.pathname;
+ // Automatic checkout (Amazon.ca only, switched on per product by the owner).
+ if(store==='amazon'&&job.mode==='auto'&&p.store==='amazon'){
+  if(job.attempted){
+   const r=A.parseOrderPlaced(document.documentElement.outerHTML,location.href);
+   if(r.placed){banner('ORDER PLACED for '+p.name+(r.orderId?' (#'+r.orderId+')':'')+'. The alert has a link to cancel it.');await send({type:'auto-placed',id:p.id,orderId:r.orderId});return}
+   if(/\/(gp\/buy|checkout)\//i.test(path))return; // still on checkout after the click: the 20-second check below reports it
+   return}
+  if(/\/(dp|gp\/product)\//.test(path)){
+   const q=setQuantity(job.qty);await wait(400);
+   const buy=document.getElementById('buy-now-button');
+   if(!buy){banner(p.name+': no Buy Now button. Checkout assist instead.');await send({type:'assist-step',id:p.id,step:'stuck',message:'Automatic checkout: no Buy Now button; nothing bought.'});return}
+   banner('Automatic checkout: Buy Now for '+q+' × '+p.name+'…');await send({type:'assist-step',id:p.id,step:'buy-now',message:'Automatic checkout: quantity '+q+' set; Buy Now pressed.'});
+   buy.click(); // the one allowed press before the checkout page: Buy Now, automatic mode only
+   await wait(6000);
+   if(/\/(dp|gp\/product)\//.test(location.pathname)){banner('Amazon opened its quick checkout window. Nothing was bought: review it and place the order yourself.');await send({type:'assist-step',id:p.id,step:'overlay',message:'Automatic checkout stopped: quick-checkout window instead of the checkout page. Nothing bought.'})}
+   return}
+  if(/\/(gp\/buy|checkout)\//i.test(path)){await autoCheckout(p,job);return}
+ }
+ if(job.mode!=='checkout'&&job.mode!=='auto'){banner('DROP: '+p.name+' is in stock. Buy it now.');return}
  // Checkout reached: stop and hand over.
  if(store==='amazon'&&/\/(gp\/buy|checkout|gp\/checkoutportal)\//i.test(path)||store==='pokemoncenter'&&/\/checkout/i.test(path)){
   banner('Checkout is open for '+p.name+'. Review it and click Place order yourself.');await send({type:'assist-done',id:p.id});return}
