@@ -218,6 +218,6 @@ function init(){
  // The mobile drawer navigates by clicking the tab, so this also covers phones.
  if(!$('packs').classList.contains('hidden'))open();
 }
-core.open=open;
+core.open=open;core.loadData=loadData;
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init);else init();
 })(typeof window!=='undefined'?window:globalThis);

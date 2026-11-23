@@ -48,7 +48,7 @@ try:
   assert d["watches"][0]["autoUrl"]=="https://tistaminis.com/products/test-etb"
   assert "Potential restock" in page.locator("#restockMessage").inner_text()
   # Ready to buy: cart link with variant id and quantity capped by the shop limit; a normal link the user opens (nothing submitted)
-  buy=page.locator("#restockBuy a").first
+  buy=page.locator("#restockBuy a",has_text="Buy now").first
   assert buy.get_attribute("href")=="https://tistaminis.com/cart/987654:2", buy.get_attribute("href")
   assert "Buy now" in buy.inner_text() and buy.get_attribute("rel")=="noopener noreferrer"
   assert "never sees or stores payment details" in page.locator("#restockBuy").inner_text()

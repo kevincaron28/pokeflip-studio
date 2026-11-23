@@ -451,3 +451,31 @@ td,th{padding:12px 11px}
  .pack-table td[data-label="Set"],.pack-breakdown td[data-label="Slot / rarity"]{display:block;text-align:left}
  .pack-table td[data-label="Set"]::before,.pack-breakdown td[data-label="Slot / rarity"]::before{content:none}
 }
+/* Alert cards (restock, price drop, stock check) */
+.alert-list{display:grid;gap:12px}
+.alert-item .note{margin:6px 2px 0}
+.buy-card{margin-bottom:12px}
+.alert-card{position:relative;background:#121d30;border:1px solid var(--pf-line);border-left:4px solid #6b7a93;border-radius:12px;padding:14px 16px;margin:6px 0;color:var(--pf-text)}
+.alert-card.ac-under{border-left-color:var(--pf-mint)}
+.alert-card.ac-fair{border-left-color:var(--pf-gold)}
+.alert-card.ac-over{border-left-color:var(--pf-red)}
+.ac-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.ac-kind{margin:0;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--pf-muted)}
+.ac-title{margin:2px 0 8px;font-size:16px;line-height:1.3}
+.ac-img{width:72px;height:72px;object-fit:contain;border-radius:8px;background:#0b1424;flex:0 0 auto}
+.ac-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 8px}
+.ac-grid dt,.ac-rows dt{font-size:11px;color:var(--pf-muted);font-weight:600}
+.ac-grid dd,.ac-rows dd{margin:2px 0 0;overflow-wrap:anywhere}
+.ac-rows{display:grid;gap:6px;margin:8px 0}
+.ac-rows>div{display:grid;grid-template-columns:minmax(110px,170px) minmax(0,1fr);gap:10px}
+.ac-sub{color:var(--pf-muted);font-size:12px}
+.ac-sub a,.ac-rows a{color:var(--pf-ice)}
+.ac-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:#6b7a93;vertical-align:middle}
+.ac-dot-green{background:#3ddc84}.ac-dot-red{background:var(--pf-red)}
+.ac-drop{margin:4px 0 8px;font-weight:700;color:var(--pf-mint)}
+.ac-verdict{margin:8px 0;padding:8px 10px;border-radius:8px;font-weight:700;background:#1b2941}
+.ac-under .ac-verdict{background:#153f36;color:#93f2c4}
+.ac-fair .ac-verdict{background:#44351d;color:#ffdd8b}
+.ac-over .ac-verdict{background:#4e2836;color:#ffd1d1}
+.ac-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+@media(max-width:520px){.ac-rows>div{grid-template-columns:minmax(0,1fr);gap:0}.ac-img{width:56px;height:56px}}
