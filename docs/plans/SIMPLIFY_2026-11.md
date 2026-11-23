@@ -137,3 +137,23 @@ Adopted in the scanner's new **scan tray**:
 Already in Cardstead and kept: continuous **Stack mode** (camera stays open), the match list to confirm or adjust the printing, quantity, and condition.
 
 Next (phase 2): merge consecutive scans of the same card into a quantity, and a "set lock" to narrow matches to one set.
+
+## Phase 2a (done)
+- **Scanner**:
+  - The "Market references" panel is **removed**: its manual USD→CAD / EUR→CAD fields were never read by any code, and its quote box never filled.
+  - The real marketplace quotes (TCGplayer USD, Cardmarket EUR) now show their **CAD equivalent at the Bank of Canada rate** stored with the price snapshot (USD and EUR, dated).
+  - Card language, condition and finish are remembered (phase 1b).
+- **Business page** (Collection → Business):
+  - The headline numbers and **Today's priorities** stay on top. Value over time, pricing confidence, sorting plan, highest-value cards and lot recovery move under **More business details**.
+  - The duplicate "Getting started" panel is **removed**: "Start here" covers it and hides once a lot exists.
+  - About 3,470 px → 1,440 px at phone width.
+- **Settings**: the sorting guide, "Current limitations" and "Fast checkout tips" fold into one **Help & tips** section.
+- **Watch form**:
+  - **Product and max price** are the only fields shown. Format, language, area, quantity, shop limit and Shopify link sit under **More options**.
+  - Format is **detected from the product name** when left on "Any".
+  - The area **defaults from My area & stores**.
+  - Product names are **suggested from the catalog** as you type.
+- **Weekly price refresh**: `.github/workflows/refresh-prices.yml` rebuilds `pack-ev-data.js` and `price-history.js` every Monday and opens a pull request. It never pushes to `main`. It needs the repository setting "Allow GitHub Actions to create and approve pull requests". Close and reopen its pull request to run CI.
+
+## Phase 2b
+English and French ("tu") on every older screen.

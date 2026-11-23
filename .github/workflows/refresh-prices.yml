@@ -1,0 +1,52 @@
+name: Refresh prices
+# Weekly: rebuild the price snapshot (pack-ev-data.js) and the price history (price-history.js) from
+# tcgcsv.com (TCGplayer prices and daily archives) and the Bank of Canada, then open a pull request for review.
+# Nothing is pushed to main. Needs the repository setting
+# "Settings > Actions > General > Allow GitHub Actions to create and approve pull requests".
+# Pull requests opened with GITHUB_TOKEN do not start the CI workflow by themselves: close and reopen the
+# pull request (or push a commit) to run CI before merging.
+on:
+  schedule:
+    - cron: '0 11 * * 1'   # Mondays 11:00 UTC (06:00 in Québec)
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: refresh-prices
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: pip install py7zr==1.1.4
+      - name: Rebuild the price snapshot (pack-ev-data.js)
+        run: node tools/build-pack-ev.mjs
+      - name: Rebuild the price history (price-history.js)
+        run: python tools/build-price-history.py
+      - name: Check the rebuilt data
+        run: npm run check
+      - name: Open a pull request when prices changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- pack-ev-data.js price-history.js; then echo "No change."; exit 0; fi
+          day=$(date -u +%F)
+          branch="data/refresh-prices-$day"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add pack-ev-data.js price-history.js
+          git commit -m "Price data refresh $day (TCGplayer via tcgcsv, Bank of Canada)"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "Price data refresh $day" \
+            --body "Weekly automatic refresh of pack-ev-data.js and price-history.js (TCGplayer prices via tcgcsv.com, Bank of Canada USD/CAD and EUR/CAD). Data only. Close and reopen this pull request to run CI, then merge if it is green."

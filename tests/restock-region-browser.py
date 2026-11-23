@@ -26,7 +26,7 @@ try:
   page.route("**/products.json*",shop)
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   page.locator('[data-tab="restock"]').first.evaluate("e=>e.click()")
-  page.evaluate("document.querySelectorAll('details.advanced').forEach(d=>d.open=true)")
+  page.evaluate("document.querySelectorAll('details.advanced,details.form-more').forEach(d=>d.open=true)")
   page.locator("#restockRegions label").first.wait_for(timeout=5000)
   assert "South Shore" in page.locator("#restockRegions").inner_text()
   page.fill("#restockProduct","Mega Evolution Flowing Fist Booster Bundle");page.fill("#restockCeiling","60")

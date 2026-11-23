@@ -26,7 +26,7 @@ try:
   page.route("https://tistaminis.com/**",shop)
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   page.evaluate("go && go('restock')") if page.evaluate("typeof go")=="function" else page.locator('[data-tab="restock"]').first.evaluate("e=>e.click()")
-  page.evaluate("document.querySelectorAll('details.advanced').forEach(d=>d.open=true)")
+  page.evaluate("document.querySelectorAll('details.advanced,details.form-more').forEach(d=>d.open=true)")
   page.locator("#restockRetailers .source-row").first.wait_for(timeout=5000)
   rows=page.locator("#restockRetailers .source-row")
   assert rows.count()>=13, rows.count()
