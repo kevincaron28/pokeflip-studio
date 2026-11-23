@@ -39,11 +39,11 @@ localStorage.setItem('pokeflip-restock-matches-v1',{json.dumps(json.dumps(matche
             btn = page.locator("#restockWatches .alert-card [data-compare]").first
             btn.wait_for(timeout=15000); btn.click()
             dlg = page.locator("#compareDialog")
-            dlg.locator(".cmp-table").wait_for(timeout=10000)
+            dlg.locator("#compareBody > .cmp-list").wait_for(timeout=10000)
             if lang == "fr":
                 dlg.locator("[data-cmp-lang]").click(); page.wait_for_function("document.querySelector('#compareBody').innerText.includes('Comparer les magasins')")
             text = dlg.inner_text()
-            stores = dlg.locator(".cmp-table tbody tr td:first-child strong").all_inner_texts()
+            stores = dlg.locator("#compareBody > .cmp-list .cmp-store-name").all_inner_texts()
             assert stores == ["Collect-Edition", "EB Games", "Walmart.ca"], stores   # in stock first, then cheapest; sold out last
             if lang == "en":
                 for must in ("Compare stores", "MSRP", "Market value (sealed)", "as of", "Best in-stock price", "$139.99", "In stock", "Sold out", "Buy", "followed stores with no record"):
@@ -53,7 +53,7 @@ localStorage.setItem('pokeflip-restock-matches-v1',{json.dumps(json.dumps(matche
                     assert must in text, (must, text)
             # Unfollowed area: the toggle can only add stores, never invent prices.
             dlg.locator("[data-cmp-all]").check(); page.wait_for_timeout(300)
-            assert dlg.locator(".cmp-table tbody tr").count() == 3
+            assert dlg.locator("#compareBody > .cmp-list > li").count() == 3
             dlg.locator("[data-cmp-all]").uncheck(); page.wait_for_timeout(300)
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             assert overflow <= 1, overflow
@@ -65,8 +65,8 @@ localStorage.setItem('pokeflip-restock-matches-v1',{json.dumps(json.dumps(matche
             page.locator(".pack-table tbody tr").first.wait_for(timeout=15000)
             page.fill("#packSearch", "surging"); page.locator(".pack-table tbody tr").first.click()
             inline = page.locator("#packCompare")
-            inline.locator(".cmp-table").wait_for(timeout=10000)
-            rows = inline.locator(".cmp-table tbody tr td:first-child strong").all_inner_texts()
+            inline.locator(":scope > .cmp-list").wait_for(timeout=10000)
+            rows = inline.locator(":scope > .cmp-list .cmp-store-name").all_inner_texts()
             assert rows == ["Costco.ca", "Collect-Edition"], rows
             assert ("Comparer" if lang == "fr" else "Compare stores") in inline.inner_text(), "language choice is remembered"
             if SHOTS:
