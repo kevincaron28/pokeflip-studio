@@ -17,4 +17,6 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/production-smoke.mjs
+        env:
+          POKEFLIP_URL: ${{ vars.CARDSTEAD_URL || 'https://pokeflip-studio.vercel.app/' }}
       - run: node tests/anon-access-smoke.mjs

@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: '22'
       - run: npm run check
+      - name: Cloudflare Pages build and Functions bundle (no account needed)
+        run: node tools/build-pages.mjs && npx --yes wrangler@4.20.0 pages functions build --outdir "$RUNNER_TEMP/pages-fn"
   browser-ui:
     runs-on: ubuntu-24.04
     steps:
@@ -35,6 +37,8 @@ jobs:
       - run: python tests/restock-auto-browser.py
       - run: python tests/restock-region-browser.py
       - run: python tests/live-browser.py
+        env:
+          POKEFLIP_URL: ${{ vars.CARDSTEAD_URL || 'https://pokeflip-studio.vercel.app/' }}
       - run: python tests/pack-ev-browser.py
       - run: python tests/alert-card-browser.py
       - run: python tests/compare-stores-browser.py
@@ -58,4 +62,6 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/production-smoke.mjs
+        env:
+          POKEFLIP_URL: ${{ vars.CARDSTEAD_URL || 'https://pokeflip-studio.vercel.app/' }}
       - run: node tests/anon-access-smoke.mjs

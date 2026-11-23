@@ -8,7 +8,7 @@ For each Discord channel slug we guess a few domains, then require ALL of:
   * at least one Pokemon product in the newest 250 (otherwise not useful for this app)
 Polite: one request at a time per host, honest User-Agent, 8 s timeout, no retries. Run manually, not in CI.
 """
-import json,re,sys,time,urllib.request,urllib.error,concurrent.futures as cf,unicodedata
+import os, json,re,sys,time,urllib.request,urllib.error,concurrent.futures as cf,unicodedata
 from pathlib import Path
 UA="Cardstead-research/1.0 (+https://github.com/kevincaron28/pokeflip-studio)"
 root=Path(__file__).resolve().parents[1]
@@ -22,6 +22,9 @@ for line in md.splitlines():
     body=re.split(r"Region roll-ups|Roll-ups?:",m.group(2))[0]
     for s in re.findall(r"[a-z0-9][a-z0-9\-]+",body):
         if len(s)>2:slugs.setdefault(s,prov)
+# The site origin the shops must allow (CORS). Set CARDSTEAD_ORIGIN to probe a new domain before a move.
+ORIGIN=os.environ.get("CARDSTEAD_ORIGIN","https://pokeflip-studio.vercel.app")
+
 def get(url,limit=3_000_000):
     time.sleep(0.8)  # politeness: never burst
     for attempt in (1,2):
@@ -30,7 +33,7 @@ def get(url,limit=3_000_000):
             if e.code==429 and attempt==1:time.sleep(60);continue  # rate limited: back off once, then give up on this URL
             raise
 def _get(url,limit):
-    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Encoding":"identity","Origin":"https://pokeflip-studio.vercel.app"})
+    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Encoding":"identity","Origin":ORIGIN})
     with urllib.request.urlopen(req,timeout=8) as r:
         return r.status,dict(r.headers),r.read(limit),r.geturl()
 # --hosts FILE: probe exact hosts instead of guessing from Discord slugs. One "host hint" per line
@@ -54,7 +57,7 @@ def probe(slug):
         except Exception:continue
         if st!=200 or not isinstance(d.get("products"),list):continue
         fh=re.match(r"https://([^/]+)/",final).group(1)
-        out={"slug":slug,"host":fh,"hint":slugs[slug],"cors":h.get("access-control-allow-origin") in ("*","https://pokeflip-studio.vercel.app")}
+        out={"slug":slug,"host":fh,"hint":slugs[slug],"cors":h.get("access-control-allow-origin") in ("*",ORIGIN)}
         try:
             _,_,mb,_=get(f"https://{fh}/meta.json");m=json.loads(mb)
             out.update(name=m.get("name"),city=m.get("city"),province=m.get("province"),country=m.get("country"),currency=m.get("currency"))

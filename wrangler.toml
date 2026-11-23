@@ -1,0 +1,6 @@
+# Cloudflare Pages project for Cardstead (the move off Vercel Hobby: docs/CLOUDFLARE-MOVE.md).
+# Build command: node tools/build-pages.mjs   Output directory: dist   Root directory: (repository root)
+# Secrets (EBAY_CLIENT_ID, EBAY_CLIENT_SECRET) are set in the Cloudflare dashboard, never here.
+name = "cardstead"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-01"

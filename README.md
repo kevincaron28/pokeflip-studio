@@ -34,6 +34,8 @@ Run `npm run check`, `python tests/browser_embedded.py`, and `python tests/cloud
 ## Deployment
 The existing Vercel project hosts https://pokeflip-studio.vercel.app. Production source can be deployed directly from a chosen GitHub SHA. Installing and authorizing Vercel's GitHub integration is still needed for automatic push-to-deploy. Preview protection is enabled, production frontend public; inventory requires Supabase account authentication.
 
+Moving off Vercel Hobby (non-commercial only): the site is ready for Cloudflare Pages (free, commercial use allowed). `node tools/build-pages.mjs` builds `dist/`, `functions/` holds the eBay route and the security headers, and `npm run pages:dev` runs it locally. Setup, side-by-side run and the cut-over checklist: [docs/CLOUDFLARE-MOVE.md](docs/CLOUDFLARE-MOVE.md).
+
 ## Collaboration
 Read [AGENTS.md](AGENTS.md) and the [architecture](docs/ARCHITECTURE.md) first. Use feature branches and PRs with tests, and never commit personal data or service-role keys.
 
