@@ -1,4 +1,4 @@
-const CACHE='pokeflip-shell-v4.3';
+const CACHE='pokeflip-shell-v4.3.1';
 const SHELL=['./','./index.html','./studio-theme.css','./mobile-lab.css','./mobile-experience.js','./studio-mark.svg','./studio-horizon.svg','./app.js','./card-lookup.js','./scan-heuristics.js','./live-scan-gate.js','./card-detect.js','./art-rank.js','./scan-pipeline.js','./continuous-scan.js','./market-reference.js','./cloud-sync.js','./portfolio.js','./deal.js','./symbol-match.js','./symbol-ui.js','./ebay-pricing.js','./sealed-guide.js','./restock-watch.js','./alert-hub.js','./condition-screen.js','./variant-guard.js','./identity-guard.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 const allowed=new Set(SHELL.map(p=>new URL(p,self.registration.scope).pathname));
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));

@@ -1,6 +1,6 @@
 {
   "appId": "top.kcaron.cardstudio",
-  "appName": "PokéFlip Studio",
+  "appName": "Cardstead",
   "webDir": "www",
   "server": { "androidScheme": "https" },
   "android": { "backgroundColor": "#0b1120", "allowMixedContent": false },

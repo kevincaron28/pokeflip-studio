@@ -1,4 +1,4 @@
-# Security policy — PokéFlip Studio
+# Security policy — Cardstead
 
 Report vulnerabilities privately to the repository owner; never post credentials, user data, or exploit details in public issues.
 

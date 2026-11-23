@@ -55,16 +55,15 @@ Create the keystore once, offline, with `keytool -genkeypair -v -keystore upload
 
 The app opens the email magic link through the custom scheme `top.kcaron.cardstudio://auth`. Supabase refuses redirect targets that are not allow-listed.
 
-**Supabase dashboard → Authentication → URL Configuration → Redirect URLs — add:**
+**Supabase dashboard → Authentication → URL Configuration (configured by the owner on 2026-11-22 — see status below):**
 
 ```
 top.kcaron.cardstudio://auth
 top.kcaron.cardstudio://**
 ```
 
-Keep the existing `https://pokeflip-studio.vercel.app` Site URL / redirect so the website keeps working. (This task did not change Supabase.)
 
-**Email template (Authentication → Email Templates → Magic Link):** include `{{ .Token }}` (the 6-digit code) in the body in addition to `{{ .ConfirmationURL }}`. The app also accepts the code typed into the sign-in field, which works even if the phone opens the link in a browser instead of the app. This is the reliable fallback and should stay.
+**Email template — NOT done, blocked:** Supabase locks email-template editing until a custom SMTP provider is configured, so the 6-digit `{{ .Token }}` code is **not in the email yet** (the owner needs an SMTP provider first, then add `{{ .Token }}` next to `{{ .ConfirmationURL }}` in Authentication → Email Templates → Magic Link). Until then sign-in on the phone depends on the magic link opening the app via the custom scheme; this is untested on a device. The app already accepts a typed code once the email carries it.
 
 Behaviour implemented: `#access_token=…&refresh_token=…` → `client.auth.setSession`; `?code=…` → `exchangeCodeForSession`; links from any other scheme or host are ignored; an `error` fragment is shown to the user.
 
