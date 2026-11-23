@@ -172,6 +172,7 @@ section>h1{
  letter-spacing:-1.35px;
  font-weight:850;
 }
+html:lang(fr) section>h1:before{content:"CARNET DE TERRAIN / CARDSTEAD"}
 section>h1:before{
  content:"FIELD NOTES / CARDSTEAD";
  display:block;

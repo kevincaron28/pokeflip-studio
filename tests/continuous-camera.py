@@ -12,7 +12,7 @@ Thread(target=server.serve_forever,daemon=True).start()
 try:
  with sync_playwright() as p:
   browser=p.chromium.launch(headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
-  ctx=browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  ctx=browser.new_context(viewport={'width':390,'height':844},service_workers='block',locale='en-CA')
   page=ctx.new_page()
   errors=[]
   page.on('pageerror',lambda e:errors.append(str(e)))

@@ -19,7 +19,7 @@ hub = [{"id": "a1", "source": "pokennoisseur", "product": "Surging Sparks Booste
 try:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
-        ctx = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
+        ctx = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="en-CA")
         ctx.route("**/products.json*", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"products":[]}'))
         ctx.route("https://tcgplayer-cdn.tcgplayer.com/**", lambda r: r.fulfill(status=404, body=""))
         ctx.add_init_script(f"localStorage.setItem('pokeflip-alert-hub-v1', {json.dumps(json.dumps(hub))});")

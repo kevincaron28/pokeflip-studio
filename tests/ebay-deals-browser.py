@@ -35,7 +35,7 @@ try:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         for configured in (False, True):
-            ctx = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
+            ctx = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="en-CA")
             queries = []
             def api(route):
                 q = parse_qs(urlparse(route.request.url).query)
