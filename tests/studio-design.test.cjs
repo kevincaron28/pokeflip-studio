@@ -26,7 +26,7 @@ test('all original routes plus Pack value and controls remain in redesigned navi
 });
 test('offline shell caches visual assets, not personal data',()=>{
   for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','card-detect.js','art-rank.js','scan-pipeline.js'])assert.ok(sw.includes("'./"+file+"'"));
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.5\.0'/);
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.6\.0'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });

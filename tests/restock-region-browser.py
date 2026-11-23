@@ -19,7 +19,9 @@ def shop(route):
 try:
  with sync_playwright() as p:
   b=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
-  ctx=b.new_context(viewport={"width":390,"height":844},service_workers="block");page=ctx.new_page();errors=[]
+  ctx=b.new_context(viewport={"width":390,"height":844},service_workers="block")
+  # An existing user who follows no region (a new Québec user follows every Québec region: tests/store-prefs.test.cjs)
+  ctx.add_init_script("localStorage.setItem('pokeflip-restock-regions-v1','[]')");page=ctx.new_page();errors=[]
   page.on("pageerror",lambda e:errors.append(str(e)))
   page.route("**/products.json*",shop)
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")

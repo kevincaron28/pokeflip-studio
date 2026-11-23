@@ -68,3 +68,39 @@ Decision: Cardstead does **not** store card numbers, tokens or addresses, and do
 - No new data leaves the device (variant ids are read from the shop page already fetched), so `privacy.html` and the Play data-safety answers are unchanged. Payment information is never collected, which keeps the "financial features: none" answer valid.
 
 Not verified: opening links in a Custom Tab on a device, a real Shopify `/cart/<id>:<qty>` landing on checkout for each shop (they are standard Shopify cart permalinks), and Amazon's add-to-cart page behaviour (not live-checked).
+
+## My area & stores (Québec-first, 23 Nov 2026)
+
+The Restock tab opens with **My area & stores**: province, region and city (optional), and a store checklist in four groups:
+- local card shops near you;
+- online shops that ship across Canada;
+- chains and big retailers;
+- local shops in other provinces.
+
+- **Default for a new user** (Québec):
+  - every Québec local shop, every Canada-wide online shop and every chain;
+  - no local shops from other provinces;
+  - no region or city, because Cardstead never guesses where you live.
+  Region and city sort nearby shops first.
+- Everything follows the selection:
+  - "Follow a region" polling defaults to every region of your province plus Canada-wide online shops, and skips stores you unticked;
+  - polling now rotates least-recently-checked first, so every shop gets its turn past the 30-shop cap;
+  - the one-tap retailer list;
+  - possible matches in Ready to buy;
+  - the alerts inbox, whose default filter is **My stores**.
+- Stored on the device only (`cardstead-area-v1`). Users who already chose regions keep their choice.
+
+Coverage after this change: research in `docs/research/quebec-retailers-2026-11-23.md`.
+- **39 Québec local shops** in 11 Québec regions:
+  - 27 Shopify shops with automatic checks. 12 are new: 5 passed the probe (`tools/quebec-hosts.txt` → `docs/research/shopify-probe-2026-11-23-quebec.json`) and 7 were confirmed by hand because their product titles never say "Pokémon".
+  - 12 non-Shopify shops with one-tap Google site searches: Montréal, Verdun, Lachine, Saint-Jean, Québec City, Sherbrooke, Drummondville, and Imaginaire's stores.
+- **Online shops**: 15. New: Tonkatom's TCG Station, Hanabi Trading, Shopverse (automatic checks), HappyTCG and Poké-Market (Québec).
+- **Chains**: Canada Computers was added (Québec stores, Pokémon boosters category). Toys"R"Us now points at Staples.ca, because toysrus.ca redirects there.
+- Gatineau shops moved from Ottawa to **Outaouais (Québec)**, and Côte-Saint-Luc to Montréal.
+- **Not added**, because they could not be verified to sell Pokémon TCG or to exist as stores:
+  - Giant Tiger, Indigo, Renaud-Bray, Archambault, Jean Coutu, Uniprix, Bureau en Gros;
+  - La carte cachée and Fanamanga (no Pokémon evidence online);
+  - Vapeland (a vape shop on an unconfirmed host);
+  - Magikart (Asian-language product);
+  - the Discord handles with no matching store.
+- Shipping to Québec is explicit for HappyTCG, Poké-Market and Hanabi. For the other Canada-wide shops it is not checked shop by shop.

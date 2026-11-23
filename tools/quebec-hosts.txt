@@ -1,0 +1,18 @@
+# Québec card shops and Canada-wide online card shops on Shopify, found on 2026-11-23
+# (docs/research/quebec-retailers-2026-11-23.md). Probe: python tools/probe-shopify-shops.py --hosts tools/quebec-hosts.txt --out docs/research/shopify-probe-2026-11-23-quebec.json
+www.cardchasersmtl.com qc
+www.3dragons.ca qc
+carddynasty.ca qc
+www.multivers.ca qc
+collect-edition.com qc
+www.boutiqueawesome.com qc
+www.boutiquefdb.com qc
+boutiquelapioche.com qc
+frostpeakcollectibles.com qc
+luniversdelacarte.ca qc
+tcgandgames.com qc
+www.asdesjeux.com qc
+tonkatomstcgstation.ca ntl
+hanabitradingco.ca ntl
+shopverse.com ntl
+magikartcards.com ntl

@@ -33,8 +33,18 @@ def _get(url,limit):
     req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Encoding":"identity","Origin":"https://pokeflip-studio.vercel.app"})
     with urllib.request.urlopen(req,timeout=8) as r:
         return r.status,dict(r.headers),r.read(limit),r.geturl()
+# --hosts FILE: probe exact hosts instead of guessing from Discord slugs. One "host hint" per line
+# (hint: qc, on, bc, ab, ntl); results go to --out (default: a separate dated file).
+HOSTS=None;OUT="docs/research/shopify-probe-2026-11-23.json"
+if "--hosts" in sys.argv:
+    HOSTS={}
+    for line in (root/sys.argv[sys.argv.index("--hosts")+1]).read_text(encoding="utf-8").splitlines():
+        parts=line.split("#")[0].split()
+        if parts:HOSTS[parts[0]]=parts[1] if len(parts)>1 else "qc"
+    slugs=HOSTS
+    OUT=sys.argv[sys.argv.index("--out")+1] if "--out" in sys.argv else "docs/research/shopify-probe-hosts.json"
 def probe(slug):
-    for host in (f"{slug}.ca",f"{slug}.com",f"www.{slug}.ca",f"www.{slug}.com",f"{slug}.myshopify.com",f"{slug}.shop",f"{slug}.store",f"{slug}.games",f"{slug.replace('-','')}.ca" if "-" in slug else None,f"{slug.replace('-','')}.com" if "-" in slug else None):
+    for host in ((slug,) if HOSTS is not None else None) or (f"{slug}.ca",f"{slug}.com",f"www.{slug}.ca",f"www.{slug}.com",f"{slug}.myshopify.com",f"{slug}.shop",f"{slug}.store",f"{slug}.games",f"{slug.replace('-','')}.ca" if "-" in slug else None,f"{slug.replace('-','')}.com" if "-" in slug else None):
         if not host:continue
         try:
             st,h,body,final=get(f"https://{host}/products.json?limit=250")
@@ -66,5 +76,5 @@ with cf.ThreadPoolExecutor(3) as ex:
     for r in ex.map(probe,sorted(slugs)):
         if r:res.append(r)
 ok=[r for r in res if r["cors"] and r.get("country")=="CA" and r.get("currency")=="CAD" and r.get("robots_ok") is not False and r["pokemon_products"]>=1]
-(root/"docs/research/shopify-probe-2026-11-23.json").write_text(json.dumps({"slugs_tried":len(slugs),"shopify_hits":len(res),"accepted":ok,"rejected":[r for r in res if r not in ok]},ensure_ascii=False,indent=1),encoding="utf-8")
+(root/OUT).write_text(json.dumps({"slugs_tried":len(slugs),"shopify_hits":len(res),"accepted":ok,"rejected":[r for r in res if r not in ok]},ensure_ascii=False,indent=1),encoding="utf-8")
 print("slugs",len(slugs),"shopify hits",len(res),"accepted",len(ok))
