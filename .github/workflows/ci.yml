@@ -33,6 +33,7 @@ jobs:
       - run: python tests/browser_embedded.py
       - run: python tests/cloud_autosave_browser.py
       - run: python tests/restock-auto-browser.py
+      - run: python tests/restock-region-browser.py
       - run: python tests/live-browser.py
       - run: python tests/csp-check.py
   deployed-site:
