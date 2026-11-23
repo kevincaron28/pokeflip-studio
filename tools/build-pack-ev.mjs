@@ -62,6 +62,26 @@ const median = a => {
 };
 const ext = (p, key) => (p.extendedData || []).find(e => e.name === key)?.value ?? null;
 
+/** Sealed product kind from a TCGplayer product name, or null for cases, displays and code cards. */
+export function sealedType(name) {
+  const n = String(name);
+  if (/\bCase\b|Display|Code Card|Half Booster Box|Fun Pack|Bundle \[Set of|Art Bundle/i.test(n)) return null;
+  if (/Pokemon Center Elite Trainer Box/i.test(n)) return 'etb-pc';
+  if (/Elite Trainer Box/i.test(n)) return 'etb';
+  if (/Booster Box$/i.test(n)) return 'box';
+  if (/Booster Bundle/i.test(n)) return 'bundle';
+  if (/3 Pack Blister/i.test(n)) return 'blister3';
+  if (/Premium Checklane Blister/i.test(n)) return 'blister-premium';
+  if (/Single Pack Blister|Checklane Blister/i.test(n)) return 'blister1';
+  if (/Sleeved Booster Pack$/i.test(n)) return 'sleeved';
+  if (/ Booster Pack$/i.test(n)) return 'pack';
+  if (/Build & Battle Stadium/i.test(n)) return 'bnb-stadium';
+  if (/Build & Battle Box$/i.test(n)) return 'bnb';
+  if (/\bTin\b/i.test(n)) return 'tin';
+  if (/Collection|Premium|Box\b/i.test(n)) return 'collection';
+  return 'other';
+}
+
 export function variantOf(name) {
   const m = String(name).match(/\(([^()]+)\)\s*$/);
   return m ? m[1].trim() : null;
@@ -74,17 +94,20 @@ export function summariseSet(products, prices) {
     if (!byProduct.has(row.productId)) byProduct.set(row.productId, {});
     byProduct.get(row.productId)[row.subTypeName] = row;
   }
-  const pools = {}, reverse = [], cards = [];
+  const pools = {}, reverse = [], cards = [], sealed = [];
   let pack = null;
   for (const p of products) {
     const rarity = ext(p, 'Rarity');
     const quotes = byProduct.get(p.productId) || {};
     if (!rarity) {
+      const q = quotes.Normal || Object.values(quotes)[0];
       if (/ Booster Pack$/.test(p.name) && !/Code Card|Sleeved|Case|Display|Bundle|Blister/i.test(p.name)) {
-        const q = quotes.Normal || Object.values(quotes)[0];
         pack = {id: p.productId, name: p.name,
           market: q?.marketPrice ?? null, low: q?.lowPrice ?? null, mid: q?.midPrice ?? null};
       }
+      const type = sealedType(p.name);
+      // Compact rows [productId, name, type, market USD]: matched against restock alerts.
+      if (type) sealed.push([p.productId, p.name, type, q?.marketPrice > 0 ? q.marketPrice : null]);
       continue;
     }
     if (rarity === 'Code Card' || rarity === 'Promo') continue;
@@ -114,6 +137,7 @@ export function summariseSet(products, prices) {
   }
   return {
     pack,
+    sealed,
     pools: out,
     reverseHolo: {priced: reverse.length,
       mean: reverse.length ? round(reverse.reduce((a, b) => a + b, 0) / reverse.length, 4) : null},

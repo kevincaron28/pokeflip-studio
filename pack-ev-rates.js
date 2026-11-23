@@ -21,7 +21,14 @@ root.CardsteadPackRates={
     sourceUrl:'https://kotaku.com/gamestop-pokemon-tcg-prices-booster-box-etb-perfect-order-2000681798',seen:'2026-11-23',
     note:'Current US price per pack, also in SNKRDUNK (29 May 2025, Destined Rivals: pack $4.49, 36-pack box $161.64). Applies to numbered main sets; no official Canadian MSRP was found. Sets released while the MSRP was $3.99 sold for less at launch.'}
   ],
-  perSet:{}
+  perSet:{},
+  // US suggested retail per sealed product (main sets). Used by restock alert cards; CAD stays unknown.
+  products:[
+   {groupIds:MAIN_SETS,usd:{pack:4.49,box:161.64,bundle:26.94,blister3:13.99,bnb:21.99},
+    sourceTitle:'SNKRDUNK, 29 May 2025: Destined Rivals MSRP (pack $4.49, booster box $161.64, booster bundle $26.94, 3-pack blister $13.99, Build & Battle Box $21.99)',
+    sourceUrl:'https://snkrdunk.com/en/magazine/2025/05/29/pokemon-tcg-gamestop-raises-prices-of-destined-rivals-dri-products/',seen:'2026-11-23',
+    note:'Applied to numbered main sets as the current US MSRP. Elite Trainer Box, tin and collection MSRPs were not found in a citable source.'}
+  ]
  },
  // Generated from TCGplayer Infinite "Pull Rates" articles (and one community sample), checked line by line on 2026-11-23.
  notes:{
