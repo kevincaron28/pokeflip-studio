@@ -28,3 +28,5 @@
 Production build readiness is **not** equivalent to completion of all live acceptance gates. See GitHub issues #1–#6.
 
 - [ ] Android (Cardstead): set up custom SMTP so the Supabase magic-link email can carry the 6-digit code; add upload keystore secrets; test on a Pixel (camera, offline OCR, deep link, notifications); host privacy policy and account-deletion page.
+
+- [ ] Background stock alerts: server poller for allow-listed Shopify shops + FCM/Web Push (design in docs/CANADA-STOCK-ALERTS.md); needs owner decisions on hosting, Firebase and privacy policy.
