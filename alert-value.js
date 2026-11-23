@@ -60,7 +60,7 @@ function msrpUsd(set,kind,rates){
 /** Everything an alert card shows. price/prevPrice in CAD. */
 function assess({product,price,prevPrice=null,format=null},ctx){
  const data=ctx?.data,rates=ctx?.rates,fx=data?.fx?.usdToCad;
- const out={product,price:isNum(price)?price:null,match:null,market:null,msrp:null,contents:null,verdict:null,drop:null,asOf:data?.prices?.asOf||null};
+ const out={product,format,price:isNum(price)?price:null,match:null,market:null,msrp:null,contents:null,verdict:null,drop:null,asOf:data?.prices?.asOf||null};
  if(isNum(prevPrice)&&isNum(price)&&prevPrice>price){const diff=prevPrice-price;out.drop={from:prevPrice,to:price,diff,pct:diff/prevPrice}}
  if(!data){out.verdict={code:'unknown',label:'Value unknown: price snapshot not loaded'};return out}
  const m=match(product,data,format);out.match=m;
@@ -140,7 +140,7 @@ function cardHtml(a,{store,status='unknown',url=null,buyUrl=null,buyLabel=null,a
  ${a.contents&&a.contents.packs!==undefined?`<div><dt>Expected value of contents</dt><dd>${ev}</dd></div>`:''}
  <div><dt>Matched product</dt><dd class="ac-sub">${matched}</dd></div></dl>
  <p class="ac-verdict">${esc(a.verdict.label)}</p>
- <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(go)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<span class="ac-sub">${at?esc(new Date(at).toLocaleString('en-CA')):''}</span></div>
+ <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(go)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<button type="button" class="btn smallbtn" data-compare="${esc(a.product)}" data-format="${esc(a.format||'')}">Compare stores</button><span class="ac-sub">${at?esc(new Date(at).toLocaleString('en-CA')):''}</span></div>
 </article>`;
 }
 
