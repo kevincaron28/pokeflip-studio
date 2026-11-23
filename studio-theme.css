@@ -415,3 +415,39 @@ td,th{padding:12px 11px}
  html{scroll-behavior:auto}
  *,*:before,*:after{animation:none!important;transition:none!important}
 }
+/* Pack value tab */
+.pack-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end}
+.pack-checks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px}
+.checkline{display:flex;align-items:center;gap:8px;min-height:44px;color:var(--pf-muted);font-size:13px}
+.checkline input{width:auto;min-width:20px;height:20px}
+.pack-table,.pack-breakdown{width:100%}
+.pack-table tbody tr{cursor:pointer}
+.pack-table tbody tr:hover td,.pack-table tbody tr:focus td{background:#1b2941}
+.pack-table tbody tr:focus{outline:2px solid #f6c85b99;outline-offset:-2px}
+.pack-up{color:var(--pf-mint)}
+.pack-down{color:#ff9ca2}
+.pack-metrics{margin:14px 0}
+.pack-metrics .metric strong{font-size:22px}
+.pack-metrics .metric span{display:block;margin-top:4px}
+.pack-verdict{border-radius:12px;padding:12px 14px;border-left:3px solid var(--pf-line);background:#1b2941}
+.pack-verdict.pack-open{border-color:var(--pf-mint);background:#153f3633}
+.pack-verdict.pack-sealed{border-color:var(--pf-gold);background:#44351d55}
+.pack-verdict.pack-skip{border-color:var(--pf-red);background:#4e283655}
+.pack-top{padding-left:20px;line-height:1.9}
+.pack-top a,.pack-sources a,#packStatus a{color:var(--pf-ice)}
+.pack-sources{padding-left:18px;line-height:1.6}
+.pack-yourprice{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:6px 0 4px}
+.pack-yourprice>div{flex:1 1 180px}
+.table-scroll{overflow-x:auto}
+@media(max-width:760px){
+ .pack-filters{grid-template-columns:minmax(0,1fr)}
+ .pack-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .pack-table thead,.pack-breakdown thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .pack-table,.pack-table tbody,.pack-table tr,.pack-table td,.pack-breakdown,.pack-breakdown tbody,.pack-breakdown tr,.pack-breakdown td{display:block;width:100%}
+ .pack-table tr,.pack-breakdown tr{border:1px solid var(--pf-line);border-radius:14px;padding:6px 12px;margin-bottom:10px;background:#121d30}
+ .pack-table td,.pack-breakdown td{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #29384e;text-align:right}
+ .pack-table td:last-child,.pack-breakdown td:last-child{border-bottom:0}
+ .pack-table td::before,.pack-breakdown td::before{content:attr(data-label);color:var(--pf-muted);font-size:12px;text-align:left;flex:0 0 auto}
+ .pack-table td[data-label="Set"],.pack-breakdown td[data-label="Slot / rarity"]{display:block;text-align:left}
+ .pack-table td[data-label="Set"]::before,.pack-breakdown td[data-label="Slot / rarity"]::before{content:none}
+}

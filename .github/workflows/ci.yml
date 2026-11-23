@@ -35,6 +35,7 @@ jobs:
       - run: python tests/restock-auto-browser.py
       - run: python tests/restock-region-browser.py
       - run: python tests/live-browser.py
+      - run: python tests/pack-ev-browser.py
       - run: python tests/csp-check.py
   deployed-site:
     runs-on: ubuntu-24.04
