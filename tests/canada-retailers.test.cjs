@@ -17,7 +17,7 @@ test('shopifyJsUrl accepts allow-listed product URLs only',()=>{
  for(const bad of ['http://tistaminis.com/products/x','https://evil.example/products/x','https://tistaminis.com@evil.example/products/x','https://tistaminis.com/collections/pokemon','https://www.walmart.ca/en/ip/x','javascript:alert(1)','nonsense',''])assert.equal(R.shopifyJsUrl(bad),null,bad);
 });
 test('parseShopifyProduct reports availability and price honestly',()=>{
- assert.deepEqual(R.parseShopifyProduct({title:'ETB',variants:[{available:false,price:6999},{available:true,price:5499}]}),{status:'in',price:54.99,title:'ETB'});
+ assert.deepEqual(R.parseShopifyProduct({title:'ETB',variants:[{available:false,price:6999},{available:true,price:5499}]}),{status:'in',price:54.99,title:'ETB',variantId:null});
  assert.equal(R.parseShopifyProduct({title:'ETB',variants:[{available:false,price:6999}]}).status,'out');
  assert.equal(R.parseShopifyProduct({title:'x',variants:[{available:true,price:'54.99'}]}).price,54.99);
  for(const bad of [null,{},{variants:[]},{variants:[{available:true,price:'abc'}]}])assert.equal(R.parseShopifyProduct(bad),null);
@@ -60,4 +60,37 @@ test('matchCatalog needs every distinctive word, never matches vague names, repo
 test('regional polling is opt-in, throttled and never writes observations',()=>{
  const w=read('restock-watch.js');assert.match(w,/REGION_MIN_MS=30\*60\*1000/);assert.match(w,/REGION_MAX_SHOPS=30/);assert.match(w,/saveData/);
  const body=w.slice(w.indexOf('async function pollRegions'),w.indexOf('function init'));assert.doesNotMatch(body,/state\.observations/);assert.match(body,/credentials:'omit'/);
+});
+test('buyUrl builds checkout links without submitting anything and refuses unsafe targets',()=>{
+ const H=R.AUTO_HOSTS[0];
+ assert.equal(R.buyUrl({host:H,variantId:123,qty:2}),'https://'+H+'/cart/123:2');
+ assert.equal(R.buyUrl({url:'https://'+H+'/products/x',variantId:123,qty:1}),'https://'+H+'/cart/123:1');
+ assert.equal(R.buyUrl({host:'evil.example',variantId:123,qty:1}),null);                      // never builds cart links for non-allow-listed hosts
+ assert.equal(R.buyUrl({url:'https://www.amazon.ca/Name/dp/B0ABCDEFGH/ref=x?tag=aff',qty:3}),'https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1=B0ABCDEFGH&Quantity.1=3'); // no affiliate tag carried over
+ assert.equal(R.buyUrl({url:'https://www.amazon.ca/s?k=pokemon',qty:1}),'https://www.amazon.ca/s?k=pokemon');
+ assert.equal(R.buyUrl({url:'https://www.costco.ca/p.html',qty:1}),'https://www.costco.ca/p.html');
+ for(const bad of [{url:'http://x.ca/p'},{url:'javascript:alert(1)'},{},null])assert.equal(R.buyUrl(bad),null);
+ assert.equal(R.buyUrl({host:H,variantId:1.5,qty:1}),null);
+});
+test('quantity honours the shop limit and sane bounds',()=>{
+ assert.equal(R.qtyFor({quantity:5,limit:2}),2);assert.equal(R.qtyFor({quantity:3}),3);assert.equal(R.qtyFor({}),1);assert.equal(R.qtyFor({quantity:500}),99);assert.equal(R.qtyFor({quantity:-4}),1);
+});
+test('parse and match carry the variant id of the cheapest available variant',()=>{
+ assert.equal(R.parseShopifyProduct({title:'x',variants:[{id:1,available:false,price:100},{id:2,available:true,price:900},{id:3,available:true,price:500}]}).variantId,3);
+ assert.equal(R.parseShopifyProduct({title:'x',variants:[{id:1,available:false,price:100}]}).variantId,null);
+ assert.equal(R.matchCatalog('Mega Evolution Flowing Fist',{products:[{title:'Mega Evolution Flowing Fist Bundle',handle:'h',variants:[{id:77,available:true,price:'10.00'}]}]},'a.ca')[0].variantId,77);
+});
+test('no payment data is collected or stored; checkout stays on the shop page',()=>{
+ const w=read('restock-watch.js'),h=read('index.html');
+ assert.doesNotMatch(w,/card.?number|cvv|cvc|expiry|autocomplete=.cc-/i);assert.doesNotMatch(h.match(/<section id="restock"[\s\S]*?<\/section>/)[0],/cc-number|cardnumber|cvv/i);
+ assert.match(h,/id="checkoutTips"/);assert.match(h,/never stores card numbers and never buys for you/);
+ assert.doesNotMatch(w,/method\s*:\s*['"]POST['"]/);                                         // nothing submits an order
+});
+test('watch validation accepts quantity/limit/variantId only as sane integers',()=>{
+ const fs2=require('node:fs'),vm=require('node:vm');const ctx={Intl,Date,JSON,Number,Array,Set,Error,URL};vm.runInNewContext(read('restock-watch.js'),ctx);
+ const P=ctx.PokeFlipRestock;const w={id:'w',product:'Test product',format:'etb',language:'any',region:'Canada',ceiling:50,enabled:true};
+ assert.equal(P.validateWatch({...w,quantity:2,limit:2}),true);
+ for(const bad of [{quantity:0},{quantity:1.5},{quantity:100},{limit:0},{limit:'2'}])assert.throws(()=>P.validateWatch({...w,...bad}),Error);
+ const o={id:'o',watchId:'w',status:'in',price:5,store:'s',source:'auto',checkedAt:new Date().toISOString()};
+ assert.equal(P.validateObservation({...o,variantId:123}),true);assert.throws(()=>P.validateObservation({...o,variantId:-1}));assert.throws(()=>P.validateObservation({...o,variantId:'1'}));
 });

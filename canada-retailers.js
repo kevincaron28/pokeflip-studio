@@ -47,14 +47,24 @@
   const avail=j.variants.filter(v=>v&&v.available===true);const pool=avail.length?avail:j.variants;
   const toCents=p=>typeof p==='string'&&p.includes('.')?Number(p)*100:Number(p);const cents=Math.min(...pool.map(v=>toCents(v.price)).filter(Number.isFinite));if(!Number.isFinite(cents))return null;
   // Shopify .js reports prices in cents as integers; a decimal string would be dollars.
-  return {status:avail.length?'in':'out',price:Math.round(cents)/100,title:String(j.title||'').slice(0,160)}}
+  const cheapest=pool.slice().sort((a,b)=>toCents(a.price)-toCents(b.price))[0];const vid=Number(cheapest&&cheapest.id);
+  return {status:avail.length?'in':'out',price:Math.round(cents)/100,title:String(j.title||'').slice(0,160),variantId:avail.length&&Number.isSafeInteger(vid)&&vid>0?vid:null}}
  const STOP=new Set(['pokemon','tcg','the','a','an','of','de','la','le','les','du','des','et','and','cards','card','carte','cartes','edition','set']);
  const tokens=t=>String(t||'').normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase().split(/[^a-z0-9]+/).filter(x=>x&&!STOP.has(x));
  // Possible catalogue matches for a watch name in a /products.json page. A match needs >=2 meaningful words, ALL present in the
  // title. It is a lead, never proof of the exact set/edition/language: the UI says "verify".
  function matchCatalog(watchName,data,host){const w=tokens(watchName);if(w.length<2||!data||!Array.isArray(data.products))return [];const out=[];
   for(const p of data.products){if(!p||!Array.isArray(p.variants)||!p.variants.length||typeof p.handle!=='string')continue;const t=new Set(tokens(p.title));if(!w.every(x=>t.has(x)))continue;
-   const q=parseShopifyProduct({title:p.title,variants:p.variants});if(!q)continue;out.push({title:q.title,handle:p.handle,available:q.status==='in',price:q.price,url:'https://'+host+'/products/'+encodeURIComponent(p.handle)})}
+   const q=parseShopifyProduct({title:p.title,variants:p.variants});if(!q)continue;out.push({title:q.title,handle:p.handle,available:q.status==='in',price:q.price,variantId:q.variantId,url:'https://'+host+'/products/'+encodeURIComponent(p.handle)})}
   return out}
- return {RETAILERS,matchCatalog,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
+ // Quantity to put in the cart: what you want, never above the retailer's per-customer limit when you know it.
+ function qtyFor(w){const q=Math.max(1,Math.min(99,Math.floor(Number(w&&w.quantity)||1))),l=Math.floor(Number(w&&w.limit)||0);return l>0?Math.min(q,l):q}
+ // Fastest legitimate path to checkout. Never submits anything: the shop's own page asks you to confirm payment.
+ // Shopify: /cart/<variantId>:<qty> opens a cart (Shop Pay / saved details apply). Amazon.ca: add-to-cart page, no affiliate tag.
+ function buyUrl(o){if(!o)return null;const qty=qtyFor({quantity:o.qty});let u=null;try{u=o.url?new URL(o.url):null}catch{u=null}
+  const host=o.host||(u&&u.hostname)||'';
+  if(Number.isSafeInteger(o.variantId)&&o.variantId>0&&AUTO_HOSTS.includes(host))return 'https://'+host+'/cart/'+o.variantId+':'+qty;
+  if(u&&u.protocol==='https:'&&/^(www\.)?amazon\.ca$/.test(u.hostname)){const m=u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?]|$)/);if(m)return 'https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1='+m[1]+'&Quantity.1='+qty}
+  return u&&u.protocol==='https:'?u.href:null}
+ return {RETAILERS,qtyFor,buyUrl,matchCatalog,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
 });

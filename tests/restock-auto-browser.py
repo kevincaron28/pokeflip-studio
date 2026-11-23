@@ -12,7 +12,7 @@ hits=[]
 def shop(route):
     hits.append(route.request.url)
     route.fulfill(status=200,content_type="application/json",headers={"access-control-allow-origin":"*"},
-        body=json.dumps({"title":"Test ETB","variants":[{"available":True,"price":5499}]}))
+        body=json.dumps({"title":"Test ETB","variants":[{"id":987654,"available":True,"price":5499}]}))
 try:
  with sync_playwright() as p:
   b=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
@@ -39,6 +39,7 @@ try:
   assert page.evaluate("PokeFlipRestock.getData().watches.length")==0
   # valid allow-listed watch -> automatic check records an observation, tags it auto, and qualifies under the ceiling
   page.fill("#restockAutoUrl","https://tistaminis.com/products/test-etb")
+  page.fill("#restockQuantity","3");page.fill("#restockLimit","2")
   page.locator("#restockWatchForm button[type=submit]").evaluate("b=>b.click()")
   page.wait_for_function("PokeFlipRestock.getData().observations.length>=1",timeout=12000)
   d=page.evaluate("PokeFlipRestock.getData()")
@@ -46,6 +47,14 @@ try:
   assert o["source"]=="auto" and o["status"]=="in" and abs(o["price"]-54.99)<0.001 and o["store"]=="tistaminis.com", o
   assert d["watches"][0]["autoUrl"]=="https://tistaminis.com/products/test-etb"
   assert "Potential restock" in page.locator("#restockMessage").inner_text()
+  # Ready to buy: cart link with variant id and quantity capped by the shop limit; a normal link the user opens (nothing submitted)
+  buy=page.locator("#restockBuy a").first
+  assert buy.get_attribute("href")=="https://tistaminis.com/cart/987654:2", buy.get_attribute("href")
+  assert "Buy now" in buy.inner_text() and buy.get_attribute("rel")=="noopener noreferrer"
+  assert "never sees or stores payment details" in page.locator("#restockBuy").inner_text()
+  row=page.locator("#restockWatches a",has_text="Buy now");assert row.count()==1 and row.get_attribute("href")=="https://tistaminis.com/cart/987654:2"
+  assert page.evaluate("PokeFlipRestock.getData().observations[0].variantId")==987654
+  assert page.locator("#checkoutTips").count()==1
   assert hits==["https://tistaminis.com/products/test-etb.js"], hits
   # modest polling: a second immediate pass must not call the shop again
   page.evaluate("document.dispatchEvent(new Event('visibilitychange'))");page.wait_for_timeout(2500)
