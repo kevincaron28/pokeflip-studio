@@ -26,3 +26,16 @@ Where it appears:
 Cardstead has no email, Discord or webhook output, so there is nothing else to update.
 
 Data: the sealed product prices live in `pack-ev-data.js`, built by `node tools/build-pack-ev.mjs`. The snapshot loads when the first card needs it.
+
+## Compare stores
+
+Every alert card has a **Compare stores** button. The **Pack value** detail shows the same panel for the set's booster pack, where sleeved packs and 1-pack blisters count as the same product. For that product:
+
+- **Values**: MSRP, sealed market value with its date, the expected value of the packs inside, the best in-stock price and the verdict line, using the same bands as the cards.
+- **One row per store** that has a record on this device: your stock checks, automatic shop checks (marked "possible match") and imported alerts.
+  - Each row shows the price with its own verdict, in stock or not, when it was last checked, and a Buy / Open link.
+  - The latest record per store wins.
+- **Order**: in stock first, then cheapest. Unknown prices come after known ones, and sold-out stores come last.
+- **Area**: stores from **My area & stores** by default (Québec first). **Show all stores** adds the others.
+- **Stores with no data**: followed stores with no record are listed as **Not tracked**, with a search link and never a price.
+- **Language**: English or French, with a switch on the panel (French uses "tu"). The first view follows the browser language and the choice is remembered. The rest of the app is still English.
