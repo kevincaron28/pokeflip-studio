@@ -17,6 +17,8 @@ try:
  with sync_playwright() as p:
   b=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
   ctx=b.new_context(viewport={"width":390,"height":844},service_workers="block")
+  # This test covers the single-shop check, so the user follows no region (the Québec default follows them all).
+  ctx.add_init_script("localStorage.setItem('pokeflip-restock-regions-v1','[]')")
   page=ctx.new_page();errors=[]
   page.on("pageerror",lambda e:errors.append(str(e)))
   ext=[]

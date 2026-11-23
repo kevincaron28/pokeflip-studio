@@ -479,3 +479,13 @@ td,th{padding:12px 11px}
 .ac-over .ac-verdict{background:#4e2836;color:#ffd1d1}
 .ac-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 @media(max-width:520px){.ac-rows>div{grid-template-columns:minmax(0,1fr);gap:0}.ac-img{width:56px;height:56px}}
+/* My area & stores */
+.area-stores{margin-top:10px}
+.area-stores>summary{display:inline-block;list-style:none;cursor:pointer}
+.area-stores>summary::-webkit-details-marker{display:none}
+.area-group{border:1px solid var(--pf-line);border-radius:12px;padding:10px 12px;margin:12px 0 0;min-width:0}
+.area-group legend{font-weight:700;padding:0 6px}
+.area-store{display:flex;gap:10px;align-items:center;min-height:44px;padding:4px 0;border-bottom:1px solid #29384e}
+.area-store:last-child{border-bottom:0}
+.area-store input{width:auto;min-width:20px;height:20px}
+.area-store .note{font-size:12px}

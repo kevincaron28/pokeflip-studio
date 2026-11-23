@@ -5,7 +5,7 @@
   "description": "Pokemon TCG inventory, collection and resale workbench",
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node --check app.js && node --check cloud-sync.js && node --check card-lookup.js && node --check scan-heuristics.js && node --check live-scan-gate.js && node --check card-detect.js && node --check art-rank.js && node --check scan-pipeline.js && node --check continuous-scan.js && node --check market-reference.js && node --check ebay-pricing.js && node --check restock-watch.js && node --check sealed-guide.js && node --check pack-ev.js && node --check pack-ev-rates.js && node --check alert-value.js && node --check tools/build-pack-ev.mjs && node --test tests/*.test.cjs"
+    "check": "node --check app.js && node --check cloud-sync.js && node --check card-lookup.js && node --check scan-heuristics.js && node --check live-scan-gate.js && node --check card-detect.js && node --check art-rank.js && node --check scan-pipeline.js && node --check continuous-scan.js && node --check market-reference.js && node --check ebay-pricing.js && node --check restock-watch.js && node --check sealed-guide.js && node --check pack-ev.js && node --check pack-ev-rates.js && node --check alert-value.js && node --check store-prefs.js && node --check tools/build-pack-ev.mjs && node --test tests/*.test.cjs"
   },
   "engines": {
     "node": ">=22"
