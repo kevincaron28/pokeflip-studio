@@ -42,7 +42,7 @@ try:
   """)
   response=page.goto(f'http://127.0.0.1:{server.server_port}/',wait_until='domcontentloaded')
   assert response and response.status==200
-  page.locator('.dock-item[data-dock="scan"]').click()
+  page.evaluate("CardsteadNav.show('scan')")
   page.locator('#liveMode').select_option('stack')
   page.locator('#liveTarget').fill('2')
   page.locator('#liveStart').click()

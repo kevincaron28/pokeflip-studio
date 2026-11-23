@@ -7,7 +7,7 @@ const primary=['dashboard','scan','inventory','lots'];
 function init(){
  const mainNav=[...document.querySelectorAll('.tabs .tab')];
  const drawer=$('mobileDrawer'),more=$('mobileMore'),scrim=$('mobileScrim'),links=$('mobileDrawerLinks');
- if(!drawer||!more||!links)return;
+ if(!drawer||!links)return;
  // Clone navigation labels without copying existing tab semantics, for a single source of truth.
  for(const tab of mainNav){
   const button=document.createElement('button');button.type='button';
@@ -18,13 +18,13 @@ function init(){
  }
  function close(){
   document.body.classList.remove('mobile-menu-open');
-  more.setAttribute('aria-expanded','false');
+  more?.setAttribute('aria-expanded','false');
   drawer.setAttribute('aria-hidden','true');
   scrim.hidden=true;
  }
  function open(){
   document.body.classList.add('mobile-menu-open');
-  more.setAttribute('aria-expanded','true');
+  more?.setAttribute('aria-expanded','true');
   drawer.setAttribute('aria-hidden','false');
   scrim.hidden=false;
   drawer.querySelector('button')?.focus();
@@ -49,10 +49,10 @@ function init(){
  for(const btn of document.querySelectorAll('.dock-item[data-dock]')){
   btn.addEventListener('click',()=>navigate(btn.dataset.dock));
  }
- more.addEventListener('click',()=>document.body.classList.contains('mobile-menu-open')?close():open());
+ more?.addEventListener('click',()=>document.body.classList.contains('mobile-menu-open')?close():open());
  $('mobileClose')?.addEventListener('click',close);
  scrim.addEventListener('click',close);
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('mobile-menu-open')){close();more.focus()}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('mobile-menu-open')){close();more?.focus()}});
  // Most routes also navigate via data-goto: track tab state without changing app.js.
  const observer=new MutationObserver(active);
  for(const t of mainNav)observer.observe(t,{attributes:true,attributeFilter:['class']});

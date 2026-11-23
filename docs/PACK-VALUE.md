@@ -30,3 +30,16 @@ node tools/build-pack-ev.mjs
 ```
 
 Downloads the TCGplayer catalog and prices for every released SV, ME and SWSH set from tcgcsv.com (named User-Agent, one request per file, as its usage guidelines ask) and the Bank of Canada rate, then rewrites `pack-ev-data.js`. The app never calls tcgcsv.com itself. Commit the regenerated file; the "as of" dates update with it. New sets appear automatically; add their pull-rate table to `pack-ev-rates.js` once TCGplayer publishes one (the tests require a source URL and the odds as printed).
+
+## Price history (graphs)
+
+`price-history.js` holds real TCGplayer market prices for 661 sealed products and watchlist cards: every day for the last 35 days, then weekly back one year. Each date carries its Bank of Canada USD/CAD rate, so graphs are drawn in CAD.
+
+To refresh it after updating `pack-ev-data.js`:
+
+```
+python -m pip install py7zr
+python tools/build-price-history.py
+```
+
+It reads tcgcsv.com's daily archives (one file per day, cached in `tools/.cache/`) and only extracts the set groups it needs. A first run downloads about 70 files (2–4 MB each); later runs only download new days. Graphs say "Not enough history yet (N days)" for products with fewer than two prices in the chosen range.

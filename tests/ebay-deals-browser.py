@@ -53,8 +53,8 @@ try:
             page.on("pageerror", lambda e: errors.append(str(e)))
             page.goto(f"http://127.0.0.1:{server.server_port}/", wait_until="domcontentloaded")
             page.wait_for_function("typeof go==='function'")
-            page.locator("#mobileMore").click()
-            page.locator('.drawer-link[data-target="deals"]').click()
+            page.locator('.dock-item[data-dock="restock"]').click()
+            page.locator('#subnav [data-page="deals"]').click()
             page.wait_for_function("document.querySelector('#dealsWatchCount').innerText.includes('cards watched')", timeout=15000)
             assert "2 cards watched" in page.locator("#dealsWatchCount").inner_text()
             if not configured:

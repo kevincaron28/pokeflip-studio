@@ -14,19 +14,22 @@ test('new design assets have a real identity, with no external theme dependency'
   assert.ok(fs.readFileSync('studio-mark.svg','utf8').includes('<svg'));
   assert.ok(fs.readFileSync('studio-horizon.svg','utf8').includes('<svg'));
 });
-test('all original routes plus Pack value and controls remain in redesigned navigation',()=>{
+test('five main tabs; every original page and control is still there (grouped, not removed)',()=>{
+  // Old pages keep their section and a hidden data-tab hook (page loaders), reached through the five tabs.
   for(const id of ['dashboard','scan','deal','lots','inventory','sales','ebay','sealed','restock','settings','packs','deals']){
     assert.match(html,new RegExp('data-tab="'+id+'"'));
     assert.match(html,new RegExp('<section id="'+id+'"'));
   }
-  assert.equal((html.match(/class="tab(?: on)?" data-tab="/g)||[]).length,12);
+  for(const id of ['home','prices','product'])assert.match(html,new RegExp('<section id="'+id+'"'));
+  assert.deepEqual((html.match(/class="tab(?: on)?" data-tab="(\w+)"/g)||[]).map(x=>x.match(/data-tab="(\w+)"/)[1]),['home','prices','restock','inventory','settings']);
+  assert.equal((html.match(/class="dock-item[^"]*" data-dock="/g)||[]).length,5);
   for(const id of ['lotForm','bulkForm','inventorySearch','saleDate','backupTop','cloudConfigure','alertsRows']){
     assert.match(html,new RegExp('id="'+id+'"'));
   }
 });
 test('offline shell caches visual assets, not personal data',()=>{
   for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','card-detect.js','art-rank.js','scan-pipeline.js'])assert.ok(sw.includes("'./"+file+"'"));
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.8\.0'/);
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.9\.0'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });
