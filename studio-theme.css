@@ -173,7 +173,7 @@ section>h1{
  font-weight:850;
 }
 section>h1:before{
- content:"FIELD NOTES / POKÉFLIP STUDIO";
+ content:"FIELD NOTES / CARDSTEAD";
  display:block;
  color:var(--pf-gold);
  font-size:10px;
