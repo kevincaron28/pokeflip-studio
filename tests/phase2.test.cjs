@@ -24,12 +24,12 @@ test('Business page: headline numbers and today\'s priorities first, the rest un
  for(const h of ['Portfolio value over time','Pricing confidence','Physical sorting plan','Highest-value inventory','Purchase lot recovery','portfolio-disclaimer'])assert.ok(p.indexOf(h)>more,h);
  assert.ok(p.indexOf('</details>')>p.indexOf('portfolio-disclaimer'));
 });
-test('weekly price refresh opens a pull request and never pushes to main',()=>{
+test('price refresh opens a pull request; it pushes to main only when the owner sets PRICE_REFRESH_PUBLISH=main',()=>{
  const w=read('.github/workflows/refresh-prices.yml');
  assert.match(w,/schedule:\s*\n\s*- cron:/);assert.match(w,/workflow_dispatch/);
  for(const u of w.match(/uses: [^\n]+/g))assert.match(u,/@[0-9a-f]{40} #/,'actions pinned to a commit: '+u);
  assert.match(w,/node tools\/build-pack-ev\.mjs/);assert.match(w,/python tools\/build-price-history\.py/);assert.match(w,/npm run check/);
- assert.match(w,/gh pr create --base main/);assert.ok(!/git push origin (main|HEAD:main)/.test(w));
+ assert.match(w,/gh pr create --base main/);for(const line of w.split('\n').filter(l=>/git push origin (main|HEAD:main)/.test(l)))assert.match(line,/if \[ "\$PUBLISH" = "main" \]; then/,'main only behind the owner switch');assert.match(w,/PUBLISH: \$\{\{ vars\.PRICE_REFRESH_PUBLISH \}\}/);
  assert.match(w,/py7zr==\d+\.\d+\.\d+/);
 });
 test('settings help and watch-form options fold; new labels exist in both languages',()=>{
