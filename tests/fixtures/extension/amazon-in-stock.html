@@ -1,0 +1,10 @@
+<!doctype html><html><head><title>Test product</title></head><body>
+<span id="productTitle"> Pokémon TCG: Surging Sparks Elite Trainer Box </span>
+<div id="corePrice_feature_div"><span class="a-price"><span class="a-offscreen">$64.99</span><span aria-hidden="true">$64<sup>99</sup></span></span></div>
+<div id="availability"><span>In Stock</span></div>
+<div id="merchantInfoFeature_feature_div"><span>Ships from and sold by Amazon.ca.</span></div>
+<select name="quantity" id="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+<input id="add-to-cart-button" type="submit" value="Add to Cart" aria-label="Add to Cart">
+<input id="buy-now-button" type="submit" value="Buy Now" aria-label="Buy Now">
+<script>window.clicks=[];document.getElementById('add-to-cart-button').onclick=()=>{sessionStorage.setItem('added',document.getElementById('quantity').value)};document.getElementById('buy-now-button').onclick=()=>sessionStorage.setItem('buyNow','clicked')</script>
+</body></html>

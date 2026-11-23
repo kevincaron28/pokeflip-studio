@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cardstead Drop Assist</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;background:#0b1220;color:#e8edf7}
+body{margin:0;min-width:360px;padding:16px;max-width:900px}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:15px;margin:18px 0 8px}
+.note{color:#a8b5cc;font-size:12px;line-height:1.5}
+.panel{background:#121d30;border:1px solid #29384e;border-radius:14px;padding:14px;margin-bottom:12px}
+label{display:block;font-size:12px;color:#a8b5cc;margin:6px 0 3px}
+input,select{width:100%;box-sizing:border-box;background:#0b1424;color:#f0f5fc;border:1px solid #34445d;border-radius:9px;padding:8px}
+input[type=checkbox]{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+button{background:#172238;color:#dbe4f3;border:1px solid #34445d;border-radius:10px;padding:8px 12px;font-weight:650;cursor:pointer}
+button.primary{background:#58d7b0;border-color:#58d7b0;color:#081e1a}
+.prod{display:grid;grid-template-columns:1fr auto;gap:8px;border-top:1px solid #29384e;padding:10px 0}
+.prod .grid{grid-column:1/-1}
+.status{font-size:12px;color:#c4d0e2}
+.log{font:12px/1.5 ui-monospace,monospace;max-height:260px;overflow:auto;white-space:pre-wrap;background:#0b1424;border-radius:9px;padding:8px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+a{color:#91c8ed}
+</style></head><body>
+<h1>Cardstead Drop Assist</h1>
+<p class="note">Watches the Amazon.ca and Pokémon Center Canada products you add. When one is in stock at or under your max price, it alerts you loudly, adds your quantity to the cart and opens checkout with your saved address and payment. <strong>You click "Place order" yourself.</strong> It never stores passwords or card numbers, never solves a CAPTCHA and never skips the Pokémon Center line.</p>
+
+<div class="panel"><h2>Add a product</h2>
+<form id="add"><div class="grid">
+<div style="grid-column:1/-1"><label for="addUrl">Amazon.ca link or ASIN, or Pokémon Center Canada product link</label><input id="addUrl" required placeholder="https://www.amazon.ca/dp/B0XXXXXXXX or https://www.pokemoncenter.com/en-ca/product/…"></div>
+<div><label for="addName">Name</label><input id="addName" required maxlength="80" placeholder="Surging Sparks ETB"></div>
+<div><label for="addPrice">Max price · CAD</label><input id="addPrice" type="number" min="1" step="0.01" required></div>
+<div><label for="addQty">Max quantity</label><input id="addQty" type="number" min="1" max="10" step="1" value="1" required></div>
+</div><p id="addMsg" class="note" aria-live="polite"></p><button class="primary" type="submit">Add product</button></form></div>
+
+<div class="panel"><h2>Watched products</h2><div id="products"><p class="note">No product yet.</p></div></div>
+
+<div class="panel"><h2>Settings</h2><div class="grid">
+<div><label for="interval">Check every (minutes, 2 or more)</label><input id="interval" type="number" min="2" max="60" step="1"></div>
+<div><label for="assist">On a drop</label><select id="assist"><option value="checkout">Add to cart and open checkout</option><option value="alert">Alert only</option></select></div>
+<div><label for="ntfy">Phone push: ntfy topic (optional)</label><input id="ntfy" maxlength="64" placeholder="e.g. cardstead-7fk29x-drops"></div>
+</div>
+<label class="row"><input type="checkbox" id="sound"> Loud alarm sound on a drop</label>
+<p class="note">Phone push uses <a href="https://ntfy.sh" target="_blank" rel="noopener noreferrer">ntfy.sh</a> (free, no account). Install the ntfy app, subscribe to a long random topic name, and type the same name here. Anyone who knows the name can read the alerts, so make it hard to guess.</p>
+<button id="save" class="primary" type="button">Save settings</button> <span id="saveMsg" class="note" aria-live="polite"></span></div>
+
+<div class="panel"><h2>What Drop Assist did</h2><div class="row"><button id="clearLog" type="button">Clear log</button></div><div id="log" class="log" tabindex="0"></div></div>
+<script src="lib/core.js"></script><script src="options.js"></script>
+</body></html>
