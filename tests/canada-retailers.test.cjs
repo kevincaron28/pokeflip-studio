@@ -34,3 +34,30 @@ test('module is packaged, loaded before restock-watch, and polls only with safe 
  const w=read('restock-watch.js');assert.match(w,/credentials:'omit'/);assert.match(w,/redirect:'error'/);assert.match(w,/document\.hidden/);
  assert.doesNotMatch(w,/captcha|proxy|rotate/i);
 });
+test('manual list includes Well.ca, Mastermind Toys and Pokémon Center merch',()=>{
+ const ids=R.RETAILERS.map(r=>r.id);for(const id of ['wellca','mastermind','pokemoncenter-merch'])assert.ok(ids.includes(id),id);
+ for(const id of ['wellca','mastermind','pokemoncenter-merch'])assert.equal(R.RETAILERS.find(r=>r.id===id).auto,'manual');
+});
+test('shop catalogue: valid hosts, unique, every region populated, Québec regions present',()=>{
+ const S=require('../canada-shops.js');
+ assert.ok(S.SHOPS.length>=3);const hosts=S.SHOPS.map(s=>s.host);assert.equal(new Set(hosts).size,hosts.length);
+ for(const s of S.SHOPS){assert.match(s.host,/^[a-z0-9.-]+\.[a-z]{2,}$/);assert.ok(s.name&&s.city&&s.region,s.host);assert.ok(S.REGIONS.some(r=>r.id===s.region),s.host);assert.ok(R.AUTO_HOSTS.includes(s.host))}
+ for(const r of S.REGIONS)assert.ok(S.inRegions([r.id]).length>=1,r.id);
+ assert.ok(S.REGIONS.filter(r=>r.province==='QC').length>=2);
+ assert.deepEqual(S.inRegions(['nope']),[]);
+});
+test('matchCatalog needs every distinctive word, never matches vague names, reports availability',()=>{
+ const data={products:[
+  {title:'Pokemon - Mega Evolution - Flowing Fist - Booster Bundle',handle:'a',variants:[{available:true,price:'54.99'}]},
+  {title:'Pokémon Mega Evolution Flowing Fist Elite Trainer Box',handle:'b é',variants:[{available:false,price:'69.99'}]},
+  {title:'Mega Evolution Phantasmal Flames Bundle',handle:'c',variants:[{available:true,price:'40.00'}]},
+  {title:null,handle:'d',variants:[]}]};
+ const m=R.matchCatalog('Mega Evolution Flowing Fist ETB bundle'.replace('ETB ',''),data,'shop.ca');
+ assert.deepEqual(m.map(x=>x.handle),['a']);assert.equal(m[0].available,true);assert.equal(m[0].price,54.99);assert.equal(m[0].url,'https://shop.ca/products/a');
+ assert.equal(R.matchCatalog('Mega Evolution Flowing Fist Elite Trainer',data,'shop.ca')[0].handle,'b é');
+ assert.equal(R.matchCatalog('Pokemon TCG',data,'shop.ca').length,0);assert.equal(R.matchCatalog('Mega Evolution',null,'x').length,0);
+});
+test('regional polling is opt-in, throttled and never writes observations',()=>{
+ const w=read('restock-watch.js');assert.match(w,/REGION_MIN_MS=30\*60\*1000/);assert.match(w,/REGION_MAX_SHOPS=30/);assert.match(w,/saveData/);
+ const body=w.slice(w.indexOf('async function pollRegions'),w.indexOf('function init'));assert.doesNotMatch(body,/state\.observations/);assert.match(body,/credentials:'omit'/);
+});
