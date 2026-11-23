@@ -39,6 +39,7 @@ jobs:
       - run: python tests/alert-card-browser.py
       - run: python tests/area-stores-browser.py
       - run: python tests/ebay-deals-browser.py
+      - run: python tests/extension-assist-browser.py
       - run: python tests/csp-check.py
   deployed-site:
     runs-on: ubuntu-24.04

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Cardstead Drop Assist",
+  "version": "1.0.0",
+  "description": "Watches the Amazon.ca and Pokémon Center Canada products you choose and takes you to checkout when they drop. You place the order yourself.",
+  "permissions": ["storage", "alarms", "notifications", "tabs", "offscreen"],
+  "host_permissions": ["https://www.amazon.ca/*", "https://www.pokemoncenter.com/*", "https://ntfy.sh/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["https://www.amazon.ca/*", "https://www.pokemoncenter.com/*"], "js": ["lib/core.js", "content/assist.js"], "run_at": "document_idle" },
+    { "matches": ["https://pokeflip-studio.vercel.app/*"], "js": ["content/cardstead-signal.js"], "run_at": "document_idle" }
+  ],
+  "action": { "default_popup": "options.html", "default_title": "Cardstead Drop Assist" },
+  "options_page": "options.html",
+  "icons": { "128": "icons/icon-192.png" }
+}
