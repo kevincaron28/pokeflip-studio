@@ -15,18 +15,18 @@ test('new design assets have a real identity, with no external theme dependency'
   assert.ok(fs.readFileSync('studio-horizon.svg','utf8').includes('<svg'));
 });
 test('all original routes plus Pack value and controls remain in redesigned navigation',()=>{
-  for(const id of ['dashboard','scan','deal','lots','inventory','sales','ebay','sealed','restock','settings','packs']){
+  for(const id of ['dashboard','scan','deal','lots','inventory','sales','ebay','sealed','restock','settings','packs','deals']){
     assert.match(html,new RegExp('data-tab="'+id+'"'));
     assert.match(html,new RegExp('<section id="'+id+'"'));
   }
-  assert.equal((html.match(/class="tab(?: on)?" data-tab="/g)||[]).length,11);
+  assert.equal((html.match(/class="tab(?: on)?" data-tab="/g)||[]).length,12);
   for(const id of ['lotForm','bulkForm','inventorySearch','saleDate','backupTop','cloudConfigure','alertsRows']){
     assert.match(html,new RegExp('id="'+id+'"'));
   }
 });
 test('offline shell caches visual assets, not personal data',()=>{
   for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','card-detect.js','art-rank.js','scan-pipeline.js'])assert.ok(sw.includes("'./"+file+"'"));
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.6\.0'/);
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.7\.0'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });

@@ -22,7 +22,7 @@ try:
             assert response and response.status == 200
             page.locator(".brand-lockup img").wait_for(timeout=12000)
             assert page.locator(".brand-lockup").is_visible()
-            assert page.locator(".tab").count() == 11
+            assert page.locator(".tab").count() == 12
             assert page.evaluate("getComputedStyle(document.querySelector('.brand-lockup')).display") == "flex"
             assert page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage").find("studio-horizon.svg") > -1
             assert page.evaluate("document.styleSheets.length") >= 2
