@@ -1,0 +1,8 @@
+# Supabase CLI settings for the Cardstead Drops Discord functions.
+# Discord cannot send a Supabase token, so the gateway's token check is off; each function checks its caller itself:
+# discord-interactions verifies Discord's Ed25519 signature, discord-publisher requires the service role key.
+[functions.discord-interactions]
+verify_jwt = false
+
+[functions.discord-publisher]
+verify_jwt = false
