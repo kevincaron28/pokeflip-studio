@@ -1105,4 +1105,8 @@
 "Your resale business":"Ta revente",
 "your value":"ta valeur",
 "Your value · CAD (optional)":"Ta valeur · CAD (facultatif)",
+"Barcode (UPC) on the box (optional)":"Code-barres (UPC) sur la boîte (facultatif)",
+"With a barcode, shops that list it are matched exactly.":"Avec un code-barres, les boutiques qui l’affichent sont jumelées exactement.",
+"same barcode":"même code-barres",
+"possible match: verify exact product, set and language":"correspondance possible : vérifie le produit exact, l’extension et la langue",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);

@@ -94,3 +94,41 @@ test('watch validation accepts quantity/limit/variantId only as sane integers',(
  const o={id:'o',watchId:'w',status:'in',price:5,store:'s',source:'auto',checkedAt:new Date().toISOString()};
  assert.equal(P.validateObservation({...o,variantId:123}),true);assert.throws(()=>P.validateObservation({...o,variantId:-1}));assert.throws(()=>P.validateObservation({...o,variantId:'1'}));
 });
+// Real titles from Canadian Shopify shops, 24 Nov 2026. Before this change 13 of 22 matches were the wrong product.
+test('matchCatalog: same set, same size, same language; ETB titles count; Pokémon Center ETB and cases are different products',()=>{
+ const v=(price,extra={})=>[{id:1,available:true,price,...extra}];
+ const data={products:[
+  {title:'Pokémon Mega Evolution - Delta Reign Booster Bundle',handle:'dr-bundle',variants:v('54.99')},
+  {title:'Pokemon - Mega Evolution - Pitch Black - Booster Bundle',handle:'pb-bundle',variants:v('47.99')},
+  {title:'Pokemon Mega Evolution Booster Bundle',handle:'me-bundle',variants:v('44.99')},
+  {title:'Pokémon - Mega Evolutions - Ascended Heroes - Booster Bundle Case (25 Ct)',handle:'asc-case',variants:v('3349.99')},
+  {title:'Pokemon Ascended Heroes Booster Bundle',handle:'asc-bundle',variants:v('59.99')},
+  {title:'ME06 - Delta Reign - Booster Box FRENCH',handle:'dr-box-fr',variants:v('239.18')},
+  {title:'Pokemon Mega Evolution Delta Reign Booster Box',handle:'dr-box',variants:[{id:11,title:'Box',available:true,price:'289.99'},{id:12,title:'Pack',available:true,price:'7.99'},{id:13,title:'Case',available:false,price:'1739.99'}]},
+  {title:'Pokémon - Mega Evolution - Delta Reign - ETB LIMIT OF 2',handle:'dr-etb',variants:v('109.99')},
+  {title:'Pokemon Perfect Order - Pokémon Center Elite Trainer Box',handle:'po-pc',variants:v('179.99')},
+  {title:'Pokémon - Mega Evolution - Perfect Order - Elite Trainer Box',handle:'po-etb',variants:v('99.99')}]};
+ const h=w=>R.matchCatalog(w,data,'shop.ca').map(m=>m.handle);
+ assert.deepEqual(h('Mega Evolution Booster Bundle'),['me-bundle'],'another set under the Mega Evolution era is not the Mega Evolution set');
+ assert.deepEqual(h('Ascended Heroes Booster Bundle'),['asc-bundle'],'a case of 25 is not a bundle');
+ assert.deepEqual(h('Delta Reign Booster Box'),['dr-box'],'French box left out for an English watch');
+ assert.equal(R.matchCatalog('Delta Reign Booster Box',data,'shop.ca')[0].price,289.99,'the Box option, not the single pack');
+ assert.deepEqual(h({product:'Delta Reign Booster Box',language:'fr'}),['dr-box-fr']);
+ assert.deepEqual(h({product:'Delta Reign Booster Box',language:'any'}).sort(),['dr-box','dr-box-fr']);
+ assert.deepEqual(h('Delta Reign Elite Trainer Box'),['dr-etb'],'ETB in the title');
+ assert.deepEqual(h('Perfect Order Elite Trainer Box'),['po-etb'],'Pokémon Center ETB is another product');
+ assert.deepEqual(h('Perfect Order Pokemon Center Elite Trainer Box'),['po-pc']);
+});
+test('matchCatalog: a barcode on the watch matches exactly, and a different barcode rejects',()=>{
+ const data={products:[{title:'Delta Reign Booster Box',handle:'a',variants:[{id:5,available:true,price:'280.00',sku:'0196214165854'}]},
+  {title:'Delta Reign Booster Box (display)',handle:'b',variants:[{id:6,available:true,price:'99.00',sku:'0196214000000'}]},
+  {title:'Pokemon DR BB 36ct',handle:'c',variants:[{id:7,available:true,price:'275.00',barcode:'196214165854'}]}]};
+ const m=R.matchCatalog({product:'Delta Reign Booster Box',upc:'196214165854'},data,'s.ca');
+ assert.deepEqual(m.map(x=>[x.handle,x.matchedBy]),[['a','barcode'],['c','barcode']]);
+});
+test('every set in the price snapshot is known to the matcher',()=>{
+ const D=require('../pack-ev-data.js');for(const s of D.sets)assert.ok(R.SETS.includes(s.name),s.name);
+ assert.equal(R.kindOf('Pokemon - Scarlet Violet - 151 ETB'),'etb');assert.equal(R.kindOf('Booster Box (36 Packs)'),'box');assert.equal(R.kindOf('Ascended Heroes Tin - Bundle of 3'),'tin');
+ assert.deepEqual(R.setsIn('Pokemon Scarlet & Violet SV8.5 Prismatic Evolutions - Elite Trainer Box'),['prismatic evolutions']);
+ assert.equal(R.langOf('ME06 - Delta Reign - Elite Trainer Box - FRENCH'),'fr');assert.equal(R.langOf('Delta Reign Elite Trainer Box'),null);
+});
