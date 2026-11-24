@@ -1,15 +1,15 @@
-/* Cardstead navigation: five tabs (Home, Prices, Watch, Collection, Settings) with a row of chips for the pages
+/* Cardstead navigation: four tabs (Portfolio, Prices, Drops, Settings) with a row of chips for the pages
  * inside each tab. Every existing page keeps its id, data and code: this only regroups them.
  * - window.go (app.js) is wrapped so tab highlight, chips and page loaders follow every navigation.
  * - Hidden .tab-legacy buttons keep the old per-page loaders (Pack value, eBay deals, Sealed) working.
  * - Restock power tools fold into one "Advanced" section; My area & stores moves to Settings. */
 (function(root){'use strict';
 const GROUPS=[
- {id:'home',tab:'home',pages:['home'],chips:[]},
+ {id:'home',tab:'home',pages:['home','inventory','scan'],chips:[['home','chip.overview'],['inventory','chip.cards'],['scan','chip.addCard']]},
  {id:'prices',tab:'prices',pages:['prices','product','packs'],chips:[['prices','chip.find'],['packs','chip.packs']]},
  {id:'watch',tab:'restock',pages:['restock','deals'],chips:[['restock','chip.watches'],['deals','chip.ebay']]},
- {id:'collection',tab:'inventory',pages:['scan','inventory','lots','sales','dashboard'],chips:[['scan','chip.scan'],['inventory','chip.cards'],['lots','chip.lots'],['sales','chip.sales'],['dashboard','chip.business']]},
- {id:'settings',tab:'settings',pages:['settings','deal','ebay','sealed'],chips:[['settings','chip.settings'],['|','chip.advanced'],['deal','chip.deal'],['ebay','chip.ebaySold'],['sealed','chip.sealed']]},
+ // Lots, sales and the resale dashboard live under Settings > Selling (owner decision 7).
+ {id:'settings',tab:'settings',pages:['settings','lots','sales','dashboard','deal','ebay','sealed'],chips:[['settings','chip.settings'],['|','chip.selling'],['lots','chip.lots'],['sales','chip.sales'],['dashboard','chip.business'],['|','chip.advanced'],['deal','chip.deal'],['ebay','chip.ebaySold'],['sealed','chip.sealed']]},
 ];
 const groupOf=page=>GROUPS.find(g=>g.pages.includes(page))||GROUPS[0];
 // Restock panels that are power tools: folded into one Advanced section (matched by their heading).
@@ -30,7 +30,7 @@ function chips(page){
 function highlight(page){
  const g=groupOf(page);
  doc.querySelectorAll('.tabs .tab').forEach(b=>{const on=b.dataset.tab===g.tab;b.classList.toggle('on',on);b.setAttribute('aria-current',on?'page':'false')});
- doc.body.dataset.group=g.id;
+ doc.body.dataset.group=g.id;doc.body.dataset.page=page;
 }
 function after(page){
  current=page;

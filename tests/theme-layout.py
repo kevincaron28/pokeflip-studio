@@ -22,7 +22,7 @@ try:
             assert response and response.status == 200
             page.locator(".brand-lockup img").wait_for(timeout=12000)
             assert page.locator(".brand-lockup").is_visible()
-            assert page.locator(".tab").count() == 5  # Home, Prices, Watch, Collection, Settings
+            assert page.locator(".tab").count() == 4  # Portfolio, Prices, Drops, Settings
             assert page.evaluate("getComputedStyle(document.querySelector('.brand-lockup')).display") == "flex"
             assert page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage").find("studio-horizon.svg") > -1
             assert page.evaluate("document.styleSheets.length") >= 2
@@ -32,14 +32,15 @@ try:
             if width <= 760:
                 assert page.locator(".mobile-dock").is_visible()
                 assert not page.locator(".tabs").is_visible()
-                page.locator('.dock-item[data-dock="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
+                page.locator('.dock-item[data-dock="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
             else:
-                page.locator('.tabs [data-tab="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
+                page.locator('.tabs [data-tab="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
             assert page.locator("section#scan").is_visible()
             if width <= 760:
-                page.locator('.dock-item[data-dock="inventory"]').click()
+                page.locator('.dock-item[data-dock="home"]').click()
             else:
-                page.locator('.tabs [data-tab="inventory"]').click()
+                page.locator('.tabs [data-tab="home"]').click()
+            page.locator('#subnav [data-page="inventory"]').click()
             assert page.locator("section#inventory").is_visible()
             assert not errors, errors
             print(f"PASS collector layout: viewport {width}x{height}, navigation and CSS active, zero runtime errors")

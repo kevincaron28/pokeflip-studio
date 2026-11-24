@@ -5,6 +5,7 @@
 const KEY='cardstead-lang-v1';
 const S={
  en:{
+  'nav.portfolio':'Portfolio','nav.drops':'Drops','chip.overview':'Overview','chip.addCard':'Add card','chip.selling':'Selling:','fab.addCard':'Add card',
   'nav.home':'Home','nav.prices':'Prices','nav.watch':'Watch','nav.collection':'Collection','nav.settings':'Settings',
   'chip.find':'Find a product','chip.packs':'Booster pack value','chip.watches':'My watches','chip.ebay':'eBay deals',
   'chip.scan':'Scan','chip.cards':'Cards','chip.lots':'Lots','chip.sales':'Sales','chip.business':'Business',
@@ -28,6 +29,7 @@ const S={
   'w.advanced':'Advanced restock tools (sources, regions, manual checks, imports, logs)','w.more':'More options (format, language, area, quantity, shop limit, shop link)','s.help':'Help & tips','kind.pack':'Booster pack','kind.box':'Booster box','kind.etb':'Elite Trainer Box','kind.bundle':'Booster bundle','kind.tin':'Tin','kind.collection':'Collection','kind.blister':'Blister','kind.other':'Product'
  },
  fr:{
+  'nav.portfolio':'Portefeuille','nav.drops':'Arrivages','chip.overview':'Aperçu','chip.addCard':'Ajouter une carte','chip.selling':'Vente :','fab.addCard':'Ajouter une carte',
   'nav.home':'Accueil','nav.prices':'Prix','nav.watch':'Surveiller','nav.collection':'Collection','nav.settings':'Réglages',
   'chip.find':'Trouver un produit','chip.packs':'Valeur des boosters','chip.watches':'Mes suivis','chip.ebay':'Aubaines eBay',
   'chip.scan':'Scanner','chip.cards':'Cartes','chip.lots':'Lots','chip.sales':'Ventes','chip.business':'Revente',
