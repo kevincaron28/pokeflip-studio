@@ -4,6 +4,7 @@
 // VAPID_SUBJECT (a contact, e.g. https://pokeflip-studio.vercel.app/privacy.html). Only server-key callers are accepted.
 import webpush from 'npm:web-push@3.6.7';
 import { runPush, pushStore } from '../_shared/push-core.mjs';
+import { fcmSender } from '../_shared/fcm.mjs';
 import { isServiceRole, serverKeys } from '../_shared/discord-auth.mjs';
 
 const env = Deno.env.toObject();
@@ -14,7 +15,10 @@ Deno.serve(async (req) => {
   if (!isServiceRole(req.headers.get('authorization'), serverKeys(env), req.headers.get('apikey'))) return new Response('Forbidden', { status: 403 });
   if (!env.VAPID_PUBLIC_KEY || !env.VAPID_PRIVATE_KEY) return Response.json({ error: 'VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY secrets are not set' }, { status: 500 });
   webpush.setVapidDetails(env.VAPID_SUBJECT || SITE + 'privacy.html', env.VAPID_PUBLIC_KEY, env.VAPID_PRIVATE_KEY);
-  const send = async (sub: { endpoint: string; p256dh: string; auth: string }, payload: unknown) => {
+  // App devices (kind 'fcm') go through Firebase when FIREBASE_SERVICE_ACCOUNT is set; otherwise they are skipped.
+  const fcm = env.FIREBASE_SERVICE_ACCOUNT ? fcmSender({ serviceAccount: env.FIREBASE_SERVICE_ACCOUNT }) : null;
+  const send = async (sub: { kind?: string; endpoint: string; p256dh: string; auth: string }, payload: { title: string; body: string; url: string; tag: string; image?: string }) => {
+    if (sub.kind === 'fcm') return fcm ? fcm(sub, payload) : { ok: false, skipped: true };
     try {
       await webpush.sendNotification({ endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } }, JSON.stringify(payload), { TTL: 1800, urgency: 'high' });
       return { ok: true };

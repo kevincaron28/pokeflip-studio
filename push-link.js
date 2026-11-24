@@ -20,7 +20,11 @@ async function client(){const c=root.PokeFlipCloudClient&&root.PokeFlipCloudClie
 async function vapidKey(){const r=await fetch(base()+'/api/config',{cache:'no-store'});const j=r.ok?await r.json():{};if(!j.vapidPublicKey)throw Error('Drop alerts are not switched on for this site yet.');return j.vapidPublicKey}
 function prefs(){const P=root.CardsteadStorePrefs;const p=P?P.get():{};return core.prefsFor(p.province||'QC',{chains:$('pushChains')?.checked!==false,goodPriceOnly:$('pushGood')?.checked!==false})}
 async function turnOn(){
- if(!core.supported(root)){say(root.PokeFlipNative?.isNative?'The Android app cannot receive these alerts yet. Open Cardstead in Chrome on this phone and turn them on there.':'This browser cannot receive push alerts. On iPhone, add Cardstead to the Home Screen first.');return}
+ const N=root.PokeFlipNative;
+ if(N&&N.isNative){if(!N.pushAvailable||!N.pushAvailable()){say('The Android app cannot receive these alerts yet. Open Cardstead in Chrome on this phone and turn them on there.');return}
+  try{const c=await client();const token=await N.registerPush();const lang=root.CardsteadI18n?.lang?.()==='fr'?'fr':'en';
+   const {error}=await c.rpc('push_subscribe_fcm',{p_token:token,p_prefs:prefs(),p_lang:lang});if(error)throw error;try{localStorage.setItem('cardstead-fcm-token',token)}catch{}say('Drop alerts are on for this device.');refresh()}catch(e){say(e.message||String(e))}return}
+ if(!core.supported(root)){say('This browser cannot receive push alerts. On iPhone, add Cardstead to the Home Screen first.');return}
  try{const c=await client();const key=await vapidKey();
   const perm=await Notification.requestPermission();if(perm!=='granted'){say('Notifications are blocked for this site. Allow them in the browser settings, then try again.');return}
   const reg=await navigator.serviceWorker.ready;let sub=await reg.pushManager.getSubscription();
@@ -30,8 +34,9 @@ async function turnOn(){
   say('Drop alerts are on for this device.');refresh()}
  catch(e){say(e.message||String(e))}
 }
-async function turnOff(){try{const reg=await navigator.serviceWorker.ready;const sub=await reg.pushManager.getSubscription();if(sub){const c=await client();await c.rpc('push_unsubscribe',{p_endpoint:sub.endpoint});await sub.unsubscribe()}say('Drop alerts are off for this device.');refresh()}catch(e){say(e.message||String(e))}}
-async function refresh(){const on=$('pushOn'),off=$('pushOff');if(!on)return;let has=false;try{const reg=core.supported(root)?await navigator.serviceWorker.getRegistration():null;has=!!(reg&&await reg.pushManager.getSubscription())}catch{}on.hidden=has;off.hidden=!has}
+async function turnOff(){const N=root.PokeFlipNative;if(N&&N.isNative){try{const t=localStorage.getItem('cardstead-fcm-token');if(t){const c=await client();await c.rpc('push_unsubscribe',{p_endpoint:'fcm:'+t});localStorage.removeItem('cardstead-fcm-token')}say('Drop alerts are off for this device.');refresh()}catch(e){say(e.message||String(e))}return}
+ try{const reg=await navigator.serviceWorker.ready;const sub=await reg.pushManager.getSubscription();if(sub){const c=await client();await c.rpc('push_unsubscribe',{p_endpoint:sub.endpoint});await sub.unsubscribe()}say('Drop alerts are off for this device.');refresh()}catch(e){say(e.message||String(e))}}
+async function refresh(){const on=$('pushOn'),off=$('pushOff');if(!on)return;let has=false;if(root.PokeFlipNative&&root.PokeFlipNative.isNative){try{has=!!localStorage.getItem('cardstead-fcm-token')}catch{}on.hidden=has;off.hidden=!has;return}try{const reg=core.supported(root)?await navigator.serviceWorker.getRegistration():null;has=!!(reg&&await reg.pushManager.getSubscription())}catch{}on.hidden=has;off.hidden=!has}
 function wire(){if(!$('pushOn'))return;$('pushOn').onclick=turnOn;$('pushOff').onclick=turnOff;
  for(const id of ['pushChains','pushGood']){const el=$(id);if(el)el.onchange=()=>{refresh().then(()=>{if(!$('pushOff').hidden)turnOn()})}}refresh()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire);else wire();

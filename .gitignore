@@ -23,3 +23,6 @@ tools/.cache/
 dist/
 .wrangler/
 .dev.vars
+
+# Firebase app config for Android push (kept out of git; CI writes it from the GOOGLE_SERVICES_JSON secret)
+mobile/android/app/google-services.json
