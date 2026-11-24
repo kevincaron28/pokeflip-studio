@@ -24,11 +24,11 @@ async function render(){
   if(p.store==='amazon'){const w=el('label');const c=document.createElement('input');c.type='checkbox';c.checked=p.amazonOnly!==false;c.onchange=()=>update(p.id,{amazonOnly:c.checked});w.className='row';w.append(c,' Only when sold by Amazon.ca (skips third-party resellers)');edit.append(w);
    // Automatic checkout: off by default, per product, only after the warning is accepted.
    edit.append(field('Max order total incl. tax & shipping · CAD',p.maxOrderTotal??'','maxOrderTotal',{type:'number',min:1,step:0.01}));
-   const aw=el('label');aw.className='row';const ac=document.createElement('input');ac.type='checkbox';ac.id='auto-'+p.id;ac.checked=!!p.autoBuy;ac.disabled=!settings.autoAck;
+   if(A.AUTO_CHECKOUT_ENABLED){const aw=el('label');aw.className='row';const ac=document.createElement('input');ac.type='checkbox';ac.id='auto-'+p.id;ac.checked=!!p.autoBuy;ac.disabled=!settings.autoAck;
    ac.onchange=()=>{if(ac.checked&&!(p.maxOrderTotal>0)){ac.checked=false;alert('Set a max order total for this product first.');return}update(p.id,{autoBuy:ac.checked})};
    aw.append(ac,el('span',' Automatic checkout (places the order for you)',p.autoBuy?'auto-on':''));edit.append(aw);
    if(p.autoBuy){const e2=A.autoEligible(p,settings);if(!e2.ok)edit.append(el('div','Will use checkout assist until fixed: '+e2.why.join('; ')+'.','status'))}
-   else if(!settings.autoAck)edit.append(el('div','Automatic checkout needs the Amazon terms warning accepted below.','status'))}
+   else if(!settings.autoAck)edit.append(el('div','Automatic checkout needs the Amazon terms warning accepted below.','status'))}}
   row.append(info,btns,edit);host.append(row);
  }
  $('interval').value=settings.intervalMin||A.DEFAULT_INTERVAL_MIN;$('assist').value=settings.assist||'checkout';$('ntfy').value=settings.ntfyTopic||'';$('sound').checked=settings.sound!==false;

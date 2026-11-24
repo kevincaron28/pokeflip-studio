@@ -33,7 +33,7 @@
  function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v){validateBackup(v);state=v}}catch(e){$('restockMessage').textContent='Saved restock data failed validation; import a known-good backup.'}}
  function persist(){localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new Event('pokeflip:saved'))}
  function id(){return globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2)}
- function link(url,label){const a=el('a','btn smallbtn',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.addEventListener('click',e=>{const N=window.PokeFlipNative;if(N&&N.isNative&&N.openExternal){e.preventDefault();N.openExternal(url)}});return a}
+ function link(url,label){const R=root.PokeFlipRetailers;if(R&&R.affiliate)url=R.affiliate(url);const a=el('a','btn smallbtn',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.addEventListener('click',e=>{const N=window.PokeFlipNative;if(N&&N.isNative&&N.openExternal){e.preventDefault();N.openExternal(url)}});return a}
  function sourceRows(){const host=$('restockSources');host.replaceChildren();const local=$('restockRegion').value==='local';for(const s of SOURCES.filter(s=>local?s.kind==='local':s.kind!=='local')){const d=el('div','source-row');const l=el('div');l.append(el('strong','',s.name),el('div','note',s.region));d.append(l,link(s.url,'Visit source'));host.append(d)}}
  function latest(wid){return state.observations.filter(o=>o.watchId===wid).sort((a,b)=>b.checkedAt.localeCompare(a.checkedAt))[0]||null}
  // "Any" format: detected from the product name (Elite Trainer Box, booster box, bundle…), else stays Any.

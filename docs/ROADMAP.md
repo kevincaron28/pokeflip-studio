@@ -30,3 +30,5 @@ Production build readiness is **not** equivalent to completion of all live accep
 - [ ] Android (Cardstead): set up custom SMTP so the Supabase magic-link email can carry the 6-digit code; add upload keystore secrets; test on a Pixel (camera, offline OCR, deep link, notifications); host privacy policy and account-deletion page.
 
 - [ ] Background stock alerts: server poller for allow-listed Shopify shops + FCM/Web Push (design in docs/CANADA-STOCK-ALERTS.md); needs owner decisions on hosting, Firebase and privacy policy.
+
+- [ ] Cardstead Drops Discord server: bot built (docs/DISCORD-DROPS.md); owner creates the bot application, pastes the token into Supabase secrets, runs the migration, deploys, runs setup and the cron jobs; launch after the server-side checker catches real drops.

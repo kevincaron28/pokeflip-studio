@@ -130,7 +130,7 @@ function cardHtml(a,{store,status='unknown',url=null,buyUrl=null,buyLabel=null,a
  const matched=a.match?.status==='ok'?(a.match.candidates.length===1?`<a href="${tcg(a.match.candidates[0].id)}" target="_blank" rel="noopener noreferrer">${esc(a.match.candidates[0].name)}</a>`:`${a.match.candidates.length} TCGplayer listings of the ${esc(LABEL[a.match.kind])}`):a.match?.set?`${esc(a.match.set.name)}: no TCGplayer ${esc(LABEL[a.match.kind]||'product')} found`:'no set name recognized';
  const msrp=a.msrp?`CAD unknown · ${usdFmt.format(a.msrp.usd)} <span class="ac-sub">(≈ ${cad(a.msrp.cadAtRate)} at the Bank of Canada rate)</span>`:'unknown';
  const ev=a.contents?(isNum(a.contents.evCad)?`${cad(a.contents.evCad)}${a.contents.partial?' (lower bound)':''} <span class="ac-sub">${a.contents.packs} pack${a.contents.packs>1?'s':''} × pack EV, booster packs only</span>`:`unknown <span class="ac-sub">${esc(a.contents.why||'')}</span>`):'unknown';
- const go=safe(buyUrl||url);
+ const go=safe(buyUrl||url),R=root.PokeFlipRetailers;const goLink=go&&R&&R.affiliate?R.affiliate(go):go;
  return `<article class="alert-card ac-${esc(a.verdict.code)}" aria-label="${esc(title+': '+a.product)}">
  <div class="ac-head"><div><p class="ac-kind">${esc(title)}</p><h3 class="ac-title">${esc(a.product)}</h3></div>${img}</div>
  <dl class="ac-grid"><div><dt>Store</dt><dd>${esc(store||'unknown')}</dd></div><div><dt>Price</dt><dd><strong>${cad(a.price)}</strong></dd></div><div><dt>Status</dt><dd><span class="ac-dot ac-dot-${dot}" aria-hidden="true"></span>${esc(st)}</dd></div></dl>
@@ -140,7 +140,7 @@ function cardHtml(a,{store,status='unknown',url=null,buyUrl=null,buyLabel=null,a
  ${a.contents&&a.contents.packs!==undefined?`<div><dt>Expected value of contents</dt><dd>${ev}</dd></div>`:''}
  <div><dt>Matched product</dt><dd class="ac-sub">${matched}</dd></div></dl>
  <p class="ac-verdict">${esc(a.verdict.label)}</p>
- <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(go)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<button type="button" class="btn smallbtn" data-compare="${esc(a.product)}" data-format="${esc(a.format||'')}">Compare stores</button><span class="ac-sub">${at?esc(new Date(at).toLocaleString('en-CA')):''}</span></div>
+ <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(goLink)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<button type="button" class="btn smallbtn" data-compare="${esc(a.product)}" data-format="${esc(a.format||'')}">Compare stores</button><span class="ac-sub">${at?esc(new Date(at).toLocaleString('en-CA')):''}</span></div>
 </article>`;
 }
 
