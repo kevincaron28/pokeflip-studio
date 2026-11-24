@@ -70,11 +70,61 @@
   return {status:avail.length?'in':'out',price:Math.round(cents)/100,title:String(j.title||'').slice(0,160),variantId:avail.length&&Number.isSafeInteger(vid)&&vid>0?vid:null}}
  const STOP=new Set(['pokemon','tcg','the','a','an','of','de','la','le','les','du','des','et','and','cards','card','carte','cartes','edition','set']);
  const tokens=t=>String(t||'').normalize('NFKD').replace(/[̀-ͯ]/g,'').toLowerCase().split(/[^a-z0-9]+/).filter(x=>x&&!STOP.has(x));
- // Possible catalogue matches for a watch name in a /products.json page. A match needs >=2 meaningful words, ALL present in the
- // title. It is a lead, never proof of the exact set/edition/language: the UI says "verify".
- function matchCatalog(watchName,data,host){const w=tokens(watchName);if(w.length<2||!data||!Array.isArray(data.products))return [];const out=[];
-  for(const p of data.products){if(!p||!Array.isArray(p.variants)||!p.variants.length||typeof p.handle!=='string')continue;const t=new Set(tokens(p.title));if(!w.every(x=>t.has(x)))continue;
-   const q=parseShopifyProduct({title:p.title,variants:p.variants});if(!q)continue;out.push({title:q.title,handle:p.handle,available:q.status==='in',price:q.price,variantId:q.variantId,url:'https://'+host+'/products/'+encodeURIComponent(p.handle)})}
+ // Set names, longest first, so "Scarlet & Violet 151" wins over "Scarlet & Violet". Every set in pack-ev-data.js must be here
+ // (a test checks); add upcoming sets by hand. Era names double as set names ("Mega Evolution"), which is why they are listed too.
+ const SETS=["Delta Reign","30th Celebration","Pitch Black","Chaos Rising","Perfect Order","Ascended Heroes","Phantasmal Flames","Mega Evolution","Black Bolt","White Flare","Destined Rivals","Journey Together","Prismatic Evolutions","Surging Sparks","Stellar Crown","Shrouded Fable","Twilight Masquerade","Temporal Forces","Paldean Fates","Paradox Rift","Scarlet & Violet 151","Obsidian Flames","Paldea Evolved","Scarlet & Violet Base Set","Crown Zenith","Silver Tempest","Lost Origin","Astral Radiance","Brilliant Stars","Fusion Strike","Evolving Skies","Chilling Reign","Battle Styles","Vivid Voltage","Darkness Ablaze","Rebel Clash","Sword & Shield Base Set",
+  "Flowing Fists","Flowing Fist","Scarlet & Violet","Sword & Shield","Celebrations","Hidden Fates","Shining Fates","Pokemon GO"];
+ const ERAS=['mega evolution','scarlet violet','sword shield'];
+ const phrase=t=>' '+tokens(String(t||'').replace(/\betb\b/ig,'elite trainer box')).join(' ')+' ';
+ const SETP=SETS.map(s=>({name:s,p:phrase(s).trim()})).sort((a,b)=>b.p.length-a.p.length);
+ /** Set names found in a title. A name inside a longer one is not counted, and an era name is dropped when a set is named too. */
+ function setsIn(t){const p=phrase(t);let found=SETP.filter(s=>s.p&&p.includes(' '+s.p+' ')).map(s=>s.p);
+  found=found.filter(a=>!found.some(b=>b!==a&&(' '+b+' ').includes(' '+a+' ')));
+  if(found.length>1)found=found.filter(a=>!ERAS.includes(a));return found}
+ /** Product kind from a title: case, etb-pc, etb, tin, blister, bnb, box, bundle, pack, collection, or null. */
+ function kindOf(t){const p=phrase(t);
+  if(/ (case|cases) | \d+ (ct|count) /.test(p))return 'case';
+  if(/ elite trainer box /.test(p)&&/ (center|centre|pc|exclusive) /.test(p))return 'etb-pc'; // "pokemon" is a stop word
+  if(/ elite trainer box | coffret dresseur /.test(p))return 'etb';
+  if(/ tin | tins | minitin /.test(p))return 'tin';
+  if(/ blister /.test(p))return 'blister';
+  if(/ build battle /.test(p))return 'bnb';
+  if(/ booster box | display | boite boosters /.test(p))return 'box';
+  if(/ bundle /.test(p))return 'bundle';
+  if(/ booster pack | sleeved | pack | packs /.test(p))return 'pack';
+  if(/ collection | box /.test(p))return 'collection';
+  return null}
+ const FORMAT_KIND={pack:'pack',box:'box',etb:'etb',bundle:'bundle',collection:'collection',tin:'tin'};
+ /** Language a title says it is: 'fr', 'ja', 'ko', 'zh' or null (English shops list English unless they say otherwise). */
+ function langOf(t){const p=phrase(t);if(/ (french|francais|francaise|fr|vf|coffret|dresseur|boite) /.test(p))return 'fr';if(/ (japanese|japan|jp|jpn) /.test(p))return 'ja';if(/ (korean|kor) /.test(p))return 'ko';if(/ (chinese|chn|simplified|traditional) /.test(p))return 'zh';return null}
+ /** A UPC/EAN written in a variant's barcode or SKU, without leading zeros, or null. */
+ const upcOf=v=>{const s=String(v&&(v.barcode||v.sku)||'').replace(/\D/g,'');return s.length>=11&&s.length<=14&&String(v.barcode||v.sku).replace(/[\s-]/g,'').length===s.length?s.replace(/^0+/,''):null};
+ /** Size of one variant option: "Case" -> case, "Pack" -> pack, "Box"/"Single"/"Display" -> unit (the product itself), else null. */
+ const variantKind=v=>{const t=String(v&&v.title||'').toLowerCase();if(!t||t==='default title')return null;if(/case/.test(t))return 'case';if(/pack/.test(t))return 'pack';if(/box|display|single|unit|each/.test(t))return 'unit';return null};
+ // Possible catalogue matches for a watch in a /products.json page.
+ // A watch may be a name (older callers) or {product, format, language, upc}.
+ //  - barcode: when the watch has a UPC and a variant carries it, that is an exact match; a different UPC on the product is a reject.
+ //  - title: >=2 meaningful words, ALL present ("ETB" = "Elite Trainer Box"), the same set (another set's name in the title rejects it),
+ //    the same kind (a case of 25, a Pokémon Center ETB or a pack is not a booster box) and the same language.
+ // A title match is a lead, never proof: the UI says "verify".
+ function matchCatalog(watch,data,host){const W=typeof watch==='string'?{product:watch}:watch||{};
+  const w=tokens(phrase(W.product));if(w.length<2||!data||!Array.isArray(data.products))return [];
+  const wantKind=FORMAT_KIND[W.format]||kindOf(W.product),wantSets=setsIn(W.product),wantLang=W.language==='fr'?'fr':W.language==='any'?null:'en';
+  const wantUpc=W.upc?String(W.upc).replace(/\D/g,'').replace(/^0+/,''):null;const out=[];
+  for(const p of data.products){if(!p||!Array.isArray(p.variants)||!p.variants.length||typeof p.handle!=='string')continue;
+   let vars=p.variants,by='title';
+   const upcs=vars.map(upcOf).filter(Boolean);
+   if(wantUpc&&upcs.includes(wantUpc)){vars=vars.filter(v=>upcOf(v)===wantUpc);by='barcode'}
+   else{
+    if(wantUpc&&upcs.length)continue; // the shop states a different barcode
+    const t=new Set(tokens(phrase(p.title)));if(!w.every(x=>t.has(x)))continue;
+    const sets=setsIn(p.title);if(wantSets.length&&sets.some(s=>!wantSets.includes(s)))continue;
+    const lang=langOf(p.title);if(wantLang==='en'&&lang||wantLang==='fr'&&lang!=='fr')continue;
+    if(wantKind){if(kindOf(p.title)!==wantKind)continue;
+     // A "Box / Pack / Case" option list: keep the option that is the product itself.
+     if(vars.some(variantKind)){vars=vars.filter(v=>{const k=variantKind(v);return !k||k==='unit'||k===wantKind});if(!vars.length)continue}}
+   }
+   const q=parseShopifyProduct({title:p.title,variants:vars});if(!q)continue;out.push({title:q.title,handle:p.handle,available:q.status==='in',price:q.price,variantId:q.variantId,matchedBy:by,url:'https://'+host+'/products/'+encodeURIComponent(p.handle)})}
   return out}
  // Quantity to put in the cart: what you want, never above the retailer's per-customer limit when you know it.
  function qtyFor(w){const q=Math.max(1,Math.min(99,Math.floor(Number(w&&w.quantity)||1))),l=Math.floor(Number(w&&w.limit)||0);return l>0?Math.min(q,l):q}
@@ -85,5 +135,5 @@
   if(Number.isSafeInteger(o.variantId)&&o.variantId>0&&AUTO_HOSTS.includes(host))return 'https://'+host+'/cart/'+o.variantId+':'+qty;
   if(u&&u.protocol==='https:'&&/^(www\.)?amazon\.ca$/.test(u.hostname)){const m=u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?]|$)/);if(m)return affiliate('https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1='+m[1]+'&Quantity.1='+qty)}
   return u&&u.protocol==='https:'?affiliate(u.href):null}
- return {RETAILERS,affiliate,qtyFor,buyUrl,matchCatalog,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
+ return {RETAILERS,affiliate,qtyFor,buyUrl,matchCatalog,kindOf,setsIn,langOf,SETS,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
 });
