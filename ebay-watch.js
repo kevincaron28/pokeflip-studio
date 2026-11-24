@@ -7,19 +7,36 @@
 const isNum=v=>typeof v==='number'&&Number.isFinite(v);
 const norm=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9/]+/g,' ').trim();
 // Titles that are never the card itself.
-const BAD=['proxy','custom','orica','replica','fake','reprint','fan art','read description','read desc','see description','empty box','box only','no card','lot of','card lot','bulk','you pick','you choose','pick your','choose your','digital','code card','jumbo','oversized','art card','metal card','gold plated','sticker','display only','playmat','sleeve','binder','pin ','coin only'];
-// Not "tag" or "ace": TAG TEAM and ACE SPEC are card names.
-const GRADED=/\b(psa|bgs|cgc|sgc|beckett|graded|slab|slabbed)\b/;
+const BAD=['proxy','custom','orica','replica','fake','reprint','fan art','read description','read desc','see description','empty box','box only','no card','lot of','card lot','bulk','you pick','you choose','pick your','choose your','digital','code card','jumbo','oversized','art card','metal card','gold plated','sticker','display only','playmat','sleeve','binder','pin ','coin only',
+ // Measured on ebay.ca, 24 Nov 2026: listings with these words were 77 of 137 "deals" and none was the card.
+ 'keychain','key chain','novelty','case','magnetic','magnet','mystery','metal','gold foil','golden','gold card','print','poster','a4','display','mount','frame','acrylic','figure','plush','art by','original art','repack','chance','not 1st','non 1st','no 1st','not first'];
+// Not "tag team" or "ace spec": TAG and ACE count only when a grade number follows.
+const GRADED=/\b(psa|bgs|cgc|sgc|beckett|graded|slab|slabbed|grading)\b|\b(ace|tag|pcg|ags|gma|mnt|hga)\s*\d/;
 const FOREIGN=/\b(japanese|japan|jpn|jp|chinese|korean|kor|french|francais|german|deutsch|italian|spanish|espanol|portuguese|thai|indonesian)\b/;
 
-/** Does this listing title look like this exact card in this exact grade? */
-function matches(title,card){
+/** Edition the watched card needs: '1st', 'shadowless', 'unlimited' or null (modern cards). */
+function edition(card){const p=' '+norm((card.printing||'')+' '+(card.set||'')+' '+String(card.id||'').replace(/-/g,' '))+' ';
+ if(/ 1st | first edition /.test(p))return '1st';if(/ shadowless /.test(p))return 'shadowless';if(/ unlimited /.test(p))return 'unlimited';return null}
+/** Condition written in a listing title: NM, LP, MP, HP, DMG or null when not stated. "HP 120" (hit points) is not a condition. */
+function condition(title){const t=' '+norm(title).replace(/\//g,' ')+' ';
+ if(/ (dmg|damaged|damage|crease|creased|creases|torn|poor) /.test(t))return 'DMG';
+ if(/ (heavily played|heavy play|heavy played) /.test(t)||/ hp (?!\d)/.test(t)&&!/\d hp /.test(t))return 'HP';
+ if(/ (mp|moderately played|moderate play|played) /.test(t))return 'MP';
+ if(/ (lp|vlp|lightly played|light play|excellent) /.test(t))return 'LP';
+ if(/ (nm|near mint|mint|pack fresh) /.test(t))return 'NM';
+ return null}
+/** Share of a Near Mint value a played copy is worth. Starting estimates, always shown as estimates. */
+const COND_SHARE={NM:1,LP:0.8,MP:0.65,HP:0.45,DMG:0.3};
+
+/** Does this listing title look like this exact card in this exact grade and edition? */
+function matches(title,card,item){
  const t=' '+norm(title)+' ';
  for(const w of BAD.concat(card.exclude||[]))if(t.includes(' '+norm(w)+' '))return {ok:false,why:'excluded word: '+w};
  if(FOREIGN.test(t))return {ok:false,why:'other language'};
  const grade=String(card.grade||'raw').toLowerCase();
- if(grade==='raw'){if(GRADED.test(t))return {ok:false,why:'graded copy'}}
+ if(grade==='raw'){if(GRADED.test(t)||item&&/^graded$/i.test(item.condition||''))return {ok:false,why:'graded copy'}}
  else{
+  if(/\bnot\s+(a\s+)?(psa|bgs|cgc|sgc|graded)\b/.test(t))return {ok:false,why:'says not graded'};
   const m=grade.match(/^(psa|bgs|cgc|sgc)\s*(\d+(?:\.5)?)$/);if(!m)return {ok:false,why:'unknown grade'};
   if(!new RegExp('\\b'+m[1]+'\\s*'+m[2].replace('.','\\.')+'\\b').test(t))return {ok:false,why:'not '+card.grade};
   const other=t.match(/\b(psa|bgs|cgc|sgc)\s*(\d+(?:\.5)?)\b/g)||[];if(other.some(o=>o.replace(/\s+/,' ')!==m[1]+' '+m[2]))return {ok:false,why:'other grade'};
@@ -28,16 +45,22 @@ function matches(title,card){
  if(num&&!new RegExp('(^|[^0-9a-z])0*'+num.replace(/[^0-9a-z]/gi,'')+'([^0-9]|$)','i').test(t))return {ok:false,why:'card number missing'};
  const first=norm(card.name).split(' ').find(w=>w.length>2);
  if(first&&!t.includes(first))return {ok:false,why:'card name missing'};
- return {ok:true};
+ const ed=edition(card),first1=/ 1st | first edition /.test(t);
+ if(ed==='1st'&&!first1)return {ok:false,why:'1st Edition not stated'};
+ if(ed==='shadowless'&&(!t.includes(' shadowless ')||first1))return {ok:false,why:'Shadowless not stated'};
+ if(ed==='unlimited'&&(first1||t.includes(' shadowless ')))return {ok:false,why:'other edition'};
+ return {ok:true,condition:grade==='raw'?condition(title):null};
 }
 
-/** Market value in USD with its source and date, or null (unknown). */
+/** Sold-based market value in CAD with its source and date, or null (unknown).
+ *  Graded cards never get a raw price: their value comes from listingValue (asking prices). */
 function valueOf(card,data){
  if(card.value&&isNum(card.value.cad))return {cad:card.value.cad,usd:null,source:card.value.source||'your value',date:card.value.date||null,mine:true};
+ if(card.grade&&card.grade!=='raw')return null;
  const fx=data?.fx?.usdToCad;
  const live=data?.cardPrices?.[card.tcgplayerProductId+'|'+card.printing];
- if(isNum(live)&&card.marketSource!=='PriceCharting')return {usd:live,cad:isNum(fx)?live*fx:null,source:'TCGplayer market price',date:data.prices?.asOf||null};
- if(isNum(card.marketUsd))return {usd:card.marketUsd,cad:isNum(fx)?card.marketUsd*fx:null,source:card.marketSource==='PriceCharting'?'PriceCharting ungraded value':card.marketSource||'source unknown',date:card.marketDate||null};
+ if(isNum(live)&&card.marketSource!=='PriceCharting')return {usd:live,cad:isNum(fx)?live*fx:null,source:'TCGplayer market price',date:data.prices?.asOf||null,sold:true};
+ if(isNum(card.marketUsd))return {usd:card.marketUsd,cad:isNum(fx)?card.marketUsd*fx:null,source:card.marketSource==='PriceCharting'?'PriceCharting ungraded value':card.marketSource||'source unknown',date:card.marketDate||null,sold:true};
  return null;
 }
 /** Listing price including shipping, in CAD. USD listings are converted at the snapshot's Bank of Canada rate. */
@@ -47,25 +70,50 @@ function total(item,fx){
  const ship=item.shipping===null||item.shipping===undefined?null:conv(item.shipping,item.shippingCurrency||item.currency);
  return {cad:price+(ship||0),shippingKnown:ship!==null,converted:item.currency!=='CAD'};
 }
+/** Typical asking price of the matching listings: the median after dropping the cheapest and dearest 20%.
+ *  These are asking prices, never sales, so confidence is at most "medium". Needs at least 3 listings.
+ *  nmOnly: for raw cards, leave out listings that say they are played. */
+function listingValue(items,card,fx,{nmOnly=false}={}){
+ const xs=[];for(const it of items||[]){const m=matches(it.title,card,it);if(!m.ok)continue;if(nmOnly&&m.condition&&m.condition!=='NM')continue;const t=total(it,fx);if(t)xs.push(t.cad)}// shipping not shown (calculated at checkout) counts as the item price
+ if(xs.length<3)return null;xs.sort((a,b)=>a-b);const cut=Math.floor(xs.length*0.2),mid=xs.slice(cut,xs.length-cut);
+ const med=mid.length%2?mid[(mid.length-1)/2]:(mid[mid.length/2-1]+mid[mid.length/2])/2;
+ const spread=(mid[mid.length-1]-mid[0])/med;
+ return {cad:Math.round(med*100)/100,n:xs.length,spread:Math.round(spread*100)/100,source:`from ${xs.length} eBay.ca listings (asking prices)`,asking:true,confidence:xs.length>=5&&spread<0.5?'medium':'low'};
+}
+/** How well two values agree: high within 25%, medium within 40%, low beyond. */
+function agreement(a,b){if(!isNum(a)||!isNum(b)||a<=0||b<=0)return null;const d=Math.abs(a-b)/Math.min(a,b);return d<=0.25?'high':d<=0.40?'medium':'low'}
 const cadFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'});
 const cad=v=>isNum(v)?cadFmt.format(v):'unknown';
+/** More than 50% under value is almost never the real card in that condition (keychains, replicas, mislabelled copies). */
+const SUSPECT=0.5;
 function verdict(totalCad,valueCad){
  if(!isNum(totalCad)||!isNum(valueCad)||valueCad<=0)return {code:'unknown',label:'Value unknown',discount:null};
  const d=(valueCad-totalCad)/valueCad;
+ if(d>SUSPECT)return {code:'suspect',label:`Too cheap to trust: ${Math.round(d*100)}% under value. Probably not the real card; check the photos.`,discount:d};
  if(d>0.05)return {code:'under',label:`Under value by ${cad(valueCad-totalCad)} (${Math.round(d*100)}%)`,discount:d};
  if(d<-0.05)return {code:'over',label:`Over value by ${cad(totalCad-valueCad)} (${Math.round(-d*100)}%)`,discount:d};
  return {code:'fair',label:'Fair: within 5% of market value',discount:d};
 }
-/** Every matching listing with its value and verdict; best deals first. */
+/** Every matching listing with its value and verdict; best deals first, suspect listings last.
+ *  Raw cards: the value is for Near Mint; a listing that says LP/MP/HP/DMG is compared with that share of it.
+ *  The eBay.ca asking median is a second opinion on the sold value: when both agree, confidence is high.
+ *  Graded cards: the value is the trimmed median of matching listings (asking prices, low or medium confidence). */
 function assess(results,cards,data){
  const fx=data?.fx?.usdToCad,out=[];
- for(const card of cards){const r=results?.[card.id];if(!r)continue;const v=valueOf(card,data);
-  for(const it of r.items||[]){if(!it.url)continue;const m=matches(it.title,card);if(!m.ok)continue;const t=total(it,fx);if(!t)continue;
-   out.push({card,item:it,value:v,total:t,verdict:verdict(t.cad,v?.cad),fetchedAt:r.fetchedAt})}}
- return out.sort((a,b)=>(b.verdict.discount??-9)-(a.verdict.discount??-9));
+ for(const card of cards){const r=results?.[card.id];if(!r)continue;
+  const graded=card.grade&&card.grade!=='raw';
+  const ask=r.stats&&isNum(r.stats.cad)?r.stats:listingValue(r.items,card,fx,{nmOnly:!graded});
+  let v=valueOf(card,data);
+  if(!v&&graded&&ask)v={...ask,date:r.fetchedAt||null};
+  else if(v&&!v.mine)v={...v,check:ask||null,confidence:ask?agreement(v.cad,ask.cad):'medium'};
+  for(const it of r.items||[]){if(!it.url)continue;const m=matches(it.title,card,it);if(!m.ok)continue;const t=total(it,fx);if(!t)continue;
+   const share=m.condition?COND_SHARE[m.condition]:1,vc=v&&isNum(v.cad)?v.cad*share:null;
+   out.push({card,item:it,value:v,condition:m.condition||null,valueForCondition:vc,total:t,verdict:verdict(t.cad,vc),fetchedAt:r.fetchedAt})}}
+ return out.sort((a,b)=>(a.verdict.code==='suspect')-(b.verdict.code==='suspect')||(b.verdict.discount??-9)-(a.verdict.discount??-9));
 }
-/** Alert-worthy: at least `threshold` under value (shipping known) or at/below the user's target price. */
+/** Alert-worthy: at least `threshold` under value (shipping known) or at/below the user's target price. Never a suspect listing. */
 function isDeal(row,threshold,target){
+ if(row.verdict.code==='suspect')return false;
  if(isNum(target)&&row.total.shippingKnown&&row.total.cad<=target)return true;
  return row.total.shippingKnown&&isNum(row.verdict.discount)&&row.verdict.discount>=threshold;
 }
@@ -77,7 +125,7 @@ const jset=(k,v)=>{try{root.localStorage?.setItem(k,JSON.stringify(v))}catch{}};
 function prefs(){const p={...DEFAULTS,...jget(KEY,{})};p.threshold=isNum(p.threshold)&&p.threshold>=0&&p.threshold<=0.9?p.threshold:0.10;return p}
 function watched(p=prefs(),list=root.CardsteadSoughtCards?.cards||[]){return list.filter(c=>!p.removed.includes(c.id)).concat(p.custom||[])}
 
-const core={BAD,matches,valueOf,total,verdict,assess,isDeal,prefs,watched,KEY,norm};
+const core={BAD,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,KEY,norm};
 root.CardsteadEbayWatch=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
@@ -98,17 +146,20 @@ function dealHtml(r){
  const v=r.value,it=r.item;
  return `<article class="alert-card ac-${esc(r.verdict.code)}" aria-label="${esc('eBay listing: '+cardLabel(r.card))}">
  <div class="ac-head"><div><p class="ac-kind">eBay listing</p><h3 class="ac-title">${esc(cardLabel(r.card))}</h3></div>${it.image?`<img class="ac-img" loading="lazy" alt="" src="${esc(it.image)}">`:''}</div>
- <dl class="ac-grid"><div><dt>Seller</dt><dd>${esc(it.seller||'unknown')}${isNum(it.feedback)?' ('+esc(it.feedback)+'%)':''}${it.country?' · '+esc(it.country):''}</dd></div><div><dt>Price + shipping</dt><dd><strong>${cad(r.total.cad)}</strong>${r.total.shippingKnown?'':' <span class="ac-sub">+ shipping unknown</span>'}${r.total.converted?' <span class="ac-sub">(converted from '+esc(it.currency)+')</span>':''}</dd></div><div><dt>Condition</dt><dd>${esc(it.condition||'not stated')}</dd></div></dl>
+ <dl class="ac-grid"><div><dt>Seller</dt><dd>${esc(it.seller||'unknown')}${isNum(it.feedback)?' ('+esc(it.feedback)+'%)':''}${it.country?' · '+esc(it.country):''}</dd></div><div><dt>Price + shipping</dt><dd><strong>${cad(r.total.cad)}</strong>${r.total.shippingKnown?'':' <span class="ac-sub">+ shipping unknown</span>'}${r.total.converted?' <span class="ac-sub">(converted from '+esc(it.currency)+')</span>':''}</dd></div><div><dt>Condition</dt><dd>${esc(r.condition?r.condition+' (from the title)':it.condition||'not stated')}</dd></div></dl>
  <dl class="ac-rows"><div><dt>Listing</dt><dd class="ac-sub">${esc(it.title)}</dd></div>
- <div><dt>Market value</dt><dd>${v&&isNum(v.cad)?cad(v.cad)+` <span class="ac-sub">${esc(v.source)}${v.date?', as of '+esc(day(v.date)):''}</span>`:'unknown <span class="ac-sub">'+(r.card.grade&&r.card.grade!=='raw'?'no dated graded price source':'no market price')+'</span>'}</dd></div></dl>
+ <div><dt>Market value</dt><dd>${v&&isNum(v.cad)?cad(v.cad)+` <span class="ac-sub">${esc(v.source)}${v.date?', as of '+esc(day(v.date)):''}</span>`:'unknown <span class="ac-sub">'+(r.card.grade&&r.card.grade!=='raw'?'fewer than 3 matching eBay.ca listings':'no market price')+'</span>'}${v&&isNum(v.cad)?confPill(v.confidence):''}</dd></div>
+ ${v&&v.check?`<div><dt>Second opinion</dt><dd>${cad(v.check.cad)} <span class="ac-sub">${esc(v.check.source)}</span></dd></div>`:''}
+ ${r.condition&&r.condition!=='NM'&&isNum(r.valueForCondition)?`<div><dt>Value for ${esc(r.condition)}</dt><dd>${cad(r.valueForCondition)} <span class="ac-sub">estimate: ${Math.round(COND_SHARE[r.condition]*100)}% of Near Mint</span></dd></div>`:''}</dl>
  <p class="ac-verdict">${esc(r.verdict.label)}</p>
  <div class="ac-foot"><a class="btn smallbtn primary" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">View on eBay</a><span class="ac-sub">Checked ${esc(new Date(r.fetchedAt).toLocaleString('en-CA'))}</span></div></article>`;
 }
+function confPill(c){const k={high:['green','High'],medium:['gold','Medium'],low:['red','Low']}[c];return k?` <span class="pill ${k[0]}" title="How far the price sources agree">${k[1]} confidence</span>`:''}
 function wire(node){node.querySelectorAll('img.ac-img').forEach(i=>i.addEventListener('error',()=>i.remove(),{once:true}))}
 function renderDeals(){
  const host=$('dealsList');if(!host)return;const p=prefs(),res=jget(RESULTS,{});
- const rows=assess(res.byCard||{},watched(p),data).filter(r=>r.verdict.code==='under');
- $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString('en-CA')} · alerts at ${Math.round(p.threshold*100)}% under value or your target price`:'No scan yet.';
+ const all=assess(res.byCard||{},watched(p),data),rows=all.filter(r=>r.verdict.code==='under'),suspect=all.filter(r=>r.verdict.code==='suspect').length;
+ $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString('en-CA')} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
  host.innerHTML=rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing under market value in the last scan.</p>';wire(host);
 }
 function renderWatch(){
@@ -145,7 +196,9 @@ async function scan(){
     if(r.status===429){msg.textContent='eBay search limit reached; the scan continues later.';break}
     const j=await r.json();if(!r.ok)throw Error(j.error||r.status);
     // Keep the 8 cheapest matching listings per card.
-    res.byCard[c.id]={fetchedAt:j.fetchedAt,items:(j.items||[]).filter(it=>matches(it.title,c).ok).slice(0,8)};done++}
+    // Also keep the typical asking price of all matches: the value of graded cards, a second opinion for raw ones.
+    const ok=(j.items||[]).filter(it=>matches(it.title,c,it).ok),graded=c.grade&&c.grade!=='raw';
+    res.byCard[c.id]={fetchedAt:j.fetchedAt,items:ok.slice(0,8),stats:listingValue(ok,c,data?.fx?.usdToCad,{nmOnly:!graded})};done++}
    catch{failed++}
    await new Promise(r=>setTimeout(r,1200))}
   res.at=new Date().toISOString();jset(RESULTS,res);
