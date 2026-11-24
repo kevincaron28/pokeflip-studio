@@ -171,3 +171,23 @@ export function checkerStore({ url, serviceKey, fetch: f = globalThis.fetch }) {
     insertEvent: (ev) => q('POST', '/drop_events?on_conflict=event_key', ev, 'resolution=ignore-duplicates,return=minimal'),
   };
 }
+
+/** Database access for a checker running outside Supabase (deploy/shop-checker/): the public key plus a checker key,
+ *  through the five checker_* functions of migrations/006-checker-key.sql. No Supabase secret key on that machine. */
+export function checkerRpcStore({ url, publishableKey, checkerKey, fetch: f = globalThis.fetch }) {
+  async function rpc(name, args) {
+    const res = await f(`${url}/rest/v1/rpc/${name}`, { method: 'POST',
+      headers: { apikey: publishableKey, authorization: `Bearer ${publishableKey}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ p_key: checkerKey, ...args }) });
+    const text = await res.text();
+    if (!res.ok) throw Error(`Database ${name} -> ${res.status}: ${text.slice(0, 200)}`);
+    return text ? JSON.parse(text) : null;
+  }
+  return {
+    shopStates: () => rpc('checker_states', {}),
+    saveShopState: (row) => rpc('checker_save_state', { p_row: row }),
+    shopStock: (host) => rpc('checker_stock', { p_host: host }),
+    saveShopStock: (rows) => rpc('checker_save_stock', { p_rows: rows }),
+    insertEvent: (ev) => rpc('checker_add_event', { p_event: ev }),
+  };
+}

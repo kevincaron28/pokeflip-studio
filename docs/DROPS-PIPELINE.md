@@ -22,6 +22,8 @@ Measured on 24 Nov 2026 against the newest products of 15 of these shops (saved 
 1. Supabase → SQL Editor → run `migrations/003-shop-checker.sql` (after `002-discord-drops.sql`).
 2. Deploy: `supabase functions deploy shop-checker --project-ref fehvorwdcswhhonavyit`.
 3. Supabase → Integrations → Cron → Create job: name `shop-checker-tick`, schedule `*/2 * * * *`, type Supabase Edge Function, function `shop-checker`, method POST, body `{"task":"tick"}`, with the secret key header (same preset as `discord-drops-tick`).
+
+**Refusals (429) from Supabase.** On the first passes, 42 of 45 shops refused Supabase's shared outbound address while answering normally from a home connection. To measure it: call the function with `{"task":"probe","offset":0,"limit":12,"gapMs":4000}` (then offset 12, 24, ...): one small request per shop, one at a time, nothing saved; the reply gives each shop's status and the egress address. Pacing can be set with the secrets `CHECKER_CONCURRENCY`, `CHECKER_GAP_MS`, `CHECKER_MAX_SHOPS` (a run must end within 150 seconds). If refusals stay, run the checker on the Oracle VM instead: [SHOP-CHECKER-VM.md](SHOP-CHECKER-VM.md).
 4. Optional: set `CARDSTEAD_URL` if the site moves (the checker reads `data/drop-catalogue.json` from it).
 
 Cost: free tier. About 22,000 function calls a month (one every 2 minutes) and about 1.3 million small shop requests a month spread over 91 shops (one every 4–5 minutes each), mostly answered `304 Not Modified`.

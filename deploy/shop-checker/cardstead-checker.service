@@ -1,0 +1,34 @@
+# Cardstead shop checker: one pass over the shops that are due. Started by cardstead-checker.timer.
+# Installed by deploy/shop-checker/install.sh; runbook: docs/SHOP-CHECKER-VM.md.
+[Unit]
+Description=Cardstead shop checker (one pass)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=cardstead
+Group=cardstead
+WorkingDirectory=/opt/cardstead-checker
+EnvironmentFile=/etc/cardstead-checker/checker.env
+Environment=PATH=/opt/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=HOME=/opt/cardstead-checker
+Environment=NODE_OPTIONS=--max-old-space-size=128
+StateDirectory=cardstead-checker
+ExecStart=/bin/bash /opt/cardstead-checker/app/deploy/shop-checker/run.sh
+TimeoutStartSec=110s
+
+# This VM's main job is Guilded's PostgreSQL (and the Goblin Ledger collector runs hourly). A pass peaks around 85 MB (measured, 15 shops, 3 at a time):
+# keep it in a small budget, let the kernel pick it first if memory runs out, lowest CPU and disk priority.
+MemoryHigh=128M
+MemoryMax=192M
+OOMScoreAdjust=900
+Nice=15
+CPUWeight=20
+IOSchedulingClass=idle
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/cardstead-checker
