@@ -41,7 +41,7 @@ export function service(deps) {
     const prev = await store.getPost(key);
     const plan = C.planAlert(e, prev, now());
     if (plan.action === 'skip') return `skipped: ${plan.reason}`;
-    const opts = { roleIds: g.roles, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG };
+    const opts = { roleIds: g.roles, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG, now: now() };
     const t = new Date(now()).toISOString();
     if (plan.action === 'edit') {
       await discord.edit(prev.channel_id, prev.message_id, C.alertMessage(e, plan.state, { ...opts, postId: prev.id, seenAt: t, wasntThere: prev.wasnt_there }));
@@ -67,7 +67,7 @@ export function service(deps) {
     let targets = [];
     try { targets = (await store.dmTargets()) || []; } catch { return 0; }
     for (const t of targets) {
-      const w = C.matchingWatch(e, t.watches);
+      const w = C.matchingWatch(e, t.watches, now());
       if (!w) continue;
       const m = C.alertMessage(e, 'live', { ...opts, ping: false });
       m.content = `Matches your Cardstead watch “${String(w.product).slice(0, 120)}” (max ${C.cad(w.ceiling)}). · Correspond à ta surveillance Cardstead.`;
@@ -181,7 +181,7 @@ export function service(deps) {
     const count = await store.addWasntThere(postId, user.id);
     const stale = count >= C.STALE_AFTER;
     await store.updatePost(postId, { wasnt_there: count, ...(stale ? { state: 'stale' } : {}) });
-    await discord.edit(post.channel_id, post.message_id, C.alertMessage(post.event, stale ? 'stale' : 'live', { postId, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG, wasntThere: count }));
+    await discord.edit(post.channel_id, post.message_id, C.alertMessage(post.event, stale ? 'stale' : 'live', { postId, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG, wasntThere: count, now: now() }));
     if (stale && post.reporter_id) await reporterScore(post.reporter_id, 0, 1);
   }
 

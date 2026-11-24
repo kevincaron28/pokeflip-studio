@@ -257,3 +257,28 @@ test('database: every Discord table has RLS on and nothing is granted to anonymo
  const cfg=fs.readFileSync(path.join(ROOT,'supabase/config.toml'),'utf8');assert.match(cfg,/discord-interactions\]\nverify_jwt = false/);
  for(const f of ['discord-interactions','discord-publisher'])assert.doesNotMatch(fs.readFileSync(path.join(ROOT,'supabase/functions',f,'index.ts'),'utf8'),/sk_|Bot [A-Za-z0-9]{20}/,'no token in code');
 });
+
+test('pipeline contract additions: PC ETB, packs, Build & Battle, barcode vs title, MSRP wording, event key, Amazon 24 h',async()=>{
+ const C=await load('discord-core.mjs');
+ assert.equal(C.kindFromText('Pokémon Center Elite Trainer Box Delta Reign'),'etb_pc');
+ assert.equal(C.kindFromText('Delta Reign ETB'),'etb');
+ assert.equal(C.kindFromText('Build & Battle Box'),'build_battle');
+ assert.equal(C.kindFromText('Delta Reign booster pack'),'pack');
+ assert.equal(C.productRole(C.normalizeEvent(ev({product_kind:'etb_pc'}))),'ETB');
+ assert.equal(C.productRole(C.normalizeEvent(ev({product_kind:'pack'}))),'Packs, bundles & blisters');
+ const t=C.normalizeEvent(ev({matched_by:'title'}));assert.equal(t.confidence,'medium','title match is Medium at most');
+ assert.match(C.alertMessage(t,'live',{}).embeds[0].footer.text,/Matched by title/);
+ assert.equal(C.normalizeEvent(ev({matched_by:'barcode',product_upc:'0820650-85412'})).product_upc,'082065085412');
+ assert.equal(C.verdict(79.99,null,79.99).en,'At MSRP');assert.match(C.verdict(89.99,null,79.99).en,/^Over MSRP by CA\$10\.00/);
+ assert.match(C.alertMessage(C.normalizeEvent(ev()),'live',{}).embeds[0].footer.text,/MSRP CA\$79\.99/);
+ assert.equal(C.eventKey('s','p',true,Date.parse('2026-11-24T19:42:00Z')),'s|p|true|2026-11-24T19');
+ const pc=C.normalizeEvent(ev({product_name:'Delta Reign Pokémon Center Elite Trainer Box',product_kind:'etb_pc'}));
+ assert.equal(C.matchingWatch(pc,[{product:'Delta Reign ETB',enabled:true,ceiling:200,language:'any',format:'etb'}],T0),null,'a regular ETB watch never matches the Pokémon Center ETB');
+ assert.ok(C.matchingWatch(pc,[{product:'Delta Reign Pokemon Center ETB',enabled:true,ceiling:200,language:'any',format:'etb'}],T0));
+ const amz=C.normalizeEvent(ev({chain_key:'amazon-ca',region:null,store_key:'amazon',store_name:'Amazon.ca',source:'amazon_api',first_seen_at:new Date(T0-25*3600e3).toISOString()}));
+ assert.equal(C.planAlert(amz,null,T0).action,'skip','no Amazon price older than 24 h');
+ assert.match(C.alertMessage(amz,'live',{now:T0}).embeds[0].fields[1].value,/Check price at Amazon/);
+ assert.match(C.alertMessage(amz,'live',{now:T0-2*3600e3}).embeds[0].fields[1].value,/CA\$94\.99/);
+ const sql=fs.readFileSync(path.join(ROOT,'migrations/002-discord-drops.sql'),'utf8');
+ assert.match(sql,/event_key text unique/);assert.match(sql,/'etb_pc','pack'/);assert.match(sql,/not \(matched_by = 'title' and confidence = 'high'\)/);
+});

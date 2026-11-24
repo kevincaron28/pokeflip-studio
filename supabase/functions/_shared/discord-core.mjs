@@ -8,6 +8,7 @@ export const STALE_AFTER = 2;            // "Wasn't there" taps that mark an ale
 export const TRUSTED_AFTER = 10;         // confirmed reports before the Trusted reporter role
 export const MARKETPLACE_RATIO = 1.3;    // price above MSRP x this is not a restock
 export const SCALPER_RATIO = 1.5;
+export const AMAZON_PRICE_MAX_AGE_MS = 24 * 60 * 60 * 1000; // Amazon API terms: never show an Amazon price older than 24 h
 export const FAIR_BAND = 0.05;
 
 // Regions: one channel each, visible to its region role (Discord only notifies members who can see the channel).
@@ -36,9 +37,9 @@ export const CHAINS = [
 // Product roles are the ones pinged. Japanese and Asian products use one role whatever their kind.
 export const PRODUCTS = [
   { key: 'booster_box', role: 'Booster boxes' },
-  { key: 'etb', role: 'ETB' },
-  { key: 'bundle', role: 'Bundles & blisters', kinds: ['bundle', 'blister'] },
-  { key: 'collection', role: 'Collections & tins', kinds: ['collection', 'tin', 'other'] },
+  { key: 'etb', role: 'ETB', kinds: ['etb', 'etb_pc'] },
+  { key: 'bundle', role: 'Packs, bundles & blisters', kinds: ['pack', 'bundle', 'blister'] },
+  { key: 'collection', role: 'Collections & tins', kinds: ['collection', 'tin', 'build_battle', 'other'] },
   { key: 'asian', role: 'Japanese & Asian' },
 ];
 export const DEALS_ROLE = 'eBay deals';
@@ -55,7 +56,7 @@ export const CHANNELS = {
   mods: ['mod-queue'],
 };
 
-const KINDS = ['booster_box', 'etb', 'bundle', 'blister', 'collection', 'tin', 'other'];
+const KINDS = ['booster_box', 'etb', 'etb_pc', 'pack', 'bundle', 'blister', 'build_battle', 'collection', 'tin', 'other'];
 const LANGS = ['EN', 'FR', 'JP'];
 const SOURCES = ['shop_check', 'retailer_email', 'amazon_api', 'member_report'];
 const CONF = ['high', 'medium', 'low'];
@@ -94,7 +95,11 @@ export function normalizeEvent(e) {
     image_url: httpsUrl(e.image_url),
     cardstead_url: httpsUrl(e.cardstead_url),
     reporter_id: e.reporter_id ? String(e.reporter_id) : null,
+    product_upc: e.product_upc ? String(e.product_upc).replace(/\D/g, '').slice(0, 14) || null : null,
+    matched_by: e.matched_by === 'title' ? 'title' : e.matched_by === 'barcode' ? 'barcode' : null,
   };
+  // A title match is never more than Medium: only a barcode proves it is the same box.
+  if (out.matched_by === 'title' && out.confidence === 'high') out.confidence = 'medium';
   if (!out.id || !out.product_key || !out.product_name || !out.store_key || !out.store_name) throw Error('event is missing product or store');
   if (!LANGS.includes(out.product_lang)) throw Error('bad product_lang');
   if (!KINDS.includes(out.product_kind)) throw Error('bad product_kind');
@@ -118,8 +123,9 @@ export function isMarketplace(e) {
   return e.seller === 'marketplace' || (e.msrp_cad > 0 && e.price_cad > e.msrp_cad * MARKETPLACE_RATIO);
 }
 
-/** Amazon prices may only be shown when they came from Amazon's own API. */
-export const showPrice = (e) => e.price_cad !== null && !(e.chain_key === 'amazon-ca' && e.source !== 'amazon_api');
+/** Amazon prices may only be shown when they came from Amazon's own API, and for at most 24 hours. */
+export const amazonPriceExpired = (e, now) => e.source === 'amazon_api' && Number.isFinite(now) && now - Date.parse(e.first_seen_at) > AMAZON_PRICE_MAX_AGE_MS;
+export const showPrice = (e, now) => e.price_cad !== null && !(e.chain_key === 'amazon-ca' && e.source !== 'amazon_api') && !amazonPriceExpired(e, now);
 
 export function verdict(price, market, msrp) {
   if (!Number.isFinite(price)) return { key: 'unknown', en: 'Value unknown', fr: 'Valeur inconnue' };
@@ -133,6 +139,11 @@ export function verdict(price, market, msrp) {
     return { key: 'fair', en: 'Fair', fr: 'Juste' };
   }
   if (scalper) return { key: 'scalper', en: 'Scalper price vs MSRP', fr: 'Prix de revendeur vs PDSF' };
+  if (Number.isFinite(msrp) && msrp > 0) {
+    if (price < msrp * 0.98) return { key: 'under', en: `Under MSRP by ${cad(msrp - price)}`, fr: `Sous le PDSF de ${cad(msrp - price)}` };
+    if (price <= msrp * 1.02) return { key: 'fair', en: 'At MSRP', fr: 'Au PDSF' };
+    return { key: 'over', en: `Over MSRP by ${cad(price - msrp)}`, fr: `Au-dessus du PDSF de ${cad(price - msrp)}` };
+  }
   return { key: 'unknown', en: 'Value unknown', fr: 'Valeur inconnue' };
 }
 
@@ -150,6 +161,7 @@ const HOW = {
  */
 export function planAlert(e, prev, now) {
   if (e.confidence === 'low') return { action: 'skip', reason: 'low confidence is never posted' };
+  if (amazonPriceExpired(e, now)) return { action: 'skip', reason: 'Amazon price older than 24 h' };
   const live = prev && prev.state === 'live';
   if (!e.in_stock) return live ? { action: 'edit', state: 'sold_out', ping: false, reason: 'sold out' } : { action: 'skip', reason: 'sold out, nothing live' };
   const market = isMarketplace(e);
@@ -180,10 +192,10 @@ export function alertMessage(e, state, opts = {}) {
   const where = e.city || (e.chain_key ? null : REGIONS.find((r) => r.key === e.region)?.en) || 'Online · En ligne';
   const fields = [
     { name: 'Store · Boutique', value: `${e.store_name}${where ? `\n${where}` : ''}`, inline: true },
-    { name: 'Price · Prix', value: showPrice(e) ? cad(e.price_cad) : 'Check price at Amazon · Voir le prix sur Amazon', inline: true },
-    { name: 'Value · Valeur', value: showPrice(e) ? `${v.en}\n${v.fr}` : '—', inline: true },
+    { name: 'Price · Prix', value: showPrice(e, opts.now) ? cad(e.price_cad) : 'Check price at Amazon · Voir le prix sur Amazon', inline: true },
+    { name: 'Value · Valeur', value: showPrice(e, opts.now) ? `${v.en}\n${v.fr}` : '—', inline: true },
     { name: 'Seller · Vendeur', value: market ? 'Marketplace seller · Vendeur tiers' : 'The store · Le magasin', inline: true },
-    { name: 'Confidence · Confiance', value: `${e.confidence === 'high' ? 'High · Élevée' : 'Medium · Moyenne'}\n${HOW[e.source].en}`, inline: true },
+    { name: 'Confidence · Confiance', value: `${e.confidence === 'high' ? 'High · Élevée' : 'Medium · Moyenne'}\n${e.source === 'shop_check' && e.matched_by === 'title' ? 'shop data, matched by title' : HOW[e.source].en}`, inline: true },
     { name: 'First seen · Vu', value: `<t:${unix(e.first_seen_at)}:R>`, inline: true },
   ];
   if (e.limit_per_order) fields.push({ name: 'Limit · Limite', value: `${e.limit_per_order} per order · par commande`, inline: true });
@@ -191,6 +203,8 @@ export function alertMessage(e, state, opts = {}) {
   const foot = [];
   if (e.market_cad) foot.push(`Market ${cad(e.market_cad)}${e.market_source ? ` (${e.market_source}${e.market_as_of ? ', ' + e.market_as_of : ''})` : ''}`);
   else foot.push('No market match · Aucune valeur de marché');
+  if (e.msrp_cad) foot.push(`MSRP ${cad(e.msrp_cad)}`);
+  if (e.matched_by === 'title') foot.push('Matched by title, not barcode · Associé par le titre');
   if (e.chain_key === 'amazon-ca') foot.push('As an Amazon Associate I earn from qualifying purchases.');
   if (opts.seenAt && state === 'live') foot.push('Still in stock · Toujours en stock');
   const embed = {
@@ -227,10 +241,12 @@ export const oldEnough = (userId, now) => now - accountCreatedAt(userId) >= MIN_
 
 export function kindFromText(t) {
   const s = String(t).toLowerCase();
-  if (/\b(etb|elite trainer|coffret dresseur)/.test(s)) return 'etb';
+  if (/\b(etb|elite trainer|coffret dresseur)/.test(s)) return /pok[eé]mon center|\bpc\b/.test(s) ? 'etb_pc' : 'etb';
+  if (/build (&|and) battle|avant-premi[eè]re/.test(s)) return 'build_battle';
   if (/booster (box|display)|bo[iî]te de boosters|display\b/.test(s)) return 'booster_box';
   if (/bundle|lot de boosters/.test(s)) return 'bundle';
   if (/blister|3-pack|three-booster|tripack/.test(s)) return 'blister';
+  if (/booster pack|\bpack\b|sachet/.test(s)) return 'pack';
   if (/\btin\b|boîte métal|pokéball tin/.test(s)) return 'tin';
   if (/collection|coffret|premium|box\b/.test(s)) return 'collection';
   return 'other';
@@ -282,9 +298,12 @@ export function reportToEvent(r, { id, confirmed, now }) {
     store_key: r.store_key, store_name: r.store_name, chain_key: r.chain_key, region: r.region, city: r.city,
     url: r.link || r.photo, price_cad: r.price_cad, seller: 'store', in_stock: true, source: 'member_report',
     confidence: confirmed ? 'high' : 'medium', first_seen_at: r.created_at, reporter_id: r.reporter_id,
-    created_at: new Date(now).toISOString(),
+    event_key: eventKey(r.store_key, r.product_key, true, now), created_at: new Date(now).toISOString(),
   };
 }
+
+/** Producers' idempotency key: store|product|in_stock|UTC date-hour. */
+export const eventKey = (store, product, inStock, now) => `${store}|${product}|${inStock}|${new Date(now).toISOString().slice(0, 13)}`;
 
 export function reportMessage(r, state) {
   const label = { pending: 'Waiting for a second member · En attente d’un 2e membre', confirmed: 'Confirmed · Confirmé', expired: 'Expired, not confirmed · Expiré', posted: 'Posted by a trusted reporter · Publié par un membre de confiance' }[state];
@@ -314,17 +333,19 @@ export const isTrustedNow = (stats) => stats.good >= TRUSTED_AFTER && stats.bad 
 const words = (t) => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/elite trainer box/g, 'etb').replace(/coffret dresseur d.?elite/g, 'etb')
   .split(/[^a-z0-9]+/).filter((w) => w.length >= 3);
-const FORMAT_KINDS = { box: ['booster_box'], etb: ['etb'], bundle: ['bundle', 'blister'], pack: ['blister', 'bundle'], collection: ['collection', 'tin'], tin: ['tin', 'collection'], any: KINDS };
+const FORMAT_KINDS = { box: ['booster_box'], etb: ['etb', 'etb_pc'], bundle: ['bundle', 'blister'], pack: ['pack', 'blister', 'bundle'], collection: ['collection', 'tin', 'build_battle'], tin: ['tin', 'collection'], any: KINDS };
 
 /** Cardstead restock watch rule (from the user's cloud backup) that matches this alert, or null. */
-export function matchingWatch(e, watches) {
-  if (!Array.isArray(watches) || !e.in_stock || isMarketplace(e) || !showPrice(e)) return null;
+export function matchingWatch(e, watches, now) {
+  if (!Array.isArray(watches) || !e.in_stock || isMarketplace(e) || !showPrice(e, now)) return null;
   const have = new Set(words(e.product_name));
   for (const w of watches) {
     if (!w || !w.enabled || !(w.ceiling >= e.price_cad)) continue;
     if (w.language && w.language !== 'any' && w.language.toUpperCase() !== e.product_lang) continue;
     if (!(FORMAT_KINDS[w.format] || KINDS).includes(e.product_kind)) continue;
     const need = words(w.product);
+    // The Pokémon Center ETB is its own product: only a watch that names it matches.
+    if (e.product_kind === 'etb_pc' && !need.includes('center')) continue;
     if (need.length >= 2 && need.every((x) => have.has(x))) return w;
   }
   return null;

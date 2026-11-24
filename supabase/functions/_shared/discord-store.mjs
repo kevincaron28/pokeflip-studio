@@ -16,7 +16,7 @@ export function supabaseStore({ url, serviceKey, fetch: f = globalThis.fetch }) 
   return {
     newEvents: (limit = 50) => q('GET', `/drop_events?processed_at=is.null&order=created_at.asc&limit=${limit}`),
     markEvent: (id, outcome, now) => q('PATCH', `/drop_events?id=eq.${e(id)}`, { processed_at: new Date(now).toISOString(), discord_outcome: String(outcome).slice(0, 200) }),
-    insertEvent: (ev) => q('POST', '/drop_events', ev, 'return=minimal'),
+    insertEvent: (ev) => q('POST', '/drop_events?on_conflict=event_key', ev, 'resolution=ignore-duplicates,return=minimal'),
     getPost: async (key) => one(await q('GET', `/discord_posts?key=eq.${e(key)}&limit=1`)),
     getPostById: async (id) => one(await q('GET', `/discord_posts?id=eq.${e(id)}&limit=1`)),
     upsertPost: (row) => q('POST', '/discord_posts?on_conflict=key', row, 'resolution=merge-duplicates,return=minimal'),

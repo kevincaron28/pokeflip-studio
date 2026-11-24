@@ -9,7 +9,9 @@ create table if not exists public.drop_events (
   product_key text not null,
   product_name text not null,
   product_lang text not null check (product_lang in ('EN','FR','JP')),
-  product_kind text not null check (product_kind in ('booster_box','etb','bundle','blister','collection','tin','other')),
+  product_kind text not null check (product_kind in ('booster_box','etb','etb_pc','pack','bundle','blister','build_battle','collection','tin','other')), -- cases of boxes are never inserted
+  product_upc text check (product_upc is null or product_upc ~ '^[0-9]{8,14}$'),
+  matched_by text check (matched_by in ('barcode','title')),
   store_key text not null,
   store_name text not null,
   chain_key text check (chain_key in ('pokemon-center','walmart','bestbuy-ebgames','costco','amazon-ca','indigo-mastermind','pharmacies-grocery')),
@@ -23,6 +25,7 @@ create table if not exists public.drop_events (
   limit_per_order int,
   source text not null check (source in ('shop_check','retailer_email','amazon_api','member_report')),
   confidence text not null check (confidence in ('high','medium','low')),
+  event_key text unique, -- store_key|product_key|in_stock|UTC date-hour: producers insert idempotently
   first_seen_at timestamptz not null,
   market_cad numeric(10,2),
   market_source text,
@@ -32,7 +35,8 @@ create table if not exists public.drop_events (
   reporter_id text,
   processed_at timestamptz,
   discord_outcome text,
-  check (chain_key is not null or region is not null)
+  check (chain_key is not null or region is not null),
+  check (not (matched_by = 'title' and confidence = 'high')) -- a title match is Medium at most
 );
 create index if not exists drop_events_unprocessed on public.drop_events (created_at) where processed_at is null;
 
