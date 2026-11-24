@@ -1,0 +1,18 @@
+# South Shore (Rive-Sud) shops and Canadian online shops found on 2026-11-24 (owner request; sweep notes in the
+# cardstead-discord session). Probe: python tools/probe-shopify-shops.py --hosts tools/coverage-hosts-2026-11-24.txt --out docs/research/shopify-probe-2026-11-24-coverage.json
+taverneducollectionneur.com qc
+leroidescartes.ca qc
+kingcardsvalley.com qc
+sportslatornade.com qc
+lemagot.ca qc
+cartessportivesrivesud.com qc
+facetofacegames.com ntl
+carderaco.com ab
+danireon.com on
+swirlyeg.com ab
+magikartcards.com ntl
+fusiongamingonline.com ntl
+shop.pokemontcgcanada.ca ntl
+www.mastermindtoys.com ntl
+www.gianttiger.com ntl
+griffon.ca qc
