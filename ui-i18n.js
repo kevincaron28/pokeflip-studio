@@ -6,6 +6,13 @@ const KEY='cardstead-lang-v1';
 const S={
  en:{
   'nav.portfolio':'Portfolio','nav.drops':'Drops','chip.overview':'Overview','chip.addCard':'Add card','chip.selling':'Selling:','fab.addCard':'Add card',
+  'chip.sets':'All sets','sets.title':'All sets','sets.sub':'Every series and set, with the value of a complete set, the chase cards and sealed prices, in CA$.',
+  'sets.search':'Search a set (name or code)','sets.source':(d,r)=>`TCGplayer sold averages of ${d}, in CA$ at the Bank of Canada rate (1 USD = ${r} CAD). English cards.`,
+  'sets.cards':n=>`${n} cards`,'sets.chase':'Top card','sets.pack':'Pack','sets.etb':'ETB','sets.box':'Box','sets.value':'Set value','sets.none':'No set found.',
+  'sets.loading':'Loading the cards…','sets.fail':'The set list could not be loaded. Check your connection and try again.','sets.back':'All sets',
+  'sets.owned':(h,n,p)=>`you own ${h} of ${n} (${p}%)`,'sets.valueRule':'one of each card, cheapest printing','sets.byPrice':'Highest price first','sets.byNumber':'By number',
+  'sets.noPrice':'no recent sale','sets.youOwn':'in your collection',
+  'sets.series.other':'Promos & special products',
   'nav.home':'Home','nav.prices':'Prices','nav.watch':'Watch','nav.collection':'Collection','nav.settings':'Settings',
   'chip.find':'Find a product','chip.packs':'Booster pack value','chip.watches':'My watches','chip.ebay':'eBay deals',
   'chip.scan':'Scan','chip.cards':'Cards','chip.lots':'Lots','chip.sales':'Sales','chip.business':'Business',
@@ -30,6 +37,13 @@ const S={
  },
  fr:{
   'nav.portfolio':'Portefeuille','nav.drops':'Arrivages','chip.overview':'Aperçu','chip.addCard':'Ajouter une carte','chip.selling':'Vente :','fab.addCard':'Ajouter une carte',
+  'chip.sets':'Toutes les extensions','sets.title':'Toutes les extensions','sets.sub':'Chaque série et extension, avec la valeur d’une extension complète, les cartes recherchées et les prix des produits scellés, en $ CA.',
+  'sets.search':'Chercher une extension (nom ou code)','sets.source':(d,r)=>`Moyennes des ventes TCGplayer du ${d}, en $ CA au taux de la Banque du Canada (1 USD = ${r} CAD). Cartes anglaises.`,
+  'sets.cards':n=>`${n} cartes`,'sets.chase':'Carte vedette','sets.pack':'Paquet','sets.etb':'ETB','sets.box':'Boîte','sets.value':'Valeur de l’extension','sets.none':'Aucune extension trouvée.',
+  'sets.loading':'Chargement des cartes…','sets.fail':'Impossible de charger la liste des extensions. Vérifie ta connexion et réessaie.','sets.back':'Toutes les extensions',
+  'sets.owned':(h,n,p)=>`tu en as ${h} sur ${n} (${p} %)`,'sets.valueRule':'une de chaque carte, impression la moins chère','sets.byPrice':'Prix le plus élevé d’abord','sets.byNumber':'Par numéro',
+  'sets.noPrice':'aucune vente récente','sets.youOwn':'dans ta collection',
+  'sets.series.other':'Promos et produits spéciaux',
   'nav.home':'Accueil','nav.prices':'Prix','nav.watch':'Surveiller','nav.collection':'Collection','nav.settings':'Réglages',
   'chip.find':'Trouver un produit','chip.packs':'Valeur des boosters','chip.watches':'Mes suivis','chip.ebay':'Aubaines eBay',
   'chip.scan':'Scanner','chip.cards':'Cartes','chip.lots':'Lots','chip.sales':'Ventes','chip.business':'Revente',

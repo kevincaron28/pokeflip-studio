@@ -1185,4 +1185,6 @@
 "Set up cloud sync and sign in first":"Configure la synchronisation et connecte-toi d’abord",
 "Sign in with cloud sync first (Settings, below)":"Connecte-toi d’abord avec la synchronisation (Réglages, plus bas)",
 "Enter the 8-character code from /link.":"Entre le code de 8 caractères reçu avec /link.",
+"All sets":"Toutes les extensions",
+"Every series and set, with the value of a complete set, the chase cards and sealed prices, in CA$.":"Chaque série et extension, avec la valeur d’une extension complète, les cartes recherchées et les prix des produits scellés, en $ CA.",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);
