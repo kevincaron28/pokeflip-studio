@@ -25,7 +25,11 @@ It watches the Amazon.ca and Pokémon Center Canada products you choose. When on
 
 Your products, settings and log are kept.
 
-## Automatic checkout (Amazon.ca only, off by default)
+## Automatic checkout: turned off
+
+Since 24 Nov 2026 automatic checkout is switched off in the code (`AUTO_CHECKOUT_ENABLED=false` in `lib/core.js`): Amazon forbids automated buying, and Cardstead's Amazon links are Amazon Associates links (see `docs/AMAZON-ASSOCIATES.md`). Drop Assist only assists; you click "Place your order" yourself. The section below describes the switched-off feature for reference.
+
+### Automatic checkout (Amazon.ca only, off by default) — no longer available
 
 **Read this first.** Amazon's Conditions of Use forbid robots and automated buying. Amazon can cancel orders placed this way, and it can suspend or close your account, including your order history and any gift card balance. You use this at your own risk. **Pokémon Center is never bought automatically**: it stays checkout assist, and the waiting room and CAPTCHAs are never bypassed.
 

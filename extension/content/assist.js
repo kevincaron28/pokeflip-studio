@@ -60,6 +60,7 @@ async function autoCheckout(p,job){
 async function assist(){
  const got=await send({type:'assist-get',url:location.href,store});if(!got)return;
  const {product:p,job}=got;
+ if(job&&job.mode==='auto'&&!A.AUTO_CHECKOUT_ENABLED)job.mode='checkout'; // automatic checkout is off: assist only
  const path=location.pathname;
  // Automatic checkout (Amazon.ca only, switched on per product by the owner).
  if(store==='amazon'&&job.mode==='auto'&&p.store==='amazon'){
