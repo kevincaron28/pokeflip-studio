@@ -15,7 +15,7 @@ Notification: "In stock: Delta Reign Booster Box" / "Hasty Cards, Toronto · $27
 
 ## Where it works
 - Website in Chrome, Edge or Firefox (desktop and Android), and Safari on iPhone once Cardstead is added to the Home Screen.
-- **Not in the Android app** yet: its web view cannot receive Web Push. App push needs Firebase Cloud Messaging (a Firebase project: owner decision and account). Until then, Android users turn alerts on from Chrome.
+- **Android app**: through Firebase Cloud Messaging (FCM), switched off until the owner adds a Firebase config (steps below). Until then the app tells members to turn alerts on from Chrome on the same phone.
 
 ## Owner steps
 1. Make the keys once, on your computer: `node tools/make-vapid-keys.mjs`. Never commit them.
@@ -24,6 +24,26 @@ Notification: "In stock: Delta Reign Booster Box" / "Hasty Cards, Toronto · $27
 4. Supabase SQL Editor: run `migrations/004-push.sql` (after 002 and 003).
 5. Deploy: `supabase functions deploy push-sender --project-ref fehvorwdcswhhonavyit`.
 6. Supabase Cron: job `push-sender-tick`, schedule `* * * * *`, POST `{"task":"tick"}` with the secret key preset (same as `discord-drops-tick`).
+
+## Android app push (Firebase), owner steps
+The app code is ready and stays off until these are done. Firebase Cloud Messaging is free (no paid plan needed; the free Spark plan is enough).
+
+**Use the existing Firebase account?** Yes, if you like. One Firebase project can hold several Android apps, so the project the Guilded phone app uses can also hold Cardstead: open that project and add a second Android app. A separate project ("Cardstead") is cleaner if you ever want to hand Cardstead over or keep its users apart; it costs the same (nothing). Either works with the steps below.
+
+1. [Firebase console](https://console.firebase.google.com) → open the project (or **Add project** → "Cardstead", Google Analytics off).
+2. **Project overview → Add app → Android**. Package name: `top.kcaron.cardstudio` (must match exactly). Nickname: Cardstead. Skip the SHA-1 (not needed for push). **Register app**.
+3. **Download google-services.json**. Do not commit it. Either:
+   - for a build on your computer: put it at `mobile/android/app/google-services.json` (git ignores it), or
+   - for the GitHub build: repository **Settings → Secrets and variables → Actions → New repository secret**, name `GOOGLE_SERVICES_JSON`, value = the whole file's text. The Android workflow writes the file before building.
+   Skip the "Add Firebase SDK" screens; the app already has it.
+4. **Project settings → Cloud Messaging**: check that *Firebase Cloud Messaging API (V1)* is **Enabled** (enable it if it says disabled).
+5. **Project settings → Service accounts → Generate new private key**. This downloads a JSON key: it is a secret. Supabase → Edge Functions → Secrets → add `FIREBASE_SERVICE_ACCOUNT` = the whole file's text. Then delete the downloaded file from your computer. Never paste it into a chat or commit it.
+6. Supabase SQL Editor: run `migrations/005-push-fcm.sql` (after 004).
+7. Redeploy the sender: `supabase functions deploy push-sender --project-ref fehvorwdcswhhonavyit`.
+8. Build a new app version (tag a release or run the Android workflow), install it, Settings → **Turn on drop alerts**, allow notifications. Android 13 and later ask for permission at that moment.
+9. Play Console → App content → **Data safety**: add "Device or other IDs" (push token), purpose App functionality, linked to the account, deletable.
+
+Without step 5 the sender skips app devices (browser alerts keep working). Without step 3 the app keeps showing "cannot receive these alerts yet".
 
 The privacy policy now has a "Drop alerts" section (English and French). Add "push address and alert choices" to the Play data-safety form when the app gets push.
 

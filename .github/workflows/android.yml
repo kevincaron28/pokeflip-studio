@@ -21,6 +21,10 @@ jobs:
         with: { distribution: temurin, java-version: '21' }
       - run: npm ci
       - run: npm test
+      - name: Firebase config for app push (optional; push stays off without it)
+        env: { GS: '${{ secrets.GOOGLE_SERVICES_JSON }}' }
+        run: |
+          if [ -n "$GS" ]; then printf '%s' "$GS" > android/app/google-services.json; echo "App push on"; else echo "No GOOGLE_SERVICES_JSON secret: app push stays off"; fi
       - run: npm run build:web
       - run: npx cap sync android
       - name: Gradle assembleDebug
@@ -60,6 +64,10 @@ jobs:
           echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/upload.keystore" >> "$GITHUB_ENV"
       - run: npm ci
       - run: npm test
+      - name: Firebase config for app push (optional; push stays off without it)
+        env: { GS: '${{ secrets.GOOGLE_SERVICES_JSON }}' }
+        run: |
+          if [ -n "$GS" ]; then printf '%s' "$GS" > android/app/google-services.json; echo "App push on"; else echo "No GOOGLE_SERVICES_JSON secret: app push stays off"; fi
       - run: npm run build:web
       - run: npx cap sync android
       - run: ./gradlew bundleRelease --no-daemon
