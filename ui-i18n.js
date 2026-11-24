@@ -5,6 +5,7 @@
 const KEY='cardstead-lang-v1';
 const S={
  en:{
+  'pl.sold':'sold average','pl.asking':'asking median of {0} listings','pl.yours':'your value','pl.unknown':'Value unknown','pl.high':'High','pl.medium':'Medium','pl.low':'Low','pl.why':'How far the price sources agree, and how recent they are',
   'nav.portfolio':'Portfolio','nav.drops':'Drops','chip.overview':'Overview','chip.addCard':'Add card','chip.selling':'Selling:','fab.addCard':'Add card',
   'chip.sets':'All sets','sets.title':'All sets','sets.sub':'Every series and set, with the value of a complete set, the chase cards and sealed prices, in CA$.',
   'sets.search':'Search a set (name or code)','sets.source':(d,r)=>`TCGplayer sold averages of ${d}, in CA$ at the Bank of Canada rate (1 USD = ${r} CAD). English cards.`,
@@ -36,6 +37,7 @@ const S={
   'w.advanced':'Advanced restock tools (sources, regions, manual checks, imports, logs)','w.more':'More options (format, language, area, quantity, shop limit, shop link)','s.help':'Help & tips','kind.pack':'Booster pack','kind.box':'Booster box','kind.etb':'Elite Trainer Box','kind.bundle':'Booster bundle','kind.tin':'Tin','kind.collection':'Collection','kind.blister':'Blister','kind.other':'Product'
  },
  fr:{
+  'pl.sold':'moyenne des ventes','pl.asking':'médiane de {0} annonces','pl.yours':'ta valeur','pl.unknown':'Valeur inconnue','pl.high':'Élevée','pl.medium':'Moyenne','pl.low':'Faible','pl.why':'À quel point les sources de prix concordent, et leur fraîcheur',
   'nav.portfolio':'Portefeuille','nav.drops':'Arrivages','chip.overview':'Aperçu','chip.addCard':'Ajouter une carte','chip.selling':'Vente :','fab.addCard':'Ajouter une carte',
   'chip.sets':'Toutes les extensions','sets.title':'Toutes les extensions','sets.sub':'Chaque série et extension, avec la valeur d’une extension complète, les cartes recherchées et les prix des produits scellés, en $ CA.',
   'sets.search':'Chercher une extension (nom ou code)','sets.source':(d,r)=>`Moyennes des ventes TCGplayer du ${d}, en $ CA au taux de la Banque du Canada (1 USD = ${r} CAD). Cartes anglaises.`,
