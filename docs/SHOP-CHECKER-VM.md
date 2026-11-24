@@ -1,5 +1,10 @@
 # Shop checker on the Oracle VM
 
+> **Not installed (24 November 2026).** Tested before install, the VM (151.145.59.214) gets 429 from Shopify as well,
+> with our User-Agent and with plain curl: Shopify throttles cloud and datacenter addresses generally. See
+> [SHOP-CHECKER-WINDOWS.md](SHOP-CHECKER-WINDOWS.md) for the home-PC option and the sanctioned routes. This page is kept
+> for a VM with a usable address.
+
 **Why:** on its first passes from Supabase, 42 of 45 shops answered **429 (too many requests)** to their very first
 request, while the same shops answer normally from a home connection. Shopify is limiting Supabase's shared outbound
 address (many other projects use it), not our request rate. We do not work around that (no proxies, no address
