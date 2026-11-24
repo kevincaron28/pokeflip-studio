@@ -11,11 +11,13 @@ test('every new string exists in English and French; French uses tu',()=>{
  store['cardstead-lang-v1']='"fr"';assert.equal(I.t('nav.watch'),'Surveiller');assert.equal(I.t('g.notEnough',0),'Pas encore assez d’historique (0 jour de prix).');
  store['cardstead-lang-v1']='"en"';assert.equal(I.t('g.notEnough',1),'Not enough history yet (1 day of prices).');
 });
-test('at most five main tabs, and every existing page belongs to exactly one',()=>{
- assert.equal(Nav.GROUPS.length,5);
+test('four main tabs, and every existing page belongs to exactly one',()=>{
+ assert.equal(Nav.GROUPS.length,4);
+ assert.equal(Nav.GROUPS.map(g=>g.id).join(),'home,prices,watch,settings');
+ assert.ok(Nav.GROUPS.find(g=>g.id==='settings').pages.includes('lots'),'lots and sales under Settings > Selling');
  const html=read('index.html');const sections=[...html.matchAll(/<section id="(\w+)"/g)].map(m=>m[1]);
  for(const s of sections){const n=Nav.GROUPS.filter(g=>g.pages.includes(s)).length;assert.equal(n,1,s)}
- assert.equal(Nav.groupOf('deals').id,'watch');assert.equal(Nav.groupOf('scan').id,'collection');assert.equal(Nav.groupOf('ebay').id,'settings');
+ assert.equal(Nav.groupOf('deals').id,'watch');assert.equal(Nav.groupOf('scan').id,'home');assert.equal(Nav.groupOf('lots').id,'settings');assert.equal(Nav.groupOf('ebay').id,'settings');
 });
 test('real price history: dated, daily for 35 days then weekly, each point in CAD at that day\'s rate',()=>{
  assert.ok(H.dates.length>=60&&Object.keys(H.series).length>=500,H.dates.length+' '+Object.keys(H.series).length);

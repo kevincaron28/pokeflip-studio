@@ -6,6 +6,7 @@ const KEY='cardstead-lang-v1';
 const S={
  en:{
   'pl.sold':'sold average','pl.asking':'asking median of {0} listings','pl.yours':'your value','pl.unknown':'Value unknown','pl.high':'High','pl.medium':'Medium','pl.low':'Low','pl.why':'How far the price sources agree, and how recent they are',
+  'nav.portfolio':'Portfolio','nav.drops':'Drops','chip.overview':'Overview','chip.addCard':'Add card','chip.selling':'Selling:','fab.addCard':'Add card',
   'nav.home':'Home','nav.prices':'Prices','nav.watch':'Watch','nav.collection':'Collection','nav.settings':'Settings',
   'chip.find':'Find a product','chip.packs':'Booster pack value','chip.watches':'My watches','chip.ebay':'eBay deals',
   'chip.scan':'Scan','chip.cards':'Cards','chip.lots':'Lots','chip.sales':'Sales','chip.business':'Business',
@@ -30,6 +31,7 @@ const S={
  },
  fr:{
   'pl.sold':'moyenne des ventes','pl.asking':'médiane de {0} annonces','pl.yours':'ta valeur','pl.unknown':'Valeur inconnue','pl.high':'Élevée','pl.medium':'Moyenne','pl.low':'Faible','pl.why':'À quel point les sources de prix concordent, et leur fraîcheur',
+  'nav.portfolio':'Portefeuille','nav.drops':'Arrivages','chip.overview':'Aperçu','chip.addCard':'Ajouter une carte','chip.selling':'Vente :','fab.addCard':'Ajouter une carte',
   'nav.home':'Accueil','nav.prices':'Prix','nav.watch':'Surveiller','nav.collection':'Collection','nav.settings':'Réglages',
   'chip.find':'Trouver un produit','chip.packs':'Valeur des boosters','chip.watches':'Mes suivis','chip.ebay':'Aubaines eBay',
   'chip.scan':'Scanner','chip.cards':'Cartes','chip.lots':'Lots','chip.sales':'Ventes','chip.business':'Revente',
