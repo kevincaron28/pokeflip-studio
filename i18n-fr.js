@@ -1037,6 +1037,7 @@
 "Unconfirmed":"Non confirmé",
 "Undo this sale and return":"Annuler cette vente et remettre",
 "Unexpected catalog format":"Format de catalogue inattendu",
+"Catalog offline. Enter a set ID manually below (from TCGdex or your product packaging).":"Catalogue hors ligne. Entre l’identifiant de l’extension ci-dessous (sur TCGdex ou sur l’emballage du produit).",
 "Unexpected catalog response":"Réponse inattendue du catalogue",
 "Unexpected cloud revision":"Version infonuagique inattendue",
 "unexpected format":"format inattendu",
