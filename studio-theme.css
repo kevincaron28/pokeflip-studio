@@ -656,3 +656,11 @@ body[data-page="scan"] .add-card-fab{display:none}
 .sets-prints{display:flex;flex-direction:column;font-size:12px;font-variant-numeric:tabular-nums}
 .sets-prints span{display:flex;justify-content:space-between;gap:6px}
 .sets-series .chip.on .note{color:inherit;opacity:.75}
+
+/* Drops > Coming drops (calendar.js). */
+.cal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cal-item .prod-val{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.cal-item .prod-row{flex-wrap:wrap}
+.cal-item .prod-main{flex:1 1 220px;min-width:0}
+.cal-item .prod-val{flex:0 0 auto}
+.cal-item .prod-main strong{white-space:normal;overflow:visible;text-overflow:clip}

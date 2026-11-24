@@ -52,14 +52,16 @@ export function seriesOf(g) {
 const ext = (p, k) => (p.extendedData || []).find(e => e.name === k)?.value ?? null;
 const SEALED = [['etb-pc', /pokemon center elite trainer box/i], ['etb', /elite trainer box/i], ['box', /booster box(?! case)/i],
   ['bundle', /booster bundle(?! case)/i], ['pack', /booster pack$|^[^|]*booster pack(?! art)/i]];
+const UPCOMING_KIND = [['etb-pc', /pokemon center elite trainer box/i], ['etb', /elite trainer box/i], ['box', /booster box/i], ['bundle', /booster bundle/i],
+  ['bnb', /build (&|and) battle/i], ['blister', /blister/i], ['tin', /\btins?\b/i], ['pack', /booster pack/i], ['collection', /collection|premium|box/i]];
 export function cleanSetName(name) { return name.replace(/^(ME\d*|SV\d*|SWSH\d*):\s*/i, '').replace(/^(SM|XY)\s*-\s*/i, '').trim(); }
 
 async function main() {
   const groups = (await getJson(BASE + '/groups')).results
-    .filter(g => !only.length || only.includes(g.groupId))
-    .filter(g => g.publishedOn.slice(0, 10) <= new Date(Date.now() + 14 * 864e5).toISOString().slice(0, 10)); // not yet announced far ahead
+    .filter(g => !only.length || only.includes(g.groupId));
+  const today = new Date().toISOString().slice(0, 10), soon = new Date(Date.now() + 14 * 864e5).toISOString().slice(0, 10);
   mkdirSync(OUT, {recursive: true});
-  const index = [];
+  const index = [], upcoming = [];
   for (const g of groups) {
     const [prods, prices] = [await getJson(`${BASE}/${g.groupId}/products`), (await sleep(250), await getJson(`${BASE}/${g.groupId}/prices`))];
     await sleep(250);
@@ -69,6 +71,12 @@ async function main() {
     const cards = [], sealed = {};
     for (const p of prods.results) {
       const number = ext(p, 'Number'), prints = byId.get(p.productId) || {};
+      // Release calendar: sealed products TCGplayer sells as presale, with its estimated release (shipping) date.
+      const pre = p.presaleInfo || {}, rel = String(pre.releasedOn || '').slice(0, 10);
+      if (!number && pre.isPresale && rel >= today && !/\bcase\b|code card|display\b|set of \d/i.test(p.name)) {
+        const kind = UPCOMING_KIND.find(([, re]) => re.test(p.name))?.[0] || 'other', v = Object.values(prints)[0];
+        upcoming.push({date: rel, setId: g.groupId, set: cleanSetName(g.name), code: g.abbreviation || '', productId: p.productId, name: p.name, kind, marketUsd: v > 0 ? Math.round(v * 100) / 100 : null});
+      }
       if (number) {
         cards.push([p.productId, p.name, number, ext(p, 'Rarity') || '', prints]);
       } else {
@@ -77,7 +85,7 @@ async function main() {
         if (kind && v && !(kind in sealed)) sealed[kind] = [p.productId, Math.round(v * 100) / 100];
       }
     }
-    if (!cards.length) continue;
+    if (!cards.length || g.publishedOn.slice(0, 10) > soon) continue; // the sets page lists released (or imminent) sets only
     cards.sort((a, b) => String(a[2]).localeCompare(String(b[2]), 'en', {numeric: true}));
     const base = c => { const v = Object.values(c[4]); return v.length ? Math.min(...v) : null; };
     const top = c => { const v = Object.values(c[4]); return v.length ? Math.max(...v) : null; };
@@ -94,6 +102,8 @@ async function main() {
   index.sort((a, b) => (b.released.localeCompare(a.released)) || a.name.localeCompare(b.name));
   writeFileSync(join(OUT, 'index.json'), JSON.stringify({asOf: new Date().toISOString(), currency: 'USD', source: 'TCGplayer market price via tcgcsv.com',
     setValueRule: 'one of each numbered card at its cheapest printing', sets: index}));
-  console.log(`\n${index.length} sets written to data/sets/`);
+  upcoming.sort((a, b) => a.date.localeCompare(b.date) || a.set.localeCompare(b.set) || a.name.localeCompare(b.name));
+  writeFileSync(join(ROOT, 'data/release-calendar.json'), JSON.stringify({asOf: new Date().toISOString(), source: 'TCGplayer presale products via tcgcsv.com (estimated release dates)', items: upcoming}) + '\n');
+  console.log(`\n${index.length} sets written to data/sets/, ${upcoming.length} upcoming products to data/release-calendar.json`);
 }
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main().catch(e => { console.error(e); process.exit(1); });

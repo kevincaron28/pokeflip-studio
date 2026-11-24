@@ -1,0 +1,13 @@
+{
+ "note": "Hand-kept list of official set and product release dates, with sources. The calendar shows these as Official (or Announced) and the TCGplayer presale date beside them when they differ. Update from The Pokémon Company's announcements (press.pokemon.com, pokemon.com news); never from rumours.",
+ "updated": "2026-11-24",
+ "releases": [
+  {"set": "Flowing Fists", "series": "Mega Evolution", "date": "2027-02-06", "prerelease": "2027-01-23", "status": "announced",
+   "note": "Announced by The Pokémon Company International on 19 Nov 2026. Most reports give Saturday 6 Feb 2027 (sets release on Saturdays); one gives 5 Feb. Not yet confirmed on press.pokemon.com from here.",
+   "sources": [
+    {"name": "PokéGuardian: Flowing Fists revealed", "url": "https://www.pokeguardian.com/3456480_pokemon-tcg-mega-evolution-flowing-fists-revealed"},
+    {"name": "Serebii: Flowing Fists", "url": "https://serebii.net/card/flowingfists/"},
+    {"name": "ICv2: The Pokémon Company announced Flowing Fists", "url": "https://icv2.com/articles/news/view/63927/the-pokemon-company-announced-mega-evolution-flowing-fists"}
+   ]}
+ ]
+}
