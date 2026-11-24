@@ -1,7 +1,7 @@
 """Automatic checkout (Amazon.ca) on synthetic pages, store URLs intercepted, no network.
 The background worker is simulated in the page with the real core.js verifyCheckout, so the same guards run.
-Checks: one "Place your order" press on a clean checkout and the order id reported; nothing pressed on a wrong
-address or a payment prompt; never a second press for the same drop; assist mode and Pokémon Center never press.
+Checks: automatic checkout is switched off, so nothing is ever pressed, even for a job marked "auto";
+assist mode and Pokémon Center never press.
 Run: python tests/extension-auto-browser.py"""
 import json
 from pathlib import Path
@@ -49,31 +49,17 @@ def state(page):
 
 with sync_playwright() as p:
     b = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
-    # 1. Clean checkout: Buy Now with quantity 2, one Place-your-order press, confirmation with order id.
-    ctx = context(b, "amazon-spc-ok.html", AMAZON, "auto"); page = ctx.new_page(); errors = []; page.on("pageerror", lambda e: errors.append(str(e)))
-    page.goto("https://www.amazon.ca/dp/B0TEST0001")
-    page.wait_for_url("**/gp/buy/thankyou/**", timeout=20000)
-    page.wait_for_function("(JSON.parse(sessionStorage.getItem('msgs')||'[]')).some(m=>m.type==='auto-placed')", timeout=10000)
-    s = state(page)
-    assert s["buyNow"] == "2" and s["placed"] == 1, s
-    placed = [m for m in s["msgs"] if m["type"] == "auto-placed"]
-    assert placed and placed[0]["orderId"] == "702-1234567-7654321", s["msgs"]
-    assert "ORDER PLACED" in s["banner"], s["banner"]
-    # Same drop, back on the checkout page: never a second press.
-    page.goto("https://www.amazon.ca/checkout/p/test-order/spc"); page.evaluate("sessionStorage.removeItem('done')"); page.reload(); page.wait_for_timeout(3500)
-    assert state(page)["placed"] == 1
-    assert not errors, errors
-    print("PASS automatic checkout: Buy Now ×2, one Place your order press, order #702-1234567-7654321 reported, no second press")
-    ctx.close()
-    # 2. Wrong address / payment prompt / CVV / third-party seller: nothing pressed, owner told why.
-    for fixture, why in (("amazon-spc-address.html", "postal code"), ("amazon-spc-payment.html", "payment"), ("amazon-spc-cvv.html", "payment"), ("amazon-spc-thirdparty.html", "CardFlipperz"), ("amazon-spc-total.html", "order total")):
-        ctx = context(b, fixture, AMAZON, "auto"); page = ctx.new_page()
-        page.goto("https://www.amazon.ca/dp/B0TEST0001"); page.wait_for_url("**/checkout/p/test-order/spc**", timeout=20000)
-        page.wait_for_function("(document.getElementById('cardstead-assist-banner')||{}).innerText?.includes('Not bought')", timeout=10000)
+    # Automatic checkout is switched off (core.js AUTO_CHECKOUT_ENABLED=false): even a job marked "auto" on a clean
+    # checkout, or on the product page, never presses Buy Now's order step or "Place your order".
+    for fixture in ("amazon-spc-ok.html", "amazon-spc-address.html", "amazon-spc-payment.html", "amazon-spc-thirdparty.html"):
+        ctx = context(b, fixture, AMAZON, "auto"); page = ctx.new_page(); errors = []; page.on("pageerror", lambda e: errors.append(str(e)))
+        page.goto("https://www.amazon.ca/checkout/p/test-order/spc"); page.wait_for_timeout(4000)
         s = state(page)
-        assert s["placed"] == 0 and why in s["banner"], (fixture, s)
+        assert s["placed"] == 0, (fixture, s)
+        assert not any(m["type"] == "auto-placed" for m in s["msgs"]), s["msgs"]
+        assert not errors, errors
         ctx.close()
-    print("PASS automatic checkout refuses: wrong address, payment choice, CVV, third-party seller, total over max (nothing pressed)")
+    print("PASS automatic checkout is off: no Place your order press on any checkout page, even for an 'auto' job")
     # 3. Assist mode on the same clean checkout never presses.
     ctx = context(b, "amazon-spc-ok.html", {**AMAZON, "autoBuy": False}, "checkout"); page = ctx.new_page()
     page.goto("https://www.amazon.ca/checkout/p/test-order/spc"); page.wait_for_timeout(3500)

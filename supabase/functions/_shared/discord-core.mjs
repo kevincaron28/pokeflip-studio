@@ -171,9 +171,14 @@ export function planAlert(e, prev, now) {
   return { action: 'post', state: 'live', ping: !market, marketplace: market, reason: market ? 'marketplace price' : 'restock' };
 }
 
-function amazonLink(url, tag) {
-  if (!url || !tag) return url;
-  try { const u = new URL(url); if (!/(^|\.)amazon\.ca$/i.test(u.hostname)) return url; u.searchParams.set('tag', tag); return u.href; } catch { return url; }
+// Same rules as the app's affiliate.js (one setting: AMAZON_ASSOCIATES_TAG, served by the site's /api/config).
+export const AMAZON_TAG = /^[a-z0-9][a-z0-9-]{1,38}-20$/;
+export function amazonLink(url, tag) {
+  if (!tag || !AMAZON_TAG.test(tag) || typeof url !== 'string') return url;
+  let u; try { u = new URL(url); } catch { return url; }
+  if (u.protocol !== 'https:' || !/^(www\.)?amazon\.ca$/.test(u.hostname)) return url;
+  if (/^\/gp\/aws\/cart\/add\.html$/.test(u.pathname)) u.searchParams.set('AssociateTag', tag); else u.searchParams.set('tag', tag);
+  return u.href;
 }
 
 const COLORS = { under: 0x2fbf71, fair: 0x3fa7d6, over: 0xe0a030, scalper: 0xd9534f, unknown: 0x8a96a3, sold_out: 0x5c6670, stale: 0x5c6670, marketplace: 0xe0a030 };

@@ -42,7 +42,7 @@ function fakes(now){
   postsSince:async()=>[...db.posts.values()],
  };
  let ids=0;
- return {discord,store,db,sent,edits,dms,threads,roleAdds,deps:{discord,store,env:{CARDSTEAD_URL:'https://pokeflip-studio.vercel.app/',AMAZON_ASSOCIATE_TAG:'cardstead-20',DISCORD_APP_ID:'APP'},now:()=>now.t,fetch:async()=>({ok:false}),uuid:()=>'u'+(++ids),random:n=>Array.from({length:n},(_,i)=>i*7)}};
+ return {discord,store,db,sent,edits,dms,threads,roleAdds,deps:{discord,store,env:{CARDSTEAD_URL:'https://pokeflip-studio.vercel.app/',DISCORD_APP_ID:'APP'},now:()=>now.t,fetch:async()=>({ok:false}),uuid:()=>'u'+(++ids),random:n=>Array.from({length:n},(_,i)=>i*7)}};
 }
 
 test('events from the pipeline are checked before anything is posted',async()=>{
@@ -101,7 +101,7 @@ test('Amazon: no price unless from Amazon\'s API, tagged link, disclosure',async
  assert.equal(m.components[0].components[0].url,'https://www.amazon.ca/dp/B0TEST?tag=cardstead-20');
  const api=C.alertMessage({...a,source:'amazon_api'},'live',{});
  assert.match(api.embeds[0].fields[1].value,/CA\$94\.99/);
- assert.equal(C.alertMessage(C.normalizeEvent(ev()),'live',{amazonTag:'x'}).components[0].components[0].url,'https://www.boutiquefdb.com/products/dr-etb','tag only on amazon.ca');
+ assert.equal(C.alertMessage(C.normalizeEvent(ev()),'live',{amazonTag:'cardstead-20'}).components[0].components[0].url,'https://www.boutiquefdb.com/products/dr-etb','tag only on amazon.ca');
 });
 
 test('value verdict uses the same 5% band as the app',async()=>{
@@ -281,4 +281,17 @@ test('pipeline contract additions: PC ETB, packs, Build & Battle, barcode vs tit
  assert.match(C.alertMessage(amz,'live',{now:T0-2*3600e3}).embeds[0].fields[1].value,/CA\$94\.99/);
  const sql=fs.readFileSync(path.join(ROOT,'migrations/002-discord-drops.sql'),'utf8');
  assert.match(sql,/event_key text unique/);assert.match(sql,/'etb_pc','pack'/);assert.match(sql,/not \(matched_by = 'title' and confidence = 'high'\)/);
+});
+
+test('Amazon tag: one setting (site /api/config), same link rules as affiliate.js',async()=>{
+ const C=await load('discord-core.mjs');const A=require('../affiliate.js');
+ for(const u of ['https://www.amazon.ca/dp/B0TEST','https://amazon.ca/s?k=etb','https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1=B0X&Quantity.1=1','http://www.amazon.ca/dp/B0','https://www.amazon.com/dp/B0','https://evil.test/?amazon.ca'])
+  assert.equal(C.amazonLink(u,'cardstead-20'),A.amazon(u,'cardstead-20'),u);
+ assert.equal(C.amazonLink('https://www.amazon.ca/dp/B0','bad tag'),'https://www.amazon.ca/dp/B0','invalid tags are ignored');
+ const {service}=await load('discord-service.mjs');const now={t:T0};const F=fakes(now);let calls=0;
+ F.deps.fetch=async u=>{calls++;assert.equal(u,'https://pokeflip-studio.vercel.app/api/config');return {ok:true,json:async()=>({amazonTag:'cardstead-20'})}};
+ F.db.events.push(ev({chain_key:'amazon-ca',region:null,store_key:'amazon',store_name:'Amazon.ca',url:'https://www.amazon.ca/dp/B0TEST',source:'amazon_api'}),ev({id:'e9',chain_key:'amazon-ca',region:null,store_key:'amazon',store_name:'Amazon.ca',product_key:'other',url:'https://www.amazon.ca/dp/B0OTHER',source:'amazon_api'}));
+ await service(F.deps).publishPending();
+ assert.equal(F.sent[0].msg.components[0].components[0].url,'https://www.amazon.ca/dp/B0TEST?tag=cardstead-20');
+ assert.equal(calls,1,'tag cached between alerts');
 });

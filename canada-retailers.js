@@ -53,7 +53,9 @@
   {id:'raincity',name:'Rain City Games',host:'www.raincity.games',auto:'shopify',confidence:'verified-2026-11-23',search:'https://www.raincity.games/search?q={q}',note:'Shopify store: automatic checks available when you paste a product URL.'}
  ];
  const AUTO_HOSTS=[...new Set(RETAILERS.filter(r=>r.auto==='shopify').map(r=>r.host).concat(SH.SHOPS.map(x=>x.host)))];
- function searchUrl(r,query){return r.search.replace('{q}',encodeURIComponent(String(query||'pokemon tcg').slice(0,120)))}
+ // Amazon.ca links carry the Associates tag from the one setting (affiliate.js); every other link is unchanged.
+ const affiliate=u=>{const G=typeof window!=='undefined'?window:globalThis;return G.CardsteadAffiliate?G.CardsteadAffiliate.amazon(u):u};
+ function searchUrl(r,query){return affiliate(r.search.replace('{q}',encodeURIComponent(String(query||'pokemon tcg').slice(0,120))))}
  // https://host/products/<handle>[?variant=..] -> https://host/products/<handle>.js  (only allowlisted shops)
  function shopifyJsUrl(productUrl){let u;try{u=new URL(productUrl)}catch{return null}
   if(u.protocol!=='https:'||!AUTO_HOSTS.includes(u.hostname))return null;
@@ -127,11 +129,11 @@
  // Quantity to put in the cart: what you want, never above the retailer's per-customer limit when you know it.
  function qtyFor(w){const q=Math.max(1,Math.min(99,Math.floor(Number(w&&w.quantity)||1))),l=Math.floor(Number(w&&w.limit)||0);return l>0?Math.min(q,l):q}
  // Fastest legitimate path to checkout. Never submits anything: the shop's own page asks you to confirm payment.
- // Shopify: /cart/<variantId>:<qty> opens a cart (Shop Pay / saved details apply). Amazon.ca: add-to-cart page, no affiliate tag.
+ // Shopify: /cart/<variantId>:<qty> opens a cart (Shop Pay / saved details apply). Amazon.ca: add-to-cart page, with the Associates tag when it is set.
  function buyUrl(o){if(!o)return null;const qty=qtyFor({quantity:o.qty});let u=null;try{u=o.url?new URL(o.url):null}catch{u=null}
   const host=o.host||(u&&u.hostname)||'';
   if(Number.isSafeInteger(o.variantId)&&o.variantId>0&&AUTO_HOSTS.includes(host))return 'https://'+host+'/cart/'+o.variantId+':'+qty;
-  if(u&&u.protocol==='https:'&&/^(www\.)?amazon\.ca$/.test(u.hostname)){const m=u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?]|$)/);if(m)return 'https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1='+m[1]+'&Quantity.1='+qty}
-  return u&&u.protocol==='https:'?u.href:null}
- return {RETAILERS,qtyFor,buyUrl,matchCatalog,kindOf,setsIn,langOf,SETS,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
+  if(u&&u.protocol==='https:'&&/^(www\.)?amazon\.ca$/.test(u.hostname)){const m=u.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?]|$)/);if(m)return affiliate('https://www.amazon.ca/gp/aws/cart/add.html?ASIN.1='+m[1]+'&Quantity.1='+qty)}
+  return u&&u.protocol==='https:'?affiliate(u.href):null}
+ return {RETAILERS,affiliate,qtyFor,buyUrl,matchCatalog,kindOf,setsIn,langOf,SETS,tokens,AUTO_HOSTS,searchUrl,shopifyJsUrl,parseShopifyProduct,MIN_POLL_MS:15*60*1000};
 });

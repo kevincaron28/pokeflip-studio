@@ -8,6 +8,16 @@ export function service(deps) {
   const { discord, store, env } = deps;
   const now = () => deps.now();
   let guildCache = null;
+  let tagCache = null;
+
+  /** The Amazon.ca Associates tag, read from the site's /api/config (the AMAZON_ASSOCIATES_TAG setting on Vercel); cached 12 h. */
+  async function amazonTag() {
+    if (tagCache && now() - tagCache.at < 12 * 3600e3) return tagCache.tag;
+    let tag = null;
+    try { const r = await deps.fetch(new URL('api/config', env.CARDSTEAD_URL).href); const j = r.ok ? await r.json() : null; tag = C.AMAZON_TAG.test(String(j?.amazonTag || '')) ? j.amazonTag : null; } catch { /* untagged links */ }
+    tagCache = { tag, at: now() };
+    return tag;
+  }
 
   async function guildId() {
     if (env.DISCORD_GUILD_ID) return env.DISCORD_GUILD_ID;
@@ -41,7 +51,7 @@ export function service(deps) {
     const prev = await store.getPost(key);
     const plan = C.planAlert(e, prev, now());
     if (plan.action === 'skip') return `skipped: ${plan.reason}`;
-    const opts = { roleIds: g.roles, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG, now: now() };
+    const opts = { roleIds: g.roles, siteUrl: env.CARDSTEAD_URL, amazonTag: e.chain_key === 'amazon-ca' ? await amazonTag() : null, now: now() };
     const t = new Date(now()).toISOString();
     if (plan.action === 'edit') {
       await discord.edit(prev.channel_id, prev.message_id, C.alertMessage(e, plan.state, { ...opts, postId: prev.id, seenAt: t, wasntThere: prev.wasnt_there }));
@@ -181,7 +191,7 @@ export function service(deps) {
     const count = await store.addWasntThere(postId, user.id);
     const stale = count >= C.STALE_AFTER;
     await store.updatePost(postId, { wasnt_there: count, ...(stale ? { state: 'stale' } : {}) });
-    await discord.edit(post.channel_id, post.message_id, C.alertMessage(post.event, stale ? 'stale' : 'live', { postId, siteUrl: env.CARDSTEAD_URL, amazonTag: env.AMAZON_ASSOCIATE_TAG, wasntThere: count, now: now() }));
+    await discord.edit(post.channel_id, post.message_id, C.alertMessage(post.event, stale ? 'stale' : 'live', { postId, siteUrl: env.CARDSTEAD_URL, amazonTag: post.event.chain_key === 'amazon-ca' ? await amazonTag() : null, wasntThere: count, now: now() }));
     if (stale && post.reporter_id) await reporterScore(post.reporter_id, 0, 1);
   }
 
