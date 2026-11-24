@@ -5,6 +5,12 @@
 const KEY='cardstead-lang-v1';
 const S={
  en:{
+  'cv.title':'My collection','cv.empty':'No cards yet. Tap Add card to scan or type your first card.','cv.value':'Value','cv.paid':'Paid',
+  'cv.vsPaid':(a,b,c)=>`vs ${a} paid`,'cv.noCostYet':'Add what you paid (purchase lots) to see your gain or loss.','cv.r30':'1M','cv.r90':'3M','cv.r365':'1Y','cv.r3650':'All',
+  'cv.historyStarts':(a,b,c)=>`The graph starts today (${a} day of history). One point is added each day you open your Portfolio.`,'cv.chartLabel':(a,b,c)=>`Collection value and amount paid over ${a} days`,
+  'cv.confLabel':'How much of the value is well sourced','cv.conf.high':'high confidence','cv.conf.medium':'medium confidence','cv.conf.low':'low confidence','cv.conf.yours':'your own prices',
+  'cv.raw':'Raw cards','cv.graded':'Graded cards','cv.cards':(a,b,c)=>`${a} cards`,'cv.unvalued':(a,b,c)=>`${a} cards have no value yet.`,'cv.review':'Review them','cv.noCost':(a,b,c)=>`${a} cards have no purchase cost, so they are left out of gain or loss.`,
+  'cv.top':'Biggest holdings','cv.how':'Values: recent sales from TCGplayer and Cardmarket in CA$, for the edition, finish and condition you entered. Refreshed once a day.','cv.refreshing':(a,b,c)=>`Updating prices: ${a} of ${b} cards…`,
   'nav.home':'Home','nav.prices':'Prices','nav.watch':'Watch','nav.collection':'Collection','nav.settings':'Settings',
   'chip.find':'Find a product','chip.packs':'Booster pack value','chip.watches':'My watches','chip.ebay':'eBay deals',
   'chip.scan':'Scan','chip.cards':'Cards','chip.lots':'Lots','chip.sales':'Sales','chip.business':'Business',
@@ -28,6 +34,12 @@ const S={
   'w.advanced':'Advanced restock tools (sources, regions, manual checks, imports, logs)','w.more':'More options (format, language, area, quantity, shop limit, shop link)','s.help':'Help & tips','kind.pack':'Booster pack','kind.box':'Booster box','kind.etb':'Elite Trainer Box','kind.bundle':'Booster bundle','kind.tin':'Tin','kind.collection':'Collection','kind.blister':'Blister','kind.other':'Product'
  },
  fr:{
+  'cv.title':'Ma collection','cv.empty':'Aucune carte pour l’instant. Touche Ajouter une carte pour scanner ou taper ta première carte.','cv.value':'Valeur','cv.paid':'Payé',
+  'cv.vsPaid':(a,b,c)=>`par rapport à ${a} payés`,'cv.noCostYet':'Ajoute ce que tu as payé (lots d’achat) pour voir ton gain ou ta perte.','cv.r30':'1 M','cv.r90':'3 M','cv.r365':'1 A','cv.r3650':'Tout',
+  'cv.historyStarts':(a,b,c)=>`Le graphique commence aujourd’hui (${a} jour d’historique). Un point s’ajoute chaque jour où tu ouvres ton portefeuille.`,'cv.chartLabel':(a,b,c)=>`Valeur de la collection et montant payé sur ${a} jours`,
+  'cv.confLabel':'Part de la valeur bien appuyée par des sources','cv.conf.high':'confiance élevée','cv.conf.medium':'confiance moyenne','cv.conf.low':'confiance faible','cv.conf.yours':'tes propres prix',
+  'cv.raw':'Cartes non gradées','cv.graded':'Cartes gradées','cv.cards':(a,b,c)=>`${a} cartes`,'cv.unvalued':(a,b,c)=>`${a} cartes n’ont pas encore de valeur.`,'cv.review':'Les vérifier','cv.noCost':(a,b,c)=>`${a} cartes n’ont pas de coût d’achat; elles sont exclues du gain ou de la perte.`,
+  'cv.top':'Plus grosses positions','cv.how':'Valeurs : ventes récentes TCGplayer et Cardmarket en $ CA, pour l’édition, le fini et l’état indiqués. Mises à jour une fois par jour.','cv.refreshing':(a,b,c)=>`Mise à jour des prix : ${a} sur ${b} cartes…`,
   'nav.home':'Accueil','nav.prices':'Prix','nav.watch':'Surveiller','nav.collection':'Collection','nav.settings':'Réglages',
   'chip.find':'Trouver un produit','chip.packs':'Valeur des boosters','chip.watches':'Mes suivis','chip.ebay':'Aubaines eBay',
   'chip.scan':'Scanner','chip.cards':'Cartes','chip.lots':'Lots','chip.sales':'Ventes','chip.business':'Revente',
