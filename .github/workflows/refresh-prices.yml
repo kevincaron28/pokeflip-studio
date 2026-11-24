@@ -44,6 +44,8 @@ jobs:
         run: node tools/build-pack-ev.mjs
       - name: Rebuild the all-sets data (data/sets/)
         run: node tools/build-sets.mjs
+      - name: Rebuild the shop checker's catalogue and shop list
+        run: node tools/build-drop-sources.mjs
       - name: Add today's point to the price history (price-history.js)
         run: python tools/build-price-history.py
       - name: Check the rebuilt data
@@ -53,11 +55,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PUBLISH: ${{ vars.PRICE_REFRESH_PUBLISH }}
         run: |
-          if git diff --quiet -- pack-ev-data.js price-history.js data/sets; then echo "No change."; exit 0; fi
+          if git diff --quiet -- pack-ev-data.js price-history.js data/sets data/drop-catalogue.json supabase/functions/_shared/drop-shops.json; then echo "No change."; exit 0; fi
           day=$(date -u +%F)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pack-ev-data.js price-history.js data/sets
+          git add pack-ev-data.js price-history.js data/sets data/drop-catalogue.json supabase/functions/_shared/drop-shops.json
           git commit -m "Price data refresh $day (TCGplayer via tcgcsv, Bank of Canada)"
           if [ "$PUBLISH" = "main" ]; then git push origin HEAD:main; exit 0; fi
           branch="data/price-refresh"

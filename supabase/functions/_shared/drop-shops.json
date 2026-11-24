@@ -1,0 +1,599 @@
+{
+ "built": "2026-11-24",
+ "shops": [
+  {
+   "host": "bentogaming.ca",
+   "name": "Bento Gaming",
+   "city": "Balzac",
+   "region": "calgary"
+  },
+  {
+   "host": "carderaco.com",
+   "name": "Cardera Collectibles",
+   "city": "Balzac",
+   "region": "calgary"
+  },
+  {
+   "host": "cellysports.com",
+   "name": "Celly Sports & Games",
+   "city": "Calgary",
+   "region": "calgary"
+  },
+  {
+   "host": "eclipsegames.ca",
+   "name": "Eclipse Games",
+   "city": "Edmonton",
+   "region": "edmonton"
+  },
+  {
+   "host": "gamesland.ca",
+   "name": "GamesLand Canada",
+   "city": "Edmonton",
+   "region": "edmonton"
+  },
+  {
+   "host": "hpwcards.com",
+   "name": "HPW Cards Inc.",
+   "city": "Edmonton",
+   "region": "edmonton"
+  },
+  {
+   "host": "swirlyeg.com",
+   "name": "Swirl Cafe and Games",
+   "city": "Edmonton",
+   "region": "edmonton"
+  },
+  {
+   "host": "bordercitygames.ca",
+   "name": "Border City Games",
+   "city": "Lloydminster",
+   "region": "ab-other"
+  },
+  {
+   "host": "shopverse.com",
+   "name": "Shopverse",
+   "city": "Sherwood Park",
+   "region": "national"
+  },
+  {
+   "host": "pokezone.ca",
+   "name": "Poke Zone",
+   "city": "St. Albert",
+   "region": "national"
+  },
+  {
+   "host": "houseofcards.ca",
+   "name": "House of Cards",
+   "city": "Abbotsford",
+   "region": "bc-other"
+  },
+  {
+   "host": "infinitycards.ca",
+   "name": "Infinity Cards & Collectibles",
+   "city": "Aldergrove",
+   "region": "bc-other"
+  },
+  {
+   "host": "capturedcards.com",
+   "name": "Captured! Cards",
+   "city": "Burnaby",
+   "region": "vancouver"
+  },
+  {
+   "host": "pastimesports.ca",
+   "name": "Pastime Sports & Games",
+   "city": "Langley",
+   "region": "vancouver"
+  },
+  {
+   "host": "vancitycj.com",
+   "name": "Vancity CJ Trading Cards",
+   "city": "RICHMOND",
+   "region": "vancouver"
+  },
+  {
+   "host": "drawforturn.ca",
+   "name": "Draw For Turn Games",
+   "city": "Richmond",
+   "region": "vancouver"
+  },
+  {
+   "host": "yvhobbies.ca",
+   "name": "YV Hobbies",
+   "city": "Richmond",
+   "region": "vancouver"
+  },
+  {
+   "host": "www.raincity.games",
+   "name": "Rain City Games",
+   "city": "Vancouver",
+   "region": "vancouver"
+  },
+  {
+   "host": "ubecard.com",
+   "name": "UBECARD.COM",
+   "city": "Vancouver",
+   "region": "vancouver"
+  },
+  {
+   "host": "fusiongamingonline.com",
+   "name": "Fusion Gaming",
+   "city": "Winnipeg",
+   "region": "national"
+  },
+  {
+   "host": "cardboardmemories.ca",
+   "name": "Cardboard Memories Inc.",
+   "city": "Brampton",
+   "region": "gta"
+  },
+  {
+   "host": "doescards.ca",
+   "name": "Doe's Cards",
+   "city": "Brampton",
+   "region": "gta"
+  },
+  {
+   "host": "hastycards.com",
+   "name": "Hasty Cards",
+   "city": "Brampton",
+   "region": "gta"
+  },
+  {
+   "host": "justahobby.store",
+   "name": "Just-a-Hobby",
+   "city": "Brampton",
+   "region": "gta"
+  },
+  {
+   "host": "jebicards.ca",
+   "name": "Jebi Cards",
+   "city": "GUELPH",
+   "region": "national"
+  },
+  {
+   "host": "blackknightgames.ca",
+   "name": "Black Knight Games",
+   "city": "Hamilton",
+   "region": "on-other"
+  },
+  {
+   "host": "tistaminis.com",
+   "name": "Tistaminis",
+   "city": "Hamilton",
+   "region": "on-other"
+  },
+  {
+   "host": "tonkatomstcgstation.ca",
+   "name": "Tonkatom's  TCG Station",
+   "city": "Kanata",
+   "region": "national"
+  },
+  {
+   "host": "eacollectibles.com",
+   "name": "EA Collectibles",
+   "city": "London",
+   "region": "on-other"
+  },
+  {
+   "host": "lvlupgames.ca",
+   "name": "LVLUP GAMES",
+   "city": "MISSISSAUGA",
+   "region": "gta"
+  },
+  {
+   "host": "cardboardgaming.ca",
+   "name": "Card Board Gaming",
+   "city": "Markham",
+   "region": "gta"
+  },
+  {
+   "host": "comfyhobbies.com",
+   "name": "Comfy Hobbies",
+   "city": "Markham",
+   "region": "gta"
+  },
+  {
+   "host": "mantatrading.com",
+   "name": "Manta Trading",
+   "city": "Markham",
+   "region": "gta"
+  },
+  {
+   "host": "pvpshoppe.com",
+   "name": "PvP Shoppe",
+   "city": "Markham",
+   "region": "gta"
+  },
+  {
+   "host": "kanzengames.com",
+   "name": "KanZenGames",
+   "city": "Mississauga",
+   "region": "gta"
+  },
+  {
+   "host": "kingcard.ca",
+   "name": "King Card Canada",
+   "city": "Mississauga",
+   "region": "gta"
+  },
+  {
+   "host": "legendarycollectables.com",
+   "name": "Legendary Collectables",
+   "city": "Mississauga",
+   "region": "gta"
+  },
+  {
+   "host": "untouchables.ca",
+   "name": "Untouchables",
+   "city": "Mississauga",
+   "region": "gta"
+  },
+  {
+   "host": "vtrgaming.ca",
+   "name": "VTRGaming",
+   "city": "Mississauga",
+   "region": "gta"
+  },
+  {
+   "host": "enterthebattlefield.ca",
+   "name": "Enter The Battlefield",
+   "city": "Newmarket",
+   "region": "on-other"
+  },
+  {
+   "host": "catchacard.ca",
+   "name": "Catcha Card Gaming",
+   "city": "North York",
+   "region": "national"
+  },
+  {
+   "host": "hanabitradingco.ca",
+   "name": "Hanabi Trading Collectibles",
+   "city": "Oakville",
+   "region": "national"
+  },
+  {
+   "host": "topshelfcollection.myshopify.com",
+   "name": "Top Shelf Collection",
+   "city": "Oakville",
+   "region": "on-other"
+  },
+  {
+   "host": "cardboardhero.ca",
+   "name": "Cardboard Hero",
+   "city": "Oshawa",
+   "region": "gta"
+  },
+  {
+   "host": "deckoutgaming.ca",
+   "name": "Deck Out Gaming",
+   "city": "Oshawa",
+   "region": "gta"
+  },
+  {
+   "host": "danireon.com",
+   "name": "Danireon Cards & Games",
+   "city": "Ottawa",
+   "region": "ottawa"
+  },
+  {
+   "host": "hobbiesville.ca",
+   "name": "Hobbiesville",
+   "city": "Ottawa",
+   "region": "ottawa"
+  },
+  {
+   "host": "mypops.ca",
+   "name": "MyPops.ca",
+   "city": "Pickering",
+   "region": "gta"
+  },
+  {
+   "host": "derpycards.ca",
+   "name": "Derpy Cards",
+   "city": "Richmond Hill",
+   "region": "gta"
+  },
+  {
+   "host": "flaringlair.com",
+   "name": "Flaring Lair",
+   "city": "Richmond Hill",
+   "region": "gta"
+  },
+  {
+   "host": "cardboardclassics.ca",
+   "name": "Cardboard Classics",
+   "city": "Thornhill",
+   "region": "gta"
+  },
+  {
+   "host": "bananagames.ca",
+   "name": "Banana Games & Hobby",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "beardycards.com",
+   "name": "BeardyCards",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "clutchgames.ca",
+   "name": "Clutch Games",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "gameshack.ca",
+   "name": "Game Shack",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "hairytarantula.com",
+   "name": "Hairy Tarantula",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "hobbystoptcg.com",
+   "name": "Hobby Stop TCG",
+   "city": "Toronto",
+   "region": "gta"
+  },
+  {
+   "host": "401games.myshopify.com",
+   "name": "401 Games",
+   "city": "Vaughan",
+   "region": "gta"
+  },
+  {
+   "host": "legendswarehouse.ca",
+   "name": "LEGENDS WAREHOUSE",
+   "city": "Vaughan",
+   "region": "gta"
+  },
+  {
+   "host": "mintink.ca",
+   "name": "Mintink Trading Cards & Live Experience",
+   "city": "Vaughan",
+   "region": "gta"
+  },
+  {
+   "host": "newrealmgames.com",
+   "name": "New Realm Games",
+   "city": "Vaughan",
+   "region": "gta"
+  },
+  {
+   "host": "brimstonegames.ca",
+   "name": "Brimstone Games",
+   "city": "Windsor",
+   "region": "on-other"
+  },
+  {
+   "host": "leroidescartes.ca",
+   "name": "Le Roi Des Cartes",
+   "city": "Beloeil",
+   "region": "south-shore"
+  },
+  {
+   "host": "cardcaster.ca",
+   "name": "Card Caster",
+   "city": "Blainville",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "pokejeux.ca",
+   "name": "POKÉ JEUX",
+   "city": "Boucherville, La Prairie (opening 9 Dec 2026)",
+   "region": "south-shore"
+  },
+  {
+   "host": "allinhobbysports.ca",
+   "name": "All-In Hobby Sports",
+   "city": "Brossard",
+   "region": "south-shore"
+  },
+  {
+   "host": "evoretro.ca",
+   "name": "EVORETRO Canada",
+   "city": "Brossard",
+   "region": "national"
+  },
+  {
+   "host": "collect-edition.com",
+   "name": "Collect-Edition",
+   "city": "Candiac",
+   "region": "south-shore"
+  },
+  {
+   "host": "luniversdelacarte.ca",
+   "name": "L'Univers de la Carte",
+   "city": "Charlemagne",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "jeuxazgames.ca",
+   "name": "Jeux AZ Games",
+   "city": "Chateauguay",
+   "region": "south-shore"
+  },
+  {
+   "host": "geekandco.ca",
+   "name": "Geek & Co.",
+   "city": "Cote Saint-Luc",
+   "region": "montreal"
+  },
+  {
+   "host": "yumecards.ca",
+   "name": "Yume Cards Inc.",
+   "city": "Côte Saint-Luc",
+   "region": "national"
+  },
+  {
+   "host": "www.boutiquefdb.com",
+   "name": "Boutique FDB",
+   "city": "Gatineau",
+   "region": "outaouais"
+  },
+  {
+   "host": "www.asdesjeux.com",
+   "name": "L'As des jeux",
+   "city": "Gatineau",
+   "region": "outaouais"
+  },
+  {
+   "host": "bogcollectibles.com",
+   "name": "BOG Collectibles",
+   "city": "Kahnawake",
+   "region": "south-shore"
+  },
+  {
+   "host": "keefscards.com",
+   "name": "Keef's Cards",
+   "city": "L'Assomption",
+   "region": "national"
+  },
+  {
+   "host": "www.cardchasersmtl.com",
+   "name": "CardChasers",
+   "city": "Laval",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "remicardtrader.ca",
+   "name": "Rémi Card Trader",
+   "city": "Longueuil",
+   "region": "south-shore"
+  },
+  {
+   "host": "cardbrawlers.com",
+   "name": "Card Brawlers",
+   "city": "Montreal",
+   "region": "montreal"
+  },
+  {
+   "host": "frostpeakcollectibles.com",
+   "name": "FrostPeak Collectibles",
+   "city": "Montréal",
+   "region": "montreal"
+  },
+  {
+   "host": "mirajtrading.com",
+   "name": "Miraj Trading",
+   "city": "Montréal",
+   "region": "montreal"
+  },
+  {
+   "host": "boutiquevmax.ca",
+   "name": "Boutique V-MAX",
+   "city": "Québec",
+   "region": "quebec-city"
+  },
+  {
+   "host": "boutiquelapioche.com",
+   "name": "La Pioche - Boutique de jeux",
+   "city": "Québec",
+   "region": "quebec-city"
+  },
+  {
+   "host": "boutiquelechevalier.com",
+   "name": "Boutique Le Chevalier",
+   "city": "Repentigny",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "between2games.ca",
+   "name": "Between2games Cartes & Collections",
+   "city": "Saint-Amable",
+   "region": "south-shore"
+  },
+  {
+   "host": "boutiqueholo.ca",
+   "name": "Boutique Holo",
+   "city": "Saint-Césaire",
+   "region": "national"
+  },
+  {
+   "host": "www.boutiqueawesome.com",
+   "name": "Boutique Awesome",
+   "city": "Saint-Hubert",
+   "region": "south-shore"
+  },
+  {
+   "host": "taverneducollectionneur.com",
+   "name": "Taverne du Collectionneur",
+   "city": "Saint-Hyacinthe",
+   "region": "south-shore"
+  },
+  {
+   "host": "zonecollection.ca",
+   "name": "Zone Collection Rive-Sud",
+   "city": "Saint-Jean-sur-Richelieu, Saint-Hyacinthe",
+   "region": "south-shore"
+  },
+  {
+   "host": "carddynasty.ca",
+   "name": "Card Dynasty",
+   "city": "Saint-Sauveur",
+   "region": "laurentides"
+  },
+  {
+   "host": "www.multivers.ca",
+   "name": "Multivers",
+   "city": "Sainte-Anne-des-Plaines",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "cartessportivesrivesud.ca",
+   "name": "Cartes Sportives Rive Sud",
+   "city": "Sainte-Catherine",
+   "region": "south-shore"
+  },
+  {
+   "host": "www.3dragons.ca",
+   "name": "3 Dragons",
+   "city": "Sainte-Thérèse",
+   "region": "laval-north-shore"
+  },
+  {
+   "host": "lemagot.ca",
+   "name": "Jeux+ Le Magot",
+   "city": "Sherbrooke",
+   "region": "estrie"
+  },
+  {
+   "host": "tcgandgames.com",
+   "name": "TCG and Games",
+   "city": "St Polycarpe",
+   "region": "vaudreuil-soulanges"
+  },
+  {
+   "host": "cmdstore.ca",
+   "name": "Cmdstore.ca",
+   "city": "St-Laurent",
+   "region": "montreal"
+  },
+  {
+   "host": "sportslatornade.com",
+   "name": "Sports la Tornade",
+   "city": "Vaudreuil-Dorion",
+   "region": "vaudreuil-soulanges"
+  },
+  {
+   "host": "www.mastermindtoys.com",
+   "name": "Mastermind Toys",
+   "chain": "indigo-mastermind",
+   "city": "Canada-wide"
+  },
+  {
+   "host": "www.indigo.ca",
+   "name": "Indigo",
+   "chain": "indigo-mastermind",
+   "city": "Canada-wide"
+  }
+ ]
+}

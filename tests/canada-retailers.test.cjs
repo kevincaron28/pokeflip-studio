@@ -4,7 +4,7 @@ const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 test('catalogue covers the requested Canadian retailers, each with a usable search link',()=>{
  const names=R.RETAILERS.map(r=>r.name).join('|');
  for(const n of ['Costco','EB Games','Walmart','Best Buy','Toys','Amazon.ca','Indigo','London Drugs','Canadian Tire','Superstore','The Source','Shoppers'])assert.match(names,new RegExp(n.replace('"','.'),'i'),n);
- for(const r of R.RETAILERS){const u=new URL(R.searchUrl(r,'Prismatic Évolutions ETB & more'));assert.equal(u.protocol,'https:',r.id);assert.ok(!R.searchUrl(r,'x').includes('{q}'),r.id);assert.ok(['verified-2026-11-23','unverified','fallback'].includes(r.confidence),r.id)}
+ for(const r of R.RETAILERS){const u=new URL(R.searchUrl(r,'Prismatic Évolutions ETB & more'));assert.equal(u.protocol,'https:',r.id);assert.ok(!R.searchUrl(r,'x').includes('{q}'),r.id);assert.ok(['verified-2026-11-23','verified-2026-11-24','unverified','fallback'].includes(r.confidence),r.id)}
  assert.match(R.searchUrl(R.RETAILERS[0],'a b&c'),/a%20b%26c/);
 });
 test('only independent Shopify shops are automatic; every big chain is manual',()=>{
@@ -34,9 +34,19 @@ test('module is packaged, loaded before restock-watch, and polls only with safe 
  const w=read('restock-watch.js');assert.match(w,/credentials:'omit'/);assert.match(w,/redirect:'error'/);assert.match(w,/document\.hidden/);
  assert.doesNotMatch(w,/captcha|proxy|rotate/i);
 });
-test('manual list includes Well.ca, Mastermind Toys and Pokémon Center merch',()=>{
- const ids=R.RETAILERS.map(r=>r.id);for(const id of ['wellca','mastermind','pokemoncenter-merch'])assert.ok(ids.includes(id),id);
- for(const id of ['wellca','mastermind','pokemoncenter-merch'])assert.equal(R.RETAILERS.find(r=>r.id===id).auto,'manual');
+test('manual list includes Well.ca, Giant Tiger and Pokémon Center merch; Mastermind is checked automatically (robots and terms checked 24 Nov 2026)',()=>{
+ const ids=R.RETAILERS.map(r=>r.id);for(const id of ['wellca','gianttiger','mastermind','pokemoncenter-merch'])assert.ok(ids.includes(id),id);
+ for(const id of ['wellca','gianttiger','pokemoncenter-merch'])assert.equal(R.RETAILERS.find(r=>r.id===id).auto,'manual');
+ assert.equal(R.RETAILERS.find(r=>r.id==='mastermind').auto,'shopify');assert.ok(R.AUTO_HOSTS.includes('www.mastermindtoys.com'));
+});
+test('South Shore sweep (24 Nov 2026): new Shopify shops are automatic, the others are manual with a working link',()=>{
+ const S=require('../canada-shops.js');const shop=h=>S.SHOPS.find(s=>s.host===h);
+ for(const h of ['taverneducollectionneur.com','leroidescartes.ca','sportslatornade.com','lemagot.ca','carderaco.com','danireon.com','swirlyeg.com','fusiongamingonline.com'])assert.ok(shop(h),h);
+ assert.equal(shop('taverneducollectionneur.com').region,'south-shore');assert.equal(shop('leroidescartes.ca').region,'south-shore');
+ assert.match(shop('zonecollection.ca').city,/Saint-Hyacinthe/);
+ for(const h of ['cartessportivesrivesud.com','kingcardsvalley.com','shop.pokemontcgcanada.ca'])assert.ok(!shop(h),h+' is held back');
+ for(const id of ['lacartecachee','hobbychampion','topdeckboucherville','checkswing','roidescartesvalley','sportcollect2010','maitredejeugranby','ppag','universdescartes','dcscollection','manlo','universecollectibles','lobbysport','facetofacegames','magikart']){
+  const r=R.RETAILERS.find(x=>x.id===id);assert.ok(r,id);assert.equal(r.auto,'manual',id);assert.equal(new URL(R.searchUrl(r,'etb')).protocol,'https:',id)}
 });
 test('shop catalogue: valid hosts, unique, every region populated, Québec regions present',()=>{
  const S=require('../canada-shops.js');
