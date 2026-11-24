@@ -78,7 +78,7 @@ export function eventFor({ shop, change, now, confirmedAt }) {
 }
 
 /** One pass over the shops that are due. deps: {store, fetch, now, shops, catalogue}. */
-export async function runPass({ store, fetch: f, now, shops, catalogue, maxShops = 45, concurrency = 6, log = () => {} }) {
+export async function runPass({ store, fetch: f, now, shops, catalogue, maxShops = 45, concurrency = 6, gapMs = 0, sleep = (ms) => new Promise((r) => setTimeout(r, ms)), log = () => {} }) {
   const index = catalogueIndex(catalogue);
   const states = new Map((await store.shopStates()).map((s) => [s.host, s]));
   const t = now();
@@ -131,8 +131,24 @@ export async function runPass({ store, fetch: f, now, shops, catalogue, maxShops
     if (keep.length) await store.saveShopStock(keep);
     await store.saveShopState({ ...base, etag: res.headers.get('etag') || null, last_ok_at: base.last_checked_at, fails: 0, backoff_until: null });
   }
-  await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, async () => { while (queue.length) await one(queue.shift()); }));
+  // gapMs: pause between two shops in the same worker (concurrency 1 + a gap = one shop at a time, spaced out).
+  await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, async () => { let first = true;
+    while (queue.length) { if (!first && gapMs) await sleep(gapMs); first = false; await one(queue.shift()); } }));
   return summary;
+}
+
+/** Diagnostic: one plain request per shop, one at a time with a gap, nothing saved. Reports each shop's HTTP status. */
+export async function probeShops({ fetch: f, shops, gapMs = 4000, sleep = (ms) => new Promise((r) => setTimeout(r, ms)) }) {
+  const out = [];
+  for (const [i, shop] of shops.entries()) {
+    if (i && gapMs) await sleep(gapMs);
+    const t0 = Date.now();
+    try { const r = await f(`https://${shop.host}/products.json?limit=1`, { headers: { 'user-agent': UA, accept: 'application/json' }, redirect: 'follow', signal: AbortSignal.timeout(10000) });
+      out.push({ host: shop.host, status: r.status, retryAfter: r.headers.get('retry-after'), ms: Date.now() - t0 }); await r.body?.cancel?.(); }
+    catch (e) { out.push({ host: shop.host, status: 0, error: String(e && e.name || e), ms: Date.now() - t0 }); }
+  }
+  const by = {}; for (const r of out) by[r.status] = (by[r.status] || 0) + 1;
+  return { shops: out.length, byStatus: by, results: out };
 }
 
 /** Database access for the checker (service role, inside Supabase only). */
@@ -153,5 +169,25 @@ export function checkerStore({ url, serviceKey, fetch: f = globalThis.fetch }) {
     shopStock: (host) => q('GET', `/shop_stock?store_key=eq.${e(host)}&select=*&limit=2000`),
     saveShopStock: (rows) => q('POST', '/shop_stock?on_conflict=store_key,product_key,handle', rows, 'resolution=merge-duplicates,return=minimal'),
     insertEvent: (ev) => q('POST', '/drop_events?on_conflict=event_key', ev, 'resolution=ignore-duplicates,return=minimal'),
+  };
+}
+
+/** Database access for a checker running outside Supabase (deploy/shop-checker/): the public key plus a checker key,
+ *  through the five checker_* functions of migrations/006-checker-key.sql. No Supabase secret key on that machine. */
+export function checkerRpcStore({ url, publishableKey, checkerKey, fetch: f = globalThis.fetch }) {
+  async function rpc(name, args) {
+    const res = await f(`${url}/rest/v1/rpc/${name}`, { method: 'POST',
+      headers: { apikey: publishableKey, authorization: `Bearer ${publishableKey}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ p_key: checkerKey, ...args }) });
+    const text = await res.text();
+    if (!res.ok) throw Error(`Database ${name} -> ${res.status}: ${text.slice(0, 200)}`);
+    return text ? JSON.parse(text) : null;
+  }
+  return {
+    shopStates: () => rpc('checker_states', {}),
+    saveShopState: (row) => rpc('checker_save_state', { p_row: row }),
+    shopStock: (host) => rpc('checker_stock', { p_host: host }),
+    saveShopStock: (rows) => rpc('checker_save_stock', { p_rows: rows }),
+    insertEvent: (ev) => rpc('checker_add_event', { p_event: ev }),
   };
 }

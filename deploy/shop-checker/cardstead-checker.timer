@@ -1,0 +1,12 @@
+# Every 2 minutes, like the Supabase cron job it replaces. Each shop is read about every 4-5 minutes (a pass only reads
+# the shops that are due). A pass still running when the next one is due is not started twice.
+[Unit]
+Description=Cardstead shop checker, every 2 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+AccuracySec=15s
+
+[Install]
+WantedBy=timers.target
