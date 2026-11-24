@@ -208,6 +208,13 @@ test('interactions are signature-checked; publisher needs the service role key',
  assert.equal(isServiceRole('Bearer secret-key','secret-key'),true);
  assert.equal(isServiceRole('Bearer secret-kez','secret-key'),false);
  assert.equal(isServiceRole(null,'secret-key'),false);assert.equal(isServiceRole('Bearer x',''),false);
+ const {serverKeys}=await load('discord-auth.mjs');
+ const keys=serverKeys({SUPABASE_SERVICE_ROLE_KEY:'legacy-service-role-jwt-0123456789',SUPABASE_SECRET_KEYS:JSON.stringify({default:'sb_secret_abcdefghijklmnopqrstuvwxyz'})});
+ assert.equal(keys.length,2);
+ assert.equal(isServiceRole(null,keys,'sb_secret_abcdefghijklmnopqrstuvwxyz'),true,'Supabase Cron sends the secret key as apikey');
+ assert.equal(isServiceRole('Bearer legacy-service-role-jwt-0123456789',keys),true);
+ assert.equal(isServiceRole(null,keys,'sb_publishable_abcdefghijklmnopqrstuvwxyz'),false,'the public key is refused');
+ assert.equal(isServiceRole(null,serverKeys({}),'anything'),false,'no keys configured: refuse');
 });
 
 test('rate limits: the client waits as Discord asks instead of retrying at once',async()=>{
@@ -254,7 +261,7 @@ test('database: every Discord table has RLS on and nothing is granted to anonymo
  assert.doesNotMatch(sql,/grant [^;]* to anon/i);
  assert.doesNotMatch(sql,/create policy/i,'no policies: only the service role reads these tables');
  assert.match(sql,/discord_dm_targets[\s\S]*where l\.dms_enabled/,'DMs only for members who turned them on');
- const cfg=fs.readFileSync(path.join(ROOT,'supabase/config.toml'),'utf8');assert.match(cfg,/discord-interactions\]\nverify_jwt = false/);
+ const cfg=fs.readFileSync(path.join(ROOT,'supabase/config.toml'),'utf8');assert.match(cfg,/discord-interactions\]\r?\nverify_jwt = false/);
  for(const f of ['discord-interactions','discord-publisher'])assert.doesNotMatch(fs.readFileSync(path.join(ROOT,'supabase/functions',f,'index.ts'),'utf8'),/sk_|Bot [A-Za-z0-9]{20}/,'no token in code');
 });
 

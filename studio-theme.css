@@ -618,6 +618,17 @@ details.advanced>summary{cursor:pointer;font-weight:700;min-height:44px;display:
 .cv-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .cv-split>div{background:var(--pf-paper);border:1px solid var(--pf-line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px}
 .cv-split strong{font-size:20px;font-variant-numeric:tabular-nums}
+/* Price line: value, confidence, sources with dates (price-line.js). */
+.price-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.price-line strong{font-size:1.15em;font-variant-numeric:tabular-nums}
+.price-line .pl-src{flex-basis:100%;font-size:11.5px;color:var(--pf-muted)}
+.pl-compact{justify-content:flex-end}
+.pl-compact .pill{font-size:9.5px;padding:1px 6px}
+.price-line strong{display:inline;margin:0}
+.price-line .pill{flex:0 0 auto;width:auto}
+.metric .price-line{margin-top:6px}
+.metric .price-line .pill{display:inline-block;margin-top:0}
+.metric .price-line .pl-src{display:block}
 /* Add card: on every page, one tap to the scanner (redesign, 4 tabs). */
 .add-card-fab{position:fixed;z-index:31;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));
  display:inline-flex;align-items:center;gap:6px;padding:12px 18px;border-radius:999px;border:1px solid #e56a6b;
