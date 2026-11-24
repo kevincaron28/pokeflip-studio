@@ -36,7 +36,7 @@ with sync_playwright() as p:
     assert page.locator("section#dashboard").is_visible()
     assert page.locator("#metrics .metric").count() == 4  # inside collapsed legacy details
     assert page.locator(".portfolio-heading").is_visible()  # current dashboard
-    assert page.locator(".tab").count() >= 5
+    assert page.locator(".tab").count() >= 4
     for target in ("dashboard","scan","deal","lots","inventory","sales","ebay","sealed","restock","settings"):
         navigate(target)
         assert page.locator(f"section#{target}").is_visible(), target

@@ -15,7 +15,7 @@
  #backupTop{display:none}
  .mobile-dock{
   display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   position:fixed;z-index:30;
   bottom:0;left:0;right:0;
   min-height:var(--dock-height);
