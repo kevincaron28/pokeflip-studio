@@ -1,0 +1,365 @@
+<title>Cardstead Drops Discord Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~780px); comparison table and the alert mockup break out to 1100px. Findings first, plan second, decisions last. */
+:root{
+  --bg:#f3f5f4; --card:#ffffff; --ink:#15201d; --muted:#56635f; --line:#d5ddd9; --chip:#e8eeeb;
+  --accent:#0f7a63; --accent-ink:#ffffff; --gold:#9a6a00;
+  --good:#1b7a4c; --warn:#8f5d00; --bad:#b02a37; --good-bg:#e0f2e8; --warn-bg:#fbefd6; --bad-bg:#fae3e5;
+  --embed:#2b2f36; --embed-ink:#eef0f2; --embed-muted:#a9b0ba; --embed-bar:#3fbf8f;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1514; --card:#17201e; --ink:#e6ecea; --muted:#9fb0aa; --line:#2b3835; --chip:#1f2a28;
+  --accent:#4cc9a4; --accent-ink:#0b1412; --gold:#e8b84a;
+  --good:#5fd39b; --warn:#f0b54a; --bad:#ff7d86; --good-bg:#15342a; --warn-bg:#3a2e14; --bad-bg:#3d1a20;
+  --embed:#23272d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1514; --card:#17201e; --ink:#e6ecea; --muted:#9fb0aa; --line:#2b3835; --chip:#1f2a28;
+  --accent:#4cc9a4; --accent-ink:#0b1412; --gold:#e8b84a;
+  --good:#5fd39b; --warn:#f0b54a; --bad:#ff7d86; --good-bg:#15342a; --warn-bg:#3a2e14; --bad-bg:#3d1a20;
+  --embed:#23272d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.col{max-width:780px;margin:0 auto}
+.wide{max-width:1100px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(30px,5vw,46px);letter-spacing:-.02em}
+h2{font-size:27px;margin-top:56px;padding-top:18px;border-top:2px solid var(--ink)}
+h3{font-size:19px;margin-top:28px}
+p,li{max-width:68ch}
+a{color:var(--accent);text-underline-offset:3px}
+code{font:13px var(--mono);background:var(--chip);padding:1px 5px;border-radius:4px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:18px;color:var(--muted);margin-top:12px}
+header.top{padding-block:40px 4px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font:13px var(--mono);color:var(--muted)}
+.callout{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--card);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:18px}
+.callout p{margin:4px 0}
+.note{font-size:14px;color:var(--muted)}
+.tablewrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--chip);white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+.cmp td{min-width:220px}
+.cmp td:first-child{min-width:130px}
+.pill{display:inline-block;font:500 11px/1.5 var(--mono);padding:1px 7px;border-radius:99px;white-space:nowrap}
+.pg{background:var(--good-bg);color:var(--good)} .pw{background:var(--warn-bg);color:var(--warn)} .pb{background:var(--bad-bg);color:var(--bad)} .pn{background:var(--chip);color:var(--muted)}
+ul.tight{padding-left:20px} ul.tight li{margin:5px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:16px;align-items:start}
+.grid2>div{min-width:0}
+/* Channel tree */
+.tree{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font:14px/1.55 var(--mono)}
+.tree .cat{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.tree .cat:first-child{margin-top:0}
+.tree .ch{display:flex;gap:8px;align-items:baseline}
+.tree .ch span{color:var(--muted);font:13px var(--body)}
+.tree .ch b{font-weight:500;white-space:nowrap}
+/* Mock alert embed (our own design) */
+.mock{background:var(--embed);color:var(--embed-ink);border-radius:8px;padding:14px 16px;font:14px/1.45 var(--body);max-width:520px}
+.mock .who{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--embed-muted)}
+.mock .who b{color:var(--embed-ink)}
+.mock .bot{font:600 10px var(--mono);background:var(--accent);color:var(--accent-ink);padding:1px 5px;border-radius:3px}
+.mock .ping{color:#9ecbff;font-size:13px;margin-top:6px}
+.emb{border-left:4px solid var(--embed-bar);background:#ffffff0d;border-radius:4px;padding:10px 12px;margin-top:8px;display:grid;grid-template-columns:1fr 72px;gap:10px}
+.emb>div{min-width:0}
+.emb .t{font-weight:700;font-size:15px;color:#7fe0bd}
+.emb .f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px;margin-top:8px}
+.emb .f div{min-width:0}
+.emb .f small{display:block;font:600 11px var(--body);color:var(--embed-muted)}
+.emb .img{width:72px;height:72px;border-radius:6px;background:linear-gradient(150deg,#2f5d73,#5b3f7a);border:1px solid #ffffff22}
+.emb .foot{grid-column:1 / -1;font-size:11.5px;color:var(--embed-muted)}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.btns span{font:600 12.5px var(--body);background:#4e5058;color:#fff;padding:5px 10px;border-radius:4px}
+.btns span.g{background:#248046}
+.v-under{color:#6ee0a6} .v-hi{color:#6ee0a6}
+.anno{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.anno li{display:grid;grid-template-columns:28px 1fr;gap:8px}
+.anno li b.n{font:700 15px var(--display);color:var(--accent)}
+/* Flow */
+.flow{display:grid;gap:0;margin-top:14px;counter-reset:s}
+.flow>div{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.flow>div::before{counter-increment:s;content:counter(s);font:700 18px var(--display);color:var(--accent)}
+.flow p{margin:0}
+/* Decisions */
+.dec{counter-reset:d;list-style:none;padding:0;margin-top:16px}
+.dec>li{counter-increment:d;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--line);max-width:none}
+.dec>li::before{content:counter(d);position:absolute;left:0;top:12px;font:700 22px var(--display);color:var(--accent)}
+.dec b.q{font-family:var(--display);font-size:17px}
+.dec .rec{display:block;margin-top:4px}
+.dec .alt{display:block;color:var(--muted);font-size:15px}
+@media (max-width:560px){h2{font-size:23px}.dec>li{padding-left:34px}.emb{grid-template-columns:1fr}.emb .img{display:none}.emb .f{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top col">
+  <div class="eyebrow">Cardstead · research for the owner · 24 Nov 2026</div>
+  <h1>A free Cardstead drops server on Discord</h1>
+  <p class="lede">What your three Pokémon alert servers do well and badly, and a plan for a free Cardstead server that Canadian collectors can trust more. Nothing is created yet: the server and the bot are yours to make once you decide below.</p>
+  <div class="meta"><span>Servers read: Pokénnoisseur – Canada, Pokewatch Canada, PokeQuebec</span><span>Read-only, nothing posted</span></div>
+</header>
+
+<main>
+<section class="col">
+  <div class="callout">
+    <p><b>Short answer:</b> yes, the plan fits Cardstead's goals, with one condition. All three servers win on speed for the big chains, and two of them sell auto-checkout tools. Cardstead can't and shouldn't copy either. It can win on what they get wrong: repeated alerts, marketplace sellers posted as restocks, stale in-store pings, no CAD value check, paywalls, and French and English mixed in one place. The Discord server should launch only after the server-side checker and the confirmation step from the redesign brief are built, so the first alerts people see are right.</p>
+  </div>
+</section>
+
+<section class="wide">
+  <h2 class="col" style="max-width:780px">1. Your three servers, side by side</h2>
+  <p class="col note" style="margin-top:10px;max-width:780px">From channel lists, recent alerts, pinned info and searches of their chat on 24 Nov 2026, plus each server's public membership page. Summarised in my words; no content copied.</p>
+  <div class="tablewrap">
+  <table class="cmp">
+   <thead><tr><th></th><th>Pokénnoisseur – Canada</th><th>Pokewatch Canada</th><th>PokeQuebec</th></tr></thead>
+   <tbody>
+    <tr><td>Who it's for</td><td>All of Canada, English with a French chat channel. The biggest local-shop coverage.</td><td>All of Canada, English. Also US retailers, other TCGs, GPUs, consoles.</td><td>Québec, French. About 1,680 members; started Oct 2026.</td></tr>
+    <tr><td>Channels</td><td>Announcements, TCG news, wiki and guides, shop directory and shop requests, coupon codes, eBay singles tracker. Chat in EN and FR, pulls, collections, grading, support. Big chains in one category. Then one channel per local shop: about 41 Québec, 60 Ontario, 16 BC, 20 Alberta, 16 online. Provincial in-store hunt threads.</td><td>Role picker, rules, FAQ, guides per retailer (forums). A chat channel per retailer. Retailer alerts (Pokémon Center, Amazon CA and US, Walmart, Walmart stock quantity, EB Games, Costco, Best Buy, Mastermind, Well), 5 shop channels plus one for all other shops, local-stock channels for London Drugs, Mastermind, Shoppers and Canadian Tire. Buy/sell/trade forum.</td><td>Small free side: one free monitor channel (Yume Cards), chat, in-store chat, raffles, success, vouches, streams, voice, buy/sell/trade forums, EB Games in-store forum by region, ticket support. Everything else is behind Elite.</td></tr>
+    <tr><td>Retailers and regions</td><td>Amazon.ca, Pokémon Center CA, Walmart.ca, eBay CA top 100, London Drugs, Mastermind, LEGO, ~150 card shops by province. Costco, EB Games, Shoppers in-store: paid.</td><td>Pokémon Center, Amazon, Walmart, EB Games, Costco, Best Buy, Mastermind, Well.ca, 5 named shops; local stock at 4 chains.</td><td>Yume Cards free. Elite: Pokémon Center, Walmart, Amazon, EB Games, Hobbiesville, in-store across Québec.</td></tr>
+    <tr><td>Alert format</td><td>Bot embed: "Restock" title, product, store, price in CAD, green "In Stock" dot, product image, Buy ×1 / ×2 / ×4 cart buttons, purchase limit in the title, a ping role per shop.</td><td>Bot embed: retailer title, product, price (no currency shown), Amazon item ID, reason ("back in stock"), image, three add-to-cart links and a listing link, ping role per retailer. Walmart channel posts stock counts and limits with an affiliate note.</td><td>Bot embed: "Restock" or "Price drop" with store and site, price in CAD (old price struck through on drops), units in stock, image, add-to-cart links for 1 to 6, timestamp.</td></tr>
+    <tr><td>Speed</td><td>Claims "under a minute"; paid members get faster Amazon, Walmart and Pokémon Center alerts than free.</td><td>Not stated. Its paid extension receives alerts directly, without waiting on Discord.</td><td>"As soon as it's back in stock", no figure.</td></tr>
+    <tr><td>Noise and false alerts</td><td>Members report in-store pings where the shelf was empty by the time they arrived; one asked whether the London Drugs section had stopped working.</td><td>The same Amazon item was alerted twice about 80 minutes apart on 23 Nov. The seller isn't shown, and members keep asking whether a listing is Walmart's own or a third-party seller.</td><td>The same Yume Cards product was alerted twice in the same minute on 22 Nov.</td></tr>
+    <tr><td>Free vs paid</td><td>Free tier. Connoisseur CA$7/month or CA$70/year (holiday sale CA$60/year until 15 Dec), Patron CA$199 lifetime (CA$149 on sale). 10-day trial, card required.</td><td>Alerts free. Buy Me a Coffee CA$5/month (app) or CA$11/month (browser extension).</td><td>Elite CA$7/month or CA$70/year, 3-day trial.</td></tr>
+    <tr><td>Extras</td><td>Website wiki, free in-store dashboard, in-store reports sent through the site and reviewed, phone app (beta), eBay chase channel (paid).</td><td>Companion app, <b>auto-buy extension</b> (places Amazon and Costco orders by itself, adds Walmart items to cart), invite leaderboard, levels.</td><td><b>Automatic purchase</b> for Walmart and Amazon, <b>paid raffles</b> (CA$20 and CA$6 entries for a booster box), vouch channel.</td></tr>
+    <tr><td>What members complain about</td><td>Too late or sold out on arrival, in-store pings that are stale, unclear what premium adds.</td><td>Third-party sellers, orders cancelled by Costco, items gone in minutes.</td><td>Delivery and supplier delays, nothing on Pokémon Center.</td></tr>
+   </tbody>
+  </table>
+  </div>
+  <p class="col note" style="max-width:780px">Speed could not be measured: none of the alerts I saw can be lined up with the moment the store itself restocked. Member numbers for the first two servers weren't visible without opening member lists.</p>
+</section>
+
+<section class="col">
+  <h2>2. Where Cardstead can do better</h2>
+  <div class="tablewrap"><table>
+   <thead><tr><th>Their weak spot</th><th>Cardstead's answer</th></tr></thead>
+   <tbody>
+    <tr><td>Same item alerted again and again</td><td>One alert per restock: only on sold-out → in-stock at that store, then a 30-minute cooldown. A repeat edits the first message ("still in stock, 12 min") instead of pinging again.</td></tr>
+    <tr><td>Marketplace sellers posted as restocks</td><td>The seller is a field on every card. Anything not sold by the store, or above 1.3× MSRP in CA$, posts as "Marketplace price, not a restock" without a ping.</td></tr>
+    <tr><td>Stale in-store pings</td><td>Every alert has a "Wasn't there" button. Two of those mark the alert stale and lower that source's score. A public weekly log shows minutes to alert and false-alert rate per store.</td></tr>
+    <tr><td>No sense of value</td><td>CA$ price against market and MSRP with the verdict Cardstead already computes (Under value, Fair, Over value, Scalper price).</td></tr>
+    <tr><td>Paywalls and paid speed</td><td>Everything free, the same speed for everyone.</td></tr>
+    <tr><td>150 shop channels, or nothing in French</td><td>Channels by region and chain, pings chosen by region and product type, every alert bilingual, chat split FR / EN.</td></tr>
+    <tr><td>Alerts don't know your collection</td><td>"View in Cardstead" on every alert, and an opt-in DM for products on your own Cardstead watchlist under your max price.</td></tr>
+   </tbody>
+  </table></div>
+  <h3>Where we will be slower, on purpose</h3>
+  <p>Walmart, Best Buy, EB Games, Costco and Pokémon Center block automated checks and their terms forbid them. Cardstead learns about those drops from the retailers' own emails to the drops inbox and from members, so it will usually be minutes behind servers that check those sites directly. The server should say so in its "how alerts work" channel. Card shops, Indigo and Mastermind (Shopify) are checked every 2 to 5 minutes, which is where Cardstead can match them.</p>
+  <h3>What we won't copy</h3>
+  <ul class="tight">
+   <li><b>Auto-checkout or auto-buy tools.</b> Retailers cancel bot orders and their terms forbid them; it also contradicts Cardstead's "no bot-protection evasion" rule.</li>
+   <li><b>Paid raffles.</b> A paid-entry draw for a prize is a lottery; in Québec that may need a licence from the Régie des alcools, des courses et des jeux. Not worth the risk.</li>
+   <li><b>Paid fast lanes.</b> They split the community and are the main complaint pattern.</li>
+  </ul>
+</section>
+
+<section class="col">
+  <h2>3. Does it fit Cardstead's goals?</h2>
+  <div class="tablewrap"><table>
+   <thead><tr><th>Goal (roadmap and redesign brief)</th><th>Fit</th><th>How</th></tr></thead>
+   <tbody>
+    <tr><td>Never fabricate live stock</td><td><span class="pill pg">Fits</span></td><td>Discord only posts what the pipeline confirmed, with confidence and source on the card.</td></tr>
+    <tr><td>Authorized sources only, no scraping chains</td><td><span class="pill pg">Fits</span></td><td>Same sources as the app: public Shopify data, retailer emails, Amazon API later, member reports.</td></tr>
+    <tr><td>CAD values with sources, FR and EN kept apart</td><td><span class="pill pg">Fits</span></td><td>CA$ price and verdict on every card, product language shown, bilingual text.</td></tr>
+    <tr><td>Drops for your own watches, pushed to your phone</td><td><span class="pill pw">Adds to it</span></td><td>Discord is the public feed; the app stays the personal one. Discord must not replace app push.</td></tr>
+    <tr><td>Alerts measured in public</td><td><span class="pill pg">Fits</span></td><td>"Wasn't there" taps and a weekly speed log feed the same numbers the app shows.</td></tr>
+    <tr><td>Free to run</td><td><span class="pill pg">Fits</span></td><td>See costs below.</td></tr>
+    <tr><td>Production-readiness gates</td><td><span class="pill pw">Wait</span></td><td>Launch after the server checker, exact matching and confirmation step pass on real drops.</td></tr>
+   </tbody>
+  </table></div>
+</section>
+
+<section class="col">
+  <h2>4. The server</h2>
+  <div class="grid2">
+   <div>
+    <h3 style="margin-top:8px">Channels</h3>
+    <div class="tree" aria-label="Proposed channel list">
+     <div class="cat">Start here · Commencer</div>
+     <div class="ch"><b># bienvenue-welcome</b><span>rules, FR/EN</span></div>
+     <div class="ch"><b># how-alerts-work</b><span>sources, confidence, why chains are slower</span></div>
+     <div class="ch"><b># speed-log</b><span>weekly: minutes to alert, false alerts</span></div>
+     <div class="cat">Chains · Chaînes</div>
+     <div class="ch"><b># pokemon-center</b></div>
+     <div class="ch"><b># walmart</b></div>
+     <div class="ch"><b># bestbuy-ebgames</b></div>
+     <div class="ch"><b># costco</b></div>
+     <div class="ch"><b># amazon-ca</b><span>email now, API later</span></div>
+     <div class="ch"><b># indigo-mastermind</b><span>checked every 2–5 min</span></div>
+     <div class="ch"><b># pharmacies-grocery</b><span>Shoppers, London Drugs, RCSS</span></div>
+     <div class="cat">Card shops by region · Boutiques</div>
+     <div class="ch"><b># qc-montreal</b><span>incl. Laval, Rive-Sud</span></div>
+     <div class="ch"><b># qc-quebec-regions</b></div>
+     <div class="ch"><b># on-gta</b></div>
+     <div class="ch"><b># on-ottawa-other</b></div>
+     <div class="ch"><b># bc</b></div>
+     <div class="ch"><b># prairies</b><span>AB, SK, MB</span></div>
+     <div class="ch"><b># atlantic</b></div>
+     <div class="ch"><b># online-canada</b><span>ships anywhere</span></div>
+     <div class="cat">Deals · Aubaines</div>
+     <div class="ch"><b># ebay-deals</b><span>exact-card filter only</span></div>
+     <div class="ch"><b># under-market</b><span>below market value</span></div>
+     <div class="cat">Members · Membres</div>
+     <div class="ch"><b># report-a-drop</b><span>forum, one post per sighting</span></div>
+     <div class="ch"><b># price-check</b><span>/price, /prix</span></div>
+     <div class="ch"><b># general</b> · <b># général</b></div>
+     <div class="ch"><b># pulls-collections</b></div>
+     <div class="ch"><b># help-aide</b></div>
+    </div>
+   </div>
+   <div>
+    <h3 style="margin-top:8px">Pings members choose</h3>
+    <p>Discord's built-in Onboarding asks three questions when someone joins, and they can change answers any time in "Channels &amp; Roles". No bot needed for this.</p>
+    <ul class="tight">
+     <li><b>Region:</b> Montréal, Québec regions, GTA, Ottawa/Ontario, BC, Prairies, Atlantic, Online only.</li>
+     <li><b>Stores:</b> Pokémon Center, Walmart, Best Buy/EB Games, Costco, Amazon, Indigo/Mastermind, pharmacies and grocery, local card shops.</li>
+     <li><b>Products:</b> booster boxes, ETBs, bundles and blisters, collections and tins, Japanese and Asian, eBay deals.</li>
+     <li><b>Language:</b> French or English chat.</li>
+    </ul>
+    <p>An alert pings only people whose store <em>and</em> product roles both match (for a shop: region and product). Channels without a match stay quiet: Discord shows the message but nobody is pinged.</p>
+    <h3>Linked to Cardstead</h3>
+    <ul class="tight">
+     <li>Every alert has <b>View in Cardstead</b>: product page with market history and a Watch button.</li>
+     <li>Opt-in <b>Link my Discord</b> in Cardstead settings, then a DM when your own watch drops under your max price. Off by default.</li>
+     <li>The Drops tab and the website footer show a <b>Join the server</b> link; the server's welcome links back to the app.</li>
+    </ul>
+   </div>
+  </div>
+</section>
+
+<section class="wide">
+  <h2 class="col" style="max-width:780px">5. The alert card</h2>
+  <div class="grid2" style="max-width:1100px">
+   <div>
+    <div class="mock" role="img" aria-label="Mockup of a Cardstead restock alert in Discord">
+     <div class="who"><b>Cardstead Drops</b><span class="bot">APP</span><span>today 14:02</span></div>
+     <div class="ping">@Montréal @ETB</div>
+     <div class="emb">
+      <div>
+       <div class="t">Restock · Retour en stock</div>
+       <div style="font-weight:600;margin-top:2px">Delta Reign Elite Trainer Box · EN</div>
+       <div class="f">
+        <div><small>Store · Boutique</small>Boutique FDB, Montréal</div>
+        <div><small>Price · Prix</small>CA$94.99</div>
+        <div><small>Value · Valeur</small><span class="v-under">Under value by CA$12</span></div>
+        <div><small>Seller · Vendeur</small>The store</div>
+        <div><small>Confidence</small><span class="v-hi">High</span> · seen twice</div>
+        <div><small>Limit</small>2 per order</div>
+       </div>
+      </div>
+      <div class="img" aria-hidden="true"></div>
+      <div class="foot">Shop data checked 14:01 and 14:02 · market CA$107 (TCGplayer, 24 Nov) · MSRP: unknown in CAD</div>
+     </div>
+     <div class="btns"><span class="g">Open at store</span><span>View in Cardstead</span><span>Wasn't there</span></div>
+    </div>
+    <p class="note">Mockup with example values. Our own layout, not a copy of any server's.</p>
+   </div>
+   <div>
+    <ul class="anno">
+     <li><b class="n">1</b><span><b>Pings by role:</b> region and product roles, never @everyone.</span></li>
+     <li><b class="n">2</b><span><b>Bilingual headings</b> and the product's language (EN / FR / JP), so a French box is never posted as the English one.</span></li>
+     <li><b class="n">3</b><span><b>CA$ price and verdict</b> from Cardstead's existing alert value card. Without a market match it says "Value unknown".</span></li>
+     <li><b class="n">4</b><span><b>Seller:</b> the store, or "Marketplace seller" with no ping.</span></li>
+     <li><b class="n">5</b><span><b>Confidence and how it was seen:</b> High = shop data seen twice or the retailer's own email; Medium = one member report with a photo or link; confirmed by a second member or a trusted member raises it to High. Low is never posted.</span></li>
+     <li><b class="n">6</b><span><b>Time:</b> when it was first seen, shown in each reader's own time zone, so readers can judge freshness.</span></li>
+     <li><b class="n">7</b><span><b>Open at store:</b> the store page. For Amazon, an Associates-tagged link with the disclosure in the footer; no Amazon price until it comes from Amazon's API (their rule).</span></li>
+     <li><b class="n">8</b><span><b>Wasn't there:</b> one tap feeds the false-alert rate; two mark the alert stale.</span></li>
+    </ul>
+   </div>
+  </div>
+</section>
+
+<section class="col">
+  <h2>6. Member reports</h2>
+  <p>For the chains Cardstead can't check (in-store stock, Costco, Pokémon Center queues), members are the fastest source. Reports go through a short form so they can be checked.</p>
+  <div class="flow">
+   <div><p><b>Report.</b> <code>/report</code> in Discord, or the same form on the website and in the app: store, city or "online", product picked from Cardstead's catalogue, price, a link or photo.</p></div>
+   <div><p><b>Hold.</b> The report appears in <code>#report-a-drop</code> without pinging anyone, marked "Waiting for a second member".</p></div>
+   <div><p><b>Confirm.</b> A second member taps <b>I see it too</b> (from another account at least 7 days old), or a trusted member or moderator confirms. Within 30 minutes, or it expires.</p></div>
+   <div><p><b>Publish.</b> The bot posts the alert card to the right channel with the roles, marked "Member report, confirmed by 2".</p></div>
+   <div><p><b>Score.</b> Confirmed reports that hold up raise the reporter's trust; reports that get "Wasn't there" lower it. After about 10 good reports a member gets the <b>Trusted reporter</b> role and their reports post at Medium without waiting.</p></div>
+  </div>
+  <p class="note">Reporters get no reward that depends on Amazon links (Amazon forbids incentives), and no reward at all beyond the role, so nobody is paid to post.</p>
+</section>
+
+<section class="col">
+  <h2>7. Moderation and anti-spam</h2>
+  <ul class="tight">
+   <li><b>Alert channels are read-only.</b> Only the bot posts; members talk in the chat and forum channels.</li>
+   <li><b>Discord AutoMod</b> (free, built in): block invite links, link shorteners, scam phrases ("free nitro", "DM me to buy") and mass mentions; time out on repeat.</li>
+   <li><b>Verification level</b> "verified email, member for 10 minutes" before chatting; new accounts can't report for 7 days.</li>
+   <li><b>No buy/sell/trade at launch.</b> Both bigger servers run one, and it is where scams and vouch disputes live. Revisit with two or more active moderators.</li>
+   <li><b>Rate limits on the bot:</b> at most one alert per product per store per 30 minutes, at most 20 posts a minute across the server, and the bot obeys Discord's rate-limit headers and backs off on errors.</li>
+   <li><b>Moderators:</b> you plus two volunteers (one francophone) to start, with a pinned rule list in FR and EN and a <code>/flag</code> command that sends a message to a private mod channel.</li>
+  </ul>
+</section>
+
+<section class="col">
+  <h2>8. How it plugs into the pipeline</h2>
+  <div class="tablewrap"><table>
+   <thead><tr><th>Source</th><th>Goes to</th><th>Confidence</th></tr></thead>
+   <tbody>
+    <tr><td>Shopify shop checker (2–5 min)</td><td>Region channel, or <code>#indigo-mastermind</code></td><td>High after two checks</td></tr>
+    <tr><td>Retailer emails to the drops inbox</td><td>The chain's channel</td><td>High (verified retailer sender)</td></tr>
+    <tr><td>Amazon Creators API (later)</td><td><code>#amazon-ca</code>, only when sold by Amazon.ca</td><td>High</td></tr>
+    <tr><td>Member reports</td><td>Chain or region channel after confirmation</td><td>Medium → High</td></tr>
+    <tr><td>eBay deals (exact-card filter)</td><td><code>#ebay-deals</code>, no pings unless the Deals role</td><td>Shown as asking price, never "value"</td></tr>
+    <tr><td>Price check</td><td><code>/price</code> or <code>/prix</code> reply with CA$ value, sources and confidence</td><td>Same as the card page</td></tr>
+   </tbody>
+  </table></div>
+  <p>How it runs: the existing alert pipeline writes each confirmed alert to an <code>alerts</code> table in Supabase. A small Supabase function sends it to Discord through the bot and stores the message ID, so a repeat edits the message instead of posting again. Slash commands and buttons arrive at a second Supabase function as web requests (Discord's "interactions endpoint"), so no always-on bot server is needed.</p>
+  <h3>Discord's rules for this</h3>
+  <ul class="tight">
+   <li>Bots: 50 requests a second overall, plus per-route limits read from Discord's response headers; repeated errors can get the address banned for a while. Our volume is far below this.</li>
+   <li>Each message holds up to 10 embeds; a webhook that returns "not found" must not be used again.</li>
+   <li>Bot DMs only for members who linked their account and turned DMs on.</li>
+   <li>The bot needs a privacy policy and terms link in its Developer Portal profile; Cardstead's privacy page should add a Discord section (what is stored: Discord ID, chosen roles, reports). Discord's Developer Policy page refused automated reading from here, so read it once before launch.</li>
+  </ul>
+  <h3>Amazon Associates</h3>
+  <ul class="tight">
+   <li>Show the disclosure "As an Amazon Associate I earn from qualifying purchases" in <code>#amazon-ca</code>'s description and on each Amazon card.</li>
+   <li>Amazon allows its links in messages people opted into; it says nothing specific about Discord servers. Posting them in a public, opt-in alert channel with the disclosure is the careful reading.</li>
+   <li>Prices and availability for Amazon only from Amazon's API, with a time stamp. Until then Amazon cards say "Check price at Amazon".</li>
+  </ul>
+</section>
+
+<section class="col">
+  <h2>9. Cost, and what you create yourself</h2>
+  <div class="tablewrap"><table>
+   <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+   <tbody>
+    <tr><td>Discord server, Onboarding, AutoMod, roles, forums</td><td>Free</td></tr>
+    <tr><td>Discord bot application</td><td>Free</td></tr>
+    <tr><td>Supabase functions for posting and commands</td><td>Free tier (500,000 calls a month; a busy month is a few thousand)</td></tr>
+    <tr><td>Server boosts, Nitro</td><td>Not needed</td></tr>
+   </tbody>
+  </table></div>
+  <h3>You do these, with your own accounts</h3>
+  <ul class="tight">
+   <li><b>Create the server</b> from your Discord account (turn on two-factor first), enable Community so Onboarding and forums work.</li>
+   <li><b>Create the bot application</b> at discord.com/developers: name, icon, privacy and terms links. Copy the bot token straight into Supabase's secrets yourself; it never goes in chat or the repo.</li>
+   <li><b>Invite the bot</b> with only: view channels, send messages, embed links, manage messages (to edit its own repeats), use slash commands.</li>
+   <li><b>Pick two moderators.</b></li>
+  </ul>
+  <p>After that a session can build the posting function, commands, report flow and channel setup on a feature branch with tests.</p>
+</section>
+
+<section class="col">
+  <h2>10. Decisions for you</h2>
+  <ol class="dec">
+   <li><b class="q">Start a free Cardstead Discord server?</b><span class="rec"><b>Recommended:</b> yes, but open it after the server-side shop checker, exact matching and confirmation step are live and have caught a few real drops.</span><span class="alt">Alternatives: open now with card shops only; don't do Discord, keep alerts in the app.</span></li>
+   <li><b class="q">Name and language?</b><span class="rec"><b>Recommended:</b> one bilingual server, "Cardstead Drops", alerts in FR and EN on the same card, chat split into French and English channels.</span><span class="alt">Alternatives: a French server and an English server; English only.</span></li>
+   <li><b class="q">Channels per shop or per region?</b><span class="rec"><b>Recommended:</b> per region (10 channels), with the shop on the card and pings by region and product.</span><span class="alt">Alternative: one channel per shop like Pokénnoisseur (about 150 channels).</span></li>
+   <li><b class="q">How many people confirm a member report?</b><span class="rec"><b>Recommended:</b> a second member, or one Trusted reporter or moderator; 30-minute expiry.</span><span class="alt">Alternatives: moderator approval only (slower); post at once marked "unconfirmed" (faster, noisier).</span></li>
+   <li><b class="q">Amazon links in Discord?</b><span class="rec"><b>Recommended:</b> tagged links with the disclosure, no Amazon price until the API is unlocked.</span><span class="alt">Alternative: link to the Cardstead product page only and keep the tag on the website.</span></li>
+   <li><b class="q">Paid tier, raffles, buy/sell/trade?</b><span class="rec"><b>Recommended:</b> none at launch. Everything free, no raffles, no trading channel until there are moderators for it.</span><span class="alt">Alternative: an optional tip jar with no perks, later.</span></li>
+   <li><b class="q">Personal DMs for your own watches?</b><span class="rec"><b>Recommended:</b> yes, opt-in after linking Discord in Cardstead settings, off by default.</span><span class="alt">Alternative: keep personal alerts in the app only.</span></li>
+   <li><b class="q">Where does the bot run?</b><span class="rec"><b>Recommended:</b> Supabase functions (free, no server to keep on).</span><span class="alt">Alternative: an always-on bot on a small paid server (about US$5/month), only needed for features that watch chat live.</span></li>
+  </ol>
+  <p class="note" style="margin-top:24px">Sources: the three servers as seen from your Discord account on 24 Nov 2026 (read-only); pokennoisseur.ca/membership, buymeacoffee.com/moxthotp and pokequebec.info for prices; Discord's developer docs (rate limits, webhooks); Amazon.ca Associates Operating Agreement and Program Policies (part of the policies page was read from a summary). Earlier research: docs/research/canada-alert-discords-2026-11-23.md and the Cardstead redesign brief.</p>
+</section>
+</main>
