@@ -6,3 +6,6 @@ verify_jwt = false
 
 [functions.discord-publisher]
 verify_jwt = false
+
+[functions.shop-checker]
+verify_jwt = false
