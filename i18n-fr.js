@@ -1105,4 +1105,7 @@
 "Your resale business":"Ta revente",
 "your value":"ta valeur",
 "Your value · CAD (optional)":"Ta valeur · CAD (facultatif)",
+"Amazon links":"Liens Amazon",
+"As an Amazon Associate Cardstead earns from qualifying purchases. Amazon.ca links in Cardstead carry Cardstead's Associates tag. It does not change your price.":"En tant que Partenaire Amazon, Cardstead réalise un bénéfice sur les achats remplissant les conditions requises. Les liens Amazon.ca dans Cardstead portent l’identifiant Partenaires de Cardstead. Ça ne change pas ton prix.",
+"As an Amazon Associate Cardstead earns from qualifying purchases.":"En tant que Partenaire Amazon, Cardstead réalise un bénéfice sur les achats remplissant les conditions requises.",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);

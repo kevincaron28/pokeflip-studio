@@ -135,9 +135,14 @@ function parseAmazonCheckout(html){
  return {captcha,otp,paymentPrompt,orderTotal,items,shipping,quantities,sellers,address:addrBlock,placeOrder};
 }
 
+/** Automatic checkout is switched off (owner decision, 24 Nov 2026): Amazon's Conditions of Use forbid automated buying, and
+ *  Cardstead's Amazon links are Amazon Associates links, whose agreement the account must keep. Checkout assist (open the
+ *  product, you click Place your order yourself) still works. The guards below stay so the code can be reviewed, not used. */
+const AUTO_CHECKOUT_ENABLED=false;
 /** Can this product be bought automatically at all (before a drop)? */
 function autoEligible(product,settings){
  const why=[];
+ if(!AUTO_CHECKOUT_ENABLED)why.push('automatic checkout is turned off in this version of Drop Assist');
  if(product.store!=='amazon')why.push('automatic checkout is Amazon.ca only');
  if(!product.autoBuy)why.push('automatic checkout is off for this product');
  if(!settings?.autoAck)why.push('the Amazon terms warning is not accepted in Settings');
@@ -157,6 +162,7 @@ function spentToday(orders,now=Date.now()){
 /** Every check on the re-read checkout page. Any failure -> do not click, fall back to assist. */
 function verifyCheckout(product,settings,parsed,expectedQty,spent=0){
  const why=[];
+ if(!AUTO_CHECKOUT_ENABLED)why.push('automatic checkout is turned off in this version of Drop Assist');
  if(parsed.captcha)why.push('Amazon shows a CAPTCHA');
  if(parsed.otp)why.push('Amazon asks for a one-time code or approval');
  if(parsed.paymentPrompt)why.push('Amazon asks to pick or confirm payment (or a CVV)');
@@ -187,7 +193,7 @@ function parseOrderPlaced(html,url=''){
 }
 function cancelUrl(orderId){return orderId?'https://www.amazon.ca/gp/your-account/order-details?orderID='+encodeURIComponent(orderId):'https://www.amazon.ca/gp/css/order-history'}
 
-const api={parseAmazonCheckout,autoEligible,spentToday,verifyCheckout,parseOrderPlaced,cancelUrl,normPostal,MIN_INTERVAL_MIN,DEFAULT_INTERVAL_MIN,ROBOT_BACKOFF_MIN,DROP_COOLDOWN_MIN,ASSIST_TTL_MIN,productFromInput,money,parseAmazon,parsePokemonCenter,quantity,decide,nextDelayMs,isFinalPurchaseControl,signalsFromCardstead,ntfyTopicOk};
+const api={AUTO_CHECKOUT_ENABLED,parseAmazonCheckout,autoEligible,spentToday,verifyCheckout,parseOrderPlaced,cancelUrl,normPostal,MIN_INTERVAL_MIN,DEFAULT_INTERVAL_MIN,ROBOT_BACKOFF_MIN,DROP_COOLDOWN_MIN,ASSIST_TTL_MIN,productFromInput,money,parseAmazon,parsePokemonCenter,quantity,decide,nextDelayMs,isFinalPurchaseControl,signalsFromCardstead,ntfyTopicOk};
 root.CardsteadAssist=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof self!=='undefined'?self:globalThis);

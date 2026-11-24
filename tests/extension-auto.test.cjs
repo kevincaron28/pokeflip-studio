@@ -3,19 +3,21 @@ const root=path.join(__dirname,'..');const A=require('../extension/lib/core.js')
 const fx=f=>fs.readFileSync(path.join(root,'tests/fixtures/extension',f),'utf8');
 const product={id:'amazon:B0TEST0001',store:'amazon',name:'ETB',maxPrice:70,maxQty:2,maxOrderTotal:160,enabled:true,autoBuy:true};
 const settings={autoAck:true,dailyCap:300,postalCode:'J4K 1A1',street:'',sellerAllowlist:[]};
+// Automatic checkout is switched off (AUTO_CHECKOUT_ENABLED=false); the guards are still checked, ignoring that one reason.
+const OFF=/turned off in this version/;const pass=v=>v.why.every(w=>OFF.test(w));
 const check=(f,p=product,s=settings,spent=0,qty=2)=>A.verifyCheckout(p,s,A.parseAmazonCheckout(fx('amazon-spc-'+f+'.html')),qty,spent);
 
-test('a clean checkout passes every guard',()=>{const v=check('ok');assert.equal(v.ok,true,v.why.join('; '));assert.equal(v.total,149.44);assert.equal(v.qty,2);assert.equal(v.unit,64.99)});
+test('a clean checkout passes every guard',()=>{const v=check('ok');assert.equal(pass(v),true,v.why.join('; '));assert.equal(v.total,149.44);assert.equal(v.qty,2);assert.equal(v.unit,64.99)});
 test('stops at a payment choice, a CVV, a one-time code or a CAPTCHA',()=>{
- for(const f of ['payment','cvv','otp'])assert.equal(check(f).ok,false,f);
- assert.equal(A.verifyCheckout(product,settings,A.parseAmazonCheckout(fx('amazon-robot.html')),2).ok,false);
+ for(const f of ['payment','cvv','otp'])assert.equal(pass(check(f)),false,f);
+ assert.equal(pass(A.verifyCheckout(product,settings,A.parseAmazonCheckout(fx('amazon-robot.html')),2)),false);
 });
 test('stops on seller, address, totals, quantity, extra items and the daily cap',()=>{
  assert.match(check('thirdparty').why.join(),/CardFlipperz/);
- assert.equal(check('thirdparty',product,{...settings,sellerAllowlist:['CardFlipperz']}).ok,true,'allowlisted seller passes');
+ assert.equal(pass(check('thirdparty',product,{...settings,sellerAllowlist:['CardFlipperz']})),true,'allowlisted seller passes');
  assert.match(check('address').why.join(),/postal code/);
  assert.match(check('ok',product,{...settings,street:'200 Autre Rue'}).why.join(),/street/);
- assert.equal(check('ok',product,{...settings,street:'100 Rue Exemple'}).ok,true);
+ assert.equal(pass(check('ok',product,{...settings,street:'100 Rue Exemple'})),true);
  assert.match(check('total').why.join(),/order total \$189\.44 is above/);
  assert.match(check('ok',{...product,maxPrice:60}).why.join(),/unit price \$64\.99/);
  assert.match(check('ok',product,settings,0,1).why.join(),/quantity is 2, expected 1/);
@@ -23,13 +25,13 @@ test('stops on seller, address, totals, quantity, extra items and the daily cap'
  assert.match(check('ok',product,{...settings,dailyCap:200},100).why.join(),/daily cap/);
 });
 test('eligibility: Amazon.ca only, switched on per product, warning accepted, caps and postal code set',()=>{
- assert.equal(A.autoEligible(product,settings).ok,true);
+ assert.equal(pass(A.autoEligible(product,settings)),true);
  assert.match(A.autoEligible({...product,store:'pokemoncenter'},settings).why.join(),/Amazon\.ca only/);
- assert.equal(A.autoEligible({...product,autoBuy:false},settings).ok,false);
- assert.equal(A.autoEligible(product,{...settings,autoAck:false}).ok,false);
- assert.equal(A.autoEligible(product,{...settings,dailyCap:0}).ok,false);
- assert.equal(A.autoEligible(product,{...settings,postalCode:''}).ok,false);
- assert.equal(A.autoEligible({...product,maxOrderTotal:undefined},settings).ok,false);
+ assert.equal(pass(A.autoEligible({...product,autoBuy:false},settings)),false);
+ assert.equal(pass(A.autoEligible(product,{...settings,autoAck:false})),false);
+ assert.equal(pass(A.autoEligible(product,{...settings,dailyCap:0})),false);
+ assert.equal(pass(A.autoEligible(product,{...settings,postalCode:''})),false);
+ assert.equal(pass(A.autoEligible({...product,maxOrderTotal:undefined},settings)),false);
 });
 test('daily spend counts placed and unconfirmed orders of today only',()=>{
  const now=new Date(2026,10,23,15).getTime(),today=new Date(2026,10,23,9).toISOString(),yesterday=new Date(2026,10,22,23).toISOString();
@@ -56,4 +58,10 @@ test('settings page: plain terms warning, no secret fields',()=>{
  const ui=fs.readFileSync(path.join(root,'extension/options.html'),'utf8');
  assert.match(ui,/Amazon's Conditions of Use forbid robots and automated buying/);assert.match(ui,/close your account/);
  for(const input of ui.match(/<input[^>]*>/gi)||[])assert.ok(!/password|\bcard\b|card.?number|cvv|cvc|expir|iban/i.test(input),input);
+});
+
+test('automatic checkout is off: nothing is ever eligible or verified, whatever the settings',()=>{
+ assert.equal(A.AUTO_CHECKOUT_ENABLED,false);
+ assert.equal(A.autoEligible(product,settings).ok,false);assert.match(A.autoEligible(product,settings).why[0],OFF);
+ assert.equal(check('ok').ok,false);
 });
