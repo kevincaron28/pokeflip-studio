@@ -37,11 +37,13 @@ export async function catalogue({ site, cacheDir, fetch: f = globalThis.fetch, n
   return data;
 }
 
-async function main() {
-  const s = settings();
+/** One pass. Also used by the Windows runner (windows/run-windows.mjs), which passes its own settings and log. */
+export async function main({ e = env, log = (m) => console.log(m) } = {}) {
+  const s = settings(e);
   const shops = JSON.parse(readFileSync(join(here, '../../supabase/functions/_shared/drop-shops.json'), 'utf8')).shops;
   const summary = await runPass({ store: checkerRpcStore(s), fetch, now: () => Date.now(), shops, catalogue: await catalogue(s),
-    maxShops: s.maxShops, concurrency: s.concurrency, gapMs: s.gapMs, log: (m) => console.log(m) });
-  console.log(JSON.stringify(summary));
+    maxShops: s.maxShops, concurrency: s.concurrency, gapMs: s.gapMs, log });
+  log(JSON.stringify(summary));
+  return summary;
 }
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) main().catch((e) => { console.error(String(e.message || e)); process.exit(1); });
