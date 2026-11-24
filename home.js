@@ -35,7 +35,7 @@ function ago(s){const m=Math.max(0,Math.round((Date.now()-Date.parse(s))/60000))
 async function render(){
  const host=$('homeBody');if(!host)return;
  const V=root.CardsteadAlertValue,Cmp=root.CardsteadCompare,Ch=root.CardsteadChart,P=root.CardsteadStorePrefs,Prod=root.CardsteadProduct;
- const ctx=V?await V.context():null,data=ctx?.data,history=Ch?await Ch.load():null;
+ const ctx=V?await V.context():null,data=ctx?.data,history=Ch?await Ch.load():null,PL=root.CardsteadPriceLine;
  try{await Prod?.ensure?.()}catch{}
  const items=Prod?.items?.()||[];
  const stored={restock:read(Cmp.KEYS.restock),matches:read(Cmp.KEYS.matches),hub:read(Cmp.KEYS.hub)};
@@ -46,7 +46,7 @@ async function render(){
  const good=rows.filter(r=>r.good).sort((a,b)=>(a.best.price/(a.assess.market?.low||a.best.price))-(b.best.price/(b.assess.market?.low||b.best.price)));
  const verdict=r=>{const v=Cmp.verdictText(I().lang(),r.best?.price,r.assess);return r.best?`<span class="cmp-pill cmp-pill-${esc(v.code)}">${esc(v.text)}</span>`:''};
  const watchLine=r=>{const it=itemFor(r.watch),sp=it&&history?Ch.sparkline(history,Ch.keyFor(it),30):'';
-  return `<li><button type="button" class="prod-row" ${it?`data-item="sealed:${esc(it.id)}"`:`data-home-watch`}><span class="prod-main"><strong>${esc(r.watch.product)}</strong><span class="note">${r.best?`${esc(M(r.best.price))} · ${esc(r.best.store)} · ${esc(ago(r.best.at))}`:esc(t('home.noStock'))}</span>${verdict(r)}</span><span class="prod-spark">${sp}</span><span class="prod-val">${r.assess?.market?esc(M(r.assess.market.low)):''}</span></button></li>`};
+  return `<li><button type="button" class="prod-row" ${it?`data-item="sealed:${esc(it.id)}"`:`data-home-watch`}><span class="prod-main"><strong>${esc(r.watch.product)}</strong><span class="note">${r.best?`${esc(M(r.best.price))} · ${esc(r.best.store)} · ${esc(ago(r.best.at))}`:esc(t('home.noStock'))}</span>${verdict(r)}</span><span class="prod-spark">${sp}</span><span class="prod-val">${r.assess?.market?(PL&&it?PL.html({...PL.sealed(it.marketUsd,data),cad:r.assess.market.low},{compact:true}):esc(M(r.assess.market.low))):''}</span></button></li>`};
  const sealed=items.filter(x=>x.kind==='sealed'&&['pack','etb','box'].includes(x.type)).map(x=>({...x,key:String(x.id)}));
  const mv=history?movers(history,sealed,Ch,6):[];
  // eBay: only if a scan has stored results.
@@ -55,7 +55,7 @@ async function render(){
  host.innerHTML=`<div class="home-actions"><button type="button" class="btn primary" data-home-go="prices">🔎 ${esc(t('home.find'))}</button><button type="button" class="btn" data-home-go="scan">⌗ ${esc(t('home.scan'))}</button></div>
  <div class="panel"><h2>${esc(t('home.good'))}</h2>${good.length?`<ul class="prod-list">${good.map(watchLine).join('')}</ul>`:`<p class="empty">${esc(t('home.goodEmpty'))}</p>`}</div>
  <div class="panel"><h2>${esc(t('home.watch'))}</h2>${rows.length?`<ul class="prod-list">${rows.map(watchLine).join('')}</ul>`:`<p class="empty">${esc(t('home.watchEmpty'))}</p>`}</div>
- <div class="panel"><h2>${esc(t('home.movers'))}</h2>${mv.length?`<ul class="prod-list">${mv.map(m=>`<li><button type="button" class="prod-row" data-item="sealed:${esc(m.id)}"><span class="prod-main"><strong>${esc(m.name)}</strong><span class="note ${m.change.rel>=0?'g-up':'g-down'}">${esc(I().pct(m.change.rel))} · ${esc(M(m.change.from))} → ${esc(M(m.change.to))}</span></span><span class="prod-spark">${Ch.sparkline(history,m.key,30)}</span><span class="prod-val">${esc(M(m.change.to))}</span></button></li>`).join('')}</ul>`:`<p class="empty">${esc(t('home.moversEmpty'))}</p>`}</div>
+ <div class="panel"><h2>${esc(t('home.movers'))}</h2>${mv.length?`<ul class="prod-list">${mv.map(m=>`<li><button type="button" class="prod-row" data-item="sealed:${esc(m.id)}"><span class="prod-main"><strong>${esc(m.name)}</strong><span class="note ${m.change.rel>=0?'g-up':'g-down'}">${esc(I().pct(m.change.rel))} · ${esc(M(m.change.from))} → ${esc(M(m.change.to))}</span></span><span class="prod-spark">${Ch.sparkline(history,m.key,30)}</span><span class="prod-val">${PL?PL.html(PL.sealed(m.marketUsd,data),{compact:true}):esc(M(m.change.to))}</span></button></li>`).join('')}</ul>`:`<p class="empty">${esc(t('home.moversEmpty'))}</p>`}</div>
  ${deals.length?`<div class="panel"><h2>${esc(t('home.ebay'))}</h2><ul class="prod-list">${deals.map(d=>`<li><a class="prod-row" href="${esc(d.item.url)}" target="_blank" rel="noopener noreferrer"><span class="prod-main"><strong>${esc(d.card.name)} ${esc(d.card.number||'')}</strong><span class="note">${esc(M(d.total.cad))} · eBay</span><span class="cmp-pill cmp-pill-under">${esc(d.verdict.label)}</span></span></a></li>`).join('')}</ul></div>`:''}`;
  host.querySelectorAll('[data-home-go]').forEach(b=>b.onclick=()=>{root.CardsteadNav?.show(b.dataset.homeGo);if(b.dataset.homeGo==='prices')setTimeout(()=>$('pricesSearch')?.focus(),50)});
  host.querySelectorAll('[data-home-watch]').forEach(b=>b.onclick=()=>root.CardsteadNav?.show('restock'));
