@@ -8,7 +8,7 @@ const nm = (...p) => join(mobile, 'node_modules', ...p);
 
 export function buildIndex(html) {
   const swap = (re, repl, what) => { if (!re.test(html)) throw new Error('index.html: expected script not found: ' + what); html = html.replace(re, repl); };
-  swap(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/tesseract\.js@[^"]+"[^>]*>\s*<\/script>/, '<script src="./vendor/tesseract.min.js" defer></script><script src="./native-bridge.js" defer></script><script src="./vendor/ocr-local.js" defer></script>', 'tesseract');
+  swap(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/tesseract\.js@[^"]+"[^>]*>\s*<\/script>/, '<script src="./vendor/tesseract.min.js" defer></script><script src="./fcm-config.js" defer></script><script src="./native-bridge.js" defer></script><script src="./vendor/ocr-local.js" defer></script>', 'tesseract');
   swap(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@[^"]+"[^>]*>\s*<\/script>/, '<script src="./vendor/supabase.min.js" defer></script>', 'supabase');
   if (/https:\/\/cdn\.jsdelivr\.net/.test(html)) throw new Error('index.html still references the CDN');
   return html;
@@ -24,6 +24,9 @@ export function build() {
   for (const f of shellFiles(readFileSync(join(repo, 'sw.js'), 'utf8'))) { const src = join(repo, f); if (!existsSync(src)) throw new Error('missing web file ' + f); cpSync(src, join(out, f)); }
   writeFileSync(join(out, 'index.html'), buildIndex(readFileSync(join(repo, 'index.html'), 'utf8')));
   cpSync(join(here, '..', 'web-overlay', 'native-bridge.js'), join(out, 'native-bridge.js'));
+  // App push stays off until the owner adds Firebase's google-services.json (docs/DROPS-PUSH.md).
+  const fcm = existsSync(join(here, '..', 'android', 'app', 'google-services.json'));
+  writeFileSync(join(out, 'fcm-config.js'), `window.CARDSTEAD_FCM=${fcm};\n`);
   cpSync(join(here, '..', 'web-overlay', 'ocr-local.js'), join(out, 'vendor', 'ocr-local.js'));
   cpSync(nm('@supabase', 'supabase-js', 'dist', 'umd', 'supabase.js'), join(out, 'vendor', 'supabase.min.js'));
   cpSync(nm('tesseract.js', 'dist', 'tesseract.min.js'), join(out, 'vendor', 'tesseract.min.js'));

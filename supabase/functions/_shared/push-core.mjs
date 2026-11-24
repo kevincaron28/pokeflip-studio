@@ -83,7 +83,7 @@ export function pushStore({ url, serviceKey, fetch: f = globalThis.fetch }) {
   return {
     pendingEvents: (limit) => q('GET', `/drop_events?push_processed_at=is.null&order=created_at.asc&limit=${limit}`),
     markEvent: (id, at) => q('PATCH', `/drop_events?id=eq.${e(id)}`, { push_processed_at: at }),
-    subscriptions: () => q('GET', '/push_subscriptions?select=id,endpoint,p256dh,auth,prefs,lang&limit=10000'),
+    subscriptions: () => q('GET', '/push_subscriptions?select=id,kind,endpoint,p256dh,auth,prefs,lang&limit=10000'),
     lastDelivery: async (id, key) => { const r = await q('GET', `/push_deliveries?subscription_id=eq.${e(id)}&dedupe_key=eq.${e(key)}&select=sent_at&limit=1`); return r && r[0] ? r[0].sent_at : null; },
     recordDelivery: (id, key, at) => q('POST', '/push_deliveries?on_conflict=subscription_id,dedupe_key', { subscription_id: id, dedupe_key: key, sent_at: at }, 'resolution=merge-duplicates,return=minimal'),
     removeSubscription: (id) => q('DELETE', `/push_subscriptions?id=eq.${e(id)}`),
