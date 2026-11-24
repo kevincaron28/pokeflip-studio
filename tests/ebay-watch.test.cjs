@@ -53,3 +53,60 @@ test('every TCGplayer-priced card gets today\'s price from the snapshot',()=>{
  const c=S.cards.find(c=>c.marketSource==='TCGplayer via tcgcsv'&&D.cardPrices[c.tcgplayerProductId+'|'+c.printing]);
  const v=W.valueOf(c,D);assert.equal(v.source,'TCGplayer market price');assert.equal(v.date,D.prices.asOf);
 });
+// Measured on ebay.ca on 24 Nov 2026: 77 of 137 flagged "deals" were these kinds of listings.
+test('junk measured on ebay.ca is never the card',()=>{
+ for(const bad of ['Umbreon VMax Moonbreon Pokemon Card TCG 215/203 Evolving Skies Novelty Keychain','POKEMON TCG EXTENDED ART CASE CARD UMBREON VMAX SR 215/203',
+  'Pokemon Card TCG / Metal Umbreon VMAX Evolving Skies 215/203 Pokemon Gold Metal','MYSTERY PACK - Umbreon VMAX 215/203 Evolving Skies','Umbreon VMAX 215/203 Gold Foil Collectible',
+  'Umbreon VMAX 215/203 Extended Art Print A4 Card Display Mount','Umbreon VMAX 215/203 Fridge Magnet'])assert.equal(W.matches(bad,umbreon).ok,false,bad);
+ assert.equal(W.matches('Umbreon VMAX 215/203 Evolving Skies ACE 10',umbreon).ok,false,'ACE grade is graded');
+ assert.equal(W.matches('Umbreon VMAX 215/203 Evolving Skies',umbreon,{condition:'Graded'}).ok,false,'eBay says graded');
+ assert.equal(W.matches('Umbreon VMAX 215/203 SWSH07: Evolving Skies NOT PSA 10',psa).ok,false);
+});
+test('editions: 1st Edition, Shadowless and Unlimited must be stated the right way',()=>{
+ const first={id:'c1',name:'Charizard',number:'004/102',set:'Base Set',printing:'1st Edition Holofoil',grade:'raw'};
+ const shadow={id:'c2',name:'Charizard',number:'004/102',set:'Base Set (Shadowless)',printing:'Shadowless Holofoil',grade:'raw'};
+ const unl={id:'charizard-004-base-set-unlimited',name:'Charizard',number:'004/102',set:'Base Set (Unlimited)',printing:'Holofoil',grade:'raw'};
+ assert.equal(W.edition(first),'1st');assert.equal(W.edition(shadow),'shadowless');assert.equal(W.edition(unl),'unlimited');
+ assert.equal(W.matches('Charizard 4/102 Base Set 1st Edition Holo',first).ok,true);
+ assert.equal(W.matches('Charizard 4/102 Base Set Holo English Vintage (Not 1st edition) LP',first).ok,false);
+ assert.equal(W.matches('Charizard From Base Set 4/102 Holo Rare',first).ok,false);
+ assert.equal(W.matches('Charizard 4/102 Shadowless Holo',shadow).ok,true);
+ assert.equal(W.matches('Charizard 4/102 1st Edition Shadowless',shadow).ok,false);
+ assert.equal(W.matches('Charizard 4/102 Base Set Holo',unl).ok,true);
+ assert.equal(W.matches('Charizard 4/102 Base Set Shadowless',unl).ok,false);
+});
+test('condition from the title, never hit points',()=>{
+ assert.equal(W.condition('Gengar 5/62 1st Edition Holo Fossil Heavy Play'),'HP');
+ assert.equal(W.condition('Charizard 4/102 Holo Rare Base Set Shadowless HP/DMG'),'DMG');
+ assert.equal(W.condition('Umbreon VMAX 215/203 MP "MOONBREON"'),'MP');
+ assert.equal(W.condition('Lugia V 186/195 LP'),'LP');
+ assert.equal(W.condition('Umbreon VMAX 215/203 NM!!'),'NM');
+ assert.equal(W.condition('Shining Charizard 107/105 Secret Rare 100HP'),null);
+ assert.equal(W.condition('Charizard GX SV49 Full Art HP 250'),null);
+});
+test('too cheap to trust is not a deal; a played copy is compared with its share of the value',()=>{
+ assert.equal(W.verdict(10,3104).code,'suspect');
+ assert.equal(W.isDeal({total:{cad:10,shippingKnown:true},verdict:W.verdict(10,3104)},0.10),false);
+ assert.equal(W.isDeal({total:{cad:10,shippingKnown:true},verdict:W.verdict(10,3104)},0.10,50),false,'not even under a target price');
+ const card={...umbreon,marketUsd:1000,marketSource:'PriceCharting',marketDate:'2026-11-23'};
+ const rows=W.assess({u:{fetchedAt:'2026-11-23T12:00:00Z',items:[{id:'9',title:'Umbreon VMAX 215/203 Evolving Skies MP',price:800,currency:'CAD',shipping:0,shippingCurrency:'CAD',url:'https://www.ebay.ca/itm/9'}]}},[card],{fx:{usdToCad:1.4}});
+ assert.equal(rows[0].condition,'MP');assert.equal(Math.round(rows[0].valueForCondition),910);assert.equal(rows[0].verdict.code,'under');
+});
+test('graded cards: never a raw price; value is the trimmed median of matching eBay.ca listings, labelled as asking prices',()=>{
+ const c=S.cards.find(c=>c.grade==='PSA 10'&&D.cardPrices[c.tcgplayerProductId+'|'+c.printing]);
+ assert.equal(W.valueOf(c,D),null,'a PSA 10 must not get the raw TCGplayer price');
+ const it=(id,p,t='PSA 10 Umbreon VMAX 215/203 Evolving Skies')=>({id,title:t,price:p,currency:'CAD',shipping:0,shippingCurrency:'CAD',url:'https://www.ebay.ca/itm/'+id});
+ const items=[it('a',4000),it('b',5000),it('c',5200),it('d',5400),it('e',9000),it('f',20,'PSA 10 Umbreon VMAX 215/203 keychain')];
+ const v=W.listingValue(items,psa,1.4);assert.equal(v.n,5);assert.equal(v.cad,5200);assert.equal(v.asking,true);assert.match(v.source,/5 eBay\.ca listings \(asking prices\)/);
+ assert.ok(['low','medium'].includes(v.confidence));
+ assert.equal(W.listingValue(items.slice(0,2),psa,1.4),null,'fewer than 3 listings: unknown');
+ const rows=W.assess({u10:{fetchedAt:'2026-11-24T12:00:00Z',items}},[psa],{fx:{usdToCad:1.4}});
+ assert.equal(rows[0].value.cad,5200);assert.equal(rows[0].item.id,'a');assert.equal(rows[0].verdict.code,'under');
+});
+test('raw cards get a second opinion from eBay.ca asking prices and a confidence level',()=>{
+ assert.equal(W.agreement(100,120),'high');assert.equal(W.agreement(100,135),'medium');assert.equal(W.agreement(100,200),'low');
+ const card={...umbreon,marketUsd:1000,marketSource:'PriceCharting',marketDate:'2026-11-23'};
+ const it=(id,p)=>({id,title:'Umbreon VMAX 215/203 Evolving Skies',price:p,currency:'CAD',shipping:0,shippingCurrency:'CAD',url:'https://www.ebay.ca/itm/'+id});
+ const rows=W.assess({u:{fetchedAt:'x',items:[it('1',1300),it('2',1400),it('3',1450)]}},[card],{fx:{usdToCad:1.4}});
+ assert.equal(rows[0].value.check.cad,1400);assert.equal(rows[0].value.confidence,'high');
+});
