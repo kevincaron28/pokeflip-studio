@@ -51,16 +51,26 @@ test('migration 006: only the hash is stored; functions check the key; events ar
  assert.equal((sql.match(/perform public\.checker_auth\(p_key\);/g)||[]).length,5,'every checker function checks the key');
  assert.match(sql,/e\.source is distinct from 'shop_check' or e\.seller is distinct from 'store' or e\.confidence = 'high'/);
  assert.match(sql,/revoke all on function public\.checker_auth\(text\) from public, anon, authenticated/);
+ assert.match(sql,/revoke all on function public\.checker_new_key\(text\) from public, anon, authenticated/,'keys are made from the SQL Editor only');
+ assert.match(sql,/insert into public\.checker_keys \(label, token_hash\) values \(p_label, encode\(sha256\(convert_to\(k, 'UTF8'\)\), 'hex'\)\)/,'only the hash is stored');
  assert.doesNotMatch(sql,/disable row level security/i);
 });
 
-test('install files: memory-capped low-priority service, key made on the server and never printed, timer off until the owner turns it on',()=>{
+test('install files: memory-capped low-priority service, one secret line in a root-only file, cron paused not deleted, timer off until the owner turns it on',()=>{
  const unit=fs.readFileSync(R('deploy/shop-checker/cardstead-checker.service'),'utf8');
  for(const re of [/^User=cardstead$/m,/^EnvironmentFile=\/etc\/cardstead-checker\/checker\.env$/m,/^MemoryMax=192M$/m,/^Nice=15$/m,/^NoNewPrivileges=yes$/m,/^ProtectSystem=strict$/m]) assert.match(unit,re);
  const ex=fs.readFileSync(R('deploy/shop-checker/checker.env.example'),'utf8');
  assert.match(ex,/^CHECKER_KEY=$/m);assert.doesNotMatch(ex,/sb_secret_|service_role/);
+ const secretLines=ex.split(/\r?\n/).filter(l=>/^[A-Z_]+=/.test(l)&&/KEY=/.test(l)&&!/PUBLISHABLE/.test(l));
+ assert.deepEqual(secretLines,['CHECKER_KEY='],'exactly one secret line');
  const inst=fs.readFileSync(R('deploy/shop-checker/install.sh'),'utf8');
- assert.match(inst,/openssl rand -hex 32/);assert.match(inst,/MemAvailable/);assert.doesNotMatch(inst,/echo[^\n]*\$\{?key\}?/,'the key is never echoed');
+ assert.match(inst,/MemAvailable/);assert.match(inst,/exit 1/);
+ assert.match(inst,/install -d -o root -g root -m 0700 "\$ENV_DIR"/);assert.match(inst,/install -o root -g root -m 0600 /);assert.match(inst,/chmod 0600 "\$ENV_FILE"/);
+ assert.doesNotMatch(inst,/openssl|rand -hex|CHECKER_KEY=\$|sed -i[^\n]*CHECKER_KEY/,'the script never makes or writes the key');
+ assert.match(inst,/checker_new_key\('oracle-guilded-db'\)/);assert.match(inst,/Pause \(do not delete\)/);
+ const doc=fs.readFileSync(R('docs/SHOP-CHECKER-VM.md'),'utf8');
+ assert.match(doc,/cron\.alter_job\(job_id := \(select jobid from cron\.job where jobname = 'shop-checker-tick'\), active := false\)/);
+ assert.doesNotMatch(doc,/cron\.unschedule/,'the cron job is paused, never deleted');
  assert.doesNotMatch(inst,/^\s*systemctl enable/m,'the owner turns the timer on after the first pass');
  try{execFileSync('bash',['-n',R('deploy/shop-checker/install.sh')]);execFileSync('bash',['-n',R('deploy/shop-checker/run.sh')])}catch(e){if(e.code!=='ENOENT')throw e}
 });

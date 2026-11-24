@@ -12,7 +12,8 @@ storefront data only, a named User-Agent, ETags, back-off after 403/429, in-stoc
 before any alert. Every 2 minutes, it reads the shops that are due (each about every 4 to 5 minutes), 3 at a time.
 
 **No Supabase secret on the VM.** It uses the public key (the website already ships it) plus its own **checker key**.
-The key is made on the VM by the install script and stays there; Supabase stores only its SHA-256. With it the VM can
+Supabase makes the key once (`checker_new_key`, SQL Editor only), shows it once, and stores only its SHA-256. The owner
+pastes it as the single secret line of the VM's root-only settings file. With it the VM can
 do five things and nothing else (`migrations/006-checker-key.sql`): read and save shop check state, read and save shop
 stock, and add drop events of type "shop check, store seller, medium confidence at most".
 
@@ -22,7 +23,7 @@ stock, and add drop events of type "shop check, store seller, medium confidence 
 | `deploy/shop-checker/run.sh` | One pass: updates the checker code from `main` at most once an hour, then runs `run.mjs` |
 | `deploy/shop-checker/cardstead-checker.service` | The pass, as user `cardstead`: memory limit 192 MB (a pass peaks around 85 MB), lowest CPU and disk priority, first to stop if memory runs out |
 | `deploy/shop-checker/cardstead-checker.timer` | Every 2 minutes |
-| `/etc/cardstead-checker/checker.env` (server only) | Supabase URL and public key, `CHECKER_KEY`, pacing; mode 0640 root:cardstead, never committed |
+| `/etc/cardstead-checker/checker.env` (server only) | Supabase URL and public key, `CHECKER_KEY` (the only secret), pacing; mode 0600 root only (systemd reads it before starting the pass as `cardstead`), never committed |
 
 ## Install (once, after this PR is merged)
 
@@ -46,14 +47,34 @@ curl -fsSL https://raw.githubusercontent.com/kevincaron28/pokeflip-studio/main/d
 sudo bash /tmp/cardstead-install.sh
 ```
 
-It ends by printing one SQL line with a 64-character hash. That hash is not the key; the key stays in
-`/etc/cardstead-checker/checker.env` on the VM. Never paste the key itself anywhere.
+It ends with "CHECKER_KEY: missing" and the next steps. It does not start anything.
 
-**3. Supabase → SQL Editor.** Run `migrations/006-checker-key.sql` once, then the `insert into public.checker_keys ...`
-line the script printed.
+**3. The key (owner).** Supabase → SQL Editor: run `migrations/006-checker-key.sql` once, then
 
-**4. Turn off the Supabase cron job.** Supabase → Integrations → Cron → `shop-checker-tick` → disable. Two checkers
-must not run at the same time. (The `push-sender` job stays on: it sends what the checker finds.)
+```sql
+select public.checker_new_key('oracle-guilded-db');
+```
+
+It shows a 64-character key once (running it again makes a new key and the old one stops working). On the VM:
+
+```bash
+sudo nano /etc/cardstead-checker/checker.env
+```
+
+Put the key right after `CHECKER_KEY=` on that line (no spaces, no quotes), save (Ctrl+O, Enter, Ctrl+X). That one line
+is the only secret on the VM; the file is readable by root only. Do not paste the key anywhere else (chat, issue,
+commit). Supabase keeps only its hash, so a lost key is replaced by making a new one.
+
+**4. Pause the Supabase cron job, do not delete it.** Supabase → Integrations → Cron → `shop-checker-tick` → switch
+**Active** off. Two checkers must not run at the same time, and keeping the job (paused) makes going back one switch.
+The same in SQL Editor:
+
+```sql
+select cron.alter_job(job_id := (select jobid from cron.job where jobname = 'shop-checker-tick'), active := false);
+```
+
+The `push-sender` job stays on: it sends what the checker finds. To go back to Supabase (for example while the VM is
+down): stop the VM timer (below), then set `active := true`.
 
 **5. First pass by hand, then the timer.**
 
@@ -85,12 +106,12 @@ The checker code updates itself from `main` (at most once an hour). Re-run step 
 
 ## Troubleshooting
 
-- **`checker key not accepted`:** the hash in `checker_keys` does not match the VM's key. Re-run the install script
-  (it keeps the key and prints its hash again) and insert that line.
+- **`checker key not accepted`** (or "CHECKER_KEY must be the 64-character key"): the line in `checker.env` is not the
+  current key. Make a new one (step 3) and replace the line.
 - **Killed by the memory limit:** lower `CHECKER_CONCURRENCY` to 1 in `checker.env` (`sudo nano /etc/cardstead-checker/checker.env`).
 - **Many 429s from the VM too:** set `CHECKER_CONCURRENCY=1` and `CHECKER_GAP_MS=3000`, and lower `CHECKER_MAX_SHOPS` to 30
   so a pass ends within the 110-second limit.
-- **Stop:** `sudo systemctl disable --now cardstead-checker.timer`, then re-enable the Supabase cron job if wanted.
+- **Stop:** `sudo systemctl disable --now cardstead-checker.timer`, then set the Supabase cron job back to active if wanted (step 4).
 - **Remove everything:** stop as above, then
   `sudo rm /etc/systemd/system/cardstead-checker.* && sudo systemctl daemon-reload && sudo rm -rf /opt/cardstead-checker /etc/cardstead-checker && sudo userdel cardstead`,
   and in Supabase `delete from public.checker_keys where label = 'oracle-guilded-db';`.

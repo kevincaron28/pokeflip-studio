@@ -16,10 +16,10 @@ export function settings(e = env) {
   if (missing.length) throw Error('missing in checker.env: ' + missing.join(', '));
   if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(e.SUPABASE_URL)) throw Error('SUPABASE_URL must look like https://<project>.supabase.co');
   if (/^sb_secret_|service_role/.test(e.SUPABASE_PUBLISHABLE_KEY)) throw Error('SUPABASE_PUBLISHABLE_KEY must be the public key, never a secret key');
-  if (e.CHECKER_KEY.length < 32) throw Error('CHECKER_KEY is too short');
+  if (!/^[0-9a-f]{64}$/.test(e.CHECKER_KEY.trim())) throw Error('CHECKER_KEY must be the 64-character key from checker_new_key');
   const num = (v, d, lo, hi) => Math.max(lo, Math.min(hi, Number(v) || d));
   return {
-    url: e.SUPABASE_URL, publishableKey: e.SUPABASE_PUBLISHABLE_KEY, checkerKey: e.CHECKER_KEY,
+    url: e.SUPABASE_URL, publishableKey: e.SUPABASE_PUBLISHABLE_KEY, checkerKey: e.CHECKER_KEY.trim(),
     site: (e.CARDSTEAD_URL || 'https://pokeflip-studio.vercel.app/').replace(/\/?$/, '/'),
     maxShops: num(e.CHECKER_MAX_SHOPS, 45, 1, 200), concurrency: num(e.CHECKER_CONCURRENCY, 3, 1, 6), gapMs: num(e.CHECKER_GAP_MS, 0, 0, 10000),
     cacheDir: e.STATE_DIRECTORY || e.CACHE_DIR || join(here, '.cache'),
