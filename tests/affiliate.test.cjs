@@ -3,9 +3,9 @@ const root=path.join(__dirname,'..');
 const Af=require('../affiliate.js');const C=require('../api/_config-core.js');
 
 test('the Associates tag comes only from the AMAZON_ASSOCIATES_TAG setting, never from the code',()=>{
- assert.deepEqual(C.config({}),{amazonTag:null});
- assert.deepEqual(C.config({AMAZON_ASSOCIATES_TAG:' cardstead-20 '}),{amazonTag:'cardstead-20'});
- assert.deepEqual(C.config({AMAZON_ASSOCIATES_TAG:'bad tag"><script>'}),{amazonTag:null},'only a real .ca tracking id');
+ assert.equal(C.config({}).amazonTag,null);
+ assert.equal(C.config({AMAZON_ASSOCIATES_TAG:' cardstead-20 '}).amazonTag,'cardstead-20');
+ assert.equal(C.config({AMAZON_ASSOCIATES_TAG:'bad tag"><script>'}).amazonTag,null,'only a real .ca tracking id');
  const r=C.handle({method:'GET',origin:'capacitor://localhost',env:{AMAZON_ASSOCIATES_TAG:'cardstead-20'}});
  assert.equal(r.status,200);assert.equal(JSON.parse(r.body).amazonTag,'cardstead-20');assert.equal(r.headers['Access-Control-Allow-Origin'],'capacitor://localhost');
  assert.equal(C.handle({method:'POST'}).status,405);
