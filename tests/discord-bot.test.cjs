@@ -254,7 +254,7 @@ test('database: every Discord table has RLS on and nothing is granted to anonymo
  assert.doesNotMatch(sql,/grant [^;]* to anon/i);
  assert.doesNotMatch(sql,/create policy/i,'no policies: only the service role reads these tables');
  assert.match(sql,/discord_dm_targets[\s\S]*where l\.dms_enabled/,'DMs only for members who turned them on');
- const cfg=fs.readFileSync(path.join(ROOT,'supabase/config.toml'),'utf8');assert.match(cfg,/discord-interactions\]\nverify_jwt = false/);
+ const cfg=fs.readFileSync(path.join(ROOT,'supabase/config.toml'),'utf8');assert.match(cfg,/discord-interactions\]\r?\nverify_jwt = false/);
  for(const f of ['discord-interactions','discord-publisher'])assert.doesNotMatch(fs.readFileSync(path.join(ROOT,'supabase/functions',f,'index.ts'),'utf8'),/sk_|Bot [A-Za-z0-9]{20}/,'no token in code');
 });
 
