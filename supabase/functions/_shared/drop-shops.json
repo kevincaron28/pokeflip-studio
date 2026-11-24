@@ -8,6 +8,12 @@
    "region": "calgary"
   },
   {
+   "host": "carderaco.com",
+   "name": "Cardera Collectibles",
+   "city": "Balzac",
+   "region": "calgary"
+  },
+  {
    "host": "cellysports.com",
    "name": "Celly Sports & Games",
    "city": "Calgary",
@@ -28,6 +34,12 @@
   {
    "host": "hpwcards.com",
    "name": "HPW Cards Inc.",
+   "city": "Edmonton",
+   "region": "edmonton"
+  },
+  {
+   "host": "swirlyeg.com",
+   "name": "Swirl Cafe and Games",
    "city": "Edmonton",
    "region": "edmonton"
   },
@@ -102,6 +114,12 @@
    "name": "UBECARD.COM",
    "city": "Vancouver",
    "region": "vancouver"
+  },
+  {
+   "host": "fusiongamingonline.com",
+   "name": "Fusion Gaming",
+   "city": "Winnipeg",
+   "region": "national"
   },
   {
    "host": "cardboardmemories.ca",
@@ -254,6 +272,12 @@
    "region": "gta"
   },
   {
+   "host": "danireon.com",
+   "name": "Danireon Cards & Games",
+   "city": "Ottawa",
+   "region": "ottawa"
+  },
+  {
    "host": "hobbiesville.ca",
    "name": "Hobbiesville",
    "city": "Ottawa",
@@ -350,6 +374,12 @@
    "region": "on-other"
   },
   {
+   "host": "leroidescartes.ca",
+   "name": "Le Roi Des Cartes",
+   "city": "Beloeil",
+   "region": "south-shore"
+  },
+  {
    "host": "cardcaster.ca",
    "name": "Card Caster",
    "city": "Blainville",
@@ -358,7 +388,7 @@
   {
    "host": "pokejeux.ca",
    "name": "POKÉ JEUX",
-   "city": "Boucherville",
+   "city": "Boucherville, La Prairie (opening 9 Dec 2026)",
    "region": "south-shore"
   },
   {
@@ -494,9 +524,15 @@
    "region": "south-shore"
   },
   {
+   "host": "taverneducollectionneur.com",
+   "name": "Taverne du Collectionneur",
+   "city": "Saint-Hyacinthe",
+   "region": "south-shore"
+  },
+  {
    "host": "zonecollection.ca",
    "name": "Zone Collection Rive-Sud",
-   "city": "Saint-Jean-sur-Richelieu",
+   "city": "Saint-Jean-sur-Richelieu, Saint-Hyacinthe",
    "region": "south-shore"
   },
   {
@@ -524,6 +560,12 @@
    "region": "laval-north-shore"
   },
   {
+   "host": "lemagot.ca",
+   "name": "Jeux+ Le Magot",
+   "city": "Sherbrooke",
+   "region": "estrie"
+  },
+  {
    "host": "tcgandgames.com",
    "name": "TCG and Games",
    "city": "St Polycarpe",
@@ -534,6 +576,12 @@
    "name": "Cmdstore.ca",
    "city": "St-Laurent",
    "region": "montreal"
+  },
+  {
+   "host": "sportslatornade.com",
+   "name": "Sports la Tornade",
+   "city": "Vaudreuil-Dorion",
+   "region": "vaudreuil-soulanges"
   },
   {
    "host": "www.mastermindtoys.com",
