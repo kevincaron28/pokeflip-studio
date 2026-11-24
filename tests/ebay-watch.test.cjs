@@ -110,3 +110,27 @@ test('raw cards get a second opinion from eBay.ca asking prices and a confidence
  const rows=W.assess({u:{fetchedAt:'x',items:[it('1',1300),it('2',1400),it('3',1450)]}},[card],{fx:{usdToCad:1.4}});
  assert.equal(rows[0].value.check.cad,1400);assert.equal(rows[0].value.confidence,'high');
 });
+// Second pass, 24 Nov 2026: on the same ebay.ca listings these rules took flagged deals from 47 (53% real deals) to 8 (all real).
+test('signed or altered copies and the wrong holo printing are not the card',()=>{
+ const holo={id:'s',name:'Charizard',number:'146/144',set:'Skyridge',printing:'Holofoil',grade:'raw'};
+ assert.equal(W.matches('Charizard - 146/144 - Pokemon Skyridge Reverse Holo Crystal',holo).ok,false);
+ assert.equal(W.matches('Charizard 146/144 Skyridge Holo Crystal',holo).ok,true);
+ const rev={id:'p',name:'Pikachu',number:'086/110',set:'Legendary Collection',printing:'Reverse Holofoil',grade:'raw'};
+ assert.equal(W.matches('Pikachu 86/110 Legendary Collection Reverse Holo',rev).ok,true);
+ assert.equal(W.matches('Pikachu 86/110 Legendary Collection',rev).ok,false);
+ assert.equal(W.matches('Umbreon VMAX 215/203 Evolving Skies SIGNED by the artist',umbreon).ok,false);
+});
+test('a deal needs a trusted value and a seller with feedback; graded asks for 20% under the asking median',()=>{
+ const row=(o)=>({total:{cad:80,shippingKnown:true},verdict:{code:'under',discount:0.2},item:{feedback:99.5},value:{cad:100,confidence:'high'},...o});
+ assert.equal(W.isDeal(row({}),0.10),true);
+ assert.equal(W.isDeal(row({value:{cad:100,confidence:'low'}}),0.10),false);assert.equal(W.doubt(row({value:{cad:100,confidence:'low'}})),'value uncertain');
+ assert.equal(W.isDeal(row({item:{feedback:0}}),0.10),false);assert.equal(W.doubt(row({item:{feedback:0}})),'seller with no feedback');
+ assert.equal(W.isDeal(row({value:{cad:100,confidence:'medium',asking:true},verdict:{code:'under',discount:0.15}}),0.10),false,'graded: 15% under an asking median is not enough');
+ assert.equal(W.isDeal(row({value:{cad:100,confidence:'medium',asking:true},verdict:{code:'under',discount:0.22}}),0.10),true);
+});
+test('a raw deal is measured against the lower of the sold value and the eBay.ca asking median',()=>{
+ const card={...umbreon,marketUsd:1000,marketSource:'PriceCharting',marketDate:'2026-11-23'};
+ const it=(id,p)=>({id,title:'Umbreon VMAX 215/203 Evolving Skies',price:p,currency:'CAD',shipping:0,shippingCurrency:'CAD',url:'https://www.ebay.ca/itm/'+id,seller:'s',feedback:99});
+ const rows=W.assess({u:{fetchedAt:'x',items:[it('1',1200),it('2',1250),it('3',1300),it('4',1100)]}},[card],{fx:{usdToCad:1.4}});
+ const r=rows.find(x=>x.item.id==='4');assert.equal(r.dealRef,1225,'median of the asks, under the 1,400 sold value');assert.equal(r.verdict.code,'under');assert.equal(Math.round(r.verdict.discount*100),10);
+});
