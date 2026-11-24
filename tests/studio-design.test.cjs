@@ -14,15 +14,16 @@ test('new design assets have a real identity, with no external theme dependency'
   assert.ok(fs.readFileSync('studio-mark.svg','utf8').includes('<svg'));
   assert.ok(fs.readFileSync('studio-horizon.svg','utf8').includes('<svg'));
 });
-test('five main tabs; every original page and control is still there (grouped, not removed)',()=>{
+test('four main tabs (Portfolio, Prices, Drops, Settings); every original page and control is still there (grouped, not removed)',()=>{
   // Old pages keep their section and a hidden data-tab hook (page loaders), reached through the five tabs.
   for(const id of ['dashboard','scan','deal','lots','inventory','sales','ebay','sealed','restock','settings','packs','deals']){
     assert.match(html,new RegExp('data-tab="'+id+'"'));
     assert.match(html,new RegExp('<section id="'+id+'"'));
   }
   for(const id of ['home','prices','product'])assert.match(html,new RegExp('<section id="'+id+'"'));
-  assert.deepEqual((html.match(/class="tab(?: on)?" data-tab="(\w+)"/g)||[]).map(x=>x.match(/data-tab="(\w+)"/)[1]),['home','prices','restock','inventory','settings']);
-  assert.equal((html.match(/class="dock-item[^"]*" data-dock="/g)||[]).length,5);
+  assert.deepEqual((html.match(/class="tab(?: on)?" data-tab="(\w+)"/g)||[]).map(x=>x.match(/data-tab="(\w+)"/)[1]),['home','prices','restock','settings']);
+  assert.equal((html.match(/class="dock-item[^"]*" data-dock="/g)||[]).length,4);
+  assert.match(html,/id="addCardFab"[^>]*data-page-link="scan"/,'Add card on every page');
   for(const id of ['lotForm','bulkForm','inventorySearch','saleDate','backupTop','cloudConfigure','alertsRows']){
     assert.match(html,new RegExp('id="'+id+'"'));
   }

@@ -19,12 +19,12 @@ try:
    page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
    assert page.locator(".mobile-dock").is_visible()
    assert not page.locator(".tabs").is_visible()
-   assert page.locator('.dock-item').count()==5
+   assert page.locator('.dock-item').count()==4
    page.locator('.dock-item[data-dock="settings"]').click()
    assert page.locator("section#settings").is_visible()
    page.locator('#subnav [data-page="ebay"]').click()
    assert page.locator("section#ebay").is_visible()
-   page.locator('.dock-item[data-dock="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
+   page.locator('.dock-item[data-dock="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
    assert page.locator("section#scan").is_visible()
    assert page.locator(".scan-launch").is_visible()
    assert page.locator(".scan-capture-cta").is_visible()
@@ -38,12 +38,12 @@ try:
    assert "1 of 1" in page.locator("#mobileScanStatus").inner_text()
    page.locator(".scan-card-optional summary").click()
    assert page.locator("#cardPrice").is_visible()
-   page.locator('.dock-item[data-dock="inventory"]').click()
+   page.locator('.dock-item[data-dock="home"]').click(); page.locator('#subnav [data-page="inventory"]').click()
    assert page.locator("section#inventory").is_visible()
-   page.locator('.dock-item[data-dock="inventory"]').click(); page.locator('#subnav [data-page="scan"]').click()
+   page.locator('.dock-item[data-dock="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
    assert page.locator("#mobilePhotoPreview").is_visible()
    assert not errors,errors
-   print(f"PASS mobile scanner {width}px: bottom dock, five-tab dock, camera queue, preview, disclosure, navigation")
+   print(f"PASS mobile scanner {width}px: bottom dock, four-tab dock, camera queue, preview, disclosure, navigation")
    context.close()
   # Preserve desktop sidebar and all navigation tabs.
   ctx=browser.new_context(viewport={"width":1440,"height":900},service_workers="block", locale="en-CA")
@@ -51,7 +51,7 @@ try:
   page.goto(f"http://127.0.0.1:{server.server_port}/",wait_until="domcontentloaded")
   assert not page.locator(".mobile-dock").is_visible()
   assert page.locator(".tabs").is_visible()
-  assert page.locator(".tab").count()==5
+  assert page.locator(".tab").count()==4
   print("PASS desktop: original sidebar still available")
   ctx.close()
   browser.close()

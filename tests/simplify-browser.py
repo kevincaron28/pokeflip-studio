@@ -1,4 +1,4 @@
-"""Simplified Cardstead at phone width, English and French: five-tab dock, Home answers "buy / watch now",
+"""Simplified Cardstead at phone width, English and French: four-tab dock, Home answers "buy / watch now",
 Prices search -> product view with the real price graph (7d/30d/1y) -> one-tap Watch with the detected defaults,
 Advanced folded, Settings language switch. Seeded with data saved by the previous version (watch, store checks,
 alerts inbox, eBay watchlist choices, area) to prove nothing is lost. Set PACK_SHOTS=<folder> for screenshots.
@@ -35,10 +35,10 @@ try:
             page = ctx.new_page(); errors = []
             page.on("pageerror", lambda e: errors.append(str(e)))
             page.goto(f"http://127.0.0.1:{server.server_port}/", wait_until="domcontentloaded")
-            # Language detected from the browser; five tabs in the dock.
-            assert page.locator(".dock-item").count() == 5
+            # Language detected from the browser; four tabs in the dock.
+            assert page.locator(".dock-item").count() == 4
             labels = page.locator(".dock-item span[data-i18n]").all_inner_texts()
-            assert labels == (["Accueil", "Prix", "Surveiller", "Collection", "Réglages"] if lang == "fr" else ["Home", "Prices", "Watch", "Collection", "Settings"]), labels
+            assert labels == (["Portefeuille", "Prix", "Arrivages", "Réglages"] if lang == "fr" else ["Portfolio", "Prices", "Drops", "Settings"]), labels
             # Home: the old watch shows with its recorded price and verdict; movers come from the real history.
             page.locator("#homeBody .prod-list").first.wait_for(timeout=20000)
             home = page.locator("#homeBody").inner_text()
@@ -86,7 +86,7 @@ try:
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             assert overflow <= 1, overflow
             assert not errors, errors
-            print(f"PASS simplified app ({lang}, 390 px): 5 tabs, Home from saved data, search -> product graph -> one-tap watch, Advanced folded (Watch page {height}px), old settings kept")
+            print(f"PASS simplified app ({lang}, 390 px): 4 tabs, Home from saved data, search -> product graph -> one-tap watch, Advanced folded (Watch page {height}px), old settings kept")
             ctx.close()
         b.close()
 finally:

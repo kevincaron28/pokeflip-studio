@@ -1165,4 +1165,7 @@
 "Somewhat close to the sold value.":"Assez proche de la valeur vendue.",
 "Far from the sold value: check the edition and condition.":"Loin de la valeur vendue : vérifie l’édition et l’état.",
 "No second opinion: fewer than 3 matching listings on eBay.ca.":"Pas de deuxième avis : moins de 3 annonces correspondantes sur eBay.ca.",
+"Portfolio":"Portefeuille",
+"Drops":"Arrivages",
+"Add card":"Ajouter une carte",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);
