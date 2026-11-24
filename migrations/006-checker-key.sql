@@ -3,6 +3,8 @@
 -- its own address. That machine holds no Supabase secret key: it calls the five functions below with the public
 -- (publishable) key plus its own checker key. Only the SHA-256 of that key is stored here, and each function does only
 -- what the checker needs: read and save shop check state and stock, and add shop-check drop events.
+-- Safe to run again. Making a key (owner, SQL Editor only):  select public.checker_new_key('oracle-guilded-db');
+-- It shows the key once; paste it into the VM's /etc/cardstead-checker/checker.env (docs/SHOP-CHECKER-VM.md).
 
 create table if not exists public.checker_keys (
   id bigint generated always as identity primary key,
@@ -23,6 +25,20 @@ begin
   end if;
   update public.checker_keys set last_used_at = now()
    where token_hash = encode(sha256(convert_to(p_key, 'UTF8')), 'hex') and (last_used_at is null or last_used_at < now() - interval '10 minutes');
+end $$;
+
+-- A new checker key for one machine: 64 hex characters from two random UUIDs (244 random bits), shown once and stored
+-- only as its SHA-256. Making a key again for the same label replaces the old one (the old key stops working).
+-- Not callable through the API: only from the SQL Editor (database owner).
+create or replace function public.checker_new_key(p_label text)
+returns text language plpgsql security definer set search_path = '' as $$
+declare k text;
+begin
+  if p_label is null or p_label !~ '^[a-z0-9-]{3,40}$' then raise exception 'label: 3-40 lowercase letters, digits or dashes'; end if;
+  k := replace(gen_random_uuid()::text, '-', '') || replace(gen_random_uuid()::text, '-', '');
+  delete from public.checker_keys where label = p_label;
+  insert into public.checker_keys (label, token_hash) values (p_label, encode(sha256(convert_to(k, 'UTF8')), 'hex'));
+  return k;
 end $$;
 
 create or replace function public.checker_states(p_key text)
@@ -92,6 +108,7 @@ do $$
 declare f text;
 begin
   execute 'revoke all on function public.checker_auth(text) from public, anon, authenticated';
+  execute 'revoke all on function public.checker_new_key(text) from public, anon, authenticated';
   foreach f in array array['checker_states(text)','checker_save_state(text,jsonb)','checker_stock(text,text)','checker_save_stock(text,jsonb)','checker_add_event(text,jsonb)'] loop
     execute format('revoke all on function public.%s from public, authenticated', f);
     execute format('grant execute on function public.%s to anon', f);

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Install the Cardstead shop checker on the Guilded-DB Oracle VM (Ubuntu 24.04, x86_64), as root:
 #   sudo bash install.sh
-# Safe to run again: it never overwrites /etc/cardstead-checker/checker.env or its CHECKER_KEY.
-# It makes the checker key here, prints only its SHA-256 for Supabase, and does not start the timer
-# (docs/SHOP-CHECKER-VM.md, steps 3-5).
+# Safe to run again: it never overwrites /etc/cardstead-checker/checker.env.
+# It does not handle the checker key and does not start the timer: the owner pastes the one CHECKER_KEY line into the
+# root-only settings file, then the first pass is run by hand (docs/SHOP-CHECKER-VM.md).
 set -euo pipefail
 
 NODE_VERSION="${NODE_VERSION:-24.21.0}"
@@ -31,7 +31,7 @@ fi
 
 echo "== packages"
 DEBIAN_FRONTEND=noninteractive apt-get update -qq
-DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git xz-utils ca-certificates curl openssl >/dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git xz-utils ca-certificates curl >/dev/null
 
 echo "== node $NODE_VERSION"
 # Shared with the Goblin Ledger collector when it is already installed at /opt/node.
@@ -50,7 +50,8 @@ fi
 echo "== user and folders"
 id cardstead >/dev/null 2>&1 || useradd --system --home-dir "$ROOT" --shell /usr/sbin/nologin cardstead
 install -d -o cardstead -g cardstead -m 0755 "$ROOT"
-install -d -o root -g cardstead -m 0750 "$ENV_DIR"
+# Settings are root-only: systemd reads the EnvironmentFile as root before it starts the pass as user cardstead.
+install -d -o root -g root -m 0700 "$ENV_DIR"
 
 echo "== code (only the checker files)"
 if [ ! -d "$ROOT/app/.git" ]; then
@@ -61,16 +62,11 @@ chmod 0755 "$ROOT/app/deploy/shop-checker/run.sh"
 
 echo "== settings"
 if [ ! -f "$ENV_FILE" ]; then
-  install -o root -g cardstead -m 0640 "$ROOT/app/deploy/shop-checker/checker.env.example" "$ENV_FILE"
-  echo "created $ENV_FILE"
+  install -o root -g root -m 0600 "$ROOT/app/deploy/shop-checker/checker.env.example" "$ENV_FILE"
+  echo "created $ENV_FILE (root only)"
 fi
-if ! grep -Eq '^CHECKER_KEY=[0-9a-f]{64}$' "$ENV_FILE"; then
-  key=$(openssl rand -hex 32)
-  sed -i "s/^CHECKER_KEY=.*/CHECKER_KEY=${key}/" "$ENV_FILE"
-  unset key
-  echo "made a new CHECKER_KEY in $ENV_FILE (not shown)"
-fi
-hash=$(grep -E '^CHECKER_KEY=' "$ENV_FILE" | cut -d= -f2- | tr -d '\n' | sha256sum | cut -d' ' -f1)
+chown root:root "$ENV_FILE"; chmod 0600 "$ENV_FILE"
+if grep -Eq '^CHECKER_KEY=[0-9a-f]{64}$' "$ENV_FILE"; then key_state="present"; else key_state="missing"; fi
 
 echo "== systemd"
 install -m 0644 "$ROOT/app/deploy/shop-checker/cardstead-checker.service" /etc/systemd/system/
@@ -79,11 +75,13 @@ systemctl daemon-reload
 
 cat <<EOF
 
-Installed. The timer is NOT on yet.
+Installed. CHECKER_KEY: $key_state. The timer is NOT on yet.
 Next (docs/SHOP-CHECKER-VM.md):
- 3. Supabase > SQL Editor: run migrations/006-checker-key.sql (once), then this line (the key's SHA-256, not the key):
-      insert into public.checker_keys (label, token_hash) values ('oracle-guilded-db', '${hash}');
- 4. Turn off the Supabase cron job shop-checker-tick (two checkers must not run at once).
+ 3. Supabase > SQL Editor: run migrations/006-checker-key.sql (once), then:
+      select public.checker_new_key('oracle-guilded-db');
+    It shows the key once. On this VM:  sudo nano $ENV_FILE
+    and put it after CHECKER_KEY= (that one line is the only secret). Save: Ctrl+O, Enter, Ctrl+X.
+ 4. Pause (do not delete) the Supabase cron job shop-checker-tick.
  5. First pass by hand:  sudo systemctl start cardstead-checker.service && sudo journalctl -u cardstead-checker -n 30 --no-pager
     then the timer:      sudo systemctl enable --now cardstead-checker.timer
 EOF
