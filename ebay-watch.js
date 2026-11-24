@@ -9,7 +9,7 @@ const norm=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(
 // Titles that are never the card itself.
 const BAD=['proxy','custom','orica','replica','fake','reprint','fan art','read description','read desc','see description','empty box','box only','no card','lot of','card lot','bulk','you pick','you choose','pick your','choose your','digital','code card','jumbo','oversized','art card','metal card','gold plated','sticker','display only','playmat','sleeve','binder','pin ','coin only',
  // Measured on ebay.ca, 24 Nov 2026: listings with these words were 77 of 137 "deals" and none was the card.
- 'keychain','key chain','novelty','case','magnetic','magnet','mystery','metal','gold foil','golden','gold card','print','poster','a4','display','mount','frame','acrylic','figure','plush','art by','original art','repack','chance','not 1st','non 1st','no 1st','not first'];
+ 'keychain','key chain','novelty','case','magnetic','magnet','mystery','metal','gold foil','golden','gold card','print','poster','a4','display','mount','frame','acrylic','figure','plush','art by','original art','repack','chance','not 1st','non 1st','no 1st','not first','signed','autograph','autographed','altered','alter'];
 // Not "tag team" or "ace spec": TAG and ACE count only when a grade number follows.
 const GRADED=/\b(psa|bgs|cgc|sgc|beckett|graded|slab|slabbed|grading)\b|\b(ace|tag|pcg|ags|gma|mnt|hga)\s*\d/;
 const FOREIGN=/\b(japanese|japan|jpn|jp|chinese|korean|kor|french|francais|german|deutsch|italian|spanish|espanol|portuguese|thai|indonesian)\b/;
@@ -49,6 +49,9 @@ function matches(title,card,item){
  if(ed==='1st'&&!first1)return {ok:false,why:'1st Edition not stated'};
  if(ed==='shadowless'&&(!t.includes(' shadowless ')||first1))return {ok:false,why:'Shadowless not stated'};
  if(ed==='unlimited'&&(first1||t.includes(' shadowless ')))return {ok:false,why:'other edition'};
+ const pr=String(card.printing||'').toLowerCase(),rev=t.includes(' reverse ');
+ if(/reverse/.test(pr)&&!rev)return {ok:false,why:'reverse holo not stated'};
+ if(/holofoil/.test(pr)&&!/reverse/.test(pr)&&rev)return {ok:false,why:'reverse holo, a different printing'};
  return {ok:true,condition:grade==='raw'?condition(title):null};
 }
 
@@ -108,12 +111,24 @@ function assess(results,cards,data){
   else if(v&&!v.mine)v={...v,check:ask||null,confidence:ask?agreement(v.cad,ask.cad):'medium'};
   for(const it of r.items||[]){if(!it.url)continue;const m=matches(it.title,card,it);if(!m.ok)continue;const t=total(it,fx);if(!t)continue;
    const share=m.condition?COND_SHARE[m.condition]:1,vc=v&&isNum(v.cad)?v.cad*share:null;
-   out.push({card,item:it,value:v,condition:m.condition||null,valueForCondition:vc,total:t,verdict:verdict(t.cad,vc),fetchedAt:r.fetchedAt})}}
+   // Measured against the lower of the sold value and the typical eBay.ca asking price, so a deal is cheap on both.
+   const ref=v&&isNum(v.cad)?(v.check&&isNum(v.check.cad)&&!v.asking?Math.min(v.cad,v.check.cad):v.cad)*share:null;
+   out.push({card,item:it,value:v,condition:m.condition||null,valueForCondition:vc,dealRef:ref,total:t,verdict:verdict(t.cad,ref),fetchedAt:r.fetchedAt})}}
  return out.sort((a,b)=>(a.verdict.code==='suspect')-(b.verdict.code==='suspect')||(b.verdict.discount??-9)-(a.verdict.discount??-9));
 }
 /** Alert-worthy: at least `threshold` under value (shipping known) or at/below the user's target price. Never a suspect listing. */
+/** Why a listing under value is not a deal we alert on (null when it is one). Measured on ebay.ca, 24 Nov 2026:
+ *  these rules took flagged deals from 53% to 100% real deals on the same listings. */
+function doubt(row){
+ if(row.value&&row.value.confidence==='low'&&!row.value.asking)return 'value uncertain';
+ if(row.item&&!(row.item.feedback>0))return 'seller with no feedback';
+ return null;
+}
 function isDeal(row,threshold,target){
  if(row.verdict.code==='suspect')return false;
+ if(doubt(row))return false;
+ // Graded values are asking prices, which run about a third above sales: ask for 20% under them.
+ if(row.value&&row.value.asking)threshold=Math.max(threshold,0.20);
  if(isNum(target)&&row.total.shippingKnown&&row.total.cad<=target)return true;
  return row.total.shippingKnown&&isNum(row.verdict.discount)&&row.verdict.discount>=threshold;
 }
@@ -125,7 +140,7 @@ const jset=(k,v)=>{try{root.localStorage?.setItem(k,JSON.stringify(v))}catch{}};
 function prefs(){const p={...DEFAULTS,...jget(KEY,{})};p.threshold=isNum(p.threshold)&&p.threshold>=0&&p.threshold<=0.9?p.threshold:0.10;return p}
 function watched(p=prefs(),list=root.CardsteadSoughtCards?.cards||[]){return list.filter(c=>!p.removed.includes(c.id)).concat(p.custom||[])}
 
-const core={BAD,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,KEY,norm};
+const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,KEY,norm};
 root.CardsteadEbayWatch=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
@@ -158,9 +173,10 @@ function confPill(c){const k={high:['green','High'],medium:['gold','Medium'],low
 function wire(node){node.querySelectorAll('img.ac-img').forEach(i=>i.addEventListener('error',()=>i.remove(),{once:true}))}
 function renderDeals(){
  const host=$('dealsList');if(!host)return;const p=prefs(),res=jget(RESULTS,{});
- const all=assess(res.byCard||{},watched(p),data),rows=all.filter(r=>r.verdict.code==='under'),suspect=all.filter(r=>r.verdict.code==='suspect').length;
+ const all=assess(res.byCard||{},watched(p),data),under=all.filter(r=>r.verdict.code==='under'),rows=under.filter(r=>isDeal(r,p.threshold,p.targets[r.card.id])),maybe=under.filter(r=>!rows.includes(r)),suspect=all.filter(r=>r.verdict.code==='suspect').length;
  $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString('en-CA')} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
- host.innerHTML=rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing under market value in the last scan.</p>';wire(host);
+ host.innerHTML=(rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing is a sure deal in the last scan.</p>')
+  +(maybe.length?`<details class="panel advanced"><summary>${maybe.length} more under value, not alerted (value uncertain, new seller, or less than your alert level)</summary>${maybe.slice(0,40).map(r=>dealHtml(r)+(doubt(r)?`<p class="note">Not alerted: ${esc(doubt(r))}.</p>`:'')).join('')}</details>`:'');wire(host);
 }
 function renderWatch(){
  const host=$('dealsWatch');if(!host)return;const p=prefs(),q=norm($('dealsFilter').value),fx=data?.fx?.usdToCad;

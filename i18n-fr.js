@@ -1185,4 +1185,9 @@
 "Set up cloud sync and sign in first":"Configure la synchronisation et connecte-toi d’abord",
 "Sign in with cloud sync first (Settings, below)":"Connecte-toi d’abord avec la synchronisation (Réglages, plus bas)",
 "Enter the 8-character code from /link.":"Entre le code de 8 caractères reçu avec /link.",
+"reverse holo not stated":"reverse holo non indiqué",
+"reverse holo, a different printing":"reverse holo, une autre impression",
+"value uncertain":"valeur incertaine",
+"seller with no feedback":"vendeur sans évaluations",
+"No listing is a sure deal in the last scan.":"Aucune annonce n’est une aubaine sûre dans le dernier balayage.",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);
