@@ -208,6 +208,13 @@ test('interactions are signature-checked; publisher needs the service role key',
  assert.equal(isServiceRole('Bearer secret-key','secret-key'),true);
  assert.equal(isServiceRole('Bearer secret-kez','secret-key'),false);
  assert.equal(isServiceRole(null,'secret-key'),false);assert.equal(isServiceRole('Bearer x',''),false);
+ const {serverKeys}=await load('discord-auth.mjs');
+ const keys=serverKeys({SUPABASE_SERVICE_ROLE_KEY:'legacy-service-role-jwt-0123456789',SUPABASE_SECRET_KEYS:JSON.stringify({default:'sb_secret_abcdefghijklmnopqrstuvwxyz'})});
+ assert.equal(keys.length,2);
+ assert.equal(isServiceRole(null,keys,'sb_secret_abcdefghijklmnopqrstuvwxyz'),true,'Supabase Cron sends the secret key as apikey');
+ assert.equal(isServiceRole('Bearer legacy-service-role-jwt-0123456789',keys),true);
+ assert.equal(isServiceRole(null,keys,'sb_publishable_abcdefghijklmnopqrstuvwxyz'),false,'the public key is refused');
+ assert.equal(isServiceRole(null,serverKeys({}),'anything'),false,'no keys configured: refuse');
 });
 
 test('rate limits: the client waits as Discord asks instead of retrying at once',async()=>{
