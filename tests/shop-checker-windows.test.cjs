@@ -39,6 +39,20 @@ test('a pass with no key logs a plain error, exits 1, leaves no lock, and does n
  assert.equal(code,1);
  assert.match(fs.readFileSync(path.join(home,'logs','checker.log'),'utf8'),/error: missing in checker\.env: CHECKER_KEY/);
  assert.ok(!fs.existsSync(path.join(home,'pass.lock')));
+ assert.match(fs.readFileSync(path.join(home,'status.txt'),'utf8'),/^\S+Z ERROR missing in checker\.env: CHECKER_KEY\n$/);
+ const out=execFileSync(process.execPath,[R('deploy/shop-checker/windows/run-windows.mjs'),'--status'],{env:{...process.env,CARDSTEAD_CHECKER_HOME:home}}).toString();
+ assert.match(out,/^Last pass less than a minute ago \(.+\): ERROR missing in checker\.env: CHECKER_KEY/);
+});
+
+test('status line: plain words for a pass, an error, no pass yet, and a warning when passes stopped',async()=>{
+ const {statusLine,describeStatus}=await W();const at=new Date('2026-11-24T20:00:00Z');
+ const line=statusLine({at,summary:{shops:45,read:43,unchanged:0,refused:2,failed:0,events:1}});
+ assert.equal(line,'2026-11-24T20:00:00.000Z OK 45 shops due: 43 read, 0 unchanged, 2 refused (429/403, backing off), 0 failed, 1 new drops');
+ assert.equal(statusLine({at,error:'checker key\nnot accepted'}),'2026-11-24T20:00:00.000Z ERROR checker key not accepted');
+ assert.match(describeStatus(line,new Date('2026-11-24T20:03:00Z')),/^Last pass 3 minutes ago \(.+\): OK 45 shops due: 43 read/);
+ assert.doesNotMatch(describeStatus(line,new Date('2026-11-24T20:03:00Z')),/WARNING/);
+ assert.match(describeStatus(line,new Date('2026-11-24T20:30:00Z')),/WARNING: no pass for over 10 minutes/);
+ assert.match(describeStatus(''),/^No pass yet/);
 });
 
 test('Task Scheduler install: hidden, every 2 minutes, no overlap, created off, settings file for this account only, key never handled',()=>{
@@ -50,7 +64,15 @@ test('Task Scheduler install: hidden, every 2 minutes, no overlap, created off, 
  assert.match(ps,/Disable-ScheduledTask -TaskName \$TaskName/,'created switched off');
  assert.match(ps,/icacls \$EnvFile \/inheritance:r \/grant:r "\$\{me\}:\(R,W\)"/,'only this Windows account can read the settings');
  assert.doesNotMatch(ps,/CHECKER_KEY=\$|-replace '\(\?m\)\^CHECKER_KEY|Get-Random|RandomNumberGenerator/,'never makes or writes the key');
- assert.doesNotMatch(ps,/-RunLevel Highest|Set-ExecutionPolicy|WakeToRun/);
+ assert.doesNotMatch(ps,/-RunLevel Highest|Set-ExecutionPolicy|WakeToRun|S4U|RunWhileSignedOut|-LogonType Password/,'signed-in only, no admin, no stored password');
+ assert.match(ps,/Join-Path \$env:LOCALAPPDATA 'Cardstead\\checker'/,'installs under %LOCALAPPDATA%');
+ assert.match(ps,/Copy-Item \(Join-Path \$App 'deploy\\shop-checker\\checker\.env\.example'\) \$EnvFile/,'same pacing as the server: the example file is copied as is');
+ const pacingWrites=ps.match(/'CHECKER_(CONCURRENCY|GAP_MS)=[^']*'/g)||[];
+ assert.deepEqual(pacingWrites,["'CHECKER_CONCURRENCY=3$1'","'CHECKER_GAP_MS=0$1'"],'only the old 2-at-a-time/500 ms default is moved to the server pacing');
+ assert.match(ps,/-match '\(\?m\)\^CHECKER_CONCURRENCY=2\\s\*\$' -and \$txt -match '\(\?m\)\^CHECKER_GAP_MS=500\\s\*\$'/);
+ assert.match(fs.readFileSync(R('deploy/shop-checker/checker.env.example'),'utf8'),/^CHECKER_CONCURRENCY=3$/m);
  const un=fs.readFileSync(R('deploy/shop-checker/windows/uninstall-windows.ps1'),'utf8');
  assert.match(un,/Unregister-ScheduledTask -TaskName \$TaskName -Confirm:\$false/);
+ const doc=fs.readFileSync(R('docs/SHOP-CHECKER-WINDOWS.md'),'utf8');
+ assert.match(doc,/stays \*\*paused\*\*/);assert.doesNotMatch(doc,/active again|cron\.unschedule|active := true/,'the Supabase cron is never a fallback');
 });
