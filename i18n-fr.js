@@ -1037,6 +1037,7 @@
 "Unconfirmed":"Non confirmé",
 "Undo this sale and return":"Annuler cette vente et remettre",
 "Unexpected catalog format":"Format de catalogue inattendu",
+"Catalog offline. Enter a set ID manually below (from TCGdex or your product packaging).":"Catalogue hors ligne. Entre l’identifiant de l’extension ci-dessous (sur TCGdex ou sur l’emballage du produit).",
 "Unexpected catalog response":"Réponse inattendue du catalogue",
 "Unexpected cloud revision":"Version infonuagique inattendue",
 "unexpected format":"format inattendu",
@@ -1242,4 +1243,6 @@
 "Saint-Hyacinthe, 5700 rue Martineau. Facebook only, mentions Pokémon cards: map link.":"Saint-Hyacinthe, 5700 rue Martineau. Facebook seulement, mentionne des cartes Pokémon : lien vers la carte.",
 "Toronto and Montréal (Verdun). Shopify, but no Pokémon among its newest 250 products (mostly Magic), so not checked automatically: Google site-search link.":"Toronto et Montréal (Verdun). Shopify, mais aucun Pokémon parmi ses 250 nouveautés (surtout Magic), donc pas de vérification automatique : lien de recherche Google sur le site.",
 "Leamington, ON. Mostly Japanese and Asian-language product: check the language before buying.":"Leamington (Ont.). Surtout des produits japonais et asiatiques : vérifie la langue avant d’acheter.",
+"Coming drops":"Prochaines sorties",
+"New sets and sealed products with their release dates, so you can set your watches before launch day.":"Les nouvelles extensions et produits scellés avec leurs dates de sortie, pour créer tes suivis avant le jour J.",
 "Zone Collection St-Jean":null};if(typeof module!=='undefined'&&module.exports)module.exports=root.CardsteadFR;})(typeof window!=='undefined'?window:globalThis);
