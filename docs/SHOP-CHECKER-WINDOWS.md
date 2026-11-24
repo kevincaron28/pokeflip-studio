@@ -7,10 +7,11 @@
 - The owner's home connection: the same requests answer 200.
 
 We do not work around this (no proxies, no address rotation, no disguised browsers). A home PC is an ordinary home
-address, used openly with the same named User-Agent and the same polite rules. Only if the owner agrees.
+address, used openly with the same named User-Agent and the same polite rules. **The owner chose this (24 November 2026).**
 
 **What it means for the owner.**
-- Alerts only arrive while the PC is on and he is signed in.
+- Alerts only arrive while the PC is on and he is signed in. There is no fallback when it is off: the Supabase cron job
+  `shop-checker-tick` stays **paused** (Shopify refuses Supabase's address anyway). Pause it, never delete it.
 - About 45 shop requests every 2 minutes leave his home connection, about 1 MB of data, with one light Node process for
   a few seconds.
 - If Shopify ever throttles his home address, he may see slower Shopify shop pages himself for a while. The checker backs
@@ -19,22 +20,22 @@ address, used openly with the same named User-Agent and the same polite rules. O
 | File | What |
 | --- | --- |
 | `deploy/shop-checker/windows/install-windows.ps1` | One-time setup, no admin needed. Copies only the checker files into `%LOCALAPPDATA%\Cardstead\checker\app`, creates `checker.env` readable by his Windows account only, and registers the task **switched off**. Safe to run again |
-| `deploy/shop-checker/windows/run-windows.mjs` | One pass, started by the task. Updates its code from `main` at most once an hour (installed copy only), skips if a pass is still running, and writes to `logs\checker.log` (1 MB cap, one older file kept) |
+| `deploy/shop-checker/windows/run-windows.mjs` | One pass, started by the task. Updates its code from `main` at most once an hour (installed copy only), skips if a pass is still running, writes to `logs\checker.log` (1 MB cap, one older file kept) and a one-line `status.txt`; `--status` prints it |
 | `deploy/shop-checker/windows/uninstall-windows.ps1` | Removes the task. `-RemoveFiles` also deletes the code, logs and settings |
-| `%LOCALAPPDATA%\Cardstead\checker\checker.env` | Supabase URL and public key, **`CHECKER_KEY` (the only secret)**, pacing (2 shops at a time, 0.5 s apart at home) |
+| `%LOCALAPPDATA%\Cardstead\checker\checker.env` | Supabase URL and public key, **`CHECKER_KEY` (the only secret)**, pacing (same as the server: 3 shops at a time; a shop that answers 429 or 403 is left alone for 30 minutes, then up to 6 hours) |
 
 The task:
 - Runs `conhost.exe --headless node run-windows.mjs`, so no window appears.
 - Runs every 2 minutes, never two at once, and stops a pass after 2 minutes.
 - Runs only while the PC is on and he is signed in, with normal rights.
 - Has low priority and never wakes the PC.
-- Option `-RunWhileSignedOut` also runs it when nobody is signed in. That needs an administrator PowerShell; no password
-  is stored.
+- Needs no administrator rights and stores no password.
 
-## Install (only if the owner agrees)
+## Install
 
 1. Requirements: Node.js 22 or later and Git. Check with `node -v` and `git --version`.
-2. Download and run the installer in a normal PowerShell window:
+2. Download and run the installer in a normal PowerShell window (it installs under `%LOCALAPPDATA%\Cardstead\checker`,
+   nothing in the repository folders):
    ```powershell
    Invoke-WebRequest https://raw.githubusercontent.com/kevincaron28/pokeflip-studio/main/deploy/shop-checker/windows/install-windows.ps1 -OutFile $env:TEMP\cardstead-install.ps1
    powershell -ExecutionPolicy Bypass -File $env:TEMP\cardstead-install.ps1
@@ -46,25 +47,26 @@ The task:
    - `notepad "$env:LOCALAPPDATA\Cardstead\checker\checker.env"`: paste the key right after `CHECKER_KEY=` (no spaces,
      no quotes), save and close.
    - Do not paste it anywhere else. Supabase keeps only its hash; a lost key is replaced by making a new one.
-4. **Pause the Supabase cron job `shop-checker-tick`** (do not delete it): Integrations → Cron → Active off, or
+4. **Keep the Supabase cron job `shop-checker-tick` paused** (do not delete it): Integrations → Cron → Active off, or
    `select cron.alter_job(job_id := (select jobid from cron.job where jobname = 'shop-checker-tick'), active := false);`
-   Then do one pass by hand and read the log (the installer prints the exact command):
+   Then do one pass by hand and look at the status line (the installer prints the exact commands):
    ```powershell
    node "$env:LOCALAPPDATA\Cardstead\checker\app\deploy\shop-checker\windows\run-windows.mjs"
-   Get-Content "$env:LOCALAPPDATA\Cardstead\checker\logs\checker.log" -Tail 20
+   node "$env:LOCALAPPDATA\Cardstead\checker\app\deploy\shop-checker\windows\run-windows.mjs" --status
    ```
-   The last line is a summary such as `{"shops":45,"unchanged":0,"read":45,"refused":0,"failed":0,"events":0}`. The
-   first read of each shop records what is there without alerting.
+   For example: `Last pass less than a minute ago (...): OK 45 shops due: 44 read, 0 unchanged, 1 refused (429/403,
+   backing off), 0 failed, 0 new drops`. The first read of each shop records what is there without alerting.
 5. Turn the task on: `Enable-ScheduledTask -TaskName 'Cardstead shop checker'`.
 
 ## Day to day
 
 | Check | Command (PowerShell) |
 | --- | --- |
-| Last passes | `Get-Content "$env:LOCALAPPDATA\Cardstead\checker\logs\checker.log" -Tail 30` |
+| **Status (one line)** | `node "$env:LOCALAPPDATA\Cardstead\checker\app\deploy\shop-checker\windows\run-windows.mjs" --status` (warns when there has been no pass for over 10 minutes) |
+| Last passes in detail | `Get-Content "$env:LOCALAPPDATA\Cardstead\checker\logs\checker.log" -Tail 30` |
 | Task state and last result | `Get-ScheduledTaskInfo -TaskName 'Cardstead shop checker'` |
 | Pause / resume | `Disable-ScheduledTask` / `Enable-ScheduledTask -TaskName 'Cardstead shop checker'` |
-| Remove | `powershell -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Cardstead\checker\app\deploy\shop-checker\windows\uninstall-windows.ps1" -RemoveFiles`, then in Supabase `delete from public.checker_keys where label = 'owner-pc';` and set `shop-checker-tick` active again if wanted |
+| Remove | `powershell -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Cardstead\checker\app\deploy\shop-checker\windows\uninstall-windows.ps1" -RemoveFiles`, then in Supabase `delete from public.checker_keys where label = 'owner-pc';`. Leave `shop-checker-tick` paused |
 
 Troubleshooting:
 - **"checker key not accepted"**: make a new key (step 3).

@@ -1,8 +1,8 @@
 # Remove the Cardstead shop checker task from this PC (runbook: docs/SHOP-CHECKER-WINDOWS.md).
 #   powershell -ExecutionPolicy Bypass -File uninstall-windows.ps1              # remove the task, keep files and key
 #   powershell -ExecutionPolicy Bypass -File uninstall-windows.ps1 -RemoveFiles # also delete code, logs and checker.env
-# Afterwards, in Supabase: delete from public.checker_keys where label = 'owner-pc';  and set shop-checker-tick active again
-# if the server should take over.
+# Afterwards, in Supabase: delete from public.checker_keys where label = 'owner-pc';
+# Leave the Supabase cron job shop-checker-tick paused: Shopify refuses Supabase's address (429), so it is no fallback.
 param([switch]$RemoveFiles)
 $ErrorActionPreference = 'Stop'
 $TaskName = 'Cardstead shop checker'
