@@ -30,8 +30,6 @@ jobs:
       - run: pip install playwright==1.56.0
       - run: python -m playwright install --with-deps chromium
       - run: python tests/theme-layout.py
-      - run: python tests/mobile-scanner.py
-      - run: python tests/continuous-camera.py
       - run: python tests/browser_embedded.py
       - run: python tests/cloud_autosave_browser.py
       - run: python tests/restock-auto-browser.py
@@ -43,7 +41,6 @@ jobs:
       - run: python tests/alert-card-browser.py
       - run: python tests/compare-stores-browser.py
       - run: python tests/simplify-browser.py
-      - run: python tests/scan-tray-browser.py
       - run: python tests/phase2-browser.py
       - run: python tests/i18n-fr-browser.py
       - run: python tests/area-stores-browser.py

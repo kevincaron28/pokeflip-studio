@@ -37,21 +37,17 @@ with sync_playwright() as p:
  page.wait_for_function("window.fakeCloud.revision===1")
  page.locator('#cloudAutoToggle').click()
  page.wait_for_function("localStorage.getItem('pokeflip-cloud-autosave-v1')!==null")
- page.evaluate("CardsteadNav.show('lots')")
- page.locator('#lotForm [name="name"]').fill('Autobackup lot')
- page.locator('#lotForm [name="cost"]').fill('60')
- page.locator('#lotForm button').click()
+ # A local edit: a card added in My cards (it creates the automatic "My cards" lot).
+ page.evaluate("pokeflipLedger.addCard({name:'Autobackup card',idCode:'sv01-25',lang:'en',finish:'Holo',target:'10'})")
  page.wait_for_function("window.fakeCloud.revision===2",timeout=12000)
- assert page.evaluate("window.fakeCloud.payload.ledger.lots.length") == 1
+ assert page.evaluate("window.fakeCloud.payload.ledger.items.length") == 1
+ assert page.evaluate("window.fakeCloud.payload.ledger.lots[0].mycards") is True
  # A second device changes the cloud revision; the next local edit MUST NOT overwrite it.
  page.evaluate("window.fakeCloud.revision++")
- page.evaluate("CardsteadNav.show('lots')")
- page.locator('#lotForm [name="name"]').fill('Conflicting local lot')
- page.locator('#lotForm [name="cost"]').fill('10')
- page.locator('#lotForm button').click()
+ page.evaluate("pokeflipLedger.addCard({name:'Conflicting local card',idCode:'sv01-26',lang:'en',finish:'Holo'})")
  page.wait_for_function("localStorage.getItem('pokeflip-cloud-autosave-v1')===null",timeout=12000)
  assert page.evaluate("window.fakeCloud.revision") == 3
- assert page.evaluate("window.fakeCloud.payload.ledger.lots.length") == 1
+ assert page.evaluate("window.fakeCloud.payload.ledger.items.length") == 1, "the other device's copy was not overwritten"
  assert 'another device changed' in page.locator('#cloudStatus').inner_text().lower()
  assert not errors,errors
  print('PASS: First cloud upload, opt-in autosave and strict revision conflict stop; no runtime errors')

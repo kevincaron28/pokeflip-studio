@@ -1,4 +1,4 @@
-"""Phase 2 at phone width: shorter Business page, Settings help folded, 2-field watch form with the format
+"""Phase 2 at phone width: older cards shown in My cards, Settings help folded, 2-field watch form with the format
 detected from the product name and the area from My area & stores, catalog suggestions, and data saved by an
 older version (purchase lot, cards, a watch with old fields) still loading. Set PACK_SHOTS=<folder> for screenshots.
 Run: python tests/phase2-browser.py"""
@@ -35,19 +35,14 @@ try:
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.goto(f"http://127.0.0.1:{server.server_port}/", wait_until="domcontentloaded")
         page.wait_for_function("typeof CardsteadNav!=='undefined'")
-        # Business page: today's priorities visible, the rest folded.
-        page.evaluate("CardsteadNav.show('dashboard')")
-        assert page.locator("#portfolioStudio h3", has_text="Today's priorities").is_visible()
-        more = page.locator("details.portfolio-more")
-        assert more.count() == 1 and not more.evaluate("d=>d.open")
-        assert not page.locator("#portfolioStudio h3", has_text="Highest-value inventory").is_visible()
+        # The scanner and Business pages are gone; the older version's cards show in My cards.
+        assert page.locator("section#dashboard, section#scan, section#inventory").count() == 0
         assert page.locator("h2", has_text="Getting started").count() == 0
-        height = page.evaluate("document.querySelector('#dashboard').scrollHeight")
-        if SHOTS: page.screenshot(path=f"{SHOTS}/after2-business-en-390.png", full_page=True)
-        # Old cards still listed.
-        page.evaluate("CardsteadNav.show('inventory')")
-        inv = page.locator("#inventoryTable").inner_text()
+        page.evaluate("CardsteadNav.show('mycards')")
+        inv = page.locator("#myCards").inner_text()
         assert "Pikachu ex" in inv and "Bulk Commons" in inv, inv
+        height = page.evaluate("document.querySelector('#mycards').scrollHeight")
+        if SHOTS: page.screenshot(path=f"{SHOTS}/after2-mycards-en-390.png", full_page=True)
         # Settings: help folded into one section.
         page.evaluate("CardsteadNav.show('settings')")
         help_ = page.locator("#settingsHelp")
@@ -71,7 +66,7 @@ try:
         overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
         assert overflow <= 1, overflow
         assert not errors, errors
-        print(f"PASS phase 2 (390 px): Business page {height}px with More folded, Settings help folded, 2-field watch form (format etb detected, area defaulted), catalog suggestions, old data kept")
+        print(f"PASS phase 2 (390 px): My cards {height}px with the older cards, Settings help folded, 2-field watch form (format etb detected, area defaulted), catalog suggestions, old data kept")
         b.close()
 finally:
     server.shutdown()

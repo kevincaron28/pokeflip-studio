@@ -9,9 +9,8 @@ repo root (website)  ──copy SHELL files from sw.js──▶  mobile/www  ─
 vendored libs (npm devDeps): supabase-js, tesseract.js + core + eng/fra language data ──▶ mobile/www/vendor
 ```
 
-- `mobile/scripts/build-web.mjs` assembles `mobile/www`: the same files the service worker caches, plus vendored libraries. The CDN `<script>` tags (jsdelivr) are rewritten **only inside `www/index.html`**; the website's `index.html` is untouched. The app therefore works offline, including OCR (English + French data bundled, ~11.6 MB).
+- `mobile/scripts/build-web.mjs` assembles `mobile/www`: the same files the service worker caches, plus vendored libraries. The CDN `<script>` tags (jsdelivr) are rewritten **only inside `www/index.html`**; the website's `index.html` is untouched. The app shell therefore loads offline (card lookup and prices need the network).
 - `mobile/web-overlay/native-bridge.js` (native only): hardware back button, status bar colour, splash hide, deep-link handling, local notifications. On the website it is not loaded.
-- `mobile/web-overlay/ocr-local.js`: points Tesseract at the bundled worker/core/language files.
 - `cloud-sync.js` and `restock-watch.js` (shared with the website) call `window.PokeFlipNative` only when it exists.
 - `.vercelignore` contains `mobile/` so website deploys ignore this folder.
 
@@ -73,16 +72,15 @@ Note: the sign-in link must be opened on the same phone that has the app install
 
 | Feature | Implementation | Notes |
 |---|---|---|
-| Camera scanner | WebView `getUserMedia`; manifest `CAMERA` (+ `uses-feature camera required=false`); Capacitor's bridge requests the runtime permission | file-input capture also works (FileProvider present) |
-| Back button | `App.backButton`: closes edit dialog → drawer → live scan → returns to Dashboard → exits | |
+| Back button | `App.backButton`: closes an open dialog → drawer → returns to Prices → exits | |
 | Status bar | `#111a2e`, light icons | |
 | Icon / splash | generated from `icon-512.png`; adaptive icon background `#0B1220` | |
 | Restock alerts | `@capacitor/local-notifications` (local only, from checks the user records in the app) | no server push; app is not polling retailers in the background |
-| Offline | all assets + OCR data in the APK; card lookup, TCGdex prices and cloud sync need the network | |
+| Offline | all assets in the APK; card lookup, TCGdex prices and cloud sync need the network | |
 | Backup | `allowBackup=false` so inventory is not copied into Google auto-backup; use the app's JSON export or cloud sync | |
 
 ## Verification status (honest)
 
 Verified locally (Windows, Node 22): web bundle assembly, bundle completeness test, `parseAuthUrl` unit tests, manifest/signing checks, root `npm run check`, Chromium UI suites for the website, and the built `www` served over localhost in desktop Chromium: no external requests, bundled Tesseract worker/core/English data ran an OCR job offline (desktop Chromium, not the Android WebView).
 
-**Not verified:** Gradle build (no Android SDK on the authoring machine — verify via the GitHub Actions run), APK install, camera permission prompt and live scan on a Pixel, deep-link return from the email, OCR running offline inside the Android WebView (it works in desktop Chromium), local notification permission and delivery, back-button behaviour, splash/icon rendering, plugin access through `window.Capacitor.Plugins` without a bundler.
+**Not verified:** Gradle build (no Android SDK on the authoring machine — verify via the GitHub Actions run), APK install on a Pixel, deep-link return from the email, local notification permission and delivery, back-button behaviour, splash/icon rendering, plugin access through `window.Capacitor.Plugins` without a bundler.

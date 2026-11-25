@@ -20,12 +20,12 @@ let pending=null;
 function deliver(url){const a=parseAuthUrl(url);if(!a)return;pending=a;root.dispatchEvent(new CustomEvent('pokeflip:authlink',{detail:a}))}
 function takePendingAuth(){const a=pending;pending=null;return a}
 async function handleBack(){
- const doc=root.document,dialog=doc.getElementById('editDialog');
- if(dialog&&dialog.open){dialog.close();return}
+ const doc=root.document,dialog=doc.querySelector('dialog[open]');
+ if(dialog){dialog.close();return}
  const drawer=doc.getElementById('mobileDrawer');if(drawer&&drawer.getAttribute('aria-hidden')==='false'){doc.getElementById('mobileScrim')?.click();return}
- if(root.PokeFlipLiveScan&&root.PokeFlipLiveScan.isRunning&&root.PokeFlipLiveScan.isRunning()){root.PokeFlipLiveScan.stop();return}
+ // Back from any page goes to Prices (the first tab); from Prices it leaves the app.
  const open=doc.querySelector('main section:not(.hidden)');
- if(open&&open.id!=='dashboard'&&typeof root.go==='function'){root.go('dashboard');return}
+ if(open&&open.id!=='prices'&&typeof root.go==='function'){root.go('prices');return}
  await P().App?.exitApp?.();
 }
 async function requestNotifications(){try{const r=await P().LocalNotifications.requestPermissions();return r.display==='granted'}catch{return false}}

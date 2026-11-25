@@ -1,5 +1,5 @@
-"""French (tu) on the older screens at phone width: every page built before the bilingual rewrite (Business,
-Deal check, Lots, Scanner, Inventory, Sales, eBay sold, Sealed guide, Settings, Watch) shows no English text the
+"""French (tu) on the older screens at phone width: every page built before the bilingual rewrite (My cards, Deal check,
+eBay sold, Sealed guide, Settings, Watch) shows no English text the
 dictionary knows, text added later (toasts, lists) is translated too, switching back to English restores the
 English text, and data saved by an older version is untouched. Set PACK_SHOTS=<folder> for EN and FR screenshots.
 Run: python tests/i18n-fr-browser.py"""
@@ -24,7 +24,7 @@ old_restock = {"watches": [{"id": "w0", "product": "Prismatic Evolutions Booster
 SAVED = {"pokeflip-v1": json.dumps(old_db), "pokeflip-restock-v1": json.dumps(old_restock)}
 SEED = "".join(f"localStorage.setItem({json.dumps(k)},{json.dumps(v)});" for k, v in SAVED.items()) + \
        "localStorage.setItem('cardstead-lang-v1','\"fr\"');"
-PAGES = ["dashboard", "deal", "lots", "scan", "inventory", "sales", "ebay", "sealed", "settings", "restock"]
+PAGES = ["mycards", "deal", "ebay", "sealed", "settings", "restock"]
 # Text nodes still in English: the translator would still change them.
 LEFTOVER = """id=>{const s=document.getElementById(id);const w=document.createTreeWalker(s,NodeFilter.SHOW_TEXT);const out=[];
  for(let n=w.nextNode();n;n=w.nextNode()){const p=n.parentElement;if(!p||p.closest('script,style,textarea,[data-i18n],[data-no-translate]'))continue;
@@ -58,7 +58,7 @@ try:
     with sync_playwright() as p:
         b = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         ctx = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="fr-CA")
-        for pat in ("**/products.json*", "https://tcgplayer-cdn.tcgplayer.com/**", "**/api/**", "https://cdn.jsdelivr.net/npm/tesseract.js*/**"):
+        for pat in ("**/products.json*", "https://tcgplayer-cdn.tcgplayer.com/**", "**/api/**"):
             ctx.route(pat, lambda r: r.fulfill(status=404, body=""))
         ctx.add_init_script("if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');" + SEED + "}")
         page = ctx.new_page(); errors = []
@@ -92,15 +92,14 @@ try:
             if SHOTS: page.screenshot(path=f"{SHOTS}/fr-{pid}-390.png", full_page=True)
         assert not problems, json.dumps(problems, ensure_ascii=False, indent=1)
         # Spot checks of real French on the older screens.
-        page.evaluate("CardsteadNav.show('lots')")
-        assert "Lot d’achat" in page.locator("#lots").inner_text() or "lot" in page.locator("#lots").inner_text().lower()
-        page.evaluate("CardsteadNav.show('inventory')")
-        inv = page.locator("#inventoryTable").inner_text()
+        page.evaluate("CardsteadNav.show('mycards')")
+        inv = page.locator("#myCards").inner_text()
+        assert "Mes cartes" in page.locator("#mycards").inner_text() and "Ajouter une carte" in inv, inv
         assert "Pikachu ex" in inv and "Bulk Commons" in inv, inv   # card names are never translated
         # Text added later is translated (toast).
-        page.evaluate("toast('Lot created. Ready to scan!')")
+        page.evaluate("toast('Backup restored')")
         page.wait_for_timeout(50)
-        assert page.locator("#toast").inner_text() == "Lot créé. Prêt à scanner!", page.locator("#toast").inner_text()
+        assert page.locator("#toast").inner_text() == "Sauvegarde restaurée", page.locator("#toast").inner_text()
         # A dialog message is translated.
         msgs = []
         page.on("dialog", lambda d: (msgs.append(d.message), d.dismiss()))
@@ -117,12 +116,12 @@ try:
             page.evaluate(f"CardsteadNav.show({json.dumps(pid)})")
             page.wait_for_timeout(150)
             if SHOTS: page.screenshot(path=f"{SHOTS}/en-{pid}-390.png", full_page=True)
-        page.evaluate("CardsteadNav.show('inventory')")
-        assert "Pikachu ex" in page.locator("#inventoryTable").inner_text()
+        page.evaluate("CardsteadNav.show('mycards')")
+        assert "Pikachu ex" in page.locator("#myCards").inner_text() and "Add a card" in page.locator("#myCards").inner_text()
         page.evaluate("CardsteadNav.show('settings')")
         assert page.locator("#settings").get_by_text("Export backup", exact=False).count() >= 1 or "Backup" in page.locator("#settings").inner_text()
-        page.evaluate("toast('Lot created. Ready to scan!')")
-        assert page.locator("#toast").inner_text() == "Lot created. Ready to scan!"
+        page.evaluate("toast('Backup restored')")
+        assert page.locator("#toast").inner_text() == "Backup restored"
         assert page.evaluate("document.body.scrollWidth") <= 392, "no horizontal scroll at 390 px"
         assert not errors, errors
         b.close()
