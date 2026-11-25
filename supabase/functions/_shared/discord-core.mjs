@@ -455,3 +455,95 @@ export function linkCode(rand) {
   const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   return Array.from({ length: 8 }, (_, i) => abc[rand[i] % abc.length]).join('');
 }
+
+// ---------- Onboarding and the welcome message ----------
+
+export const WELCOME_TITLE = 'Cardstead Drops: rules and how alerts work · Règles et fonctionnement';
+const ONBOARDING_EPOCH = 1420070400000n;
+/** A snowflake-shaped id for a new onboarding prompt or option (Discord keeps ids we send; existing ones are reused). */
+export const newSnowflake = (now, i) => String(((BigInt(now) - ONBOARDING_EPOCH) << 22n) + BigInt(i));
+
+/** The channels anyone can see on joining. Discord asks for at least 7, at least 5 of them where @everyone can write. */
+export const ONBOARDING_DEFAULT_CHANNELS = ['bienvenue-welcome', 'how-alerts-work', 'speed-log', 'ebay-deals', 'under-market', 'price-check', 'general', 'général', 'pulls-collections', 'help-aide'];
+export const ONBOARDING_WRITABLE = ['price-check', 'general', 'général', 'pulls-collections', 'help-aide'];
+
+/**
+ * PUT /guilds/{id}/onboarding body. roles/channels: name -> id. existing: the current onboarding (GET), whose prompt and
+ * option ids are reused by title so a re-run edits instead of replacing. Throws if a role or channel is missing.
+ */
+export function onboardingBody({ roles, channels, existing, now }) {
+  let n = 0;
+  const old = new Map((existing?.prompts || []).map((p) => [p.title, p]));
+  const need = (map, name, what) => { if (!map[name]) throw Error(`missing ${what} ${name} (run setup first)`); return map[name]; };
+  const prompt = (title, single, options) => {
+    const was = old.get(title);
+    const oldOpt = new Map((was?.options || []).map((o) => [o.title, o.id]));
+    return {
+      id: was?.id || newSnowflake(now, n++), type: 0, title, single_select: single, required: false, in_onboarding: true,
+      options: options.map(([t, desc, roleName]) => ({ id: oldOpt.get(t) || newSnowflake(now, n++), title: t.slice(0, 50), description: desc ? desc.slice(0, 100) : null, role_ids: [need(roles, roleName, 'role')], channel_ids: [] })),
+    };
+  };
+  const prompts = [
+    prompt('Region / Région', false, REGIONS.map((r) => [r.role, `${r.en} · ${r.fr}`, r.role])),
+    prompt('Stores / Magasins', false, [...CHAINS.map((c) => [c.role, c.name, c.role]), ['Online only', 'Online shops that ship in Canada · Boutiques en ligne', 'Online only']]),
+    prompt('Products / Produits', false, [...PRODUCTS.map((p) => [p.role, null, p.role]), [DEALS_ROLE, 'eBay.ca listings under value · Annonces eBay.ca sous la valeur', DEALS_ROLE]]),
+    prompt('Language / Langue', true, LANGUAGE_ROLES.map((l) => [l, l === 'Français' ? 'Discussion en français' : 'English chat', l])),
+  ];
+  return { prompts, default_channel_ids: ONBOARDING_DEFAULT_CHANNELS.map((c) => need(channels, c, 'channel')), enabled: true, mode: 0 };
+}
+
+/** The one message in #bienvenue-welcome: rules and how alerts work, English then French. Re-runs edit it. */
+export function welcomeMessage(siteUrl) {
+  const site = siteUrl || 'https://pokeflip-studio.vercel.app/';
+  const en = [
+    '**Welcome!** Free Pokémon TCG drop alerts for Canada, run by Cardstead. No paid tiers, no paid speed.',
+    '',
+    '**Pick your pings:** Channels & Roles (top of the channel list) → your region, stores, products and language. You are pinged only for products you picked, in places you picked.',
+    '',
+    '**How alerts work**',
+    '• Card shops, Indigo and Mastermind: their public shop data is checked every few minutes and must be seen twice.',
+    '• Big chains (Walmart, Best Buy, EB Games, Costco, Pokémon Center): their own emails and member reports. We never get around their bot protection, so these can be minutes behind other servers.',
+    '• Every alert shows the CA$ price against market value, the seller and a confidence level. Marketplace sellers are never posted as restocks.',
+    '• Tap **Wasn’t there** when an alert is wrong; two taps mark it stale. Weekly speed and accuracy go to #speed-log.',
+    '• Saw stock yourself? `/report` with a link or photo. A second member confirms it.',
+    '',
+    '**Rules**',
+    '1. Be kind. No harassment, hate or spam.',
+    '2. No selling, trading, invites to other servers or “DM me” offers.',
+    '3. No bots, auto-checkout tools or anything that gets around a store’s rules.',
+    '4. Reports must be real: false reports cost the Trusted reporter role.',
+    '5. English in #general, French in #général. Use `/flag` to reach the moderators.',
+    '',
+    `Prices are asking prices or market references, never guaranteed. Privacy: ${site}privacy.html`,
+    'As an Amazon Associate Cardstead earns from qualifying purchases.',
+  ];
+  const fr = [
+    '**Bienvenue!** Alertes gratuites de drops Pokémon TCG au Canada, par Cardstead. Pas d’abonnement, pas de vitesse payante.',
+    '',
+    '**Choisis tes alertes :** Salons et rôles (en haut de la liste) → ta région, tes magasins, tes produits et ta langue. Tu es mentionné seulement pour ce que tu as choisi.',
+    '',
+    '**Fonctionnement**',
+    '• Boutiques, Indigo et Mastermind : leurs données publiques sont vérifiées aux quelques minutes et doivent être vues deux fois.',
+    '• Grandes chaînes (Walmart, Best Buy, EB Games, Costco, Pokémon Center) : leurs propres courriels et les signalements des membres. On ne contourne jamais leur protection anti-robots, donc ces alertes peuvent avoir quelques minutes de retard.',
+    '• Chaque alerte montre le prix en $ CA face à la valeur du marché, le vendeur et un niveau de confiance. Les vendeurs tiers ne sont jamais publiés comme un réassort.',
+    '• Clique **Pas là** si une alerte est fausse; deux clics la marquent périmée. La rapidité et la précision de la semaine vont dans #speed-log.',
+    '• Tu vois du stock? `/report` avec un lien ou une photo. Un autre membre confirme.',
+    '',
+    '**Règles**',
+    '1. Sois respectueux. Pas de harcèlement, de haine ni de pourriel.',
+    '2. Pas de vente, d’échange, d’invitations vers d’autres serveurs ni d’offres « écris-moi en privé ».',
+    '3. Pas de robots, d’outils d’achat automatique ni rien qui contourne les règles d’un magasin.',
+    '4. Les signalements doivent être vrais : les faux font perdre le rôle de membre de confiance.',
+    '5. Anglais dans #general, français dans #général. Utilise `/flag` pour joindre les modérateurs.',
+    '',
+    `Les prix sont des prix demandés ou des références, jamais garantis. Confidentialité : ${site}privacy.html`,
+  ];
+  return {
+    content: '',
+    allowed_mentions: { parse: [] },
+    embeds: [
+      { title: WELCOME_TITLE, color: 0x3fa7d6, description: en.join('\n').slice(0, 4000) },
+      { title: 'Version française', color: 0x3fa7d6, description: fr.join('\n').slice(0, 4000) },
+    ],
+  };
+}

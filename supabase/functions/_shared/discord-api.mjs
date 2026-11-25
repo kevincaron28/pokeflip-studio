@@ -33,6 +33,10 @@ export function discordClient({ token, appId, fetch: f = globalThis.fetch, wait 
     automodRules: (guildId) => call('GET', `/guilds/${guildId}/auto-moderation/rules`),
     createAutomod: (guildId, rule) => call('POST', `/guilds/${guildId}/auto-moderation/rules`, rule),
     registerCommands: (guildId, cmds) => call('PUT', `/applications/${appId}/guilds/${guildId}/commands`, cmds),
+    patchGuild: (guildId, body) => call('PATCH', `/guilds/${guildId}`, body),
+    getOnboarding: (guildId) => call('GET', `/guilds/${guildId}/onboarding`),
+    putOnboarding: (guildId, body) => call('PUT', `/guilds/${guildId}/onboarding`, body),
+    recentMessages: (channelId, limit = 50) => call('GET', `/channels/${channelId}/messages?limit=${limit}`),
     async dm(userId, msg) { const ch = await call('POST', '/users/@me/channels', { recipient_id: userId }); return call('POST', `/channels/${ch.id}/messages`, msg); },
     followUp: (interactionToken, msg) => call('PATCH', `/webhooks/${appId}/${interactionToken}/messages/@original`, msg, { auth: false }),
   };
