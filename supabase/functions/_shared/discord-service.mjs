@@ -300,7 +300,7 @@ export function service(deps) {
     const has = (n) => existing.some((r) => r.name === n);
     const rules = [
       { name: 'Cardstead: scam links and phrases', event_type: 1, trigger_type: 1, trigger_metadata: { keyword_filter: ['*discord.gg/*', '*discord.com/invite*', '*free nitro*', '*nitro gift*', '*steamcommunity.com/gift*', '*bit.ly/*', '*tinyurl.com/*', '*dm me to buy*', '*dm me for*'] }, actions: [{ type: 1, metadata: { custom_message: 'Links to other servers, shorteners and DM sales are blocked here. · Bloqué.' } }], enabled: true },
-      { name: 'Cardstead: mass mentions', event_type: 1, trigger_type: 5, trigger_metadata: { mention_total_limit: 5, mention_raid_protection_enabled: true }, actions: [{ type: 1 }, { type: 3, metadata: { duration_seconds: 600 } }], enabled: true },
+      { name: 'Cardstead: mass mentions', event_type: 1, trigger_type: 5, trigger_metadata: { mention_total_limit: 5, mention_raid_protection_enabled: true }, actions: [{ type: 1 }], enabled: true }, // block only: a timeout action needs Moderate Members, which the bot is not given
       { name: 'Cardstead: spam', event_type: 1, trigger_type: 3, trigger_metadata: {}, actions: [{ type: 1 }], enabled: true },
     ];
     for (const r of rules) {
