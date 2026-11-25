@@ -127,7 +127,7 @@
 "Card Restock Tracker":null,"Card to research":"Carte à rechercher",
 "Cardmarket":null,"cards":"cartes",
 "Cards priced":"Cartes avec prix",
-"Cardstead 4.3 · Built for the hunt, accountable to the numbers · Always verify card identity and prices":"Cardstead 4.3 · Fait pour la chasse, fidèle aux chiffres · Vérifie toujours l’identité et le prix des cartes",
+"Cardstead 4.4 · Built for the hunt, accountable to the numbers · Always verify card identity and prices":"Cardstead 4.4 · Fait pour la chasse, fidèle aux chiffres · Vérifie toujours l’identité et le prix des cartes",
 "Cardstead Canada cloud configured. Sign in, then explicitly upload or download.":"Nuage Cardstead Canada configuré. Connecte-toi, puis téléverse ou télécharge.",
 "Cardstead eBay deal":"Aubaine eBay Cardstead",
 "Cardstead never stores card numbers and never buys for you: stores cancel bot orders and your payment details belong with the store or your phone's wallet. To be fast, set these up once, ahead of a restock. Then":"Cardstead ne garde jamais de numéro de carte et n’achète jamais à ta place : les magasins annulent les commandes de robots et tes données de paiement restent chez le magasin ou dans le portefeuille de ton téléphone. Pour être rapide, configure ceci une fois, avant un restock. Ensuite,",

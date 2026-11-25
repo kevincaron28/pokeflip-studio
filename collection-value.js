@@ -4,6 +4,8 @@
  * - Once a day (when Cardstead opens, and when My cards opens), cards whose market value is missing or older than 20 hours
  *   are re-priced, at most 60 cards per check and about one request a second, while the page is visible and online.
  * - Graded cards are not re-priced here: there is no sold-price source for grades (eBay deals uses asking prices).
+ * - The same check refreshes the eBay.ca asking price (ebay-live.js) of graded cards and cards with a target, at most
+ *   20 a day (graded cards have no sold-price source; targets are also checked against eBay listings).
  * - After a check, 'cardstead:prices' is sent with the ids that changed; My cards then looks at targets and alerts.
  */
 (function(root){'use strict';
@@ -29,13 +31,18 @@ const doc=root.document;if(!doc)return;
 let refreshing=false,progress=null;
 async function refresh(){
  const L=root.pokeflipLedger,MR=root.PokeFlipMarketReferences;if(refreshing||!L?.updateMarkets||!MR||doc.hidden||root.navigator?.onLine===false)return 0;
- const list=due(L.getData().items);if(!list.length)return 0;refreshing=true;let changed=[];
+ const list=due(L.getData().items),E=root.CardsteadEbayLive,MC=root.CardsteadMyCards;
+ // Graded cards and cards with a target whose eBay.ca asking price is not cached: at most 20 lookups a check.
+ const ebayDue=()=>E&&MC?L.getData().items.filter(i=>!i.archived&&i.category!=='review'&&i.name&&((i.grade&&i.grade!=='raw')||typeof i.target==='number')).map(MC.ebayCard).filter(c=>!E.cached(c)).slice(0,20):[];
+ if(!list.length&&!ebayDue().length)return 0;refreshing=true;let changed=[];
  try{const data=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;const fx=data?.fx;const updates=[];
   for(const [n,i] of list.entries()){if(doc.hidden)break;
    progress={done:n,total:list.length};root.dispatchEvent(new CustomEvent('cardstead:prices-progress',{detail:progress}));
    try{const r=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(i.idCode),{cache:'no-store'});if(r.ok){const j=await r.json();const m=marketFor(i,j.pricing,fx,MR);if(m)updates.push([i.id,m])}}catch{}
    await new Promise(r=>setTimeout(r,1100))}
   if(updates.length){L.updateMarkets(updates);changed=updates.map(u=>u[0])}
+  {const want=ebayDue();
+   for(const c of want){if(doc.hidden)break;const r=await E.get(c);if(r.state!=='ok')break;changed.push(c.itemId);await new Promise(r=>setTimeout(r,800))}}
  }catch{/* offline or the price snapshot did not load: the next check tries again */}
  finally{refreshing=false;progress=null;root.dispatchEvent(new CustomEvent('cardstead:prices',{detail:{changed}}))}
  return changed.length;
