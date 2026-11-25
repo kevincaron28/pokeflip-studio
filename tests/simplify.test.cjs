@@ -1,8 +1,8 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
 const root=path.join(__dirname,'..');const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const store={};const ctx={Date,URL,Number,Math,Intl,JSON,Object,Array,String,RegExp,Promise,localStorage:{getItem:k=>k in store?store[k]:null,setItem:(k,v)=>{store[k]=String(v)}},navigator:{language:'en-CA'}};ctx.window=ctx;
-for(const f of ['ui-i18n.js','price-chart.js','pack-ev.js','pack-ev-rates.js','pack-ev-data.js','alert-value.js','canada-shops.js','canada-retailers.js','store-prefs.js','compare-stores.js','sought-cards.js','price-history.js','product.js','home.js','nav.js'])vm.runInNewContext(read(f),ctx);
-const I=ctx.CardsteadI18n,C=ctx.CardsteadChart,H=ctx.CardsteadPriceHistory,D=ctx.CardsteadPackData,P=ctx.CardsteadProduct,Home=ctx.CardsteadHome,Nav=ctx.CardsteadNav;
+for(const f of ['ui-i18n.js','price-chart.js','pack-ev.js','pack-ev-rates.js','pack-ev-data.js','alert-value.js','canada-shops.js','canada-retailers.js','store-prefs.js','compare-stores.js','sought-cards.js','price-history.js','product.js','nav.js'])vm.runInNewContext(read(f),ctx);
+const I=ctx.CardsteadI18n,C=ctx.CardsteadChart,H=ctx.CardsteadPriceHistory,D=ctx.CardsteadPackData,P=ctx.CardsteadProduct,Nav=ctx.CardsteadNav;
 
 test('every new string exists in English and French; French uses tu',()=>{
  assert.deepEqual(Object.keys(I.S.en).sort(),Object.keys(I.S.fr).sort());
@@ -11,13 +11,14 @@ test('every new string exists in English and French; French uses tu',()=>{
  store['cardstead-lang-v1']='"fr"';assert.equal(I.t('nav.watch'),'Surveiller');assert.equal(I.t('g.notEnough',0),'Pas encore assez d’historique (0 jour de prix).');
  store['cardstead-lang-v1']='"en"';assert.equal(I.t('g.notEnough',1),'Not enough history yet (1 day of prices).');
 });
-test('four main tabs, and every existing page belongs to exactly one',()=>{
+test('four main tabs (Prices, Drops, My cards, Settings), and every page belongs to exactly one',()=>{
  assert.equal(Nav.GROUPS.length,4);
- assert.equal(Nav.GROUPS.map(g=>g.id).join(),'home,prices,watch,settings');
- assert.ok(Nav.GROUPS.find(g=>g.id==='settings').pages.includes('lots'),'lots and sales under Settings > Selling');
+ assert.equal(Nav.GROUPS.map(g=>g.id).join(),'prices,watch,mycards,settings');
+ assert.equal(Nav.GROUPS.find(g=>g.id==='mycards').pages.join(),'mycards');
+ for(const gone of ['home','scan','inventory','lots','sales','dashboard'])assert.ok(!Nav.GROUPS.some(g=>g.pages.includes(gone)),gone+' is gone');
  const html=read('index.html');const sections=[...html.matchAll(/<section id="(\w+)"/g)].map(m=>m[1]);
  for(const s of sections){const n=Nav.GROUPS.filter(g=>g.pages.includes(s)).length;assert.equal(n,1,s)}
- assert.equal(Nav.groupOf('deals').id,'watch');assert.equal(Nav.groupOf('scan').id,'home');assert.equal(Nav.groupOf('lots').id,'settings');assert.equal(Nav.groupOf('ebay').id,'settings');
+ assert.equal(Nav.groupOf('deals').id,'watch');assert.equal(Nav.groupOf('mycards').id,'mycards');assert.equal(Nav.groupOf('ebay').id,'settings');assert.equal(Nav.groupOf('sets').id,'prices');
 });
 test('real price history: dated, daily for 35 days then weekly, each point in CAD at that day\'s rate',()=>{
  assert.ok(H.dates.length>=60&&Object.keys(H.series).length>=500,H.dates.length+' '+Object.keys(H.series).length);
@@ -45,20 +46,8 @@ test('search finds products from short words; ETB/BB aliases; watch defaults com
  const d=P.watchDefaults(r[0],1.4,'Longueuil');assert.equal(d.format,'etb');assert.equal(d.ceiling,Math.floor(r[0].marketUsd*1.4));assert.equal(d.region,'Longueuil');assert.equal(d.product,r[0].name);
  assert.equal(P.watchDefaults({name:'x',type:'pack',marketUsd:null},1.4).ceiling,null,'no market value: no default price');
 });
-test('Home: good buys only from recorded in-stock prices at or under value; movers need history',()=>{
- const V=ctx.CardsteadAlertValue,Cmp=ctx.CardsteadCompare;
- const etb=D.sets.find(s=>s.name==='Surging Sparks').sealed.find(r=>r[2]==='etb');const value=etb[3]*D.fx.usdToCad;
- const watches=[{id:'w1',product:'Surging Sparks Elite Trainer Box',format:'etb',ceiling:500,enabled:true},{id:'w2',product:'Prismatic Evolutions Booster Bundle',format:'bundle',ceiling:80,enabled:true}];
- const stored={restock:{watches,observations:[{watchId:'w1',store:'EB Games',price:Math.round(value*0.8),status:'in',checkedAt:'2026-11-23T10:00:00Z'},{watchId:'w2',store:'Costco.ca',price:999,status:'out',checkedAt:'2026-11-23T10:00:00Z'}]},matches:[],hub:[]};
- const vctx={data:D,rates:ctx.CardsteadPackRates,evRows:[]};
- const rows=Home.watchRows(watches,stored,D,Cmp,V,vctx,null);
- assert.equal(rows[0].good,true);assert.equal(rows[0].best.store,'EB Games');assert.equal(rows[1].good,false);assert.equal(rows[1].best,null,'sold-out record is not a buy');
- const items=P.catalog(D).filter(x=>x.type==='etb').map(x=>({...x,key:String(x.id)}));
- const mv=Home.movers(H,items,C,5);assert.ok(mv.length>0);assert.ok(Math.abs(mv[0].change.rel)>=Math.abs(mv.at(-1).change.rel));
- assert.equal(Home.movers({dates:[],fx:[],series:{}},items,C).length,0);
-});
 test('old saved data keeps its format: nothing new is written to existing keys',()=>{
- const src=['nav.js','home.js','product.js','price-chart.js','ui-i18n.js'].map(read).join('\n');
+ const src=['nav.js','product.js','price-chart.js','ui-i18n.js','mycards.js'].map(read).join('\n');
  for(const k of ['pokeflip-restock-v1','pokeflip-alert-hub-v1','cardstead-ebay-watch-v1','cardstead-area-v1'])assert.ok(!new RegExp("setItem\\(['\"]"+k).test(src),k+' is only read by the new screens');
  assert.match(read('restock-watch.js'),/API\.addWatch=w=>\{const x=\{id:id\(\),enabled:true,language:'en',region:'',format:'any',\.\.\.w\};validateWatch\(x\)/,'one-tap watches use the same validation as the form');
 });

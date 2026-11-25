@@ -32,7 +32,8 @@ const COND_SHARE={NM:1,LP:0.8,MP:0.65,HP:0.45,DMG:0.3};
 function matches(title,card,item){
  const t=' '+norm(title)+' ';
  for(const w of BAD.concat(card.exclude||[]))if(t.includes(' '+norm(w)+' '))return {ok:false,why:'excluded word: '+w};
- if(FOREIGN.test(t))return {ok:false,why:'other language'};
+ if(card.lang==='fr'){if(!/ (french|francais|fran[cç]ais|fr) /.test(t))return {ok:false,why:'French not stated'};if(FOREIGN.test(t.replace(/ (french|francais|fran[cç]ais) /g,' ')))return {ok:false,why:'other language'}}
+ else if(FOREIGN.test(t))return {ok:false,why:'other language'};
  const grade=String(card.grade||'raw').toLowerCase();
  if(grade==='raw'){if(GRADED.test(t)||item&&/^graded$/i.test(item.condition||''))return {ok:false,why:'graded copy'}}
  else{
@@ -58,7 +59,7 @@ function matches(title,card,item){
 /** Sold-based market value in CAD with its source and date, or null (unknown).
  *  Graded cards never get a raw price: their value comes from listingValue (asking prices). */
 function valueOf(card,data){
- if(card.value&&isNum(card.value.cad))return {cad:card.value.cad,usd:null,source:card.value.source||'your value',date:card.value.date||null,mine:true};
+ if(card.value&&isNum(card.value.cad))return {cad:card.value.cad,usd:null,source:card.value.source||'your value',date:card.value.date||null,mine:true,confidence:card.value.confidence};
  if(card.grade&&card.grade!=='raw')return null;
  const fx=data?.fx?.usdToCad;
  const live=data?.cardPrices?.[card.tcgplayerProductId+'|'+card.printing];
@@ -138,9 +139,15 @@ const DEFAULTS={removed:[],custom:[],targets:{},threshold:0.10,auto:true};
 const jget=(k,d)=>{try{const v=JSON.parse(root.localStorage?.getItem(k)||'null');return v??d}catch{return d}};
 const jset=(k,v)=>{try{root.localStorage?.setItem(k,JSON.stringify(v))}catch{}};
 function prefs(){const p={...DEFAULTS,...jget(KEY,{})};p.threshold=isNum(p.threshold)&&p.threshold>=0&&p.threshold<=0.9?p.threshold:0.10;return p}
-function watched(p=prefs(),list=root.CardsteadSoughtCards?.cards||[]){return list.filter(c=>!p.removed.includes(c.id)).concat(p.custom||[])}
+function watched(p=prefs(),list=root.CardsteadSoughtCards?.cards||[],mine=myCards()){return list.filter(c=>!p.removed.includes(c.id)).concat(p.custom||[],mine)}
+/** Target and alert level of a My cards row, each in its own span (translated whole). */
+function mineExtra(c){let x='';if(isNum(c.target))x+=`<span> · Target ${cad(c.target)}</span>`;if(isNum(c.threshold))x+=`<span> · Alert at ${Math.round(c.threshold*100)}% under value</span>`;return x}
+/** My cards that have a target price or an alert level (mycards.js). */
+function myCards(){try{const L=root.pokeflipLedger,M=root.CardsteadMyCards;return L&&M?M.ebayCards(L.getData().items):[]}catch{return []}}
+/** Alert level and target for a card: its own (My cards) or the eBay deals settings. */
+function ruleFor(card,p){return card.mine?{threshold:isNum(card.threshold)?card.threshold:p.threshold,target:isNum(card.target)?card.target:undefined}:{threshold:p.threshold,target:p.targets[card.id]}}
 
-const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,KEY,norm};
+const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,ruleFor,KEY,norm};
 root.CardsteadEbayWatch=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
@@ -173,7 +180,7 @@ function confPill(c){const k={high:['green','High'],medium:['gold','Medium'],low
 function wire(node){node.querySelectorAll('img.ac-img').forEach(i=>i.addEventListener('error',()=>i.remove(),{once:true}))}
 function renderDeals(){
  const host=$('dealsList');if(!host)return;const p=prefs(),res=jget(RESULTS,{});
- const all=assess(res.byCard||{},watched(p),data),under=all.filter(r=>r.verdict.code==='under'),rows=under.filter(r=>isDeal(r,p.threshold,p.targets[r.card.id])),maybe=under.filter(r=>!rows.includes(r)),suspect=all.filter(r=>r.verdict.code==='suspect').length;
+ const all=assess(res.byCard||{},watched(p),data),under=all.filter(r=>r.verdict.code==='under'),rows=under.filter(r=>{const k=ruleFor(r.card,p);return isDeal(r,k.threshold,k.target)}),maybe=under.filter(r=>!rows.includes(r)),suspect=all.filter(r=>r.verdict.code==='suspect').length;
  $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString('en-CA')} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
  host.innerHTML=(rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing is a sure deal in the last scan.</p>')
   +(maybe.length?`<details class="panel advanced"><summary>${maybe.length} more under value, not alerted (value uncertain, new seller, or less than your alert level)</summary>${maybe.slice(0,40).map(r=>dealHtml(r)+(doubt(r)?`<p class="note">Not alerted: ${esc(doubt(r))}.</p>`:'')).join('')}</details>`:'');wire(host);
@@ -181,11 +188,12 @@ function renderDeals(){
 function renderWatch(){
  const host=$('dealsWatch');if(!host)return;const p=prefs(),q=norm($('dealsFilter').value),fx=data?.fx?.usdToCad;
  const list=watched(p).filter(c=>!q||norm(cardLabel(c)).includes(q));
- $('dealsWatchCount').textContent=`${watched(p).length} cards watched (${p.removed.length} removed, ${(p.custom||[]).length} added by you)`;
+ $('dealsWatchCount').textContent=`${watched(p).length} cards watched (${p.removed.length} removed, ${(p.custom||[]).length} added by you, ${myCards().length} from My cards)`;
  host.replaceChildren();
  for(const c of list.slice(0,200)){const v=valueOf(c,data);const row=doc.createElement('div');row.className='deal-watch';
   row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source)+(v.date?', '+esc(day(v.date)):''):'Value unknown'}${c.demandSourceUrl?` · <a href="${esc(c.demandSourceUrl)}" target="_blank" rel="noopener noreferrer">why it's watched</a>`:''}</div></div>
   <label class="deal-target"><span class="note">Target CAD</span><input type="number" min="0" step="1" inputmode="decimal" value="${esc(p.targets[c.id]??'')}" aria-label="Target price for ${esc(c.name)}"></label><button type="button" class="btn smallbtn">Remove</button>`;
+  if(c.mine){row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong> <span class="pill">My cards</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in My cards</button>`;host.append(row);continue}
   row.querySelector('input').onchange=e=>{const q2=prefs();const n=Number(e.target.value);if(e.target.value===''||!(n>0))delete q2.targets[c.id];else q2.targets[c.id]=n;jset(KEY,q2)};
   row.querySelector('button').onclick=()=>{const q2=prefs();if(c.custom)q2.custom=q2.custom.filter(x=>x.id!==c.id);else q2.removed=[...new Set([...q2.removed,c.id])];jset(KEY,q2);renderWatch();renderDeals()};
   host.append(row)}
@@ -219,7 +227,7 @@ async function scan(){
    await new Promise(r=>setTimeout(r,1200))}
   res.at=new Date().toISOString();jset(RESULTS,res);
   const seen=new Set(jget(SEEN,[]));
-  for(const r of assess(res.byCard,cards,data))if(isDeal(r,p.threshold,p.targets[r.card.id])&&!seen.has(r.item.id)){seen.add(r.item.id);notifyDeal(r)}
+  for(const r of assess(res.byCard,cards,data)){const k=ruleFor(r.card,p);if(isDeal(r,k.threshold,k.target)&&!seen.has(r.item.id)){seen.add(r.item.id);notifyDeal(r)}}
   jset(SEEN,[...seen].slice(-3000));
   msg.textContent=`Scan finished: ${done} card(s) checked${failed?', '+failed+' failed':''}.`;
  }finally{scanning=false;btn.disabled=status!=='ready';renderDeals()}

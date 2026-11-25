@@ -2,7 +2,7 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 const root=path.join(__dirname,'..');const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const M=require('../market-reference.js');const D=require('../pack-ev-data.js');
 
-test('scanner quotes get a CAD equivalent at the Bank of Canada rate stored with the snapshot',()=>{
+test('catalogue quotes get a CAD equivalent at the Bank of Canada rate stored with the snapshot',()=>{
  assert.ok(D.fx.usdToCad>1&&D.fx.eurToCad>1,'both Bank of Canada rates in the snapshot');
  assert.equal(D.fx.eurDate,D.fx.date);
  assert.deepEqual({...M.toCad({unit:'USD',price:10},D.fx)},{cad:Math.round(10*D.fx.usdToCad*100)/100,rate:D.fx.usdToCad,date:D.fx.date});
@@ -14,15 +14,8 @@ test('dead and duplicate controls are gone',()=>{
  const html=read('index.html');
  assert.ok(!/id="marketPanel"|id="fxUSD"|id="fxEUR"|id="quoteVerified"/.test(html),'manual FX fields nothing read');
  assert.equal((html.match(/<h2>Getting started<\/h2>/g)||[]).length,0,'duplicate of "Start here"');
- assert.match(html,/Start here · First collection/);
- for(const id of ['scanMarketQuotes','conditionScreen','triageSummary','lotPerformance'])assert.match(html,new RegExp('id="'+id+'"'),id);
-});
-test('Business page: headline numbers and today\'s priorities first, the rest under "More business details"',()=>{
- const p=read('portfolio.js');
- const today=p.indexOf("<h3>Today's priorities"),more=p.indexOf('<details class="portfolio-more">');
- assert.ok(today>0&&more>today);
- for(const h of ['Portfolio value over time','Pricing confidence','Physical sorting plan','Highest-value inventory','Purchase lot recovery','portfolio-disclaimer'])assert.ok(p.indexOf(h)>more,h);
- assert.ok(p.indexOf('</details>')>p.indexOf('portfolio-disclaimer'));
+ for(const id of ['scanMarketQuotes','conditionScreen','triageSummary','lotPerformance','portfolioStudio','collectionSummary'])assert.doesNotMatch(html,new RegExp('id="'+id+'"'),id+' went with the scanner and portfolio pages');
+ assert.ok(!fs.existsSync(path.join(root,'portfolio.js')),'the business dashboard is gone');
 });
 test('price refresh opens a pull request; it pushes to main only when the owner sets PRICE_REFRESH_PUBLISH=main',()=>{
  const w=read('.github/workflows/refresh-prices.yml');

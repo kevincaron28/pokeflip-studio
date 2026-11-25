@@ -8,7 +8,8 @@ const nm = (...p) => join(mobile, 'node_modules', ...p);
 
 export function buildIndex(html) {
   const swap = (re, repl, what) => { if (!re.test(html)) throw new Error('index.html: expected script not found: ' + what); html = html.replace(re, repl); };
-  swap(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/tesseract\.js@[^"]+"[^>]*>\s*<\/script>/, '<script src="./vendor/tesseract.min.js" defer></script><script src="./fcm-config.js" defer></script><script src="./native-bridge.js" defer></script><script src="./vendor/ocr-local.js" defer></script>', 'tesseract');
+  // The native bridge (and whether this build has app push) loads before every page script.
+  swap(/<\/main>/, '</main><script src="./fcm-config.js" defer></script><script src="./native-bridge.js" defer></script>', 'end of main');
   swap(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@[^"]+"[^>]*>\s*<\/script>/, '<script src="./vendor/supabase.min.js" defer></script>', 'supabase');
   if (/https:\/\/cdn\.jsdelivr\.net/.test(html)) throw new Error('index.html still references the CDN');
   return html;
@@ -20,19 +21,14 @@ export function shellFiles(swSource) { // the same file list the PWA service wor
 }
 
 export function build() {
-  rmSync(out, { recursive: true, force: true }); mkdirSync(join(out, 'vendor', 'tesseract', 'core'), { recursive: true }); mkdirSync(join(out, 'vendor', 'tesseract', 'lang'), { recursive: true });
+  rmSync(out, { recursive: true, force: true }); mkdirSync(join(out, 'vendor'), { recursive: true });
   for (const f of shellFiles(readFileSync(join(repo, 'sw.js'), 'utf8'))) { const src = join(repo, f); if (!existsSync(src)) throw new Error('missing web file ' + f); cpSync(src, join(out, f)); }
   writeFileSync(join(out, 'index.html'), buildIndex(readFileSync(join(repo, 'index.html'), 'utf8')));
   cpSync(join(here, '..', 'web-overlay', 'native-bridge.js'), join(out, 'native-bridge.js'));
   // App push stays off until the owner adds Firebase's google-services.json (docs/DROPS-PUSH.md).
   const fcm = existsSync(join(here, '..', 'android', 'app', 'google-services.json'));
   writeFileSync(join(out, 'fcm-config.js'), `window.CARDSTEAD_FCM=${fcm};\n`);
-  cpSync(join(here, '..', 'web-overlay', 'ocr-local.js'), join(out, 'vendor', 'ocr-local.js'));
   cpSync(nm('@supabase', 'supabase-js', 'dist', 'umd', 'supabase.js'), join(out, 'vendor', 'supabase.min.js'));
-  cpSync(nm('tesseract.js', 'dist', 'tesseract.min.js'), join(out, 'vendor', 'tesseract.min.js'));
-  cpSync(nm('tesseract.js', 'dist', 'worker.min.js'), join(out, 'vendor', 'tesseract', 'worker.min.js'));
-  for (const core of ['tesseract-core-lstm.wasm.js', 'tesseract-core-simd-lstm.wasm.js']) cpSync(nm('tesseract.js-core', core), join(out, 'vendor', 'tesseract', 'core', core));
-  for (const lang of ['eng', 'fra']) cpSync(nm('@tesseract.js-data', lang, '4.0.0_best_int', lang + '.traineddata.gz'), join(out, 'vendor', 'tesseract', 'lang', lang + '.traineddata.gz'));
   const size = d => readdirSync(d).reduce((a, f) => { const p = join(d, f); return a + (statSync(p).isDirectory() ? size(p) : statSync(p).size); }, 0);
   console.log('www ready: ' + (size(out) / 1048576).toFixed(1) + ' MB');
 }

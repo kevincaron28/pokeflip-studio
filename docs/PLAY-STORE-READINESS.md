@@ -28,11 +28,9 @@ Rename checklist (done for the app/web layer; remaining items are Play listing t
 >
 > **Data that stays on your phone.** The cards, purchase lots, sales, notes, prices and settings you enter are stored on your device. If you never sign in, none of this leaves your phone.
 >
-> **Camera.** The camera is used only to scan cards. Camera images are processed on your device (text recognition runs locally) and are not uploaded or stored by the developer.
->
 > **Optional cloud backup.** If you choose to sign in with your email address, your email address and a copy of your collection data are stored in a database hosted by Supabase in Canada (Montréal region). Access is restricted to your account. You can download your data, and you can ask us to delete your account and data at [contact email]. Signing in is optional.
 >
-> **Card lookup.** When you look up a card, the card name, set and number you entered or scanned are sent to the TCGdex public card database (api.tcgdex.net) to retrieve card details, images and published reference prices. No account details are sent.
+> **Card lookup.** When you look up a card, the card name, set or number you entered are sent to the TCGdex public card database (api.tcgdex.net) to retrieve card details, images and published reference prices. No account details are sent.
 >
 > **Notifications.** If you allow notifications, the app shows local notifications on your device for restock-alert checks you recorded. No notification token is sent to any server.
 >
@@ -59,7 +57,7 @@ Basis: web code reviewed for network hosts: `*.supabase.co` (auth + snapshot), `
 | Does the app collect or share user data? | **Collects** (optional, only when signing in). **Shares: No** (Supabase and TCGdex act as processors/service providers; confirm Google's definition when filling in). |
 | Email address | Collected; purpose: account management / app functionality; optional; **encrypted in transit: Yes**; user can request deletion: Yes |
 | Other user-generated content (inventory/collection data) | Collected only with cloud backup on; purpose: app functionality (backup/sync); optional; encrypted in transit: Yes; deletion on request |
-| Photos / videos | **Not collected** (camera frames processed on-device only; not transmitted) |
+| Photos / videos | **Not collected** (the app has no camera feature) |
 | Location, contacts, financial info, health, messages, web history, device IDs | Not collected |
 | App activity / analytics / diagnostics | Not collected (no analytics or crash SDK) |
 | Advertising ID | Not used; app contains no ads |
@@ -77,7 +75,6 @@ Other declarations: target audience 13+ / general audience, not primarily childr
 | Permission | Why |
 |---|---|
 | `INTERNET` | lookup, sign-in, sync |
-| `CAMERA` | card scanner (feature declared not required) |
 | `POST_NOTIFICATIONS` | local restock-alert notifications (Android 13+, runtime prompt) |
 
 No location, contacts, storage-wide, microphone or background permissions.
@@ -88,8 +85,8 @@ No location, contacts, storage-wide, microphone or background permissions.
 - Feature graphic 1024×500 (to design; no third-party marks).
 - Phone screenshots, min. 2, recommended 6–8, 9:16, from a Pixel in the final build:
   1. Dashboard (collection value tiles, empty-state-safe demo data)
-  2. Scanner — Single Card mode with the guide frame
-  3. Scanner — Stack Mode
+  2. My cards with prices and a target price
+  3. Drops (restock watches)
   4. Review queue (unknown items go to Review)
   5. Inventory list with search/filter
   6. Buy-or-pass deal helper
@@ -105,5 +102,5 @@ No location, contacts, storage-wide, microphone or background permissions.
 3. Supabase redirect URLs are configured; the email template (`{{ .Token }}` code) still needs a custom SMTP provider first (`docs/ANDROID.md`).
 4. Host the privacy policy; add an account-deletion request page.
 5. Push a tag `vX.Y.Z` → download the AAB artifact → upload to an internal test track.
-6. Test on a Pixel: scan, offline launch, sign-in via emailed code and link, notification, back button. Only then promote.
+6. Test on a Pixel: My cards, offline launch, sign-in via emailed code and link, notification, back button. Only then promote.
 7. Target API: `targetSdk 36` is set by Capacitor 8; Play's requirement moves yearly — check at upload time.

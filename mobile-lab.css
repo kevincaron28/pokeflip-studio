@@ -1,10 +1,5 @@
 /* PokéFlip Studio Mobile Lab — scanner-first experience */
 .mobile-dock,.mobile-drawer,.mobile-scrim{display:none}
-.scan-launch{display:none}
-.scan-advanced-details{margin:12px 0}
-.scan-advanced-details>summary{cursor:pointer;font-weight:800;padding:12px 14px;border:1px solid #53637c;border-radius:11px;color:#e8d5ae;background:#25324b}
-.scan-advanced-details[open]>summary{border-radius:11px 11px 0 0;border-bottom:0}
-.scan-advanced-details>.panel{margin:0;border-radius:0 0 11px 11px}
 @media(max-width:760px){
  body{--dock-height:72px;padding-bottom:calc(var(--dock-height) + env(safe-area-inset-bottom,0px))}
  .wrap{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
@@ -59,77 +54,10 @@
  section>h1{font-size:28px;padding:22px 16px 5px}
  section>h1:before{font-size:9px;letter-spacing:1.6px}
  section>.muted:first-of-type{font-size:12px;line-height:1.5}
- .portfolio-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
- .portfolio-stat strong{font-size:21px}
- .portfolio-stat{min-height:127px;padding:14px}
  .panel{border-radius:14px}
- #scan>.muted:first-of-type{margin-bottom:12px}
- .scan-launch{
-  display:block;position:relative;overflow:hidden;
-  padding:14px;
-  margin:0 0 13px;
-  border-radius:17px;
-  border:1px solid #c3865f;
-  background:linear-gradient(160deg,#1d2b45,#181f35 62%,#34243a);
-  box-shadow:0 12px 34px #0006;
- }
- .scan-launch-top{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:0 0 12px}
- .scan-stage{font-size:11px;font-weight:900;letter-spacing:2px;color:#f6c96b}
- .scan-finder{
-  position:relative;
-  min-height:178px;
-  display:flex;align-items:center;justify-content:center;
-  padding:18px;
-  background:radial-gradient(ellipse 90% 70% at 50% 50%,#293c59,#101929);
-  border-radius:12px;
- }
- .scan-corner{position:absolute;width:28px;height:28px;border-color:#f5c75a;border-style:solid}
- .scan-corner.tl{top:14px;left:14px;border-width:3px 0 0 3px;border-radius:8px 0 0 0}
- .scan-corner.tr{top:14px;right:14px;border-width:3px 3px 0 0;border-radius:0 8px 0 0}
- .scan-corner.bl{bottom:14px;left:14px;border-width:0 0 3px 3px;border-radius:0 0 0 8px}
- .scan-corner.br{bottom:14px;right:14px;border-width:0 3px 3px 0;border-radius:0 0 8px 0}
- .scan-finder>img{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-fit:contain;border-radius:8px;filter:drop-shadow(0 10px 12px #0006)}
- .scan-finder.has-photo{min-height:310px;background:linear-gradient(130deg,#121b2e,#29334a)}
- .scan-finder.has-photo .scan-finder-art{display:none}
- .scan-finder.has-photo .scan-corner{z-index:2}
- .scan-finder-art{display:flex;align-items:center;flex-direction:column;gap:8px;text-align:center}
- .scan-finder-symbol{font-size:48px;line-height:1;color:#f4c968;transform:rotate(-13deg)}
- .scan-finder-art strong{font-size:16px;color:#fff3d9}
- .scan-finder-art small{font-size:11px;color:#bcc9da}
- .scan-launch-actions{display:grid;grid-template-columns:1.2fr 1fr;gap:9px;margin-top:12px}
- .scan-launch-actions .btn{
-  display:flex;align-items:center;justify-content:center;
-  min-height:52px;text-align:center;padding:10px 7px;
-  font-size:13px;font-weight:900;
- }
- .scan-capture-cta{background:linear-gradient(145deg,#f9d675,#eeb44b)!important}
- .scan-batch-cta{background:#2b3852;border-color:#65718b}
- .scan-launch-note{margin:12px 2px;font-size:12px;line-height:1.4;color:#c5d0e0}
- .scan-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:14px;border-top:1px solid #41516a;padding-top:12px}
- .scan-flow span{font-size:10px;text-align:center;color:#9eacc3}
- .scan-flow .scan-flow-current{color:#ffe1a1;font-weight:900}
- #scan>.panel:first-of-type{padding:14px}
- #scan>.panel:first-of-type>.grid2{gap:10px}
- #scan>.panel:first-of-type .callout.small{font-size:11px;line-height:1.35}
- #scan #currentPhoto{max-height:330px;background:linear-gradient(145deg,#171d2f,#2c3447);border:2px solid #f1c562;border-radius:12px;padding:9px;box-shadow:0 5px 22px #0006}
- #scan #scanQueueStatus{font-weight:800;color:#ffe1a1}
- #scan #scanProgress{background:linear-gradient(90deg,#e34e63,#f3cc66)}
- #scan #cardQuery{min-width:0;flex:1}
- #scan #cardForm .btn.primary{width:100%;min-height:49px;font-size:14px;margin-bottom:8px}
- #scan #cardForm .btn:not(.primary){min-height:45px}
- #scan #candidates .candidate{background:#26354e;border-color:#4c6384;padding:10px}
- #scan #candidates .candidate img{width:65px;height:85px;object-fit:contain}
- #scan #candidates .candidate b{font-size:13px}
- #scan .scan-advanced-details>summary{font-size:12px;line-height:1.35}
- #scan .scan-advanced-details>summary::marker{color:#f9ce75}
- #scan #photoInput+button{min-height:43px}
- #scan .panel h2{font-size:17px}
 }
 @media(max-width:390px){
  .dock-item{font-size:9px}
- .scan-launch-actions{grid-template-columns:1fr 1fr}
- .scan-launch-actions .btn{font-size:12px}
- .portfolio-stat strong{font-size:19px}
 }
 @media(prefers-reduced-motion:reduce){
  .mobile-drawer{transition:none}
@@ -149,34 +77,11 @@
 .live-actions button[hidden]{display:none}
 .live-progress{display:flex;gap:10px;justify-content:space-between;font-size:11px;color:#e5cf9e;font-weight:800}
 .live-progress>*{min-width:0}
-.scan-finder{overflow:hidden}
 #liveCamera{display:none}
-.scan-finder.live-on{min-height:310px;background:#080e17}
-.scan-finder.live-on #liveCamera{
- display:block;position:absolute;inset:0;z-index:1;
- width:100%;height:100%;object-fit:cover;
-}
-.scan-finder.live-on #mobilePhotoPreview{display:none!important}
-.scan-finder.live-on .scan-finder-art{display:none}
-.scan-finder.live-on .scan-corner{z-index:3}
-.scan-finder.live-on:after{
- content:"AUTO SCAN ACTIVE";
- position:absolute;z-index:4;bottom:18px;left:50%;transform:translateX(-50%);
- background:#091726dc;color:#f8d47a;font-size:10px;letter-spacing:1.7px;
- font-weight:900;border-radius:30px;padding:7px 12px;white-space:nowrap
-}
 @media(max-width:760px){
  .live-controls{border-radius:13px;padding:12px;margin:-2px 0 12px}
  .live-heading strong{font-size:16px}
  .live-actions .btn.primary{background:linear-gradient(120deg,#f9d975,#e4aa43);color:#1b1e2a}
- .scan-launch{display:flex;flex-direction:column}
- .scan-launch .live-controls{order:1}
- .scan-launch .scan-launch-top{order:0}
- .scan-launch .scan-finder{order:2}
- .scan-launch .scan-launch-actions{order:3}
- .scan-launch .scan-launch-note{order:4}
- .scan-launch .scan-flow{order:5}
- .scan-finder.live-on{min-height:370px}
 }
 
 .live-options{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:#e0d4b6;font-size:12px}

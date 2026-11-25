@@ -14,23 +14,20 @@ test('new design assets have a real identity, with no external theme dependency'
   assert.ok(fs.readFileSync('studio-mark.svg','utf8').includes('<svg'));
   assert.ok(fs.readFileSync('studio-horizon.svg','utf8').includes('<svg'));
 });
-test('four main tabs (Portfolio, Prices, Drops, Settings); every original page and control is still there (grouped, not removed)',()=>{
-  // Old pages keep their section and a hidden data-tab hook (page loaders), reached through the five tabs.
-  for(const id of ['dashboard','scan','deal','lots','inventory','sales','ebay','sealed','restock','settings','packs','deals']){
-    assert.match(html,new RegExp('data-tab="'+id+'"'));
-    assert.match(html,new RegExp('<section id="'+id+'"'));
-  }
-  for(const id of ['home','prices','product'])assert.match(html,new RegExp('<section id="'+id+'"'));
-  assert.deepEqual((html.match(/class="tab(?: on)?" data-tab="(\w+)"/g)||[]).map(x=>x.match(/data-tab="(\w+)"/)[1]),['home','prices','restock','settings']);
-  assert.equal((html.match(/class="dock-item[^"]*" data-dock="/g)||[]).length,4);
-  assert.match(html,/id="addCardFab"[^>]*data-page-link="scan"/,'Add card on every page');
-  for(const id of ['lotForm','bulkForm','inventorySearch','saleDate','backupTop','cloudConfigure','alertsRows']){
-    assert.match(html,new RegExp('id="'+id+'"'));
-  }
+test('four main tabs (Prices, Drops, My cards, Settings); the scanner and portfolio pages are gone',()=>{
+  for(const id of ['prices','product','sets','packs','restock','calendar','deals','mycards','settings','deal','ebay','sealed'])assert.match(html,new RegExp('<section id="'+id+'"'),id);
+  for(const id of ['home','dashboard','scan','lots','inventory','sales'])assert.doesNotMatch(html,new RegExp('<section id="'+id+'"|data-tab="'+id+'"'),id+' is gone');
+  assert.deepEqual((html.match(/class="tab(?: on)?" data-tab="(\w+)"/g)||[]).map(x=>x.match(/data-tab="(\w+)"/)[1]),['prices','restock','mycards','settings']);
+  assert.match(html,/class="tab on" data-tab="prices"/,'Prices opens first');assert.match(html,/<section id="prices">/);
+  assert.deepEqual((html.match(/data-dock="(\w+)"/g)||[]).map(x=>x.slice(11,-1)),['prices','restock','mycards','settings']);
+  assert.match(html,/id="addCardFab"[^>]*data-page-link="mycards" data-mc-add="1"/,'Add card opens My cards');
+  for(const id of ['myCards','backupTop','exportJson','importJson','exportInventory','exportSales','importCsv','cloudConfigure','alertsRows'])assert.match(html,new RegExp('id="'+id+'"'),id);
+  assert.doesNotMatch(html,/capture="environment"|tesseract|Scanner studio|OCR/i,'no camera scanner');
 });
 test('offline shell caches visual assets, not personal data',()=>{
-  for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','card-detect.js','art-rank.js','scan-pipeline.js'])assert.ok(sw.includes("'./"+file+"'"));
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.13\.1'/);
+  for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','mycards.js','collection-value.js','app.js'])assert.ok(sw.includes("'./"+file+"'"),file);
+  for(const file of ['card-detect.js','art-rank.js','scan-pipeline.js','scan-tray.js','continuous-scan.js','portfolio.js','home.js'])assert.ok(!sw.includes("'./"+file+"'"),file+' removed');
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.14\.0'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });
@@ -42,6 +39,6 @@ test('redesign does not embed demo inventory or fictional market values',()=>{
 test('third-party CDN scripts are version-pinned with Subresource Integrity',()=>{
  const html=fs.readFileSync(__dirname+'/../index.html','utf8');
  const tags=[...html.matchAll(/<script src="(https:\/\/[^"]+)"[^>]*>/g)];
- assert.ok(tags.length>=2);
+ assert.ok(tags.length>=1);
  for(const m of tags){assert.match(m[1],/@\d+\.\d+\.\d+\//,m[1]);assert.match(m[0],/integrity="sha384-[A-Za-z0-9+/=]{64}"/,m[1]);assert.match(m[0],/crossorigin="anonymous"/)}
 });

@@ -67,7 +67,8 @@ function renderResults(){
   const pop=items.filter(x=>x.kind==='sealed'&&sets.includes(x.groupId)&&(x.type==='pack'||x.type==='etb')).slice(0,12);
   box.innerHTML=`<h2>${esc(t('prices.hint'))}</h2><ul class="prod-list">${pop.map(row).join('')}</ul>`;return}
  const r=search(items,q);
- box.innerHTML=`<p class="note" aria-live="polite">${esc(t('prices.results',r.length))}</p>`+(r.length?`<ul class="prod-list">${r.map(row).join('')}</ul>`:`<p class="empty">${esc(t('prices.none'))}</p>`);
+ // Cards from My cards that match come first, with their own price and confidence.
+ box.innerHTML=(root.CardsteadMyCards?.findHtml?.(q)||'')+`<p class="note" aria-live="polite">${esc(t('prices.results',r.length))}</p>`+(r.length?`<ul class="prod-list">${r.map(row).join('')}</ul>`:`<p class="empty">${esc(t('prices.none'))}</p>`);
 }
 function watched(it){const W=root.PokeFlipRestock?.watches?.()||[];return W.find(w=>norm(w.product)===norm(it.name))}
 async function open(it,from){

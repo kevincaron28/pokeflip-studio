@@ -1,7 +1,7 @@
 """Loads the app under the exact Content-Security-Policy from vercel.json and exercises the
-third-party paths (Tesseract OCR from CDN, Supabase client, TCGdex API + artwork). Fails on any CSP
+third-party paths (Supabase client from CDN, TCGdex API + artwork). The camera scanner and its OCR were removed. Fails on any CSP
 violation or console error. Needs network. Run: python tests/csp-check.py"""
-import json, threading, os, sys
+import json, threading, os, sys, time
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from playwright.sync_api import sync_playwright
@@ -19,12 +19,15 @@ bad = []
 with sync_playwright() as p:
     b = p.chromium.launch(headless=True, executable_path=os.environ.get("CHROMIUM_PATH") or None)
     pg = b.new_page(); pg.on("console", lambda m: bad.append(m.text) if m.type == "error" else None); pg.on("pageerror", lambda e: bad.append(str(e)))
-    pg.goto(f"http://127.0.0.1:{srv.server_address[1]}/index.html"); pg.wait_for_function("window.Tesseract && window.supabase", timeout=30000)
+    pg.goto(f"http://127.0.0.1:{srv.server_address[1]}/index.html")
+    # Poll with evaluate (wait_for_function needs eval, which this CSP rightly refuses).
+    for _ in range(60):
+      if pg.evaluate("!!(window.supabase && window.PokeFlipCardLookup)"): break
+      time.sleep(0.5)
     try:
       r = pg.evaluate("""async () => {
       const out = {};
-      const c = document.createElement('canvas'); c.width = 600; c.height = 160; const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0,0,600,160); g.fillStyle = '#000'; g.font = 'bold 72px Arial'; g.fillText('Pikachu 25/165', 10, 100);
-      const w = await Tesseract.createWorker(['eng','fra']); out.ocr = (await w.recognize(c)).data.text.trim(); await w.terminate();
+      out.tesseract = typeof window.Tesseract;
       out.supabase = typeof supabase.createClient('https://fehvorwdcswhhonavyit.supabase.co','sb_publishable_uRWUN4b6l2Op-rd0nDIOOg_r__6Tz-g').auth.getSession;
       const list = await PokeFlipCardLookup.lookup('Pikachu','en'); out.cards = list.length; const withImg = list.find(c => c.image); out.img = withImg && withImg.image;
       const im = await new Promise((res, rej) => { const i = new Image(); i.crossOrigin = 'anonymous'; i.onload = () => res([i.naturalWidth, i.naturalHeight]); i.onerror = () => rej('img'); i.src = out.img + '/low.webp'; });
@@ -36,10 +39,10 @@ with sync_playwright() as p:
     b.close()
 print(r)
 # Negative control: the policy must actually be enforced (inline script blocked).
-assert "Pikachu" in r["ocr"] and r["cards"] > 0 and r["supabase"] == "function" and r["imgSize"][0] > 100, r
+assert r["tesseract"] == "undefined" and r["cards"] > 0 and r["supabase"] == "function" and r["imgSize"][0] > 100, r
 assert enforced, 'CSP is not enforced: inline script ran'
 bad = bad[:n_before-1] if len(bad) >= n_before and 'Content Security Policy' in bad[-1] else bad  # drop the expected control violation
 violations = [m for m in bad if "Content Security Policy" in m or "Refused" in m]
 assert not violations, violations
 assert not bad, bad
-print("PASS: app runs under the production CSP (OCR, Supabase client, TCGdex API + artwork), 0 violations")
+print("PASS: app runs under the production CSP (Supabase client, TCGdex API + artwork; no OCR, no eval, no WebAssembly), 0 violations")

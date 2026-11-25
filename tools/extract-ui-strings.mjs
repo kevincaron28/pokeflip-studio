@@ -9,7 +9,7 @@ import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-export const RUNTIME_FILES=['app.js','discord-link.js','restock-watch.js','alert-hub.js','sealed-guide.js','ebay-pricing.js','deal.js','portfolio.js','pack-ev.js','ebay-watch.js','alert-value.js','cloud-sync.js','mobile-experience.js','symbol-ui.js','condition-screen.js','continuous-scan.js','market-reference.js'];
+export const RUNTIME_FILES=['app.js','discord-link.js','restock-watch.js','alert-hub.js','sealed-guide.js','ebay-pricing.js','deal.js','pack-ev.js','ebay-watch.js','alert-value.js','cloud-sync.js','mobile-experience.js','market-reference.js'];
 const words=s=>/[A-Za-z]{3}/.test(s)&&/\s|^[A-Z][a-z]+$/.test(s.trim());
 const tidy=s=>s.replace(/\s+/g,' ').trim();
 // Things that are code, not text people read.

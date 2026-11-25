@@ -1,4 +1,4 @@
-"""Simplified Cardstead at phone width, English and French: four-tab dock, Home answers "buy / watch now",
+"""Simplified Cardstead at phone width, English and French: four-tab dock (Prices first),
 Prices search -> product view with the real price graph (7d/30d/1y) -> one-tap Watch with the detected defaults,
 Advanced folded, Settings language switch. Seeded with data saved by the previous version (watch, store checks,
 alerts inbox, eBay watchlist choices, area) to prove nothing is lost. Set PACK_SHOTS=<folder> for screenshots.
@@ -38,13 +38,12 @@ try:
             # Language detected from the browser; four tabs in the dock.
             assert page.locator(".dock-item").count() == 4
             labels = page.locator(".dock-item span[data-i18n]").all_inner_texts()
-            assert labels == (["Portefeuille", "Prix", "Arrivages", "Réglages"] if lang == "fr" else ["Portfolio", "Prices", "Drops", "Settings"]), labels
-            # Home: the old watch shows with its recorded price and verdict; movers come from the real history.
-            page.locator("#homeBody .prod-list").first.wait_for(timeout=20000)
-            home = page.locator("#homeBody").inner_text()
-            assert "Surging Sparks Elite Trainer Box" in home and "EB Games" in home, home
-            assert page.locator("#homeBody .spark").count() >= 2, "sparklines from price history"
-            if SHOTS: page.screenshot(path=f"{SHOTS}/after-home-{lang}-390.png", full_page=True)
+            assert labels == (["Prix", "Arrivages", "Mes cartes", "Réglages"] if lang == "fr" else ["Prices", "Drops", "My cards", "Settings"]), labels
+            # Prices opens first, with popular products and sparklines from the real price history.
+            assert page.locator("section#prices").is_visible()
+            page.locator("#pricesResults .prod-list").first.wait_for(timeout=20000)
+            assert page.locator("#pricesResults .spark").count() >= 2, "sparklines from price history"
+            if SHOTS: page.screenshot(path=f"{SHOTS}/after-prices-{lang}-390.png", full_page=True)
             # Prices: search with short words -> product view with graph, MSRP and Watch.
             page.locator('.dock-item[data-dock="prices"]').click()
             page.fill("#pricesSearch", "surging bb")
@@ -86,7 +85,7 @@ try:
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             assert overflow <= 1, overflow
             assert not errors, errors
-            print(f"PASS simplified app ({lang}, 390 px): 4 tabs, Home from saved data, search -> product graph -> one-tap watch, Advanced folded (Watch page {height}px), old settings kept")
+            print(f"PASS simplified app ({lang}, 390 px): 4 tabs, Prices first, search -> product graph -> one-tap watch, Advanced folded (Watch page {height}px), old settings kept")
             ctx.close()
         b.close()
 finally:

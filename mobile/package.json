@@ -25,10 +25,6 @@
   },
   "devDependencies": {
     "@capacitor/cli": "8.6.2",
-    "@supabase/supabase-js": "2.119.2",
-    "@tesseract.js-data/eng": "1.0.0",
-    "@tesseract.js-data/fra": "1.0.0",
-    "tesseract.js": "6.0.1",
-    "tesseract.js-core": "6.0.0"
+    "@supabase/supabase-js": "2.119.2"
   }
 }

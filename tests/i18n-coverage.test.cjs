@@ -6,7 +6,8 @@ const {makeTranslator,createDomTranslator}=require('../dom-i18n.js');
 test('every English text of the older screens has a French entry (or is kept on purpose)',async()=>{
  const {allStrings}=await import('../tools/extract-ui-strings.mjs');
  const a=allStrings();const keys=[...a.static,...a.runtime];
- assert.ok(keys.length>900,'extractor found the UI text');
+ // About 800 since the scanner, lots, sales and dashboard pages were removed (25 Nov 2026); far fewer means the extractor broke.
+ assert.ok(keys.length>600,'extractor found the UI text');
  const missing=keys.filter(k=>!(k in FR));
  assert.deepEqual(missing,[],'run node tools/extract-ui-strings.mjs and add these to i18n-fr.js');
 });

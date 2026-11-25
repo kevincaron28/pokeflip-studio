@@ -22,7 +22,7 @@ try:
             assert response and response.status == 200
             page.locator(".brand-lockup img").wait_for(timeout=12000)
             assert page.locator(".brand-lockup").is_visible()
-            assert page.locator(".tab").count() == 4  # Portfolio, Prices, Drops, Settings
+            assert page.locator(".tab").count() == 4  # Prices, Drops, My cards, Settings
             assert page.evaluate("getComputedStyle(document.querySelector('.brand-lockup')).display") == "flex"
             assert page.evaluate("getComputedStyle(document.querySelector('section>h1')).backgroundImage").find("studio-horizon.svg") > -1
             assert page.evaluate("document.styleSheets.length") >= 2
@@ -32,16 +32,17 @@ try:
             if width <= 760:
                 assert page.locator(".mobile-dock").is_visible()
                 assert not page.locator(".tabs").is_visible()
-                page.locator('.dock-item[data-dock="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
+                page.locator('.dock-item[data-dock="mycards"]').click()
             else:
-                page.locator('.tabs [data-tab="home"]').click(); page.locator('#subnav [data-page="scan"]').click()
-            assert page.locator("section#scan").is_visible()
+                page.locator('.tabs [data-tab="mycards"]').click()
+            assert page.locator("section#mycards").is_visible()
+            assert page.locator("#mcAddBtn").is_visible()
             if width <= 760:
-                page.locator('.dock-item[data-dock="home"]').click()
+                page.locator('.dock-item[data-dock="prices"]').click()
             else:
-                page.locator('.tabs [data-tab="home"]').click()
-            page.locator('#subnav [data-page="inventory"]').click()
-            assert page.locator("section#inventory").is_visible()
+                page.locator('.tabs [data-tab="prices"]').click()
+            page.locator('#subnav [data-page="sets"]').click()
+            assert page.locator("section#sets").is_visible()
             assert not errors, errors
             print(f"PASS collector layout: viewport {width}x{height}, navigation and CSS active, zero runtime errors")
             ctx.close()
