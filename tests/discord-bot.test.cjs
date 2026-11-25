@@ -303,3 +303,34 @@ test('Amazon tag: one setting (site /api/config), same link rules as affiliate.j
  assert.equal(F.sent[0].msg.components[0].components[0].url,'https://www.amazon.ca/dp/B0TEST?tag=cardstead-20');
  assert.equal(calls,1,'tag cached between alerts');
 });
+
+test('setup: verification Medium, Onboarding within Discord limits (ids kept on re-runs), one welcome message edited not duplicated',async()=>{
+ const {service}=await load('discord-service.mjs');const C=await load('discord-core.mjs');const now={t:T0};const F=fakes(now);
+ const roles=[],chans=[{name:'general',type:0}],rules=[],sent=[],edits=[],patches=[];let onboarding=null;
+ Object.assign(F.discord,{roles:async()=>roles.map((r,i)=>({id:'R'+i,name:r.name})),channels:async()=>chans.map((c,i)=>({id:'C'+i,...c})),createRole:async(g,r)=>{roles.push(r);return r},createChannel:async(g,c)=>{chans.push(c);return {id:'C'+(chans.length-1)}},registerCommands:async()=>{},automodRules:async()=>rules,createAutomod:async(g,r)=>{rules.push(r)},
+  patchGuild:async(g,b)=>{patches.push(b)},getOnboarding:async()=>onboarding,putOnboarding:async(g,b)=>{onboarding=JSON.parse(JSON.stringify(b))},
+  recentMessages:async(ch)=>sent.filter(m=>m.ch===ch).map((m,i)=>({id:'W'+i,author:{id:'APP'},embeds:m.msg.embeds})),
+  send:async(ch,msg)=>{sent.push({ch,msg});return {id:'W'+sent.length}},edit:async(ch,id,msg)=>{edits.push({ch,id,msg})}});
+ const bot=service(F.deps);const log=await bot.setup();
+ assert.deepEqual(patches,[{verification_level:2}]);
+ assert.ok(log.some(l=>/^onboarding 4 questions, 10 default channels$/.test(l)),log.join(' | '));
+ assert.equal(onboarding.enabled,true);
+ assert.deepEqual(onboarding.prompts.map(p=>p.title),['Region / Région','Stores / Magasins','Products / Produits','Language / Langue']);
+ assert.deepEqual(onboarding.prompts.map(p=>p.options.length),[8,8,6,2]);
+ assert.equal(onboarding.prompts[3].single_select,true);
+ const ids=new Map(chans.map((c,i)=>['C'+i,c]));
+ const defaults=onboarding.default_channel_ids.map(id=>ids.get(id));
+ assert.ok(defaults.length>=7,'Discord needs at least 7 default channels');
+ const writable=defaults.filter(c=>!(c.permission_overwrites||[]).some(p=>p.id==='G'&&BigInt(p.deny)&(1n<<11n)));
+ assert.ok(writable.length>=5,'at least 5 where @everyone can send');
+ assert.ok(defaults.every(c=>!(c.permission_overwrites||[]).some(p=>p.id==='G'&&BigInt(p.deny)&(1n<<10n))),'every default channel is visible to @everyone');
+ for(const p of onboarding.prompts)for(const o of p.options){assert.equal(o.role_ids.length,1);assert.ok(o.title.length<=50)}
+ assert.equal(sent.filter(m=>m.msg.embeds?.[0]?.title===C.WELCOME_TITLE).length,1,'welcome posted once');
+ assert.match(sent.find(m=>m.msg.embeds?.[0]?.title===C.WELCOME_TITLE).msg.embeds[1].description,/Bienvenue/);
+ const firstIds=JSON.stringify(onboarding.prompts.map(p=>[p.id,p.options.map(o=>o.id)]));
+ now.t+=3600e3;await bot.setup();
+ assert.equal(JSON.stringify(onboarding.prompts.map(p=>[p.id,p.options.map(o=>o.id)])),firstIds,'re-run keeps prompt and option ids');
+ assert.equal(sent.filter(m=>m.msg.embeds?.[0]?.title===C.WELCOME_TITLE).length,1,'re-run does not post a second welcome');
+ assert.equal(edits.length,1,'re-run edits the welcome');
+ assert.throws(()=>C.onboardingBody({roles:{},channels:{},existing:null,now:T0}),/missing role/);
+});

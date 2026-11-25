@@ -307,6 +307,24 @@ export function service(deps) {
       if (has(r.name)) continue;
       try { await discord.createAutomod(gid, r); log.push(`automod ${r.name}`); } catch (err) { log.push(`automod ${r.name} failed: ${err.message}`); }
     }
+    // Verification level Medium: a Discord account registered for at least 5 minutes, with a verified email.
+    try { await discord.patchGuild(gid, { verification_level: 2 }); log.push('verification medium'); } catch (err) { log.push(`verification failed: ${err.message}`); }
+    const g2 = await guild(true);
+    // Onboarding: four questions that hand out the roles, and the channels everyone sees. Ids are reused on re-runs.
+    try {
+      const existing = await discord.getOnboarding(gid).catch(() => null);
+      const body = C.onboardingBody({ roles: g2.roles, channels: g2.channels, existing, now: now() });
+      await discord.putOnboarding(gid, body);
+      log.push(`onboarding ${body.prompts.length} questions, ${body.default_channel_ids.length} default channels`);
+    } catch (err) { log.push(`onboarding failed: ${err.message}`); }
+    // Rules and how it works: one message in #bienvenue-welcome, edited (never duplicated) on re-runs.
+    try {
+      const ch = g2.channels['bienvenue-welcome'];
+      if (!ch) throw Error('no #bienvenue-welcome');
+      const msg = C.welcomeMessage(env.CARDSTEAD_URL);
+      const mine = ((await discord.recentMessages(ch)) || []).find((m) => m.author?.id === botId && m.embeds?.[0]?.title === C.WELCOME_TITLE);
+      if (mine) { await discord.edit(ch, mine.id, msg); log.push('welcome message updated'); } else { await discord.send(ch, msg); log.push('welcome message posted'); }
+    } catch (err) { log.push(`welcome message failed: ${err.message}`); }
     guildCache = null;
     return log;
   }
