@@ -92,6 +92,7 @@ async function open(it,from){
  <div class="prod-head">${img}<div><p class="ac-kind">${esc(kindLabel(it))} · ${esc(it.set||'')}</p><h1 class="prod-title">${esc(it.name)}</h1></div></div>
  <div class="prod-metrics">
   <div class="metric"><label>${esc(t('p.market'))}</label>${root.CardsteadPriceLine?root.CardsteadPriceLine.html(it.kind==='sealed'?root.CardsteadPriceLine.sealed(it.marketUsd,data):root.CardsteadPriceLine.card(it.card,data)):`<strong>${esc(M(val))}</strong>`}${ch?`<span class="${ch.abs>=0?'g-up':'g-down'}">${esc(I().pct(ch.rel))} · ${esc(t('p.change30'))}</span>`:''}</div>
+  ${it.kind==='card'?`<div class="metric"><label>${esc(t('el.label'))}${it.card?.grade&&it.card.grade!=='raw'?' · '+esc(it.card.grade):''}</label><span id="productEbay"></span></div>`:''}
   <div class="metric"><label>${esc(t('p.msrp'))}</label><strong>${a?.msrp?esc(I().money(a.msrp.usd,'USD')):esc(t('p.unknown'))}</strong><span class="note">${esc(t('p.cadUnknown'))}</span></div>
   ${it.kind==='sealed'?`<div class="metric"><label>${esc(t('p.best'))}</label><strong>${best?esc(M(best.price)):'—'}</strong><span class="note">${best?esc(best.store):esc(t('p.noStore'))}</span></div>`:''}
   ${a?.contents?.evCad?`<div class="metric"><label>${esc(t('p.ev'))}</label><strong>${esc(M(a.contents.evCad))}</strong><span class="note">${a.contents.packs} × EV</span></div>`:''}
@@ -106,6 +107,7 @@ async function open(it,from){
  host.querySelector('[data-goto-deals]')?.addEventListener('click',e=>{e.preventDefault();root.CardsteadNav?.show('deals')});
  root.CardsteadChart.render($('productChart'),history,key,{msrpCad:a?.msrp?.cadAtRate??null,dots});
  if(it.kind==='sealed')C?.render($('productCompare'),{product:it.name,format:WATCH_FORMAT[it.type]});
+ if(it.kind==='card'&&it.card)root.CardsteadEbayLive?.render($('productEbay'),it.card);
  $('watchForm')?.addEventListener('submit',e=>{e.preventDefault();const n=Number($('watchMax').value);if(!(n>0))return;
   try{root.PokeFlipRestock.addWatch({...def,ceiling:n});open(it)}catch(err){alert(err.message)}});
  root.scrollTo?.(0,0);

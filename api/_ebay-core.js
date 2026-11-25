@@ -7,7 +7,10 @@
  *   EBAY_CLIENT_SECRET  = the production keyset's Cert ID (Client Secret)
  *   CARDSTEAD_ORIGINS   = optional, comma-separated extra origins allowed by CORS (e.g. a Cloudflare preview URL)
  * Without the keys the endpoint answers 503 {configured:false} and the app shows the setup steps (docs/EBAY-SETUP.md).
- * Abuse limits: query length, 50 results, 10-minute cache per query, 60 requests per minute per IP (per instance).
+ * Two modes: deals (default: the 50 cheapest listings, cached 10 minutes) and value (mode=value: up to 200 listings,
+ * the most eBay returns, in eBay's best match order, for the asking median of a card; cached 6 hours). Successful answers carry a CDN cache header
+ * (s-maxage) so the host's edge serves repeats without spending eBay calls (5,000 a day for the whole app).
+ * Abuse limits: query length, 60 requests per minute per IP (per instance).
  * Files starting with "_" in api/ are not routes on Vercel.
  */
 'use strict';
@@ -16,7 +19,10 @@ const SEARCH_URL='https://api.ebay.com/buy/browse/v1/item_summary/search';
 const SCOPE='https://api.ebay.com/oauth/api_scope';
 const CARDS_CATEGORY='183454'; // CCG Individual Cards
 const BASE_ORIGINS=['https://pokeflip-studio.vercel.app','https://localhost','capacitor://localhost','http://localhost'];
-const CACHE_MS=10*60*1000,RATE=60;
+const CACHE_MS=10*60*1000,VALUE_CACHE_MS=6*60*60*1000,RATE=60;
+// deals: the cheapest listings first (a deal is a low price). value: eBay's best match order, not sorted by price, so
+// the asking median is not pulled down when more listings exist than one answer holds (measured 25 Nov 2026).
+const MODES={deals:{limit:'50',sort:'price',cacheMs:CACHE_MS},value:{limit:'200',sort:null,cacheMs:VALUE_CACHE_MS}};
 let token=null;const cache=new Map(),hits=new Map();
 
 function origins(env={}){return new Set([...BASE_ORIGINS,...String(env.CARDSTEAD_ORIGINS||'').split(',').map(s=>s.trim()).filter(s=>/^https:\/\/[\w.-]+$/.test(s))])}
@@ -39,15 +45,16 @@ function slim(it){
   country:it.itemLocation?.country||null,seller:it.seller?.username||null,feedback:num(it.seller?.feedbackPercentage),
   buyingOptions:it.buyingOptions||[]};
 }
-async function search(q,{env={},fetchImpl=fetch,now=Date.now()}={}){
- const key=q.toLowerCase();const hit=cache.get(key);if(hit&&now-hit.at<CACHE_MS)return hit.body;
+async function search(q,{env={},fetchImpl=fetch,now=Date.now(),mode='deals'}={}){
+ const M=MODES[mode]||MODES.deals;
+ const key=mode+'|'+q.toLowerCase();const hit=cache.get(key);if(hit&&now-hit.at<M.cacheMs)return hit.body;
  const t=await getToken(env,fetchImpl,now);
- const params=new URLSearchParams({q,limit:'50',category_ids:CARDS_CATEGORY,filter:'buyingOptions:{FIXED_PRICE},deliveryCountry:CA',sort:'price'});
+ const params=new URLSearchParams({q,limit:M.limit,category_ids:CARDS_CATEGORY,filter:'buyingOptions:{FIXED_PRICE},deliveryCountry:CA'});if(M.sort)params.set('sort',M.sort);
  const res=await fetchImpl(SEARCH_URL+'?'+params,{headers:{Authorization:'Bearer '+t,'X-EBAY-C-MARKETPLACE-ID':'EBAY_CA','X-EBAY-C-ENDUSERCTX':'contextualLocation=country%3DCA','Accept-Language':'en-CA'}});
  if(res.status===401)token=null;
  if(!res.ok)throw Object.assign(Error('eBay search failed ('+res.status+')'),{status:502});
  const j=await res.json();
- const body={configured:true,marketplace:'EBAY_CA',fetchedAt:new Date(now).toISOString(),total:num(j.total),items:(j.itemSummaries||[]).map(slim)};
+ const body={configured:true,marketplace:'EBAY_CA',mode,fetchedAt:new Date(now).toISOString(),total:num(j.total),items:(j.itemSummaries||[]).map(slim)};
  cache.set(key,{at:now,body});if(cache.size>500)cache.delete(cache.keys().next().value);
  return body;
 }
@@ -65,7 +72,11 @@ async function handle({method='GET',url,origin,ip='unknown',env={},fetchImpl=fet
  if(u.searchParams.get('status')==='1')return send(200,{configured:true});
  const q=(u.searchParams.get('q')||'').trim();
  if(q.length<3||q.length>120||/[<>{}]/.test(q))return send(400,{error:'Query must be 3 to 120 characters.'});
+ const mode=u.searchParams.get('mode')==='value'?'value':'deals';
  if(limited(ip||'unknown',now))return send(429,{error:'Too many searches; wait a minute.'});
- try{return send(200,await search(q,{env,fetchImpl,now}))}catch(e){return send(e.status||500,{error:e.message})}
+ try{const r=send(200,await search(q,{env,fetchImpl,now,mode}));
+  // Let the host's CDN keep the answer (per query and mode): repeats cost no eBay call.
+  r.headers['Cache-Control']='public, max-age=0, s-maxage='+Math.round(MODES[mode].cacheMs/1000);return r}
+ catch(e){return send(e.status||500,{error:e.message})}
 }
-module.exports={handle,slim,search,getToken,configured,limited,origins,reset:()=>{token=null;cache.clear();hits.clear()}};
+module.exports={handle,slim,search,getToken,configured,limited,origins,MODES,reset:()=>{token=null;cache.clear();hits.clear()}};

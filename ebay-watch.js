@@ -157,6 +157,8 @@ const doc=root.document,$=id=>doc.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
 const API=()=>(root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'')+'/api/ebay-search';
+// The app (another origin) asks with its own URL, so the CDN never hands it a copy cached for the website (CORS).
+const SRC=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'&src=app':'';
 let data=null,status='unknown',scanning=false,timer=null;
 function script(src,ready){return ready()?Promise.resolve():new Promise((res,rej)=>{const s=doc.createElement('script');s.src=src;s.onload=()=>res();s.onerror=()=>rej(Error(src+' could not load'));doc.head.appendChild(s)})}
 async function loadAll(){
@@ -216,7 +218,7 @@ async function scan(){
  if(scanning||status!=='ready')return;scanning=true;const btn=$('dealsScan'),msg=$('dealsMessage');btn.disabled=true;
  const p=prefs(),cards=watched(p),res=jget(RESULTS,{byCard:{}});res.byCard=res.byCard||{};let done=0,failed=0;
  try{for(const c of cards){if(doc.hidden&&!root.PokeFlipNative)break;msg.textContent=`Checking eBay: ${done+1} of ${cards.length} (${c.name})…`;
-   try{const r=await fetch(API()+'?q='+encodeURIComponent(c.ebayQuery||cardLabel(c)),{cache:'no-store'});
+   try{const r=await fetch(API()+'?q='+encodeURIComponent(c.ebayQuery||cardLabel(c))+SRC(),{cache:'no-store'});
     if(r.status===429){msg.textContent='eBay search limit reached; the scan continues later.';break}
     const j=await r.json();if(!r.ok)throw Error(j.error||r.status);
     // Keep the 8 cheapest matching listings per card.

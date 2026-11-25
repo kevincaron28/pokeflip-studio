@@ -45,17 +45,17 @@ function priceOf(item){
 function needsCheck(item){return item.category==='review'}
 function atTarget(item){const p=priceOf(item);return !item.archived&&!needsCheck(item)&&isNum(item.target)&&p.state==='ok'&&p.confidence!=='low'&&p.cad<=item.target}
 /** Cards eBay deals should check: those with a target or an alert level. Pure. */
-function ebayCards(items){
- return (items||[]).filter(i=>i&&!i.archived&&!needsCheck(i)&&i.name&&(isNum(i.target)||isNum(i.alertPct))).map(i=>{
-  const p=priceOf(i),graded=i.grade&&i.grade!=='raw';
-  const printing=i.finish==='Reverse Holo'?'Reverse Holofoil':i.finish==='Holo'?'Holofoil':i.finish==='Normal'?'Normal':'';
-  const ed=i.edition==='1st'?' 1st Edition':i.edition==='shadowless'?' Shadowless':i.edition==='unlimited'?' Unlimited':'';
-  const num=String(i.number||'').split('/')[0]||String(i.idCode||'').split('-').pop()||'';
-  return {id:'my-'+i.id,mine:true,itemId:i.id,name:i.name,number:i.number||num,set:(i.setName||'')+ed,printing,grade:graded?i.grade:'raw',lang:i.lang,
-   value:p.state==='ok'?{cad:p.cad,source:'My cards price (recent sales)',date:p.at,confidence:p.confidence}:null,
-   target:isNum(i.target)?i.target:null,threshold:isNum(i.alertPct)?i.alertPct/100:null,
-   ebayQuery:[i.name,num,i.setName,graded?i.grade:'',i.lang==='fr'?'french':''].filter(Boolean).join(' '),exclude:[]};
- });
+function ebayCards(items){return (items||[]).filter(i=>i&&!i.archived&&!needsCheck(i)&&i.name&&(isNum(i.target)||isNum(i.alertPct))).map(ebayCard)}
+/** One card as eBay deals and eBay live prices describe it (exact card, printing, edition, grade, language). Pure. */
+function ebayCard(i){
+ const p=priceOf(i),graded=!!(i.grade&&i.grade!=='raw');
+ const printing=i.finish==='Reverse Holo'?'Reverse Holofoil':i.finish==='Holo'?'Holofoil':i.finish==='Normal'?'Normal':'';
+ const ed=i.edition==='1st'?' 1st Edition':i.edition==='shadowless'?' Shadowless':i.edition==='unlimited'?' Unlimited':'';
+ const num=String(i.number||'').split('/')[0]||String(i.idCode||'').split('-').pop()||'';
+ return {id:'my-'+i.id,mine:true,itemId:i.id,name:i.name,number:i.number||num,set:(i.setName||'')+ed,printing,grade:graded?i.grade:'raw',lang:i.lang,
+  value:p.state==='ok'?{cad:p.cad,source:'My cards price (recent sales)',date:p.at,confidence:p.confidence}:null,
+  target:isNum(i.target)?i.target:null,threshold:isNum(i.alertPct)?i.alertPct/100:null,
+  ebayQuery:[i.name,num,i.setName,i.edition==='1st'?'1st edition':i.edition==='shadowless'?'shadowless':'',graded?i.grade:'',i.lang==='fr'?'french':''].filter(Boolean).join(' '),exclude:[]};
 }
 /** My cards matching a Prices search: every word in the name, set, number or id. Pure. */
 function searchMine(items,q){
@@ -63,7 +63,7 @@ function searchMine(items,q){
  const words=norm(q).split(' ').filter(Boolean);if(!words.length)return [];
  return (items||[]).filter(i=>i&&!i.archived&&i.name&&words.every(w=>norm([i.name,i.setName,i.number,i.idCode].join(' ')).includes(w)));
 }
-const core={printings,fromTcgdex,priceOf,needsCheck,atTarget,ebayCards,searchMine,PAGE:100,GRADES,CONDITIONS};
+const core={printings,fromTcgdex,priceOf,needsCheck,atTarget,ebayCards,ebayCard,searchMine,PAGE:100,GRADES,CONDITIONS};
 root.CardsteadMyCards=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 const doc=root.document;if(!doc)return;
@@ -97,10 +97,17 @@ function rowHtml(i){
   <div class="mc-row">${i.image?`<img class="mc-img" loading="lazy" alt="" src="${esc(i.image)}">`:'<span class="mc-img mc-noimg" aria-hidden="true">▱</span>'}
   <div class="mc-main"><strong>${esc(i.name)}</strong><span class="note">${esc(facts.join(' · '))}</span>
    <div class="mc-price">${priceHtml(i)}${hit?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}${needsCheck(i)?` <span class="pill gold" title="${esc(t('mc.checkWhy'))}">${esc(t('mc.check'))}</span>`:''}</div>
+   <div class="mc-ebay" data-mc-ebay="${esc(i.id)}">${ebayHtml(i)}</div>
    ${mine.length?`<span class="note">${esc(mine.join(' · '))}${gain!==null?` · <span class="${gain>=0?'g-up':'g-down'}">${esc((gain>=0?'+':'−')+M(Math.abs(gain)))}</span>`:''}</span>`:''}</div>
   <button type="button" class="btn smallbtn" data-mc-edit="${esc(i.id)}">${esc(t('mc.edit'))}</button></div>
   ${editing===i.id?(needsCheck(i)?`<p class="note">${esc(t('mc.checkWhy'))}</p>`:'')+editHtml(i):''}</li>`;
 }
+function ebayHtml(i){const E=root.CardsteadEbayLive;if(!E||!i.name)return '';const c=E.cached(ebayCard(i));return c?E.html({state:'ok',live:c},{compact:true}):`<button type="button" class="btn smallbtn" data-mc-ebaybtn="${esc(i.id)}">${esc(t('el.check'))}</button>`}
+/** Live eBay prices for the cards on screen: up to 30 lookups per visit, graded cards and cards with a target first. */
+let autoDone=new Set();
+async function autoEbay(list){const E=root.CardsteadEbayLive;if(!E)return;
+ const todo=list.filter(i=>i.name&&!autoDone.has(i.id)&&!E.cached(ebayCard(i))).sort((a,b)=>((b.grade&&b.grade!=='raw')+isNum(b.target))-((a.grade&&a.grade!=='raw')+isNum(a.target))).slice(0,30);
+ for(const i of todo){autoDone.add(i.id);const el=doc.querySelector(`[data-mc-ebay="${CSS.escape(i.id)}"]`);if(!el)continue;const r=await E.render(el,ebayCard(i),{compact:true});if(r&&r.state!=='ok')break}}
 function optionList(list,value,label=x=>x){return list.map(v=>`<option value="${esc(typeof v==='string'?v:JSON.stringify(v))}"${(typeof v==='string'?v:JSON.stringify(v))===value?' selected':''}>${esc(label(v))}</option>`).join('')}
 function moneyField(id,label,value,hint){return `<div><label class="field" for="${id}">${esc(label)}</label><input id="${id}" type="number" min="0" step="0.01" inputmode="decimal" value="${isNum(value)?value:''}" placeholder="${esc(hint||t('mc.optional'))}"></div>`}
 function alertField(id,value){return `<div><label class="field" for="${id}">${esc(t('mc.alertPct'))}</label><input id="${id}" type="number" min="1" max="90" step="1" inputmode="numeric" value="${isNum(value)?value:''}" placeholder="${esc(t('mc.alertHint'))}"></div>`}
@@ -156,6 +163,7 @@ function render(){
   <div class="panel">${items.length?`<div class="row spread"><h2>${esc(t('mc.count',items.length))}</h2>${items.length>8?`<input id="mcFilter" class="mc-filter" placeholder="${esc(t('mc.filter'))}" value="${esc(filter)}">`:''}</div>
   <ul class="mc-list">${shown.slice(0,limit).map(rowHtml).join('')}</ul>${shown.length>limit?`<div class="row spread"><span class="note">${esc(t('mc.showing',Math.min(limit,shown.length),shown.length))}</span><button type="button" class="btn smallbtn" data-mc-more="1">${esc(t('mc.more'))}</button></div>`:''}`:`<p class="empty">${esc(t('mc.empty'))}</p>`}</div>
   <p class="note">${esc(t('mc.how'))}${older?' '+esc(t('mc.older')):''}</p>`;
+ if(!adding&&!editing)setTimeout(()=>autoEbay(shown.slice(0,limit)),300);
  const f=$('mcFilter');if(f)f.oninput=()=>{filter=f.value;limit=core.PAGE;const pos=f.selectionStart;render();const g=$('mcFilter');g.focus();g.setSelectionRange(pos,pos)};
  const qy=$('mcQuery');if(qy){qy.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();search()}};if(adding?.focus){qy.focus();adding.focus=false}}
  const pr=$('mcPrint'),gr=$('mcGrade'),cd=$('mcCond');for(const el of [pr,gr,cd])if(el)el.onchange=previewPrice;
@@ -229,10 +237,11 @@ doc.addEventListener('click',e=>{
  if(b.dataset.mcEdit){editing=editing===b.dataset.mcEdit?null:b.dataset.mcEdit;render();return}
  if(b.dataset.mcCancel){editing=null;render();return}
  if(b.dataset.mcMore){limit+=core.PAGE;render();return}
+ if(b.dataset.mcEbaybtn){const it=active().find(i=>i.id===b.dataset.mcEbaybtn);if(it)root.CardsteadEbayLive?.render(b.closest('[data-mc-ebay]'),ebayCard(it),{compact:true});return}
  if(b.dataset.mcRemove){const id=b.dataset.mcRemove,item=active().find(i=>i.id===id);if(!item||!confirm(t('mc.confirmRemove',item.name)))return;
   const r=L().removeCard(id);if(r){editing=null;toast(t(r==='hidden'?'mc.hidden':'mc.removed',item.name));render()}}
 });
-root.addEventListener('cardstead:show',e=>{if(e.detail==='mycards')render()});
+root.addEventListener('cardstead:show',e=>{if(e.detail==='mycards'){autoDone=new Set();render()}});
 root.addEventListener('pokeflip:saved',()=>{if(!$('mycards')?.classList.contains('hidden'))render()});
 root.addEventListener('cardstead:lang',render);
 root.addEventListener('cardstead:prices-progress',e=>{const s=$('mcStatus');if(s)s.textContent=t('mc.checking',e.detail.done,e.detail.total)});
@@ -240,7 +249,7 @@ root.addEventListener('cardstead:prices',e=>{checkAlerts(e.detail?.changed||null
 /** "In My cards" block for the Prices search (product.js): matching cards with their price, linking to My cards. */
 function findHtml(q){
  const hits=searchMine(active(),q).slice(0,12);if(!hits.length)return '';
- return `<h3>${esc(t('mc.inMine'))}</h3><ul class="prod-list">${hits.map(i=>`<li><button type="button" class="prod-row" data-page-link="mycards"><span class="prod-main"><strong>${esc(i.name)}</strong><span class="note">${esc([i.setName||i.idCode,i.number?'#'+i.number:'',printingLabel({finish:i.finish,edition:i.edition||''}),i.grade&&i.grade!=='raw'?i.grade:''].filter(Boolean).join(' · '))}</span></span><span class="prod-val">${priceHtml(i)}${atTarget(i)?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}</span></button></li>`).join('')}</ul>`;
+ return `<h3>${esc(t('mc.inMine'))}</h3><ul class="prod-list">${hits.map(i=>`<li><button type="button" class="prod-row" data-page-link="mycards"><span class="prod-main"><strong>${esc(i.name)}</strong><span class="note">${esc([i.setName||i.idCode,i.number?'#'+i.number:'',printingLabel({finish:i.finish,edition:i.edition||''}),i.grade&&i.grade!=='raw'?i.grade:''].filter(Boolean).join(' · '))}</span></span><span class="prod-val">${priceHtml(i)}${atTarget(i)?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}${root.CardsteadEbayLive?.cached(ebayCard(i))?'<br>'+root.CardsteadEbayLive.html({state:'ok',live:root.CardsteadEbayLive.cached(ebayCard(i))},{compact:true}):''}</span></button></li>`).join('')}</ul>`;
 }
 core.render=render;core.checkAlerts=checkAlerts;core.findHtml=findHtml;
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',render);else render();
