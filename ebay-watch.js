@@ -18,7 +18,8 @@ const FOREIGN=/\b(japanese|japan|jpn|jp|chinese|korean|kor|french|francais|germa
 function edition(card){const p=' '+norm((card.printing||'')+' '+(card.set||'')+' '+String(card.id||'').replace(/-/g,' '))+' ';
  if(/ 1st | first edition /.test(p))return '1st';if(/ shadowless /.test(p))return 'shadowless';if(/ unlimited /.test(p))return 'unlimited';return null}
 /** Condition written in a listing title: NM, LP, MP, HP, DMG or null when not stated. "HP 120" (hit points) is not a condition. */
-function condition(title){const t=' '+norm(title).replace(/\//g,' ')+' ';
+// A collector number (4/102) is not hit points: "4/102 HP" means Heavily Played (live listing, 25 Nov 2026).
+function condition(title){const t=' '+norm(title).replace(/\b\d+[a-z]?\/\d+\b/g,' no ').replace(/\//g,' ')+' ';
  if(/ (dmg|damaged|damage|crease|creased|creases|torn|poor) /.test(t))return 'DMG';
  if(/ (heavily played|heavy play|heavy played) /.test(t)||/ hp (?!\d)/.test(t)&&!/\d hp /.test(t))return 'HP';
  if(/ (mp|moderately played|moderate play|played) /.test(t))return 'MP';

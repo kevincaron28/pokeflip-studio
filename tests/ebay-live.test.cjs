@@ -70,3 +70,9 @@ test('wired in: card page, My cards, Prices search, daily check; the app asks wi
  assert.match(read('functions/api/ebay-search.js'),/internal\/' \+ mode \+ '\/'/,'Cloudflare edge cache keyed by mode');
  global.window=global;const I=require('../ui-i18n.js');for(const k of Object.keys(I.S.en).filter(k=>k.startsWith('el.')))assert.ok(k in I.S.fr,k);
 });
+
+test('a collector number is not hit points: "4/102 HP" is Heavily Played, "HP 120" or "120 HP" is not a condition',()=>{
+ assert.equal(W.condition('1999 Pokemon Base Set Unlimited Charizard 4/102 HP PKL'),'HP');
+ assert.equal(W.condition('Charizard 4/102 HP 120 holo'),null);
+ assert.equal(W.condition('Charizard 120 HP 4/102 NM'),'NM');
+});
