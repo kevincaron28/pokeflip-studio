@@ -239,6 +239,7 @@ test('setup creates roles, read-only alert channels and spam rules, and is safe 
  assert.ok(roles.every(r=>r.mentionable===false),'members cannot ping roles');
  assert.deepEqual(cmds.map(c=>c.name),['price','prix','report','link','flag']);
  assert.equal(rules.length,3);
+ assert.ok(rules.every(r=>r.actions.every(x=>x.type===1)),'AutoMod rules only block: a timeout (type 3) needs Moderate Members, which the bot is not given');
  const counts=[roles.length,chans.length,rules.length];await bot.setup();
  assert.deepEqual([roles.length,chans.length,rules.length],counts,'second run creates nothing');
 });
