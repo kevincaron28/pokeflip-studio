@@ -563,6 +563,7 @@ details.advanced>summary{cursor:pointer;font-weight:700;min-height:44px;display:
 @media (max-width:760px){.add-card-fab{bottom:calc(var(--dock-height,72px) + 14px + env(safe-area-inset-bottom,0px));padding:10px 15px}}
 .footer{margin-bottom:76px} /* room under the last row for the Add card button */
 #accountPanel a.btn{text-decoration:none}
+#cloudPanel .row{margin-top:10px}.cloud-adv{margin-top:14px}.cloud-adv summary{cursor:pointer;padding:10px 0;font-size:13px}
 .footer-link{color:inherit;display:inline-block;padding:10px 6px;text-decoration:underline}
 
 /* Prices > All sets (sets.js). */

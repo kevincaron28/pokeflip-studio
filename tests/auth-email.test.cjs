@@ -26,3 +26,16 @@ test('the app accepts the emailed code',()=>{
  assert.match(read('cloud-sync.js'),/verifyOtp\(\{email:[^}]*token:\$\('cloudOtp'\)\.value\.trim\(\),type:'email'\}\)/);
  assert.match(read('index.html'),/id="cloudOtp"[^>]*autocomplete="one-time-code"/);
 });
+
+test('sign-in errors are said in plain words, and the database fields are folded away',()=>{
+ require('../cloud-sync.js');const core=globalThis.PokeFlipCloudCore;
+ assert.match(core.authMessage({code:'over_email_send_rate_limit'}),/Too many/);
+ assert.match(core.authMessage({message:'Email address "a@b.c" cannot be used as it is not authorized'}),/cannot email this address/);
+ assert.match(core.authMessage({code:'otp_expired',message:'Token has expired or is invalid'}),/wrong or has expired/);
+ assert.match(core.authMessage({message:'Error sending magic link email'}),/could not be sent/);
+ assert.match(core.authMessage({message:'TypeError: Failed to fetch'}),/No connection/);
+ assert.equal(core.authMessage({message:'something else'}),null);
+ const html=read('index.html'),adv=html.slice(html.indexOf('<details class="cloud-adv">'),html.indexOf('</details>',html.indexOf('<details class="cloud-adv">')));
+ for(const id of ['cloudUrl','cloudKey','cloudConfigure'])assert.ok(adv.includes('id="'+id+'"'),id+' is under Advanced');
+ assert.match(html,/id="cloudSignedIn" hidden/);
+});
