@@ -36,7 +36,7 @@ Google asks about tester use and feedback, so collect them now.
 | Sign in by email (code or link), as someone who is **not** on the Supabase project team | Not verified. Supabase's built-in sender only mails the project team, 2 an hour, unless custom SMTP is set up (`docs/AUTH-EMAIL-SMTP.md`) |
 | Cloud backup between two devices | Not verified |
 | Notification for a price target and a restock watch | Not verified |
-| App push for drop alerts | Not verified: unknown whether 4.4.0 was built with Firebase (`docs/DROPS-PUSH.md`) |
+| App push for drop alerts | Not verified. The 4.4.1 bundle has app push switched on (`fcm-config.js`); the server steps in `docs/DROPS-PUSH.md` and delivery to a phone are unchecked, and 4.4.0 was not inspected |
 | Shop checker feeding drop alerts | Not running according to `docs/SHOP-CHECKER-WINDOWS.md` |
 | Security review of the cloud save function | Open (`RELEASE-STATUS.md`) |
 
