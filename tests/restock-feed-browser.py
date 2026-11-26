@@ -45,12 +45,20 @@ try:
         assert asked[0].startswith("sb_publishable_"), asked
         page.wait_for_timeout(300); assert not page.locator("#restockFeed").is_visible()
 
+        cat = json.loads((ROOT / "data/drop-catalogue.json").read_text(encoding="utf-8"))
+        box_set = next(s for s in cat["sets"] if s["slug"] == "surging-sparks")
+        box = next(x for x in box_set["products"] if x["kind"] == "box")
+        FEED["items"][0]["product"] = "surging-sparks|box|EN"
+        typical = {"surging-sparks|box|EN": {"shops": 4, "typical": 50, "low": 45, "high": 62}}
+        ctx.route("**/rest/v1/rpc/shop_prices", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body=json.dumps(typical)))
         answer.update(status=200, body=FEED); drops()
         panel = page.locator("#restockFeed"); panel.wait_for(timeout=10000)
         text = panel.inner_text()
         assert "Shops last checked 3 minutes ago (41 in the past hour)." in text, text
         assert "Followed <b>box</b>" in text and "Far away tin" not in text, text
         assert "Shop price $59.99" in text and "TCGplayer market price $48.50" in text and "Seen in stock 2 hours ago" in text, text
+        page.locator("#restockFeed .feed-verdict.above").wait_for(timeout=10000)
+        assert "20% above the typical asking price ($50.00, 4 shops)" in panel.inner_text(), panel.inner_text()
         page.locator("#feedMine").uncheck()
         text = panel.inner_text()
         assert "Far away tin" in text and "Sold out 1 hour ago" in text, text
@@ -63,8 +71,15 @@ try:
         answer.update(body={**FEED, "checked_at": ago(hours=6), "shops_checked": 0}); drops()
         page.locator("#restockFeed .feed-paused").wait_for(timeout=10000)
         assert "arrêtées" in page.locator("#restockFeed .feed-paused").inner_text()
+        # The same typical price on the product's own page.
+        page.evaluate("CardsteadI18n.set('en')")
+        page.goto("about:blank"); page.goto(URL + f"#/product/sealed%3A{box['id']}", wait_until="domcontentloaded")
+        line = page.locator("#productShops"); line.wait_for(timeout=20000)
+        text = line.inner_text()
+        assert "Typical asking price at Canadian shops: $50.00" in text and "4 shops with stock, from $45.00 to $62.00" in text and "not sales" in text, text
+        assert page.evaluate("document.documentElement.scrollWidth<=innerWidth"), "sideways scroll on the product page"
         assert not errors, errors
-        print("PASS recent restocks: hidden without the database function, my stores / all shops, paused checks, French, 320 px")
+        print("PASS recent restocks: hidden without the database function, my stores / all shops, paused checks, French, 320 px, typical shop price")
         b.close()
 finally:
     server.shutdown()
