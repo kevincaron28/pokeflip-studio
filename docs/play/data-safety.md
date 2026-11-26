@@ -1,6 +1,6 @@
 # Play Data safety (Cardstead)
 
-What was saved in Play Console → App content → Data safety and sent for review on 26 Nov 2026. Update this page and `privacy.html` whenever what the app sends changes.
+What was saved in Play Console → App content → Data safety and published on 26 Nov 2026. Update this page and `privacy.html` whenever what the app sends changes.
 
 - Collects data: yes. Shares data: no. Encrypted in transit: yes.
 - Account method: "Username and other authentication" (email sign-in, optional).

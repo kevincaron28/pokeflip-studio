@@ -1,6 +1,6 @@
 # Play store listing (en-US)
 
-Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. This is the text saved in the **Default store listing** and sent for review on 26 Nov 2026. Change it here first, then in the console.
+Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. This is the text saved in the **Default store listing** and published on 26 Nov 2026. Change it here first, then in the console.
 
 ## App name
 
