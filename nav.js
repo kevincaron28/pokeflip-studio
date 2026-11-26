@@ -14,6 +14,9 @@ const GROUPS=[
 const groupOf=page=>GROUPS.find(g=>g.pages.includes(page))||GROUPS[0];
 // Restock panels that are power tools: folded into one Advanced section (matched by their heading).
 const ADVANCED=[/^Canadian restock sources/i,/^Follow a region/i,/^Check Canadian retailers now/i,/^Record a stock check/i,/^Recent stock observations/i];
+// The manual alerts inbox folds away too, but stays in sight once it holds saved alerts.
+const IDLE=[[/^Unified alerts inbox/i,'pokeflip-alert-hub-v1']];
+const unused=key=>{try{return !JSON.parse(root.localStorage.getItem(key)||'[]').length}catch{return false}};
 const core={GROUPS,groupOf,ADVANCED};
 root.CardsteadNav=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
@@ -43,7 +46,7 @@ function foldRestock(){
  const sec=$('restock');if(!sec||$('restockAdvanced'))return;
  const det=doc.createElement('details');det.id='restockAdvanced';det.className='panel advanced';
  const sum=doc.createElement('summary');sum.dataset.i18n='w.advanced';sum.textContent='Advanced restock tools';det.append(sum);
- for(const panel of [...sec.querySelectorAll(':scope > .panel')]){const h=panel.querySelector('h2');if(h&&ADVANCED.some(re=>re.test(h.textContent.trim())))det.append(panel)}
+ for(const panel of [...sec.querySelectorAll(':scope > .panel')]){const h=panel.querySelector('h2');const title=h?h.textContent.trim():'';if(ADVANCED.some(re=>re.test(title))||IDLE.some(([re,key])=>re.test(title)&&unused(key)))det.append(panel)}
  sec.append(det);
  // "Record check" on a watch opens the folded form first.
  sec.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&/Record check/.test(b.textContent))det.open=true},true);

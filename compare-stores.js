@@ -10,14 +10,14 @@ const KEYS={restock:'pokeflip-restock-v1',matches:'pokeflip-restock-matches-v1',
 const T={
  en:{title:'Compare stores',store:'Store',price:'Price',status:'Status',checked:'Last checked',link:'Link',in:'In stock',out:'Sold out',unknown:'Unknown',buy:'Buy',open:'Open',search:'Search',
   notTracked:'Not tracked',noData:n=>`${n} followed store${n===1?'':'s'} with no record for this product yet`,showAll:'Show all stores (not only my area)',mine:'Stores I follow (my area)',
-  msrp:'MSRP',market:'Market value (sealed)',ev:'Expected value of the packs inside',best:'Best in-stock price',none:'No store has a record for this product yet. Record a stock check or import an alert in Restock watch.',
+  msrp:'MSRP',market:'Market value (sealed)',ev:'Expected value of the packs inside',best:'Best in-stock price',none:'No store has a record for this product yet. Record a stock check or import an alert on the Drops page.',
   unknownV:'unknown',unknownM:'unknown',sep:': ',asOf:d=>'TCGplayer, as of '+d,cadUnknown:'CAD unknown',evNote:n=>n+(n>1?' packs':' pack')+' × pack EV',matched:'Matched product',noMatch:'Not matched to a TCGplayer product: values unknown.',
   srcCheck:'your check',online:'Online',chain:'Chain · stores and online',limit:n=>`Limit ${n} per customer`,noCheck:'No check yet',srcAuto:'automatic shop check (possible match)',srcAlert:'imported alert',lang:'Français',close:'Close',ago:m=>m<1?'just now':m<60?m+' min ago':m<1440?Math.round(m/60)+' h ago':Math.round(m/1440)+' d ago',
   under:(d,p)=>`Under value by ${d} (${p})`,over:(d,p)=>`Over value by ${d} (${p})`,fair:'Fair: about market value',scalp:x=>` · scalper price (${x}× US MSRP)`,noValue:'Value unknown',count:(a,b)=>`${a} store${a===1?'':'s'} with a record · ${b} in stock`,
   msrpScalp:x=>`Scalper price (${x}× US MSRP converted)`,msrpOver:p=>`Over MSRP by ${p} (US MSRP converted)`,msrpFair:'Around MSRP (US MSRP converted; market value unknown)',msrpUnder:p=>`Under MSRP by ${p} (US MSRP converted)`},
  fr:{title:'Comparer les magasins',store:'Magasin',price:'Prix',status:'État',checked:'Vérifié',link:'Lien',in:'En stock',out:'Épuisé',unknown:'Inconnu',buy:'Acheter',open:'Ouvrir',search:'Chercher',
   notTracked:'Non suivi',noData:n=>`${n} magasin${n===1?'':'s'} suivi${n===1?'':'s'} sans relevé pour ce produit`,showAll:'Voir tous les magasins (pas seulement ma région)',mine:'Les magasins que je suis (ma région)',
-  msrp:'PDSF',market:'Valeur marchande (scellé)',ev:'Valeur attendue des paquets à l’intérieur',best:'Meilleur prix en stock',none:'Aucun magasin n’a encore de relevé pour ce produit. Note une vérification ou importe une alerte dans Restock watch.',
+  msrp:'PDSF',market:'Valeur marchande (scellé)',ev:'Valeur attendue des paquets à l’intérieur',best:'Meilleur prix en stock',none:'Aucun magasin n’a encore de relevé pour ce produit. Note une vérification ou importe une alerte dans la page Arrivages.',
   unknownV:'inconnue',unknownM:'inconnu',sep:' : ',asOf:d=>'TCGplayer, au '+d,cadUnknown:'CAD inconnu',evNote:n=>n+(n>1?' paquets':' paquet')+' × VA du paquet',matched:'Produit associé',noMatch:'Pas associé à un produit TCGplayer : valeurs inconnues.',
   srcCheck:'ta vérification',online:'En ligne',chain:'Chaîne · magasins et en ligne',limit:n=>`Limite de ${n} par client`,noCheck:'Pas encore vérifié',srcAuto:'vérification auto de la boutique (correspondance possible)',srcAlert:'alerte importée',lang:'English',close:'Fermer',ago:m=>m<1?'à l’instant':m<60?'il y a '+m+' min':m<1440?'il y a '+Math.round(m/60)+' h':'il y a '+Math.round(m/1440)+' j',
   under:(d,p)=>`Sous la valeur de ${d} (${p})`,over:(d,p)=>`Au-dessus de la valeur de ${d} (${p})`,fair:'Prix juste : environ la valeur marchande',scalp:x=>` · prix de revendeur (${x}× le PDSF américain)`,noValue:'Valeur inconnue',count:(a,b)=>`${a} magasin${a===1?'':'s'} avec relevé · ${b} en stock`,
@@ -104,13 +104,14 @@ async function render(host,target){
  const st={in:[t.in,'green'],out:[t.out,'red'],unknown:[t.unknown,'grey']};
  const src={check:t.srcCheck,auto:t.srcAuto,alert:t.srcAlert};
  const none=untracked(raw,P,prefs,cat,all);
+ const empty=!raw.length,row=(label,value,known)=>known||!empty?`<div><dt>${esc(label)}</dt><dd>${value}</dd></div>`:'';
  host.innerHTML=`<div class="cmp-head"><h3>${esc(t.title)}${esc(t.sep)}${esc(target.product)}</h3><button type="button" class="btn smallbtn" data-cmp-lang>${esc(t.lang)}</button></div>
- <dl class="ac-rows cmp-values"><div><dt>${esc(t.msrp)}</dt><dd>${msrpTxt}</dd></div><div><dt>${esc(t.market)}</dt><dd>${marketTxt}</dd></div>${a?.contents?.packs?`<div><dt>${esc(t.ev)}</dt><dd>${evTxt}</dd></div>`:''}
- <div><dt>${esc(t.best)}</dt><dd>${best?`<strong>${fmt(best.price)}</strong> · ${esc(best.store)}`:esc(t.unknownM)}</dd></div></dl>
+ <dl class="ac-rows cmp-values">${row(t.msrp,msrpTxt,a?.msrp)}${row(t.market,marketTxt,a?.market)}${a?.contents?.packs?row(t.ev,evTxt,a.contents.evCad):''}
+ ${empty?'':`<div><dt>${esc(t.best)}</dt><dd>${best?`<strong>${fmt(best.price)}</strong> · ${esc(best.store)}`:esc(t.unknownM)}</dd></div>`}</dl>
  ${a&&a.match?.status!=='ok'?`<p class="note">${esc(t.noMatch)}</p>`:''}
- <p class="cmp-verdict ac-verdict-${esc(v.code)}">${esc(v.text)}</p>
+ ${empty?'':`<p class="cmp-verdict ac-verdict-${esc(v.code)}">${esc(v.text)}</p>`}
  <label class="checkline"><input type="checkbox" data-cmp-all ${all?'checked':''}> ${esc(t.showAll)}</label>
- <p class="note">${esc(t.count(rows.length,rows.filter(r=>r.status==='in').length))}</p>
+ ${empty?'':`<p class="note">${esc(t.count(rows.length,rows.filter(r=>r.status==='in').length))}</p>`}
  ${rows.length?`<ul class="cmp-list">${rows.map(r=>{const u=safe(r.url),rv=verdictText(l,r.price,a),info=storeInfo(r.store,r.host,P,cat),sx=st[r.status]||st.unknown;
   const where=info.kind==='online'?t.online:info.kind==='chain'?t.chain:info.city;
   return `<li class="cmp-store cmp-${esc(r.status)}"><span class="cmp-badge" aria-hidden="true">${esc(info.badge)}</span>

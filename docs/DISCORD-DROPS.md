@@ -45,7 +45,7 @@ Region channels are visible only to members with that region's role, and chain c
    - `discord-speed-log`, schedule `0 13 * * 1` (Monday 8:00 Eastern), body `{"task":"speed-log"}`
    - `discord-coming-drops`, schedule `0 12 * * *` (daily 7:00 Eastern), body `{"task":"coming-drops"}`: edits the one release-calendar message in `#coming-drops` from the site's `data/release-calendar.json` (TCGplayer presales) and `data/official-releases.json` (official announcements). Never pings.
 9. **In Discord (server settings, as owner):** turn on Community (it asks you to accept Discord's community rules: your call; rules channel `#bienvenue-welcome`, updates channel `#mod-queue`). Then run setup again: it sets Verification Level to Medium, turns on **Onboarding** with four questions ("Region / Région", "Stores / Magasins" with "Online only", "Products / Produits" with eBay deals, "Language / Langue") and ten default channels that everyone can see (five where anyone can write, as Discord requires), and posts one bilingual rules and how-it-works message in `#bienvenue-welcome` (edited, not duplicated, on later runs). Give your two moderators the `Moderator` role.
-10. Keep the server private (no invite links) until the pipeline has caught real drops; then create one invite and link it from Cardstead.
+10. Keep the server private (no invite links) until the pipeline has caught real drops; then create one invite and link it from Cardstead: set the Vercel (and Cloudflare Pages) environment variable `DISCORD_INVITE_URL` to the `https://discord.gg/…` address and redeploy. Until then the Discord panel in Settings is hidden, except for accounts already linked.
 
 ## Commands
 

@@ -161,7 +161,7 @@ function render(){
   ${addHtml()}
   ${hits.length?`<div class="panel mc-alerts"><h2>${esc(t('mc.hitsTitle',hits.length))}</h2><p class="note">${esc(t('mc.hitsNote'))}</p></div>`:''}
   <div class="panel">${items.length?`<div class="row spread"><h2>${esc(t('mc.count',items.length))}</h2>${items.length>8?`<input id="mcFilter" class="mc-filter" placeholder="${esc(t('mc.filter'))}" value="${esc(filter)}">`:''}</div>
-  <ul class="mc-list">${shown.slice(0,limit).map(rowHtml).join('')}</ul>${shown.length>limit?`<div class="row spread"><span class="note">${esc(t('mc.showing',Math.min(limit,shown.length),shown.length))}</span><button type="button" class="btn smallbtn" data-mc-more="1">${esc(t('mc.more'))}</button></div>`:''}`:`<p class="empty">${esc(t('mc.empty'))}</p>`}</div>
+  <ul class="mc-list">${shown.slice(0,limit).map(rowHtml).join('')}</ul>${shown.length>limit?`<div class="row spread"><span class="note">${esc(t('mc.showing',Math.min(limit,shown.length),shown.length))}</span><button type="button" class="btn smallbtn" data-mc-more="1">${esc(t('mc.more'))}</button></div>`:''}`:`<div class="empty empty-art"><img src="./assets/empty/empty-lots.webp" alt="" width="112" height="112" loading="lazy"><p>${esc(t('mc.empty'))}</p></div>`}</div>
   <p class="note">${esc(t('mc.how'))}${older?' '+esc(t('mc.older')):''}</p>`;
  if(!adding&&!editing)setTimeout(()=>autoEbay(shown.slice(0,limit)),300);
  const f=$('mcFilter');if(f)f.oninput=()=>{filter=f.value;limit=core.PAGE;const pos=f.selectionStart;render();const g=$('mcFilter');g.focus();g.setSelectionRange(pos,pos)};
