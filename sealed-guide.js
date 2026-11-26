@@ -73,7 +73,7 @@
   try{
    const r=await fetch('https://api.tcgdex.net/v2/en/sets',{cache:'force-cache'});if(!r.ok)throw Error('HTTP '+r.status);
    const data=await r.json();if(!Array.isArray(data))throw Error('Unexpected catalog response');
-   setCatalog=data.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string').reverse();
+   setCatalog=data.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string'&&!root.PokeFlipCardLookup?.pocket?.(x)).reverse();
    const previous=selector.value;selector.replaceChildren(new Option('Choose a set…',''));
    for(const s of setCatalog)selector.add(new Option(s.name+' ('+s.id+')',s.id));
    if(previous)selector.value=previous;

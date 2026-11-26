@@ -147,7 +147,7 @@ function resultsHtml(){
  if(adding?.error)return `<p class="alert">${esc(t('mc.searchError',adding.error))}</p>`;
  if(!adding?.searched)return `<p class="note">${esc(t('mc.searchHint'))}</p>`;
  if(!results.length)return `<p class="note">${esc(t('mc.noMatch'))}</p>`;
- return `<p class="note">${esc(t('mc.pick'))}</p><div class="mc-results">${results.map((c,n)=>`<button type="button" class="mc-result" data-mc-pick="${n}">${c.image?`<img loading="lazy" alt="" src="${esc(c.image+'/low.webp')}">`:''}<span><strong>${esc(c.name)}</strong><span class="note">${esc(c.id)} · #${esc(c.localId)}${c.lookupLanguage&&c.lookupLanguage!==adding.lang?' · '+esc(t('mc.catalog.'+c.lookupLanguage)):''}</span></span></button>`).join('')}</div>`;
+ return `<p class="note">${esc(t('mc.pick'))}</p><div class="mc-results">${results.map((c,n)=>`<button type="button" class="mc-result" data-mc-pick="${n}">${root.CardsteadPics?root.CardsteadPics.imgOr(c.image?c.image+'/low.webp':'',{cls:'pic mc-pick-pic'}):''}<span><strong>${esc(c.name)}</strong><span class="note">${esc(c.setName||c.id)} · #${esc(c.localId)}${c.lookupLanguage&&c.lookupLanguage!==adding.lang?' · '+esc(t('mc.catalog.'+c.lookupLanguage)):''}</span></span></button>`).join('')}</div>`;
 }
 function render(){
  const host=$('myCards');if(!host||!L())return;
@@ -173,7 +173,9 @@ function render(){
 async function search(){
  const q=$('mcQuery').value.trim(),lang=$('mcLang').value;adding.query=q;adding.lang=lang;if(!q){toast(t('mc.enterQuery'));return}
  const token=++searchToken;adding.searching=true;adding.error=null;results=[];render();
- try{const list=await root.PokeFlipCardLookup.lookup(q,lang,'');if(token!==searchToken)return;results=list;adding.searched=true}
+ try{const K=root.PokeFlipCardLookup,list=await K.lookup(q,lang,'');
+  const sets={};for(const l of new Set(list.map(c=>c.lookupLanguage||lang)))sets[l]=K.setNames?await K.setNames(l):{};
+  if(token!==searchToken)return;results=list.map(c=>({...c,setName:c.set?.name||sets[c.lookupLanguage||lang]?.[K.setOf(c)]||''}));adding.searched=true}
  catch(e){if(token!==searchToken)return;adding.error=e.message}
  adding.searching=false;render();
 }

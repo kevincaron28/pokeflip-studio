@@ -52,6 +52,7 @@ jobs:
       - run: python tests/phase2-browser.py
       - run: python tests/i18n-fr-browser.py
       - run: python tests/set-completion-browser.py
+      - run: python tests/search-browser.py
       - run: python tests/area-stores-browser.py
       - run: python tests/ebay-deals-browser.py
       - run: python tests/extension-assist-browser.py

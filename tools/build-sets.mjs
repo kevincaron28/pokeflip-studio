@@ -8,8 +8,10 @@
 // Set value = one copy of every numbered card, each at its cheapest printing (the normal print, not the reverse holo),
 // so it matches "one of each card in the binder". Sealed products, code cards and energy-less extras are not counted.
 // Set logos: TCGdex's set logo (assets.tcgdex.net), matched by set name; a set TCGdex does not have keeps no logo.
+//   data/sets/cards.json       one short row per card of every set, for the Prices search
 // Run: node tools/build-sets.mjs  [--only 24831,604]   |   --logos-only adds logos to the existing data/sets/index.json
-import {mkdirSync, writeFileSync, readFileSync} from 'node:fs';
+//      --cards-only rebuilds data/sets/cards.json from the set files, without any request
+import {mkdirSync, writeFileSync, readFileSync, readdirSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -72,7 +74,29 @@ async function addLogos(index) {
   for (const s of index) { const l = logo(s.name); if (l) s.logo = l; else delete s.logo; }
   return index;
 }
+/** A card's name without the collector number TCGplayer repeats in it ("Eevee - 62/100 [Platinum]"). Pure. */
+export function cardName(name) { return String(name).replace(/\s+-\s+[A-Za-z]*\d+[A-Za-z]*\/[A-Za-z]*\d+[A-Za-z]*(?=[\s([]|$)/, ' ').replace(/\s+/g, ' ').trim().replace(/\s+-\s+[A-Za-z]*\d+[A-Za-z]*$/, ''); }
+/** One row per card of every set, small enough for the search to load on its own:
+ *  [product id, name without the number suffix, set id, number, cheapest priced printing, its market price in USD or null].
+ *  Pure (given the set files). */
+export function cardIndex(sets) {
+  const rows = [];
+  for (const s of [...sets].sort((a, b) => a.id - b.id)) for (const [pid, name, number, , prints] of s.cards) {
+    const best = Object.entries(prints || {}).sort((a, b) => a[1] - b[1])[0];
+    rows.push([pid, cardName(name), s.id, String(number), best ? best[0] : '', best ? best[1] : null]);
+  }
+  return rows;
+}
+/** data/sets/cards.json from the set files on disk, for the sets the index lists. */
+function writeCardIndex() {
+  const index = JSON.parse(readFileSync(join(OUT, 'index.json'), 'utf8')), listed = new Set(index.sets.map(s => s.id));
+  const sets = readdirSync(OUT).filter(f => /^\d+\.json$/.test(f) && listed.has(Number(f.slice(0, -5)))).map(f => JSON.parse(readFileSync(join(OUT, f), 'utf8')));
+  const cards = cardIndex(sets);
+  writeFileSync(join(OUT, 'cards.json'), JSON.stringify({asOf: index.asOf, currency: 'USD', cards}));
+  console.log(`${cards.length} cards written to data/sets/cards.json`);
+}
 async function main() {
+  if (process.argv.includes('--cards-only')) return writeCardIndex();
   if (process.argv.includes('--logos-only')) {
     const file = join(OUT, 'index.json'), data = JSON.parse(readFileSync(file, 'utf8'));
     await addLogos(data.sets); writeFileSync(file, JSON.stringify(data));
@@ -130,6 +154,7 @@ async function main() {
   await addLogos(index);
   writeFileSync(join(OUT, 'index.json'), JSON.stringify({asOf: new Date().toISOString(), currency: 'USD', source: 'TCGplayer market price via tcgcsv.com',
     setValueRule: 'one of each numbered card at its cheapest printing', sets: index}));
+  writeCardIndex();
   upcoming.sort((a, b) => a.date.localeCompare(b.date) || a.set.localeCompare(b.set) || a.name.localeCompare(b.name));
   writeFileSync(join(ROOT, 'data/release-calendar.json'), JSON.stringify({asOf: new Date().toISOString(), source: 'TCGplayer presale products via tcgcsv.com (estimated release dates)', items: upcoming}) + '\n');
   console.log(`\n${index.length} sets written to data/sets/, ${upcoming.length} upcoming products to data/release-calendar.json`);

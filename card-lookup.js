@@ -6,7 +6,18 @@ function normal(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f
 function parseId(s){const x=String(s||'').trim().match(/^([a-z0-9]{2,24})-([a-z0-9]{1,12})$/i);return x?{set:x[1].toLowerCase(),number:x[2].toLowerCase()}:null}
 function numeric(s){return /^\d{1,4}[a-z]?$/i.test(String(s||'').trim())}
 function sameNumber(a,b){return String(a||'').toLowerCase().replace(/^0+(?=\d)/,'')===String(b||'').toLowerCase().replace(/^0+(?=\d)/,'')}
-function label(items,lang,selected){return (items||[]).filter(c=>c&&c.id).map(c=>lang===selected?c:{...c,lookupLanguage:lang})}
+/** A card of the phone game (Pokémon TCG Pocket: sets A1, B1a, P-A…), not one you can hold or sell. Pure. */
+function pocket(c){return /^(?:[AB]\d{1,2}[a-z]?|P-[AB])(?:-|$)/.test(String(c?.id||''))||/\/tcgp\//.test(String(c?.image||c?.logo||''))}
+/** The set a card belongs to: its id without the card number. Pure. */
+function setOf(c){const id=String(c?.id||''),n=String(c?.localId||'');return n&&id.endsWith('-'+n)?id.slice(0,-n.length-1):id.replace(/-[^-]*$/,'')}
+const names={};
+/** Set id → set name in that language, asked once per visit; {} when the database cannot be reached. */
+function setNames(language,request=fetch){
+ const lang=language==='fr'?'fr':'en';
+ return names[lang]||(names[lang]=(async()=>{const res=await request('https://api.tcgdex.net/v2/'+lang+'/sets');if(!res.ok)throw Error('sets '+res.status);
+  return Object.fromEntries((await res.json()).map(s=>[s.id,s.name]))})().catch(()=>{delete names[lang];return {}}));
+}
+function label(items,lang,selected){return (items||[]).filter(c=>c&&c.id&&!pocket(c)).map(c=>lang===selected?c:{...c,lookupLanguage:lang})}
 function rank(cards,q){const n=normal(q);return cards.sort((a,b)=>{const aExact=normal(a.name)===n?1:0,bExact=normal(b.name)===n?1:0;return bExact-aExact||String(a.id).localeCompare(String(b.id))})}
 async function lookup(query,language,setHint,request=fetch){
  let q=String(query||'').trim(),set=String(setHint||'').trim().toLowerCase(),lang=language==='fr'?'fr':'en';if(!q)return [];
@@ -55,5 +66,5 @@ async function lookup(query,language,setHint,request=fetch){
  // catalog cannot find a name. Never silently change the physical card's language.
  return search(lang==='fr'?'en':'fr');
 }
-root.PokeFlipCardLookup={lookup,normal,parseId,sameNumber,rank};
+root.PokeFlipCardLookup={lookup,pocket,setOf,setNames,normal,parseId,sameNumber,rank};
 })(typeof window!=='undefined'?window:globalThis);
