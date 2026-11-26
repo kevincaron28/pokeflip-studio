@@ -4,7 +4,13 @@ const CONFIG_KEY='pokeflip-cloud-config-v1',REV_KEY='pokeflip-cloud-revision-v1'
 // Public project URL and publishable key only. Never embed a service-role key.
 const DEFAULT_CONFIG={url:'https://fehvorwdcswhhonavyit.supabase.co',key:'sb_publishable_uRWUN4b6l2Op-rd0nDIOOg_r__6Tz-g'};
 const $=id=>document.getElementById(id);
-const core={canAutoUpload(remoteRevision,expectedRevision){return Number.isSafeInteger(expectedRevision)&&expectedRevision>0&&remoteRevision===expectedRevision},validUrl(x){try{const u=new URL(x);return u.protocol==='https:'&&/^[a-z0-9-]+\.supabase\.co$/i.test(u.hostname)&&u.pathname==='/'?u.origin:''}catch{return ''}},
+const PRIVACY_URL='https://pokeflip-studio.vercel.app/privacy.html';
+const core={
+ /** The privacy policy in the app's language, at its deletion section when asked. Pure. */
+ privacyUrl(lang,section){const fr=lang==='fr';return PRIVACY_URL+(section==='delete'?(fr?'#supprimer':'#delete'):(fr?'#fr':''))},
+ /** True when the database does not have the deletion function yet (migration 007 not applied). Pure. */
+ deletionMissing(error){return !!error&&(error.code==='PGRST202'||error.code==='42883'||/could not find the function|does not exist/i.test(String(error.message||'')))},
+ canAutoUpload(remoteRevision,expectedRevision){return Number.isSafeInteger(expectedRevision)&&expectedRevision>0&&remoteRevision===expectedRevision},validUrl(x){try{const u=new URL(x);return u.protocol==='https:'&&/^[a-z0-9-]+\.supabase\.co$/i.test(u.hostname)&&u.pathname==='/'?u.origin:''}catch{return ''}},
  validKey(k){return /^sb_publishable_[A-Za-z0-9_-]{12,}$/.test(k)||/^eyJ[A-Za-z0-9._-]{80,}$/.test(k)},
  validateSnapshot(s){if(!s||s.schema!==5||!s.ledger||!Array.isArray(s.ledger.lots)||!Array.isArray(s.ledger.items)||!Array.isArray(s.ledger.sales))throw Error('Unsupported cloud backup');if(!Array.isArray(s.portfolioHistory)||!Array.isArray(s.ebayComparables)||!Array.isArray(s.sealedObservations)||!Array.isArray(s.alertHub)||!s.restockWatch)throw Error('Incomplete cloud backup');return true}};
 root.PokeFlipCloudCore=core;
@@ -25,8 +31,23 @@ function connect(){const c=savedConfig();if(!c)throw Error('Configure a dedicate
 root.PokeFlipCloudClient=()=>client||connect();
 async function requireUser(){if(!client)connect();const {data,error}=await client.auth.getUser();if(error||!data?.user?.id)throw Error('Sign in and verify your email first');return data.user}
 async function fetchRemote(user){const {data,error}=await client.from('pokeflip_snapshots').select('revision,payload,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw Error('Cloud access failed. Check SQL schema and account permissions: '+error.message);return data}
-async function safely(fn){if(busy)return;busy=true;for(const id of ['cloudPush','cloudPull','cloudSendOtp','cloudVerifyOtp','cloudConfigure'])if($(id))$(id).disabled=true;try{await fn()}catch(e){status(e.message||'Cloud operation failed',true)}finally{busy=false;for(const id of ['cloudPush','cloudPull','cloudSendOtp','cloudVerifyOtp','cloudConfigure'])if($(id))$(id).disabled=false;if(pendingAuto){pendingAuto=false;scheduleAuto(1500)}}}
-function init(){if(!$('cloudConfigure'))return;const c=savedConfig();if(c){$('cloudUrl').value=c.url||'';$('cloudKey').value=c.key||'';try{connect();status('Cardstead Canada cloud configured. Sign in, then explicitly upload or download.')}catch(e){status(e.message,true)}}
+async function safely(fn){if(busy)return;busy=true;for(const id of ['cloudPush','cloudPull','cloudSendOtp','cloudVerifyOtp','cloudConfigure','accountDelete'])if($(id))$(id).disabled=true;try{await fn()}catch(e){status(e.message||'Cloud operation failed',true)}finally{busy=false;for(const id of ['cloudPush','cloudPull','cloudSendOtp','cloudVerifyOtp','cloudConfigure','accountDelete'])if($(id))$(id).disabled=false;if(pendingAuto){pendingAuto=false;scheduleAuto(1500)}}}
+function accountStatus(message,isError=false){const e=$('accountStatus');if(e){e.textContent=message;e.style.color=isError?'#ffb9ae':''}}
+function setPrivacyLinks(){const lang=root.CardsteadI18n?.lang?.();document.querySelectorAll('[data-privacy]').forEach(a=>{a.href=core.privacyUrl(lang,a.dataset.privacy)})}
+/** Forget the push subscription on this device; the stored copy goes with the account. */
+async function dropPush(){try{localStorage.removeItem('cardstead-fcm-token')}catch{}try{const reg=await root.navigator?.serviceWorker?.getRegistration?.();const sub=await reg?.pushManager?.getSubscription?.();await sub?.unsubscribe()}catch{}}
+async function deleteAccount(){
+ if(!client)connect();const {data}=await client.auth.getUser();
+ if(!data?.user?.id){accountStatus('Sign in first, then delete your account. If you cannot sign in, ask by email from the privacy policy page.',true);return}
+ if(!confirm('Delete your Cardstead account for good? Your email address, cloud backup, drop alerts and Discord link are removed. Cards saved on this device stay here. This cannot be undone.'))return;
+ stopAuto();const {error}=await client.rpc('pokeflip_delete_account');
+ if(error){accountStatus(core.deletionMissing(error)?'Deleting from the app is not switched on yet. Ask by email from the privacy policy page.':'Your account was not deleted. Try again, or ask by email from the privacy policy page.',true);return}
+ await dropPush();try{await client.auth.signOut({scope:'local'})}catch{}
+ revision=null;autoUserId='';lastSyncedPayload='';localStorage.removeItem(REV_KEY);drawAuto();
+ status('Signed out. Local inventory remains on this device.');accountStatus('Your account is deleted. Cards saved on this device are still here.')}
+function init(){setPrivacyLinks();root.addEventListener('cardstead:lang',setPrivacyLinks);if(!$('cloudConfigure'))return;
+ if($('accountDelete'))$('accountDelete').onclick=()=>safely(async()=>{try{await deleteAccount()}catch{accountStatus('Your account was not deleted. Try again, or ask by email from the privacy policy page.',true)}});
+const c=savedConfig();if(c){$('cloudUrl').value=c.url||'';$('cloudKey').value=c.key||'';try{connect();status('Cardstead Canada cloud configured. Sign in, then explicitly upload or download.')}catch(e){status(e.message,true)}}
 if(client){
  client.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_IN'&&session?.user?.id){

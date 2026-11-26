@@ -63,7 +63,7 @@ Basis: web code reviewed for network hosts: `*.supabase.co` (auth + snapshot), `
 | Location, contacts, financial info, health, messages, web history, device IDs | Not collected |
 | App activity / analytics / diagnostics | Not collected (no analytics or crash SDK) |
 | Advertising ID | Not used; app contains no ads |
-| Data deletion | Provide a way to request deletion: email in the listing + privacy policy. *Play now also requires a web link for account deletion if the app lets users create accounts — the owner must publish a simple page or form for this.* **Open item: no in-app "delete my account" exists yet.** |
+| Data deletion | Provide a way to request deletion: email in the listing + privacy policy. *Play now also requires a web link for account deletion if the app lets users create accounts — the owner must publish a simple page or form for this.* **Done 26 Nov 2026 (needs migration 007 applied): Settings → Account and privacy → Delete my account.** Earlier note: **Open item: no in-app "delete my account" exists yet.** |
 | Encryption in transit | Yes (HTTPS only) |
 
 ## 4. Content rating (IARC questionnaire notes)
