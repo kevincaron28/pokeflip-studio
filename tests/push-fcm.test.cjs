@@ -33,7 +33,7 @@ test('sends to the device token with the drop text and store link; reuses the ac
 test('the sender sends app devices through Firebase only when the secret is set, and reads each device kind',()=>{
  const idx=fs.readFileSync(path.join(__dirname,'../supabase/functions/push-sender/index.ts'),'utf8');
  assert.match(idx,/env\.FIREBASE_SERVICE_ACCOUNT \? fcmSender/);assert.match(idx,/sub\.kind === 'fcm'/);
- assert.match(fs.readFileSync(path.join(__dirname,'../supabase/functions/_shared/push-core.mjs'),'utf8'),/select=id,kind,endpoint/);
+ assert.match(fs.readFileSync(path.join(__dirname,'../supabase/functions/_shared/push-core.mjs'),'utf8'),/select=id,user_id,kind,endpoint/);
 });
 
 test('migration 005: app devices have no Web Push keys, browser rows still need them, only members can save their own token',()=>{

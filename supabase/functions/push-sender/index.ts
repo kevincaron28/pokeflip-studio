@@ -1,9 +1,11 @@
 // Cardstead drop alerts by Web Push. Supabase Cron calls it every minute with {"task":"tick"}: it reads new drop_events
 // and sends one notification per drop to the members whose preferences match. See docs/DROPS-PIPELINE.md.
+// A second, daily job posts {"task":"prices"}: price alerts for members who asked (docs/DROPS-PUSH.md).
 // Secrets (Supabase > Edge Functions > Secrets): VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY (from tools/make-vapid-keys.mjs),
 // VAPID_SUBJECT (a contact, e.g. https://pokeflip-studio.vercel.app/privacy.html). Only server-key callers are accepted.
 import webpush from 'npm:web-push@3.6.7';
 import { runPush, pushStore } from '../_shared/push-core.mjs';
+import { runPriceAlerts } from '../_shared/price-alerts.mjs';
 import { fcmSender } from '../_shared/fcm.mjs';
 import { isServiceRole, serverKeys } from '../_shared/discord-auth.mjs';
 
@@ -28,7 +30,10 @@ Deno.serve(async (req) => {
     }
   };
   try {
-    const out = await runPush({ store: pushStore({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_ROLE_KEY }), send, now: () => Date.now(), site: SITE });
+    const { task } = await req.json().catch(() => ({}));
+    const deps = { store: pushStore({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_ROLE_KEY }), send, now: () => Date.now(), site: SITE };
+    const getJson = async (url: string) => { const r = await fetch(url, { headers: { 'user-agent': 'Cardstead-price-alerts/1.0' } }); if (!r.ok) throw Error(`${url} -> ${r.status}`); return r.json(); };
+    const out = task === 'prices' ? await runPriceAlerts({ ...deps, getJson }) : await runPush(deps);
     return Response.json(out);
   } catch (e) {
     return Response.json({ error: String((e as Error).message || e) }, { status: 500 });

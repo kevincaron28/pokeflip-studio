@@ -60,6 +60,7 @@ jobs:
       - run: python tests/layout-browser.py
       - run: python tests/routes-browser.py
       - run: python tests/restock-feed-browser.py
+      - run: python tests/alerts-browser.py
       - run: python tests/csp-check.py
   deployed-site:
     runs-on: ubuntu-24.04

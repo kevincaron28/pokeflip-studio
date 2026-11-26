@@ -126,6 +126,8 @@
 "card number missing":"numéro de carte absent",
 "Card Restock Tracker":null,"Card to research":"Carte à rechercher",
 "Cardmarket":null,
+"Also when a card on my Watchlist reaches my target price":"Aussi quand une carte de ma liste de suivi atteint mon prix cible",
+"Checked once a day, for ungraded English Near Mint cards added from a set page. Uses the targets in your cloud backup, so keep it up to date.":"Vérifié une fois par jour, pour les cartes anglaises non gradées à l’état Near Mint ajoutées depuis la page d’une série. Utilise les cibles de ta sauvegarde infonuagique : garde-la à jour.",
 "Backup reminder: last export was {0} days ago.":"Rappel de sauvegarde : ta dernière exportation date de {0} jours.",
 "{0}: {1} at {2} (reported in stock). Open Cardstead for Buy now.":"{0} : {1} chez {2} (signalé en stock). Ouvre Cardstead pour acheter.",
 "{0}: following {1} of {2} stores ({3} local shops, {4} online shops, {5} chains).":"{0} : tu suis {1} magasins sur {2} ({3} boutiques locales, {4} boutiques en ligne, {5} chaînes).",

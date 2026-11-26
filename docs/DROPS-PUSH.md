@@ -25,6 +25,14 @@ Notification: "In stock: Delta Reign Booster Box" / "Hasty Cards, Toronto · $27
 5. Deploy: `supabase functions deploy push-sender --project-ref fehvorwdcswhhonavyit`.
 6. Supabase Cron: job `push-sender-tick`, schedule `* * * * *`, POST `{"task":"tick"}` with the secret key preset (same as `discord-drops-tick`).
 
+## Price alerts with the app closed (optional)
+Members who tick *Also when a card on my Watchlist reaches my target price* get one notification a day at most per device. Only cards that match exactly are checked: ungraded, English, Near Mint, added from a set page, priced from TCGplayer sales (`supabase/functions/_shared/price-alerts.mjs`). Targets come from the member's cloud backup. Price data older than 3 days sends nothing.
+
+Owner steps (after the steps above):
+1. Deploy again: `supabase functions deploy push-sender --project-ref fehvorwdcswhhonavyit`.
+2. Supabase Cron: job `push-sender-prices`, schedule `0 15 * * *` (after the daily price refresh), POST `{"task":"prices"}` with the same secret key preset as `push-sender-tick`.
+3. Vercel (and Cloudflare Pages) environment variable `PRICE_ALERTS` = `1`, then redeploy. This shows the choice in Settings.
+
 ## Android app push (Firebase), owner steps
 The app code is ready and stays off until these are done. Firebase Cloud Messaging is free (no paid plan needed; the free Spark plan is enough).
 
