@@ -201,12 +201,12 @@ function renderDeals(){
 function renderWatch(){
  const host=$('dealsWatch');if(!host)return;const p=prefs(),q=norm($('dealsFilter').value),fx=data?.fx?.usdToCad;
  const list=watched(p).filter(c=>!q||norm(cardLabel(c)).includes(q));
- $('dealsWatchCount').textContent=`${watched(p).length} cards watched (${p.removed.length} removed, ${(p.custom||[]).length} added by you, ${myCards().length} from My cards)`;
+ $('dealsWatchCount').textContent=`${watched(p).length} cards watched (${p.removed.length} removed, ${(p.custom||[]).length} added by you, ${myCards().length} from your Watchlist)`;
  host.replaceChildren();
  for(const c of list.slice(0,200)){const v=valueOf(c,data);const row=doc.createElement('div');row.className='deal-watch';
   row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source)+(v.date?', '+esc(day(v.date)):''):'Value unknown'}${c.demandSourceUrl?` · <a href="${esc(c.demandSourceUrl)}" target="_blank" rel="noopener noreferrer">why it's watched</a>`:''}</div></div>
   <label class="deal-target"><span class="note">Target CAD</span><input type="number" min="0" step="1" inputmode="decimal" value="${esc(p.targets[c.id]??'')}" aria-label="Target price for ${esc(c.name)}"></label><button type="button" class="btn smallbtn">Remove</button>`;
-  if(c.mine){row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong> <span class="pill">My cards</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in My cards</button>`;host.append(row);continue}
+  if(c.mine){row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong> <span class="pill">Watchlist</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in Watchlist</button>`;host.append(row);continue}
   row.querySelector('input').onchange=e=>{const q2=prefs();const n=Number(e.target.value);if(e.target.value===''||!(n>0))delete q2.targets[c.id];else q2.targets[c.id]=n;jset(KEY,q2)};
   row.querySelector('button').onclick=()=>{const q2=prefs();if(c.custom)q2.custom=q2.custom.filter(x=>x.id!==c.id);else q2.removed=[...new Set([...q2.removed,c.id])];jset(KEY,q2);renderWatch();renderDeals()};
   host.append(row)}

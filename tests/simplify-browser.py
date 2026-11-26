@@ -38,7 +38,7 @@ try:
             # Language detected from the browser; four tabs in the dock.
             assert page.locator(".dock-item").count() == 4
             labels = page.locator(".dock-item span[data-i18n]").all_inner_texts()
-            assert labels == (["Prix", "Arrivages", "Mes cartes", "Réglages"] if lang == "fr" else ["Prices", "Drops", "My cards", "Settings"]), labels
+            assert labels == (["Prix", "Arrivages", "Liste de suivi", "Réglages"] if lang == "fr" else ["Prices", "Drops", "Watchlist", "Settings"]), labels
             # Prices opens first, with popular products and sparklines from the real price history.
             assert page.locator("section#prices").is_visible()
             page.locator("#pricesResults .prod-list").first.wait_for(timeout=20000)

@@ -94,7 +94,7 @@ try:
         # Spot checks of real French on the older screens.
         page.evaluate("CardsteadNav.show('mycards')")
         inv = page.locator("#myCards").inner_text()
-        assert "Mes cartes" in page.locator("#mycards").inner_text() and "Ajouter une carte" in inv, inv
+        assert "Liste de suivi" in page.locator("#mycards").inner_text() and "Ajouter une carte" in inv, inv
         assert "Pikachu ex" in inv and "Bulk Commons" in inv, inv   # card names are never translated
         # Text added later is translated (toast).
         page.evaluate("toast('Backup restored')")
