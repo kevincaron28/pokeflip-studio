@@ -88,7 +88,11 @@ async function main() {
     await sleep(250);
     if (!prods) continue;
     const byId = new Map();
-    for (const p of prices?.results || []) { if (!byId.has(p.productId)) byId.set(p.productId, {}); if (p.marketPrice > 0) byId.get(p.productId)[p.subTypeName] = Math.round(p.marketPrice * 100) / 100; }
+    // Market price (recent sales) per printing; the listing mid price is kept only for cards with no market price at all
+    // (promos, jumbos...): shown as a TCGplayer listing price with low confidence, never as a sale.
+    const mids = new Map();
+    for (const p of prices?.results || []) { if (!byId.has(p.productId)) byId.set(p.productId, {}); if (p.marketPrice > 0) byId.get(p.productId)[p.subTypeName] = Math.round(p.marketPrice * 100) / 100;
+      if (p.midPrice > 0) { if (!mids.has(p.productId)) mids.set(p.productId, {}); mids.get(p.productId)[p.subTypeName] = Math.round(p.midPrice * 100) / 100; } }
     const cards = [], sealed = {};
     for (const p of prods.results) {
       const number = ext(p, 'Number'), prints = byId.get(p.productId) || {};
@@ -99,7 +103,9 @@ async function main() {
         upcoming.push({date: rel, setId: g.groupId, set: cleanSetName(g.name), code: g.abbreviation || '', productId: p.productId, name: p.name, kind, marketUsd: v > 0 ? Math.round(v * 100) / 100 : null});
       }
       if (number) {
-        cards.push([p.productId, p.name, number, ext(p, 'Rarity') || '', prints]);
+        const row = [p.productId, p.name, number, ext(p, 'Rarity') || '', prints];
+        if (!Object.keys(prints).length && mids.has(p.productId)) row.push(mids.get(p.productId)); // [5]: listing mid prices
+        cards.push(row);
       } else {
         const kind = SEALED.find(([, re]) => re.test(p.name))?.[0];
         const v = Object.values(prints)[0];
@@ -110,13 +116,13 @@ async function main() {
     cards.sort((a, b) => String(a[2]).localeCompare(String(b[2]), 'en', {numeric: true}));
     const base = c => { const v = Object.values(c[4]); return v.length ? Math.min(...v) : null; };
     const top = c => { const v = Object.values(c[4]); return v.length ? Math.max(...v) : null; };
-    const priced = cards.filter(c => base(c) !== null);
+    const priced = cards.filter(c => base(c) !== null), listed = cards.filter(c => base(c) === null && c[5]).length;
     const setValue = Math.round(priced.reduce((n, c) => n + base(c), 0) * 100) / 100;
     const chase = cards.filter(c => top(c) !== null).sort((a, b) => top(b) - top(a)).slice(0, 5)
       .map(c => [c[0], c[1], c[2], c[3], top(c)]);
     const s = seriesOf(g);
     index.push({id: g.groupId, name: cleanSetName(g.name), code: g.abbreviation || '', released: g.publishedOn.slice(0, 10), series: s.id, seriesName: s.name,
-      cards: cards.length, priced: priced.length, setValueUsd: setValue, chase, sealed});
+      cards: cards.length, priced: priced.length, listed, setValueUsd: setValue, chase, sealed});
     writeFileSync(join(OUT, g.groupId + '.json'), JSON.stringify({id: g.groupId, name: cleanSetName(g.name), cards}));
     process.stdout.write('.');
   }
