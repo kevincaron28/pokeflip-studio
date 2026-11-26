@@ -15,8 +15,9 @@ Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Prepared 
 |---|---|
 | 4.3.2 (40302) | Released 23 Nov 2026 |
 | 4.4.0 (40400) | Approved and available to testers 26 Nov 2026 |
+| 4.4.1 (40401) | Sent for review 26 Nov 2026 (on internal testing since 26 Nov) |
 
-4.4.1 (pictures; eBay alerts that run while the app is open without first opening the eBay deals page; the app asks for notification permission when an alert is switched on) is tagged `v4.4.1` in the repository and was not part of this submission. Putting it on closed testing is recommended: in 4.4.0 the app does not ask for notification permission for My cards or eBay alerts.
+4.4.1 adds product and card pictures, set logos and a new icon. It fixes eBay alerts (they run while the app is open without first opening the eBay deals page) and the app now asks for notification permission when an alert is switched on.
 
 Play Console → Monitor and improve → Ratings and reviews → **Testing feedback** showed no feedback on 26 Nov 2026.
 
@@ -24,7 +25,7 @@ Play Console → Monitor and improve → Ratings and reviews → **Testing feedb
 
 Google asks about tester use and feedback, so collect them now.
 
-1. 4.4.0 is available now: send testers a short task list: search a card, open its card page, add it to My cards with a target price, browse All sets, add a drop watch. Ask them to reply by email or Play's private feedback.
+1. Once 4.4.1 is approved, send testers a short task list: search a card, open its card page, add it to My cards with a target price, browse All sets, add a drop watch. Ask them to reply by email or Play's private feedback.
 2. Write down each reply with its date, and what you changed because of it.
 3. Test on your own Android phone with the Play build (table below).
 4. Keep every `[bracket]` below out of the form: replace it with a fact or delete the sentence. Do not describe feedback or testing that did not happen.
@@ -88,10 +89,10 @@ It shows what a card or sealed product is worth in CA$, with sources, date and c
 
 **What changes did you make based on what you learned in your closed test?**
 
-4.4.0 replaced 4.3.2 during the test. Those changes came from your own use of the app (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports; add tester-driven fixes when there are some.
+4.4.0, then 4.4.1, replaced 4.3.2 during the test. Those changes came from your own use of the app (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports; add tester-driven fixes when there are some.
 
 <!-- answer:changes -->
-From my own testing, the app had too many screens and manual steps. I cut it to four tabs, removed the camera scanner and portfolio, added My cards with price targets, live eBay.ca asking prices, all sets and release dates. [From tester feedback: changes.]
+From my own testing: too many screens and manual steps. I cut to four tabs, removed the scanner and portfolio, added My cards with price targets, live eBay.ca asking prices, all sets and release dates, then fixed eBay alerts and added pictures. [Tester-driven changes.]
 <!-- /answer -->
 
 **How did you decide that your app is ready for production?**
@@ -110,10 +111,13 @@ Use the last answer only when it is true: run the phone checks first, and fix or
 - My cards replaces the portfolio pages: price targets and "under value" alerts while the app is open.
 - Camera scanner removed, with its camera permission.
 - Drops: coming releases calendar, more Canadian shops, optional drop alerts.
+- 4.4.1: product and card pictures, set logos, new app icon, eBay alerts and notification permission fixed.
 
 ## Done in Play Console on 26 Nov 2026
 
 Sent for review together and published the same day (7 changes): the 4.4.0 closed release, the store listing ([store-listing.md](store-listing.md)) and Data safety ([data-safety.md](data-safety.md)). Managed publishing is off.
+
+The 4.4.1 closed release was sent for review separately later that day.
 
 Checked, not changed: content rating (IARC, 23 Nov: Everyone / PEGI 3), privacy policy address `https://pokeflip-studio.vercel.app/privacy.html`.
 
