@@ -7,8 +7,9 @@
 // 2 requests per set (~450), spaced 250 ms apart.
 // Set value = one copy of every numbered card, each at its cheapest printing (the normal print, not the reverse holo),
 // so it matches "one of each card in the binder". Sealed products, code cards and energy-less extras are not counted.
-// Run: node tools/build-sets.mjs  [--only 24831,604]
-import {mkdirSync, writeFileSync} from 'node:fs';
+// Set logos: TCGdex's set logo (assets.tcgdex.net), matched by set name; a set TCGdex does not have keeps no logo.
+// Run: node tools/build-sets.mjs  [--only 24831,604]   |   --logos-only adds logos to the existing data/sets/index.json
+import {mkdirSync, writeFileSync, readFileSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -56,7 +57,27 @@ const UPCOMING_KIND = [['etb-pc', /pokemon center elite trainer box/i], ['etb', 
   ['bnb', /build (&|and) battle/i], ['blister', /blister/i], ['tin', /\btins?\b/i], ['pack', /booster pack/i], ['collection', /collection|premium|box/i]];
 export function cleanSetName(name) { return name.replace(/^(ME\d*|SV\d*|SWSH\d*):\s*/i, '').replace(/^(SM|XY)\s*-\s*/i, '').trim(); }
 
+/** Logo URL per set name, from TCGdex's set list. Names compared without accents, punctuation or case. Pure (given the list). */
+export function logoMap(tcgdexSets) {
+  const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+  const m = new Map();
+  for (const s of tcgdexSets || []) if (s && s.logo && /^https:\/\/assets\.tcgdex\.net\//.test(s.logo) && !m.has(norm(s.name))) m.set(norm(s.name), s.logo + '.webp');
+  // Also: 'Scarlet & Violet Base Set' is 'Scarlet & Violet' there, 'Scarlet & Violet 151' is '151' (never the 1999 Base Set).
+  return name => { const n = norm(name), noBase = n.replace(/ base set$/, ''), noSeries = n.replace(/^(scarlet and violet|sword and shield|sun and moon|black and white|xy) /, '');
+    return m.get(n) || (noBase !== n ? m.get(noBase) : null) || (noSeries !== n && noSeries !== 'base set' ? m.get(noSeries) : null) || null; };
+}
+async function addLogos(index) {
+  let list = null; try { list = await getJson('https://api.tcgdex.net/v2/en/sets'); } catch { return index; }
+  const logo = logoMap(list);
+  for (const s of index) { const l = logo(s.name); if (l) s.logo = l; else delete s.logo; }
+  return index;
+}
 async function main() {
+  if (process.argv.includes('--logos-only')) {
+    const file = join(OUT, 'index.json'), data = JSON.parse(readFileSync(file, 'utf8'));
+    await addLogos(data.sets); writeFileSync(file, JSON.stringify(data));
+    console.log(data.sets.filter(s => s.logo).length + ' of ' + data.sets.length + ' sets have a logo'); return;
+  }
   const groups = (await getJson(BASE + '/groups')).results
     .filter(g => !only.length || only.includes(g.groupId));
   const today = new Date().toISOString().slice(0, 10), soon = new Date(Date.now() + 14 * 864e5).toISOString().slice(0, 10);
@@ -100,6 +121,7 @@ async function main() {
     process.stdout.write('.');
   }
   index.sort((a, b) => (b.released.localeCompare(a.released)) || a.name.localeCompare(b.name));
+  await addLogos(index);
   writeFileSync(join(OUT, 'index.json'), JSON.stringify({asOf: new Date().toISOString(), currency: 'USD', source: 'TCGplayer market price via tcgcsv.com',
     setValueRule: 'one of each numbered card at its cheapest printing', sets: index}));
   upcoming.sort((a, b) => a.date.localeCompare(b.date) || a.set.localeCompare(b.set) || a.name.localeCompare(b.name));

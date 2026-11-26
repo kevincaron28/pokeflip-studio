@@ -56,7 +56,7 @@ function kindLabel(it){return it.kind==='card'?t('p.card')+(it.grade&&it.grade!=
 function valueCad(it){if(it.kind==='card'){const v=root.CardsteadEbayWatch?.valueOf(it.card,data);return v?.cad??null}return isNum(it.marketUsd)&&isNum(fx())?it.marketUsd*fx():null}
 function row(it){
  const key=root.CardsteadChart.keyFor(it),sp=history?root.CardsteadChart.sparkline(history,key,30):'';
- return `<li><button type="button" class="prod-row" data-item="${esc(it.kind+':'+it.id+(it.printing?':'+it.printing:''))}"><span class="prod-main"><strong>${esc(it.name)}</strong><span class="note">${esc(it.set||'')} · ${esc(kindLabel(it))}</span></span><span class="prod-spark">${sp}</span><span class="prod-val">${esc(M(valueCad(it)))}</span></button></li>`;
+ return `<li><button type="button" class="prod-row has-pic" data-item="${esc(it.kind+':'+it.id+(it.printing?':'+it.printing:''))}">${(root.CardsteadPics?root.CardsteadPics.imgOr(root.CardsteadPics.tcgSrc(it.id),{cls:'pic prod-pic'}):'')}<span class="prod-main"><strong>${esc(it.name)}</strong><span class="note">${esc(it.set||'')} · ${esc(kindLabel(it))}</span></span><span class="prod-spark">${sp}</span><span class="prod-val">${esc(M(valueCad(it)))}</span></button></li>`;
 }
 function find(ref){const [k,id,pr]=String(ref).split(':');return items.find(x=>x.kind===k&&String(x.id)===id&&(!pr||x.printing===pr))}
 function renderResults(){
@@ -87,7 +87,7 @@ async function open(it,from){
  const v=C&&a?C.verdictText(I().lang(),best?.price,a):null;
  const w=it.kind==='sealed'?watched(it):null;
  const def=watchDefaults(it,fx(),root.CardsteadStorePrefs?.get()?.city||undefined);
- const img=it.kind==='sealed'?`<img class="prod-img" alt="" loading="lazy" src="https://tcgplayer-cdn.tcgplayer.com/product/${encodeURIComponent(it.id)}_200w.jpg">`:'';
+ const img=root.CardsteadPics?root.CardsteadPics.img(root.CardsteadPics.tcgSrc(it.id),{cls:'pic prod-img'}):'';
  host.innerHTML=`<button type="button" class="btn smallbtn" data-back>← ${esc(t('p.back'))}</button>
  <div class="prod-head">${img}<div><p class="ac-kind">${esc(kindLabel(it))} · ${esc(it.set||'')}</p><h1 class="prod-title">${esc(it.name)}</h1></div></div>
  <div class="prod-metrics">

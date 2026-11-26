@@ -609,3 +609,17 @@ details.advanced>summary{cursor:pointer;font-weight:700;min-height:44px;display:
 .mc-filter{max-width:220px}
 .mc-alerts h2{margin:0 0 4px}
 @media (max-width:640px){.mc-results{grid-template-columns:1fr}.mc-filter{max-width:none;width:100%}}
+
+/* Pictures (pictures.js): lazy images with a neutral placeholder when there is none or it fails */
+.pic{display:block;object-fit:contain;background:#0a1522;border-radius:6px}
+.pic-ph{display:block;background:#0a1522 linear-gradient(135deg,#132034 25%,transparent 25%,transparent 50%,#132034 50%,#132034 75%,transparent 75%) 0 0/12px 12px;border-radius:6px}
+.prod-row.has-pic{grid-template-columns:44px minmax(0,1fr) 92px auto}
+.prod-pic{width:44px;height:52px}
+.sets-row.has-pic{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:10px;align-items:center}
+.sets-logo{width:72px;height:36px}
+.sets-pack{height:52px}
+.sets-head-logo{width:140px;height:60px;margin-right:12px}
+.watch-row .watch-pic{width:44px;height:52px;float:left;margin:0 10px 6px 0}
+.el-pic{width:40px;height:40px;display:inline-block;vertical-align:middle;margin-right:6px}
+.el-cheap-row{display:flex;align-items:center;gap:6px;margin-top:4px}
+@media (max-width:640px){.prod-row.has-pic{grid-template-columns:40px minmax(0,1fr) 56px auto}.prod-pic{width:40px;height:48px}.sets-row.has-pic{grid-template-columns:56px minmax(0,1fr) auto}.sets-logo{width:56px;height:30px}}

@@ -28,7 +28,7 @@ let index=null,fx=null,series=null,open=null,sort='price',query='';
 const BASE=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'.';
 const cad=usd=>isNum(usd)&&isNum(fx)?usd*fx:null;
 const day=d=>{const x=Date.parse(d||'');return Number.isFinite(x)?new Date(x).toLocaleDateString(I()?.lang?.()==='fr'?'fr-CA':'en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):''};
-const img=id=>`<img loading="lazy" alt="" src="https://tcgplayer-cdn.tcgplayer.com/product/${encodeURIComponent(id)}_200w.jpg">`;
+const img=id=>root.CardsteadPics?root.CardsteadPics.imgOr(root.CardsteadPics.tcgSrc(id),{cls:'pic'}):'';
 async function load(){
  if(!index){const r=await fetch(BASE()+'/data/sets/index.json',{cache:'no-cache'});if(!r.ok)throw Error('sets '+r.status);index=await r.json()}
  if(!isNum(fx)){const d=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;fx=d?.fx?.usdToCad??null}
@@ -41,7 +41,8 @@ function list(){
  <div class="sets-series" role="group">${groups.map(g=>`<button type="button" class="chip${!q&&g.id===series?' on':''}" data-series="${esc(g.id)}">${esc(t('sets.series.'+g.id)!=='sets.series.'+g.id?t('sets.series.'+g.id):g.name)} <span class="note">${g.sets.length}</span></button>`).join('')}</div>
  ${source()}
  <ul class="sets-list">${sets.map(s=>{const c=s.chase[0],pk=s.sealed?.pack,etb=s.sealed?.etb,bx=s.sealed?.box;
-  return `<li><button type="button" class="sets-row" data-set="${s.id}"><span class="sets-main"><strong>${esc(s.name)}</strong><span class="note">${esc(day(s.released))} · ${esc(t('sets.cards',s.cards))}${c?` · ${esc(t('sets.chase'))}: ${esc(c[1])} ${esc(M(cad(c[4])))}`:''}</span>
+  const P=root.CardsteadPics,pic=P?(s.logo?P.img(s.logo,{cls:'pic sets-logo'}):P.imgOr(P.tcgSrc(pk&&pk[0]),{cls:'pic sets-logo sets-pack'})):'';
+  return `<li><button type="button" class="sets-row has-pic" data-set="${s.id}">${pic}<span class="sets-main"><strong>${esc(s.name)}</strong><span class="note">${esc(day(s.released))} · ${esc(t('sets.cards',s.cards))}${c?` · ${esc(t('sets.chase'))}: ${esc(c[1])} ${esc(M(cad(c[4])))}`:''}</span>
   ${pk||etb||bx?`<span class="note">${[pk&&t('sets.pack')+' '+M(cad(pk[1])),etb&&t('sets.etb')+' '+M(cad(etb[1])),bx&&t('sets.box')+' '+M(cad(bx[1]))].filter(Boolean).map(esc).join(' · ')}</span>`:''}</span>
   <span class="sets-val"><span class="note">${esc(t('sets.value'))}</span><strong>${esc(M(cad(s.setValueUsd)))}</strong></span></button></li>`}).join('')||`<li class="empty">${esc(t('sets.none'))}</li>`}</ul>`;
  const sInput=$('setsSearch');sInput.oninput=()=>{query=sInput.value;const pos=sInput.selectionStart;list();const n=$('setsSearch');n.focus();n.setSelectionRange(pos,pos)};
@@ -58,7 +59,7 @@ async function detail(id){
  if(sort==='price')cards.sort((a,b)=>(b.top??-1)-(a.top??-1));
  const have=cards.filter(c=>c.own).length;
  host.innerHTML=`<button type="button" class="btn smallbtn" data-sets-back>← ${esc(t('sets.back'))}</button>
- <div class="sets-head"><div><p class="ac-kind">${esc(s.seriesName)} · ${esc(day(s.released))}${s.code?' · '+esc(s.code):''}</p><h2>${esc(s.name)}</h2>
+ <div class="sets-head">${s.logo&&root.CardsteadPics?root.CardsteadPics.img(s.logo,{cls:'pic sets-head-logo'}):''}<div><p class="ac-kind">${esc(s.seriesName)} · ${esc(day(s.released))}${s.code?' · '+esc(s.code):''}</p><h2>${esc(s.name)}</h2>
   <p class="note">${esc(t('sets.cards',s.cards))} · ${esc(t('sets.owned',have,s.cards,Math.round(have/Math.max(1,s.cards)*100)))}</p></div>
   <div class="sets-val"><span class="note">${esc(t('sets.value'))}</span><strong>${esc(M(cad(s.setValueUsd)))}</strong><span class="note">${esc(t('sets.valueRule'))}</span></div></div>
  ${source()}
