@@ -137,10 +137,14 @@ function isDeal(row,threshold,target){
 }
 
 const KEY='cardstead-ebay-watch-v1',RESULTS='cardstead-ebay-results-v1',SEEN='cardstead-ebay-seen-v1';
-const DEFAULTS={removed:[],custom:[],targets:{},threshold:0.10,auto:true};
+const DEFAULTS={removed:[],custom:[],targets:{},threshold:0.10};
 const jget=(k,d)=>{try{const v=JSON.parse(root.localStorage?.getItem(k)||'null');return v??d}catch{return d}};
 const jset=(k,v)=>{try{root.localStorage?.setItem(k,JSON.stringify(v))}catch{}};
 function prefs(){const p={...DEFAULTS,...jget(KEY,{})};p.threshold=isNum(p.threshold)&&p.threshold>=0&&p.threshold<=0.9?p.threshold:0.10;return p}
+/** What the hourly check covers. Not chosen yet: only the cards you asked to be alerted about. Pure. */
+function autoMode(p){return ['off','mine','all'].includes(p.autoMode)?p.autoMode:p.auto===false?'off':'mine'}
+/** The cards an automatic check asks eBay about. Pure when the lists are passed in. */
+function autoCards(p=prefs(),list,mine){const m=autoMode(p);if(m==='off')return [];const all=watched(p,list,mine);return m==='all'?all:all.filter(c=>c.mine||c.custom||isNum(p.targets[c.id]))}
 function watched(p=prefs(),list=root.CardsteadSoughtCards?.cards||[],mine=myCards()){return list.filter(c=>!p.removed.includes(c.id)).concat(p.custom||[],mine)}
 /** Target and alert level of a My cards row, each in its own span (translated whole). */
 function mineExtra(c){let x='';if(isNum(c.target))x+=`<span> · Target ${cad(c.target)}</span>`;if(isNum(c.threshold))x+=`<span> · Alert at ${Math.round(c.threshold*100)}% under value</span>`;return x}
@@ -149,7 +153,7 @@ function myCards(){try{const L=root.pokeflipLedger,M=root.CardsteadMyCards;retur
 /** Alert level and target for a card: its own (My cards) or the eBay deals settings. */
 function ruleFor(card,p){return card.mine?{threshold:isNum(card.threshold)?card.threshold:p.threshold,target:isNum(card.target)?card.target:undefined}:{threshold:p.threshold,target:p.targets[card.id]}}
 
-const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,ruleFor,KEY,norm,RESULTS:'cardstead-ebay-results-v1'};
+const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,autoMode,autoCards,ruleFor,KEY,norm,RESULTS:'cardstead-ebay-results-v1'};
 root.CardsteadEbayWatch=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 // Ask for notification permission once (Android app or browser), from a tap. Used when alerts are switched on.
@@ -196,7 +200,7 @@ function renderDeals(){
  const host=$('dealsList');if(!host)return;const p=prefs(),res=jget(RESULTS,{});
  const all=assess(res.byCard||{},watched(p),data),under=all.filter(r=>r.verdict.code==='under'),rows=under.filter(r=>{const k=ruleFor(r.card,p);return isDeal(r,k.threshold,k.target)}),maybe=under.filter(r=>!rows.includes(r)),suspect=all.filter(r=>r.verdict.code==='suspect').length;
  $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString(LOC())} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
- host.innerHTML=(rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing is a sure deal in the last scan.</p>')
+ host.innerHTML=(rows.length?rows.slice(0,40).map(dealHtml).join(''):'<div class="empty empty-art"><img src="./assets/empty/empty-deals.webp" alt="" width="112" height="112" loading="lazy"><p>No listing is a sure deal in the last scan.</p></div>')
   +(maybe.length?`<details class="panel advanced"><summary>${maybe.length} more under value, not alerted (value uncertain, new seller, or less than your alert level)</summary>${maybe.slice(0,40).map(r=>dealHtml(r)+(doubt(r)?`<p class="note">Not alerted: ${esc(doubt(r))}.</p>`:'')).join('')}</details>`:'');wire(host);
 }
 function renderWatch(){
@@ -208,7 +212,7 @@ function renderWatch(){
   row.innerHTML=`<div><strong data-no-translate>${esc(cardLabel(c))}</strong><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source)+(v.date?', '+esc(day(v.date)):''):'Value unknown'}${c.demandSourceUrl?` · <a href="${esc(c.demandSourceUrl)}" target="_blank" rel="noopener noreferrer">why it's watched</a>`:''}</div></div>
   <label class="deal-target"><span class="note">Target CAD</span><input type="number" min="0" step="1" inputmode="decimal" value="${esc(p.targets[c.id]??'')}" aria-label="Target price for ${esc(c.name)}"></label><button type="button" class="btn smallbtn">Remove</button>`;
   if(c.mine){row.innerHTML=`<div><strong data-no-translate>${esc(cardLabel(c))}</strong> <span class="pill">Watchlist</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in Watchlist</button>`;host.append(row);continue}
-  row.querySelector('input').onchange=e=>{const q2=prefs();const n=Number(e.target.value);if(e.target.value===''||!(n>0))delete q2.targets[c.id];else q2.targets[c.id]=n;jset(KEY,q2)};
+  row.querySelector('input').onchange=e=>{const q2=prefs();const n=Number(e.target.value);if(e.target.value===''||!(n>0))delete q2.targets[c.id];else q2.targets[c.id]=n;jset(KEY,q2);autoScan()};
   row.querySelector('button').onclick=()=>{const q2=prefs();if(c.custom)q2.custom=q2.custom.filter(x=>x.id!==c.id);else q2.removed=[...new Set([...q2.removed,c.id])];jset(KEY,q2);renderWatch();renderDeals()};
   host.append(row)}
  void fx;
@@ -227,9 +231,9 @@ function notifyDeal(r){
  if(root.PokeFlipNative&&root.PokeFlipNative.isNative){root.PokeFlipNative.notify('Cardstead eBay deal',text);return}
  if('Notification' in root&&Notification.permission==='granted'){navigator.serviceWorker?.getRegistration?.().then(reg=>reg?.showNotification?reg.showNotification('Cardstead eBay deal',{body:text,icon:'icon-192.png'}):new Notification('Cardstead eBay deal',{body:text})).catch(()=>{})}
 }
-async function scan(){
+async function scan(only){
  if(scanning||status!=='ready')return;scanning=true;const btn=$('dealsScan'),msg=$('dealsMessage');btn.disabled=true;
- const p=prefs(),cards=watched(p),res=jget(RESULTS,{byCard:{}});res.byCard=res.byCard||{};let done=0,failed=0;
+ const p=prefs(),cards=only||watched(p),res=jget(RESULTS,{byCard:{}});res.byCard=res.byCard||{};let done=0,failed=0;
  try{for(const c of cards){if(doc.hidden&&!root.PokeFlipNative)break;msg.textContent=`Checking eBay: ${done+1} of ${cards.length} (${c.name})…`;
    try{const r=await fetch(API()+'?q='+encodeURIComponent(c.ebayQuery||cardLabel(c))+SRC(),{cache:'no-store'});
     if(r.status===429){msg.textContent='eBay search limit reached; the scan continues later.';break}
@@ -249,23 +253,25 @@ async function scan(){
 }
 async function open(){
  try{await loadAll()}catch(e){$('dealsMessage').textContent=e.message;return}
- $('dealsThreshold').value=Math.round(prefs().threshold*100);$('dealsAuto').checked=prefs().auto;
+ $('dealsThreshold').value=Math.round(prefs().threshold*100);$('dealsAuto').value=autoMode(prefs());
  renderWatch();renderDeals();
  if(await checkStatus()==='ready')autoScan();
 }
 /** Automatic checks (alerts): a scan when the last one is over an hour old, then every hour while Cardstead is open. */
 function stale(now=Date.now()){const at=Date.parse(jget(RESULTS,{}).at||'');return !Number.isFinite(at)||now-at>55*60*1000}
-function autoScan(){if(!prefs().auto)return;if(stale())scan();if(!timer)timer=setInterval(()=>{if(prefs().auto&&(!doc.hidden||native())&&stale())scan()},10*60*1000)}
-async function background(){if(!prefs().auto||data)return;try{await loadAll()}catch{return}if(await checkStatus()==='ready'){renderDeals();autoScan()}}
+function autoScan(){if(autoMode(prefs())==='off')return;const due=()=>{const cards=autoCards();if(cards.length&&stale())scan(cards)};due();if(!timer)timer=setInterval(()=>{if(!doc.hidden||native())due()},10*60*1000)}
+/** Nothing is asked of eBay for someone who never set a target or an alert, unless they chose every card. */
+function wanted(p=prefs()){const m=autoMode(p);return m==='all'||m==='mine'&&!!(myCards().length||(p.custom||[]).length||Object.keys(p.targets||{}).length)}
+async function background(){if(!wanted()||data)return;try{await loadAll()}catch{return}if(await checkStatus()==='ready'){renderDeals();autoScan()}}
 function init(){
  const tab=doc.querySelector('[data-tab="deals"]');if(!tab||!$('dealsList'))return;
  tab.addEventListener('click',()=>{if(!data)open()});
  // Alerts do not wait for the eBay deals page: the background check starts shortly after Cardstead opens.
  setTimeout(background,20000);
- $('dealsScan').onclick=scan;
+ $('dealsScan').onclick=()=>scan();
  $('dealsFilter').addEventListener('input',renderWatch);
  $('dealsThreshold').onchange=e=>{const p=prefs(),n=Number(e.target.value);if(n>=0&&n<=90){p.threshold=n/100;jset(KEY,p);renderDeals()}};
- $('dealsAuto').onchange=e=>{const p=prefs();p.auto=e.target.checked;jset(KEY,p);if(p.auto){root.CardsteadNotify?.ask();autoScan()}};
+ $('dealsAuto').onchange=e=>{const p=prefs();p.autoMode=e.target.value;delete p.auto;jset(KEY,p);if(p.autoMode!=='off'){root.CardsteadNotify?.ask();autoScan()}};
  $('dealsRestore').onclick=()=>{const p=prefs();p.removed=[];jset(KEY,p);renderWatch();renderDeals()};
  $('dealsAddForm').onsubmit=e=>{e.preventDefault();const p=prefs();const name=$('dealsAddName').value.trim(),query=$('dealsAddQuery').value.trim();if(!name||query.length<3)return;
   const val=Number($('dealsAddValue').value);

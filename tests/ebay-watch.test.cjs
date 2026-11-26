@@ -134,3 +134,14 @@ test('a raw deal is measured against the lower of the sold value and the eBay.ca
  const rows=W.assess({u:{fetchedAt:'x',items:[it('1',1200),it('2',1250),it('3',1300),it('4',1100)]}},[card],{fx:{usdToCad:1.4}});
  const r=rows.find(x=>x.item.id==='4');assert.equal(r.dealRef,1225,'median of the asks, under the 1,400 sold value');assert.equal(r.verdict.code,'under');assert.equal(Math.round(r.verdict.discount*100),10);
 });
+test('automatic checks: nothing for a visitor who never asked, only alerted cards until "every card" is chosen',()=>{
+ const list=[{id:'a'},{id:'b'}],mine=[],ids=p=>Array.from(W.autoCards({removed:[],custom:[],targets:{},...p},list,mine),c=>c.id);
+ assert.deepStrictEqual(ids({}),[],'a new visitor');
+ assert.deepStrictEqual(ids({auto:true}),[],'the old default is not a choice');
+ assert.deepStrictEqual(ids({targets:{b:5}}),['b']);
+ assert.deepStrictEqual(ids({custom:[{id:'c',custom:true}]}),['c']);
+ assert.deepStrictEqual(ids({autoMode:'all'}),['a','b']);
+ assert.deepStrictEqual(ids({autoMode:'off',targets:{b:5}}),[]);
+ assert.deepStrictEqual(ids({auto:false,targets:{b:5}}),[],'switched off before: stays off');
+ mine.push({id:'m',mine:true});assert.deepStrictEqual(ids({}),['m']);
+});

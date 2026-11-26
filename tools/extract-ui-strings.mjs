@@ -11,6 +11,8 @@ import path from 'node:path';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 export const RUNTIME_FILES=['app.js','discord-link.js','restock-watch.js','alert-hub.js','sealed-guide.js','ebay-pricing.js','deal.js','pack-ev.js','ebay-watch.js','alert-value.js','cloud-sync.js','push-link.js','mobile-experience.js','market-reference.js'];
 const words=s=>/[A-Za-z]{3}/.test(s)&&/\s|^[A-Z][a-z]+$/.test(s.trim());
+// A sentence may hold ";", "()" or {0}: it is text, whatever CODE says.
+const sentence=s=>/^(?:[A-Z]|\{0\})/.test(s)&&s.split(/\s+/).length>=4&&!/=|\{(?!\d+\})|\|\||\.js\b|\bfunction\b/.test(s);
 const tidy=s=>s.replace(/\s+/g,' ').trim();
 // Things that are code, not text people read.
 const CODE=/^(https?:|\.\/|#|[a-z]+[A-Z]\w*$|[a-z-]+$|[a-z]+\/[a-z]|[\w.-]+\.(js|css|png|svg|json)$|\w+=)|^(GET|POST|PUT|DELETE|Content-Type|application\/|image\/|text\/)|[{}();=]|=>|^[\w-]+:\s*[\w#-]+;?$/;
@@ -26,7 +28,7 @@ export function staticStrings(html){
 function decode(s){return s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ')}
 /** Literal and template segments from a script. Template ${…} become {0},{1}… */
 export function runtimeStrings(src){
- const out=[];const add=s=>{s=tidy(decode(s));if(s.length>=3&&words(s)&&!CODE.test(s)&&!out.includes(s))out.push(s)};
+ const out=[];const add=s=>{s=tidy(decode(s));if(s.length>=3&&words(s)&&(sentence(s)||!CODE.test(s))&&!out.includes(s))out.push(s)};
  // Template literals (no nesting of backticks across ${}: good enough for these files' style).
  for(const m of src.matchAll(/`((?:[^`\\]|\\.)*)`/g)){
   let t=m[1],n=0;

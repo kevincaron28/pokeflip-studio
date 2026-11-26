@@ -48,6 +48,16 @@ function init(){
  for(const btn of document.querySelectorAll('.dock-item[data-dock]')){
   btn.addEventListener('click',()=>navigate(btn.dataset.dock));
  }
+ // Desktop sidebar: the buttons start under Export backup, however many lines the brand takes in each language.
+ const brand=document.querySelector('.top');
+ if(brand&&root.ResizeObserver)new root.ResizeObserver(()=>{const r=$('backupTop')?.getBoundingClientRect();if(r&&r.height)document.documentElement.style.setProperty('--side-top',Math.ceil(r.bottom+10)+'px')}).observe(brand);
+ const top=$('toTop');
+ if(top&&root.addEventListener){
+  // Long pages (set checklists, search results): one tap back up.
+  const far=()=>{top.hidden=(root.scrollY||0)<1200};
+  root.addEventListener('scroll',far,{passive:true});far();
+  top.addEventListener('click',()=>root.scrollTo({top:0,behavior:root.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+ }
  more?.addEventListener('click',()=>document.body.classList.contains('mobile-menu-open')?close():open());
  $('mobileClose')?.addEventListener('click',close);
  scrim.addEventListener('click',close);
