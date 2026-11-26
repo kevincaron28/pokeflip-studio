@@ -22,23 +22,26 @@
 <body>
 <main>
 <h1>Cardstead privacy policy</h1>
-<p class="muted">Last updated: 25 November 2026 · <a href="#fr">Version française</a></p>
+<p class="muted">Last updated: 26 November 2026 · <a href="#fr">Version française</a></p>
 
 <h2>Who we are</h2>
-<p>Cardstead is a collection-tracking and resale-planning app for trading cards, published by KCaron (Kevin Caron, Quebec, Canada). Contact: <a href="mailto:kevincaron28@gmail.com">kevincaron28@gmail.com</a>.</p>
+<p>Cardstead is a price-check and alert app for trading cards, published by KCaron (Kevin Caron, Quebec, Canada). Contact: <a href="mailto:kevincaron28@gmail.com">kevincaron28@gmail.com</a>.</p>
 
 <h2>Data that stays on your phone</h2>
-<p>The cards, purchase lots, sales, notes, prices, restock watches and settings you enter are stored on your device. If you never sign in, none of this leaves your phone.</p>
+<p>The cards in My cards (including what you paid and your price targets), any older purchase lots and sales, your notes, restock watches and settings are stored on your device. If you never sign in, this collection is not uploaded. Looking up cards and prices still sends the searches described below.</p>
 
 
 <h2>Optional cloud backup</h2>
 <p>If you choose to sign in with your email address, your email address and a copy of your collection data are stored in a database hosted by Supabase. Access is restricted to your account. Signing in is optional and every feature works without it.</p>
 
 <h2>Card lookup and stock checks</h2>
-<p>When you look up a card, the card name, set and number you entered or scanned are sent to the TCGdex public card database (api.tcgdex.net) to retrieve card details, images and reference prices. When you add a product link from a supported online shop to a restock watch, or follow a region, the app asks those shops' public product pages whether the item is in stock (the shop sees your IP address and browser details, as with any web visit). No account details are sent to these services.</p>
+<p>When you look up a card, the card name, set and number you entered are sent to the TCGdex public card database (api.tcgdex.net) to retrieve card details, images and reference prices. When you add a product link from a supported online shop to a restock watch, or follow a region, the app asks those shops' public product pages whether the item is in stock (the shop sees your IP address and browser details, as with any web visit). No account details are sent to these services. Pictures of cards and products, and set logos, load from TCGdex and TCGplayer, which see your IP address and browser details when a picture loads.</p>
+
+<h2>Live eBay.ca prices</h2>
+<p>When the app shows or checks eBay.ca prices (a card page, My cards, the daily price check while the app is open, or an eBay deals watch), the card's name, set, number, grade and language are sent to Cardstead's server, hosted by Vercel, which asks eBay's official search service. No account details are sent to eBay. The server may keep an answer for up to six hours, filed under the search words and not under you, and uses your internet address briefly to limit abuse; the hosting provider may keep standard server logs. Listing pictures, when shown, load from eBay, which sees your IP address and browser details. These are asking prices, not completed sales.</p>
 
 <h2>Notifications</h2>
-<p>If you allow notifications, the app shows local notifications on your device for your restock watches. No notification token is sent to any server.</p>
+<p>If you allow notifications, the app shows local notifications on your device for your price targets and restock watches. These need no notification token on a server. Drop alerts, described below, are separate and optional.</p>
 
 <h2>Discord alerts (optional)</h2>
 <p>The Cardstead Drops Discord server is optional. If you use it, Cardstead stores your Discord user ID with the reports you send (<code>/report</code>), your "Wasn't there" and "I see it too" taps, and a count of your confirmed and disputed reports, to keep alerts accurate. If you link your Cardstead account (Settings, Discord alerts), Cardstead also stores which Discord account is linked and whether DMs are on, and reads the restock watches in your cloud backup to send you a private message when a drop matches one. You can turn DMs off or unlink at any time; deleting your account removes the link. Discord's own privacy policy applies to your use of Discord.</p>
@@ -47,9 +50,10 @@
 <p>If you turn on drop alerts in Settings, Cardstead stores your browser's push address (an address from your browser's push service, such as Google or Mozilla, and two encryption keys), your alert choices (area, big chains, good prices only) and your language, linked to your Cardstead account. They are used only to send you restock alerts. Turning alerts off, or deleting your account, deletes them. Cardstead keeps which alerts it sent you for 30 minutes to avoid repeats. In the Android app, the push address is a device token from Google's Firebase Cloud Messaging, and alerts are delivered through Google.</p>
 <h2>Links</h2>
 <p>Links to retailers, eBay and search engines open in your browser; their own privacy policies apply.</p>
+<p>Some links to Amazon.ca may be affiliate links: as an Amazon Associate, Cardstead earns from qualifying purchases. When they are, the app says so on screen. Opening one tells Amazon that the visit came from Cardstead; Cardstead adds no account details to the link. It does not change your price.</p>
 
 <h2>What we do not do</h2>
-<p>No advertising, no analytics or tracking SDKs, no sale or sharing of your data, no collection of location or contacts.</p>
+<p>No ad networks, no analytics or tracking SDKs, no sale or sharing of your data, no collection of location or contacts.</p>
 
 <h2 id="delete">Delete your account and data</h2>
 <div class="box">
@@ -73,21 +77,25 @@
 
 <section id="fr" lang="fr">
 <h1>Politique de confidentialité de Cardstead</h1>
-<p class="muted">Dernière mise à jour : 25 novembre 2026</p>
+<p class="muted">Dernière mise à jour : 26 novembre 2026</p>
 <h2>Qui sommes-nous</h2>
-<p>Cardstead est une application de suivi de collection et de revente de cartes à collectionner, publiée par KCaron (Kevin Caron, Québec, Canada). Contact : <a href="mailto:kevincaron28@gmail.com">kevincaron28@gmail.com</a>.</p>
+<p>Cardstead est une application de vérification de prix et d'alertes pour les cartes à collectionner, publiée par KCaron (Kevin Caron, Québec, Canada). Contact : <a href="mailto:kevincaron28@gmail.com">kevincaron28@gmail.com</a>.</p>
 <h2>Données sur ton téléphone</h2>
-<p>Tes cartes, lots, ventes, notes, prix, alertes de stock et réglages restent sur ton appareil. Si tu ne te connectes jamais, rien ne quitte ton téléphone.</p>
+<p>Les cartes de Mes cartes (y compris ce que tu as payé et tes prix cibles), les anciens lots et ventes, tes notes, tes surveillances de stock et tes réglages restent sur ton appareil. Si tu ne te connectes jamais, cette collection n'est pas téléversée. La recherche de cartes et de prix envoie quand même les recherches décrites ci-dessous.</p>
 <h2>Sauvegarde en ligne (facultative)</h2>
 <p>Si tu te connectes avec ton courriel, ton adresse et une copie de ta collection sont conservées dans une base de données hébergée par Supabase, accessible seulement par ton compte. La connexion est facultative.</p>
 <h2>Recherche de cartes et vérification de stock</h2>
-<p>Le nom, la série et le numéro d'une carte sont envoyés à la base publique TCGdex (api.tcgdex.net) pour obtenir les détails, images et prix de référence. Pour une alerte de stock liée à une boutique en ligne prise en charge, ou si tu suis une région, l'application consulte les pages produits publiques de ces boutiques (la boutique voit ton adresse IP et les informations de ton navigateur, comme pour toute visite). Aucune information de compte n'est envoyée.</p>
+<p>Le nom, la série et le numéro d'une carte sont envoyés à la base publique TCGdex (api.tcgdex.net) pour obtenir les détails, images et prix de référence. Pour une alerte de stock liée à une boutique en ligne prise en charge, ou si tu suis une région, l'application consulte les pages produits publiques de ces boutiques (la boutique voit ton adresse IP et les informations de ton navigateur, comme pour toute visite). Aucune information de compte n'est envoyée. Les images de cartes et de produits, et les logos de séries, proviennent de TCGdex et de TCGplayer, qui voient ton adresse IP et les informations de ton navigateur quand une image se charge.</p>
+<h2>Prix eBay.ca en direct</h2>
+<p>Quand l'application affiche ou vérifie des prix eBay.ca (page d'une carte, Mes cartes, la vérification quotidienne pendant que l'application est ouverte, ou une surveillance d'aubaines eBay), le nom, la série, le numéro, la note de gradation et la langue de la carte sont envoyés au serveur de Cardstead, hébergé par Vercel, qui interroge le service de recherche officiel d'eBay. Aucune information de compte n'est envoyée à eBay. Le serveur peut conserver une réponse jusqu'à six heures, classée selon les mots recherchés et non selon toi, et utilise brièvement ton adresse Internet pour limiter les abus; l'hébergeur peut garder des journaux de serveur habituels. Les images d'annonces, quand elles sont affichées, proviennent d'eBay, qui voit ton adresse IP et les informations de ton navigateur. Ce sont des prix demandés, pas des ventes conclues.</p>
+<h2>Liens et liens affiliés</h2>
+<p>Les liens vers les détaillants, eBay et les moteurs de recherche s'ouvrent dans ton navigateur; leurs politiques de confidentialité s'appliquent. Certains liens vers Amazon.ca peuvent être des liens affiliés : à titre de Partenaire Amazon, Cardstead réalise un bénéfice sur les achats remplissant les conditions requises. Quand c'est le cas, l'application l'indique à l'écran. Ouvrir un tel lien indique à Amazon que la visite vient de Cardstead; Cardstead n'ajoute aucune information de compte au lien. Ton prix ne change pas.</p>
 <h2>Alertes Discord (facultatif)</h2>
 <p>Le serveur Discord Cardstead Drops est facultatif. Si tu l'utilises, Cardstead conserve ton identifiant Discord avec les signalements que tu envoies (<code>/report</code>), tes clics « Pas là » et « Je le vois aussi », et le nombre de tes signalements confirmés ou contestés, pour garder les alertes fiables. Si tu lies ton compte Cardstead (Réglages, Alertes Discord), Cardstead conserve aussi le compte Discord lié et si les messages privés sont activés, et lit les surveillances de ta sauvegarde en ligne pour t'envoyer un message privé quand un drop correspond. Tu peux désactiver les messages privés ou délier ton compte en tout temps; supprimer ton compte retire le lien. La politique de confidentialité de Discord s'applique à ton utilisation de Discord.</p>
 <h2>Alertes d’arrivage (facultatives)</h2>
 <p>Si tu actives les alertes d’arrivage dans Réglages, Cardstead conserve l’adresse de notification de ton navigateur (fournie par le service de ton navigateur, comme Google ou Mozilla, et deux clés de chiffrement), tes choix d’alerte (région, grandes chaînes, bons prix seulement) et ta langue, liés à ton compte Cardstead. Ils servent seulement à t’envoyer des alertes de réapprovisionnement. Désactiver les alertes, ou supprimer ton compte, les efface. Cardstead garde la trace des alertes envoyées pendant 30 minutes pour éviter les doublons. Dans l’application Android, l’adresse de notification est un jeton d’appareil de Firebase Cloud Messaging (Google), et les alertes passent par Google.</p>
 <h2>Ce qu'on ne fait pas</h2>
-<p>Aucune publicité, aucun outil d'analyse ou de pistage, aucune vente ni aucun partage de tes données, aucune collecte de position ou de contacts.</p>
+<p>Aucune régie publicitaire, aucun outil d'analyse ou de pistage, aucune vente ni aucun partage de tes données, aucune collecte de position ou de contacts.</p>
 <h2 id="supprimer">Supprimer ton compte et tes données</h2>
 <div class="box">
 <p><strong>Données locales :</strong> efface les données de l'application ou désinstalle-la.</p>

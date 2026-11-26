@@ -50,6 +50,8 @@ Owner to fill: legal/developer name, contact email, date. If analytics, crash re
 
 ## 3. Data safety form (draft answers)
 
+**Superseded 26 Nov 2026:** the answers now saved in Play Console are in [play/data-safety.md](play/data-safety.md). Listing text: [play/store-listing.md](play/store-listing.md).
+
 Basis: web code reviewed for network hosts: `*.supabase.co` (auth + snapshot), `api.tcgdex.net` (lookup), nothing else is called by the app itself.
 
 | Question | Answer |
