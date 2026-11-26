@@ -20,6 +20,7 @@ try:
  with sync_playwright() as p:
   b=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
   ctx=b.new_context(viewport={"width":390,"height":844},service_workers="block", locale="en-CA")
+  ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
   # An existing user who follows no region (a new Québec user follows every Québec region: tests/store-prefs.test.cjs)
   ctx.add_init_script("localStorage.setItem('pokeflip-restock-regions-v1','[]')");page=ctx.new_page();errors=[]
   page.on("pageerror",lambda e:errors.append(str(e)))
