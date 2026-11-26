@@ -68,6 +68,29 @@ try:
                     page.fill("#packSearch", "")
                     page.locator("#packFees").uncheck()
                     page.screenshot(path=f"{SHOTS}/pack-list-{width}.png", full_page=False)
+            # French: the page translates, keeps card names and writes money the French way; English comes back.
+            page.evaluate("CardsteadI18n.set('fr')")
+            page.wait_for_timeout(200)
+            page.evaluate("document.querySelector('[data-tab=\"packs\"]');document.querySelector('#packDetail:not(.hidden) #packClose')?.click()")
+            page.fill("#packSearch", "surging")
+            page.locator(".pack-table tbody tr").first.click()
+            page.fill("#packYourPrice", "7.99")
+            page.wait_for_timeout(150)
+            french = page.locator("section#packs").inner_text()
+            for must in ("Valeur des boosters", "Booster Surging Sparks", "PDSF", "Taux d’obtention", "en moyenne", " $"):
+                assert must in french, (must, french[:1500])
+            for must_not in ("EV by rarity slot", "Sealed pack", "on average", "Best:", "US$"):
+                assert must_not not in french, must_not
+            left = page.evaluate("""()=>{const out=[];const w=document.createTreeWalker(document.getElementById('packs'),NodeFilter.SHOW_TEXT);
+                for(let n=w.nextNode();n;n=w.nextNode()){if(n.parentElement.closest('[data-no-translate],[data-i18n]'))continue;const t=n.nodeValue.replace(/\s+/g,' ').trim();const fr=t&&CardsteadDomI18n.tr(t);if(fr&&fr!==t)out.push(t)}return out}""")
+            assert not left, left
+            overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
+            assert overflow <= 1, f"horizontal page scroll in French at {width}px: {overflow}px"
+            if SHOTS: page.screenshot(path=f"{SHOTS}/pack-detail-fr-{width}.png", full_page=True)
+            page.evaluate("CardsteadI18n.set('en')")
+            page.wait_for_timeout(200)
+            english = page.locator("section#packs").inner_text()
+            assert "Booster pack value" in english and "Surging Sparks booster pack" in english and "PDSF" not in english, english[:800]
             assert not errors, errors
             print(f"PASS pack value tab at {width}x{height}: {total} sets, detail, filters, no overflow, no errors")
             ctx.close()

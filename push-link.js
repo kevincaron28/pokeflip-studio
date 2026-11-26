@@ -1,6 +1,6 @@
 /* Settings -> Drop alerts on this device: Web Push for restocks found by the drops pipeline (drop_events).
  * Needs a signed-in Cardstead account so the subscription is tied to you and can be removed.
- * Preferences: your area (from My area & stores), big chains on or off, and "good prices only" (at or under market + 10%).
+ * Preferences: your area (from My area & stores), big chains on or off, and good prices only (at or under market + 10%).
  * The Android app's web view has no Web Push: there, alerts come through the website in Chrome until app push exists. */
 (function(root){'use strict';
 const REGIONS={QC:['qc-montreal','qc-quebec-regions'],ON:['on-gta','on-ottawa-other'],BC:['bc'],AB:['prairies'],MB:['prairies'],SK:['prairies'],NB:['atlantic'],NS:['atlantic'],PE:['atlantic'],NL:['atlantic']};

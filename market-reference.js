@@ -12,6 +12,7 @@
      (Low when it is stale). The value is for Near Mint; other conditions use a stated share, shown as an estimate.
    - Graded copies: the typical asking price of matching ebay.ca listings for that grade (see ebay-watch.js), Low or Medium. */
 (function(root){'use strict';
+ const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
 const positive=v=>Number.isFinite(v)&&v>0&&v<10000000?v:null;
 function dateInfo(value,now=Date.now()){
  let time=typeof value==='number'?(value>100000000000?value:value*1000):Date.parse(value||'');
@@ -80,7 +81,7 @@ root.PokeFlipMarketReferences=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
 if(!root?.document)return;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const money=(v,c='CAD')=>new Intl.NumberFormat('en-CA',{style:'currency',currency:c}).format(v);
+const money=(v,c='CAD')=>new Intl.NumberFormat(LOC(),{style:'currency',currency:c}).format(v);
 const PILL={high:['green','High confidence'],medium:['gold','Medium confidence'],low:['red','Low confidence']};
 const pill=c=>PILL[c]?`<span class="pill ${PILL[c][0]}" title="How far the price sources agree">${PILL[c][1]}</span>`:'';
 let gradedSeq=0;

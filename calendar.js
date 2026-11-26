@@ -37,7 +37,7 @@ async function render(){
   return `<article class="panel cal-item"><div class="cal-head"><div><p class="ac-kind">${esc(day(r.date))}</p><h2>${esc(r.set)}</h2></div>${status}</div>
   ${r.dateDiffers?`<p class="note">${esc(t('cal.differs',day(o.date),day(r.tcgDate)))}</p>`:''}
   ${o?.prerelease?`<p class="note">${esc(t('cal.prerelease',day(o.prerelease)))}</p>`:''}
-  ${o?.note?`<p class="note">${esc(o.note)}</p>`:''}
+  ${o?.note?`<p class="note">${esc(I()?.lang?.()==='fr'&&o.noteFr||o.note)}</p>`:''}
   ${o?.sources?.length?`<p class="note">${esc(t('cal.sources'))} ${o.sources.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a>`).join(' · ')}</p>`:''}
   ${r.products.length?`<ul class="prod-list">${r.products.map(p=>{const cad=isNum(p.marketUsd)&&isNum(fx)?p.marketUsd*fx:null,fmt=FORMAT[p.kind];
    return `<li><div class="prod-row has-pic">${(root.CardsteadPics?root.CardsteadPics.imgOr(root.CardsteadPics.tcgSrc(p.productId),{cls:'pic prod-pic'}):'')}<span class="prod-main"><strong>${esc(p.name)}</strong><span class="note">${[p.date!==r.date?t('cal.tcgDate',day(p.date)):'',cad?t('cal.presale',M(cad)):''].filter(Boolean).map(esc).join(' · ')}</span></span>

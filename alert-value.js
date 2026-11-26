@@ -98,14 +98,15 @@ function verdict(price,market,msrp){
  return {code:'unknown',label:'Value unknown: no matched market price or MSRP'};
 }
 
-const cadFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'});
-const usdFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'USD'});
+const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
+const cadFmt={format:v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(v)};
+const usdFmt={format:v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'USD'}).format(v)};
 function cad(v){return isNum(v)?cadFmt.format(v):'unknown'}
 function pct(v){return Math.round(v*100)+'%'}
 const range=m=>!m?'unknown':m.low===m.high?cad(m.low):`${cad(m.low)}–${cad(m.high)}`;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safe=u=>{try{const x=new URL(u);return x.protocol==='https:'?x.href:null}catch{return null}};
-const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
+const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString(LOC(),{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
 const STATUS={in:['In stock','green'],out:['Sold out','red'],unknown:['Not confirmed','grey']};
 
 /** Plain-text summary for phone and browser notifications. */
@@ -140,7 +141,7 @@ function cardHtml(a,{store,status='unknown',url=null,buyUrl=null,buyLabel=null,a
  ${a.contents&&a.contents.packs!==undefined?`<div><dt>Expected value of contents</dt><dd>${ev}</dd></div>`:''}
  <div><dt>Matched product</dt><dd class="ac-sub">${matched}</dd></div></dl>
  <p class="ac-verdict">${esc(a.verdict.label)}</p>
- <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(goLink)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<button type="button" class="btn smallbtn" data-compare="${esc(a.product)}" data-format="${esc(a.format||'')}">Compare stores</button><span class="ac-sub">${at?esc(new Date(at).toLocaleString('en-CA')):''}</span></div>
+ <div class="ac-foot">${go?`<a class="btn smallbtn${buyUrl?' primary':''}" href="${esc(goLink)}" target="_blank" rel="noopener noreferrer">${esc(buyLabel||'Buy now: checkout at '+(store||'store'))}</a>`:''}<button type="button" class="btn smallbtn" data-compare="${esc(a.product)}" data-format="${esc(a.format||'')}">Compare stores</button><span class="ac-sub">${at?esc(new Date(at).toLocaleString(LOC())):''}</span></div>
 </article>`;
 }
 

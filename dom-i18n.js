@@ -11,7 +11,7 @@
 const ATTRS=['placeholder','aria-label','title','alt'];
 const SKIP=new Set(['SCRIPT','STYLE','TEXTAREA','CODE','PRE','NOSCRIPT','svg']);
 // Screens built bilingual (ui-i18n.js) translate themselves.
-const OWN='[data-i18n],[data-no-translate],#home,#prices,#product,#packs,#deals,#compareDialog';
+const OWN='[data-i18n],[data-no-translate],#home,#prices,#product,#compareDialog';
 const norm=s=>String(s).replace(/\s+/g,' ').trim();
 const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 
