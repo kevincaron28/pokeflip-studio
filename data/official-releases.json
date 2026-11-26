@@ -4,6 +4,7 @@
  "releases": [
   {"set": "Flowing Fists", "series": "Mega Evolution", "date": "2027-02-06", "prerelease": "2027-01-23", "status": "announced",
    "note": "Announced by The Pokémon Company International on 19 Nov 2026. Most reports give Saturday 6 Feb 2027 (sets release on Saturdays); one gives 5 Feb. Not yet confirmed on press.pokemon.com from here.",
+   "noteFr": "Annoncé par The Pokémon Company International le 19 nov. 2026. La plupart des sources donnent le samedi 6 févr. 2027 (les extensions sortent le samedi); une donne le 5 févr. Pas encore confirmé ici sur press.pokemon.com.",
    "sources": [
     {"name": "PokéGuardian: Flowing Fists revealed", "url": "https://www.pokeguardian.com/3456480_pokemon-tcg-mega-evolution-flowing-fists-revealed"},
     {"name": "Serebii: Flowing Fists", "url": "https://serebii.net/card/flowingfists/"},

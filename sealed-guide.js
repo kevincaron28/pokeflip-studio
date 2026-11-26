@@ -2,12 +2,13 @@
  * No unlicensed price feeds, automated valuations, or implied authenticity checks.
  */
 (function(root){'use strict';
+ const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
  const TYPES={pack:'Booster pack',box:'Booster box',etb:'Elite Trainer Box (ETB)',bundle:'Booster bundle',blister:'Blister / sleeved pack',collection:'Collection / premium box',tin:'Tin',other:'Other sealed product'};
  const KEY='pokeflip-sealed-v1';
  const num=v=>Number(v);
  const round=v=>Math.round((v+Number.EPSILON)*100)/100;
  const key=o=>[o.setId,o.type,o.edition?.trim().toLowerCase(),o.language,o.packs].join('|');
- const money=v=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(v);
+ const money=v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(v);
  function validate(o){
   if(!o||typeof o!=='object'||!['sold','retail'].includes(o.kind))throw Error('Invalid observation kind');
   if(!/^[\w.\-]{1,40}$/.test(o.setId||''))throw Error('Set ID is required');

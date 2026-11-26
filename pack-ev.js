@@ -119,13 +119,16 @@ if(!root?.document)return;
 /* ---------- Page ---------- */
 const doc=root.document,$=id=>doc.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const cadFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'});
-const usdFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'USD'});
+const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
+const cadFmt={format:v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(v)};
+const usdFmt={format:v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'USD'}).format(v)};
 const cad=v=>isNum(v)?cadFmt.format(v):'—';
 const usd=v=>isNum(v)?usdFmt.format(v):'—';
-const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
+const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString(LOC(),{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
 const safeUrl=u=>{try{const x=new URL(u);return ['https:','http:'].includes(x.protocol)?x.href:null}catch{return null}};
 const link=(u,text)=>{const s=safeUrl(u);return s?`<a href="${esc(s)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`:esc(text)};
+/** A link whose words are someone else's title: never translated. */
+const sourceLink=(u,title)=>`<span data-no-translate>${link(u,title)}</span>`;
 const product=id=>'https://www.tcgplayer.com/product/'+encodeURIComponent(id);
 const PILL={open:'green',sealed:'gold',skip:'red',unknown:''};
 let state={data:null,list:[],selected:null,loading:null};
@@ -141,7 +144,7 @@ function asOfLine(data){
  const p=data.prices,f=data.fx;
  return `Card and sealed pack prices: ${esc(p.source)} (USD) as of <strong>${esc(day(p.asOf))}</strong>, via ${link(p.url,p.via)}. CAD at ${esc(f.usdToCad)} (${link(f.url,f.source)}, ${esc(day(f.date))}). Market prices are before selling fees.`;
 }
-function msrpCell(r){if(isNum(r.msrpCad))return moneyCell(r.msrpCad,r.msrpUsd);return isNum(r.msrpUsd)?`<span class="muted">CAD unknown</span><div class="small"><strong>${usd(r.msrpUsd)}</strong> US</div>`:'<span class="muted">unknown</span>'}
+function msrpCell(r){if(isNum(r.msrpCad))return moneyCell(r.msrpCad,r.msrpUsd);return isNum(r.msrpUsd)?`<span class="muted">CAD unknown</span><div class="small"><strong>${usd(r.msrpUsd)}</strong></div>`:'<span class="muted">unknown</span>'}
 function moneyCell(cadV,usdV){return isNum(cadV)?`<strong>${cad(cadV)}</strong><div class="small muted">${usd(usdV)}</div>`:'<span class="muted">unknown</span>'}
 function evCell(r){
  if(!isNum(r.evCad))return '<span class="muted">unknown</span>';
@@ -156,7 +159,7 @@ function renderList(){
  const shown=filterSort(state.list,{era:$('packEra').value,query:$('packSearch').value,onlyRated:$('packRated').checked,sort:$('packSort').value});
  $('packCount').textContent=`${shown.length} of ${state.list.length} sets · ${state.list.filter(r=>r.ev.complete).length} with sourced pull rates`;
  if(!shown.length){box.innerHTML='<p class="empty">No set matches these filters.</p>';return}
- box.innerHTML=`<table class="pack-table"><thead><tr><th scope="col">Set</th><th scope="col">MSRP</th><th scope="col">Sealed pack</th><th scope="col">EV opened</th><th scope="col">EV − sealed</th><th scope="col">Verdict</th></tr></thead><tbody>${shown.map(r=>`<tr data-pack="${esc(r.set.groupId)}" tabindex="0" aria-label="${esc(r.set.name)}: open details"><td data-label="Set"><strong>${esc(r.set.name)}</strong><div class="small muted">${esc(r.set.era)} · ${esc(r.set.released)}</div></td><td data-label="MSRP">${msrpCell(r)}</td><td data-label="Sealed pack">${moneyCell(r.sealedCad,r.sealedUsd)}</td><td data-label="EV opened">${evCell(r)}</td><td data-label="EV − sealed">${gapCell(r)}</td><td data-label="Verdict"><span class="pill ${PILL[r.verdict.code]}">${esc(r.verdict.label)}</span>${r.table?.confidence==='low'?' <span class="pill">low-confidence odds</span>':''}</td></tr>`).join('')}</tbody></table>`;
+ box.innerHTML=`<table class="pack-table"><thead><tr><th scope="col">Set</th><th scope="col">MSRP</th><th scope="col">Sealed pack</th><th scope="col">EV opened</th><th scope="col">EV − sealed</th><th scope="col">Verdict</th></tr></thead><tbody>${shown.map(r=>`<tr data-pack="${esc(r.set.groupId)}" tabindex="0" aria-label="${esc(r.set.name)}: open details"><td data-label="Set"><strong data-no-translate>${esc(r.set.name)}</strong><div class="small muted">${esc(r.set.era)} · ${esc(r.set.released)}</div></td><td data-label="MSRP">${msrpCell(r)}</td><td data-label="Sealed pack">${moneyCell(r.sealedCad,r.sealedUsd)}</td><td data-label="EV opened">${evCell(r)}</td><td data-label="EV − sealed">${gapCell(r)}</td><td data-label="Verdict"><span class="pill ${PILL[r.verdict.code]}">${esc(r.verdict.label)}</span>${r.table?.confidence==='low'?' <span class="pill">low-confidence odds</span>':''}</td></tr>`).join('')}</tbody></table>`;
 }
 function oddsText(l){
  if(l.kind==='odds')return l.asPrinted?esc(l.asPrinted):l.perPack!==null?'1 in '+round(1/l.perPack,1):'unknown';
@@ -168,38 +171,38 @@ function renderDetail(groupId){
  state.selected=r.set.groupId;
  const fx=state.data.fx.usdToCad,t=r.table,m=r.msrp,s=r.set;
  const lines=r.ev.lines.slice().sort((a,b)=>(b.value??-1)-(a.value??-1));
- const breakdown=lines.length?`<div class="table-scroll"><table class="pack-breakdown"><thead><tr><th scope="col">Slot / rarity</th><th scope="col">Odds per pack</th><th scope="col">Cards priced</th><th scope="col">Average card</th><th scope="col">Adds to EV</th></tr></thead><tbody>${lines.map(l=>`<tr><td data-label="Slot / rarity"><strong>${esc(l.label)}</strong>${l.best?`<div class="small muted">Best: ${esc(l.best.name)} ${usd(l.best.price)}</div>`:''}</td><td data-label="Odds per pack">${oddsText(l)}</td><td data-label="Cards priced">${l.priced}${l.kind==='reverse'?'':' / '+l.count}</td><td data-label="Average card">${isNum(l.avg)?cad(l.avg*fx):'<span class="muted">unknown</span>'}</td><td data-label="Adds to EV">${isNum(l.value)?`<strong>${cad(l.value*fx)}</strong>`:`<span class="muted">unknown ${l.missing==='rate'?'rate':'price'}</span>`}</td></tr>`).join('')}</tbody></table></div>`:`<p class="note">${esc((root.CardsteadPackRates?.notes||{})[s.groupId]||'No published pull-rate table was found for this set.')} Its EV is unknown: Cardstead does not guess odds.</p>`;
- const top=(s.top||[]).map(c=>`<li><a href="${esc(product(c.id))}" target="_blank" rel="noopener noreferrer">${esc(c.name)}</a> <span class="pill">${esc(c.variant||c.rarity)}</span> <strong>${cad(c.price*fx)}</strong> <span class="small muted">${usd(c.price)}</span></li>`).join('');
+ const breakdown=lines.length?`<div class="table-scroll"><table class="pack-breakdown"><thead><tr><th scope="col">Slot / rarity</th><th scope="col">Odds per pack</th><th scope="col">Cards priced</th><th scope="col">Average card</th><th scope="col">Adds to EV</th></tr></thead><tbody>${lines.map(l=>`<tr><td data-label="Slot / rarity"><strong>${esc(l.label)}</strong>${l.best?`<div class="small muted">Best: <span data-no-translate>${esc(l.best.name)}</span> ${usd(l.best.price)}</div>`:''}</td><td data-label="Odds per pack">${oddsText(l)}</td><td data-label="Cards priced">${l.priced}${l.kind==='reverse'?'':' / '+l.count}</td><td data-label="Average card">${isNum(l.avg)?cad(l.avg*fx):'<span class="muted">unknown</span>'}</td><td data-label="Adds to EV">${isNum(l.value)?`<strong>${cad(l.value*fx)}</strong>`:`<span class="muted">unknown ${l.missing==='rate'?'rate':'price'}</span>`}</td></tr>`).join('')}</tbody></table></div>`:`<p class="note">${esc((root.CardsteadPackRates?.notes||{})[s.groupId]||'No published pull-rate table was found for this set.')} Its EV is unknown: Cardstead does not guess odds.</p>`;
+ const top=(s.top||[]).map(c=>`<li><a href="${esc(product(c.id))}" target="_blank" rel="noopener noreferrer" data-no-translate>${esc(c.name)}</a> <span class="pill">${esc(c.variant||c.rarity)}</span> <strong>${cad(c.price*fx)}</strong> <span class="small muted">${usd(c.price)}</span></li>`).join('');
  const src=t?.source;
  const structure=t?.structure;
  box.innerHTML=`<div class="row spread"><div><h2>${esc(s.name)} booster pack</h2><p class="note">${esc(s.era)} · released ${esc(s.released)}${s.code?' · '+esc(s.code):''}</p></div><button type="button" class="btn smallbtn" id="packClose">Back to list</button></div>
  <div class="grid4 pack-metrics"><div class="metric"><label>MSRP (Canada)</label><strong>${isNum(r.msrpCad)?cad(r.msrpCad):'unknown'}</strong><span class="small muted">${isNum(r.msrpUsd)?'US MSRP '+usd(r.msrpUsd):'USD unknown'}</span></div><div class="metric"><label>Sealed pack (market)</label><strong>${cad(r.sealedCad)}</strong><span class="small muted">${usd(r.sealedUsd)} · ${link(product(s.pack.id),'TCGplayer')}</span></div><div class="metric"><label>EV if opened${r.ev.complete?'':' (lower bound)'}</label><strong>${isNum(r.evCad)?cad(r.evCad):'unknown'}</strong><span class="small muted">${isNum(r.evUsd)?usd(r.evUsd):''}${isNum(r.ev.hitsUsd)?' · hits '+cad(r.ev.hitsUsd*fx*(1-r.fee)):''}</span></div><div class="metric"><label>EV − sealed</label><strong>${isNum(r.gapCad)?signed(r.gapCad):'—'}</strong><span class="small muted">${isNum(r.ratio)?'EV = '+Math.round(r.ratio*100)+'% of sealed':''}${r.ev.complete&&isNum(r.evUsd)&&isNum(r.msrpUsd)?' · EV − US MSRP '+(r.evUsd-r.msrpUsd>=0?'+':'−')+usd(Math.abs(r.evUsd-r.msrpUsd)):''}</span></div></div>
  <p class="pack-verdict pack-${esc(r.verdict.code)}"><strong>${esc(r.verdict.label)}.</strong> ${esc(r.verdict.why)}${r.fee?' Values are after '+round(r.fee*100,2)+'% selling fees.':''}</p>
  <div class="pack-yourprice"><div><label class="field" for="packYourPrice">Price you would pay for one pack · CAD</label><input id="packYourPrice" type="number" min="0" max="10000" step="0.01" inputmode="decimal" placeholder="e.g. a Canadian store price"></div><p class="note" id="packYourResult" aria-live="polite">${isNum(r.msrpCad)?'':'No Canadian MSRP is published for this pack, so enter what a store charges you.'}</p></div>
- <div id="packChart" class="g-box"></div><div id="packCompare" class="cmp cmp-inline"></div>
+ <div id="packChart" class="g-box" data-no-translate></div><div id="packCompare" class="cmp cmp-inline" data-no-translate></div>
  <h3>EV by rarity slot</h3>${breakdown}
  ${r.ev.status==='hits-only'?'<p class="note">The source gives hit odds but not the pack layout, so commons, uncommons and reverse holos are left out: this EV is a lower bound.</p>':''}
  <h3>Top hits in the set</h3>${top?`<ol class="pack-top">${top}</ol>`:'<p class="note">No priced cards.</p>'}
  <h3>Sources</h3><ul class="pack-sources small">
- <li>Pull rates${t?.confidence==='low'?' (low confidence)':''}: ${src?`${link(src.url,src.title)} (${esc(src.publisher||'')}${src.date?', '+esc(src.date):''}${src.sample?', '+esc(Number(src.sample).toLocaleString('en-CA'))+'+ packs opened':''})`:'<span class="muted">unknown: no published table found</span>'}${t?.caveats?` <span class="muted">${esc(t.caveats)}</span>`:''}</li>
- ${structure?.source?`<li>Pack layout: ${link(structure.source.url,structure.source.title)}</li>`:''}
- <li>MSRP: ${m?`${m.sourceUrl?link(m.sourceUrl,m.sourceTitle||m.sourceUrl):esc(m.sourceTitle||'')}${m.seen?' (seen '+esc(m.seen)+')':''}${m.note?` <span class="muted">${esc(m.note)}</span>`:''}`:'<span class="muted">unknown</span>'}</li>
+ <li>Pull rates${t?.confidence==='low'?' (low confidence)':''}: ${src?`${sourceLink(src.url,src.title)} (${esc(src.publisher||'')}${src.date?', '+esc(src.date):''}${src.sample?', '+esc(Number(src.sample).toLocaleString(LOC()))+'+ packs opened':''})`:'<span class="muted">unknown: no published table found</span>'}${t?.caveats?` <span class="muted">${esc(t.caveats)}</span>`:''}</li>
+ ${structure?.source?`<li>Pack layout: ${sourceLink(structure.source.url,structure.source.title)}</li>`:''}
+ <li>MSRP: ${m?`${m.sourceUrl?sourceLink(m.sourceUrl,m.sourceTitle||m.sourceUrl):`<span data-no-translate>${esc(m.sourceTitle||'')}</span>`}${m.seen?' (seen '+esc(m.seen)+')':''}${m.note?` <span class="muted">${esc(m.note)}</span>`:''}`:'<span class="muted">unknown</span>'}</li>
  <li>${asOfLine(state.data)}</li>
  <li class="muted">EV assumes every card of a rarity is equally likely and uses TCGplayer market prices for Near Mint English cards, before selling fees and shipping. Single packs vary a lot: most packs return far less than the EV and a few return far more.</li></ul>`;
  box.classList.remove('hidden');
  root.CardsteadCompare?.render($('packCompare'),{product:s.name+' Booster Pack',format:'pack'});
  root.CardsteadChart?.load().then(h=>root.CardsteadChart.render($('packChart'),h,String(s.pack.id),{msrpCad:Number.isFinite(r.msrpUsd)?r.msrpUsd*fx:null}));
  const price=$('packYourPrice'),out=$('packYourResult');
- price.addEventListener('input',()=>{const v=Number(price.value);out.textContent=yourPrice(r,v)});
+ price.addEventListener('input',()=>{out.replaceChildren(...yourPrice(r,Number(price.value)))});
  $('packClose').onclick=()=>{box.classList.add('hidden');state.selected=null;const row=doc.querySelector(`[data-pack="${CSS.escape(String(s.groupId))}"]`);row?.focus()};
  box.scrollIntoView({block:'start',behavior:'smooth'});
 }
 function yourPrice(r,v){
- if(!(v>0))return '';
+ if(!(v>0))return [];
  const parts=[];
  if(isNum(r.evCad))parts.push(`${r.ev.complete?'Opening':'Opening (lower bound)'}: ${signed(r.evCad-v)} on average`);
  if(isNum(r.sealedCad))parts.push(`reselling sealed: ${signed(r.sealedCad-v)}`);
- return parts.length?parts.join(' · ')+(r.fee?' (after fees).':' (before fees and shipping).'):'Not enough data to compare.';
+ return parts.length?[...parts.flatMap((p,i)=>i?[' · ',p]:[p]),' ',r.fee?'(after fees).':'(before fees and shipping).']:['Not enough data to compare.'];
 }
 async function open(){
  const status=$('packStatus');
@@ -222,5 +225,6 @@ function init(){
  if(!$('packs').classList.contains('hidden'))open();
 }
 core.open=open;core.loadData=loadData;
+root.addEventListener('cardstead:lang',()=>{if(!state.data)return;$('packStatus').innerHTML=asOfLine(state.data);renderList();if(state.selected)renderDetail(state.selected)});
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init);else init();
 })(typeof window!=='undefined'?window:globalThis);

@@ -1325,27 +1325,27 @@ root.CardsteadPackRates={
     },
     {
      "pool": "Illustration Rare",
-     "asPrinted": "9.5% (1 in null Packs)",
+     "asPrinted": "9.5%",
      "perPack": 0.095
     },
     {
      "pool": "Ultra Rare",
-     "asPrinted": "8.7% (1 in null Packs)",
+     "asPrinted": "8.7%",
      "perPack": 0.087
     },
     {
      "pool": "Special Illustration Rare",
-     "asPrinted": "1.6% (1 in null Packs)",
+     "asPrinted": "1.6%",
      "perPack": 0.016
     },
     {
      "pool": "Mega Hyper Rare",
-     "asPrinted": "0.4% (1 in null Packs)",
+     "asPrinted": "0.4%",
      "perPack": 0.004
     },
     {
      "pool": "Rare",
-     "asPrinted": "57.1% (1 in null Packs)",
+     "asPrinted": "57.1%",
      "perPack": 0.571
     }
    ],

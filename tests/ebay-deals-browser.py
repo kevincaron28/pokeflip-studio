@@ -85,6 +85,18 @@ try:
                 assert "2 cards watched" in page.locator("#dealsWatchCount").inner_text() and "1 added by you" in page.locator("#dealsWatchCount").inner_text()
                 overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
                 assert overflow <= 1, overflow
+                # French: verdicts, labels and money follow the language; listing titles stay as the seller wrote them.
+                title = page.locator("#dealsList .alert-card dd[data-no-translate]").first.inner_text()
+                page.evaluate("CardsteadI18n.set('fr')")
+                page.wait_for_timeout(250)
+                french = page.locator("section#deals").inner_text()
+                for must in ("Aubaines eBay", "Sous la valeur de", "Valeur marchande", "Voir sur eBay", "cartes suivies", title):
+                    assert must.lower() in french.lower(), (must, french[:1500])
+                for must_not in ("Under value by", "listing(s)", "View on eBay", "cards watched", "as of"):
+                    assert must_not not in french, (must_not, french[:1500])
+                page.evaluate("CardsteadI18n.set('en')")
+                page.wait_for_timeout(250)
+                assert "Under value by" in page.locator("#dealsList").inner_text()
                 print("PASS eBay deals with keys: scan, bad matches filtered, under-value cards with dated values, remove and add cards")
             assert not errors, errors
             ctx.close()

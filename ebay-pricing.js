@@ -1,9 +1,10 @@
 'use strict';
 /* Sold-comparable research ledger. No unauthorized scraping, no fictitious live feed. */
 (function(root){
+ const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
  const KEY='pokeflip-ebay-comps-v1';
  const norm=v=>String(v||'').trim().toLowerCase();
- const fmt=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(n);
+ const fmt=n=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(n);
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  function validUrl(raw){try{const u=new URL(raw);return u.protocol==='https:'&&(/(^|\.)ebay\.(ca|com|co\.uk|fr|de|com\.au)$/.test(u.hostname));}catch{return false}}
  function validate(c){

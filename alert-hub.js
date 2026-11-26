@@ -1,6 +1,7 @@
 /* PokéFlip Alert Hub: locally imported third-party notifications, not an automated scraper.
    Sources are user-supplied; a reported alert does not confirm live inventory. */
 (function(root){'use strict';
+ const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
 const KEY='pokeflip-alert-hub-v1', MAX=3000;
 const SOURCE_LABELS={pokennoisseur:'Pokénnoisseur',dropwatch:'The Drop Watch',cardrestock:'Card Restock Tracker',pokewatch:'Pokewatch Canada',retailer:'Retailer',other:'Other source'};
 const safeUrl=u=>{if(!u)return '';try{const x=new URL(u);return x.protocol==='https:'?x.href:''}catch{return ''}};
@@ -24,7 +25,7 @@ function render(){const rootBody=$('alertsRows');rootBody.replaceChildren();cons
 const filtered=rows.filter(a=>selected==='mine'&&mine(a)||selected==='all'||selected==='matches'&&watches.some(w=>watchMatches(a,w))||selected==='qualifying'&&watches.some(w=>qualifies(a,w)));const V=root.CardsteadAlertValue,ctx=V&&V.current();if(V&&!ctx&&filtered.length)V.context().then(c=>{if(c)render()});
 for(const a of filtered.slice(0,100)){const item=el('div');item.className='alert-item';const prev=rows.find(x=>x!==a&&x.product===a.product&&x.retailer===a.retailer&&x.price>0&&x.observedAt<a.observedAt);
  if(V&&ctx){item.innerHTML=V.cardHtml(V.assess({product:a.product,price:a.price,prevPrice:prev?prev.price:null},ctx),{store:a.retailer,status:a.status,url:a.url,at:a.observedAt});V.wire(item)}
- else item.append(el('p',`${a.product} · ${a.retailer} · ${a.price===null?'Unpriced':new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(a.price)} · ${new Date(a.observedAt).toLocaleString('en-CA')}`));
+ else item.append(el('p',`${a.product} · ${a.retailer} · ${a.price===null?'Unpriced':new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(a.price)} · ${new Date(a.observedAt).toLocaleString(LOC())}`));
  const meta=el('p',`Reported by ${SOURCE_LABELS[a.source]}${watches.some(w=>qualifies(a,w))?' · Within watch budget':''}${a.url?'':' · No link'}`);meta.className='note';item.append(meta);rootBody.append(item)}$('alertsCount').textContent=`${rows.length} saved alert(s) · ${filtered.length} in current filter${selected==='mine'?' (alerts from stores you follow; change them in My area & stores)':''}. Prices and availability are third-party reports, not verified live stock.`}
 function init(){if(!$('alertsHub'))return;load();API.getData=()=>JSON.parse(JSON.stringify(rows));API.validateBackup=validateList;API.setData=list=>{const parsed=validateList(list);rows=parsed;persist();render()};$('alertsFilter').onchange=render;
 $('alertsParse').onclick=()=>{try{const a=parsePaste($('alertsPaste').value,$('alertsSource').value);$('alertsProduct').value=a.product;$('alertsRetailer').value=a.retailer;$('alertsPrice').value=a.price??'';$('alertsUrl').value=a.url;$('alertsStatusSelect').value=a.status;$('alertsMessage').textContent='Parsed alert. Confirm product, retailer, currency and stock report before saving.'}catch(e){$('alertsMessage').textContent=e.message}};

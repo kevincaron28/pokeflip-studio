@@ -73,7 +73,8 @@ try:
             if SHOTS: page.screenshot(path=f"{SHOTS}/after-watch-{lang}-390.png", full_page=True)
             # eBay deals keeps the old choices (one card removed, 15% threshold).
             page.locator('#subnav [data-page="deals"]').click()
-            page.wait_for_function("document.querySelector('#dealsWatchCount').innerText.includes('1 removed')", timeout=15000)
+            removed = "1 retirées" if lang == "fr" else "1 removed"
+            page.wait_for_function("t=>document.querySelector('#dealsWatchCount').innerText.includes(t)", arg=removed, timeout=15000)
             assert page.locator("#dealsThreshold").input_value() == "15"
             # Settings: area kept, language switch.
             page.locator('.dock-item[data-dock="settings"]').click()

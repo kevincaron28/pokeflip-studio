@@ -4,7 +4,8 @@
  * the other page modules; this file stores, validates, exports and restores. Nothing here is ever deleted silently:
  * lots and sales recorded by earlier versions stay in the data, the backup and the cloud copy. */
 const KEY='pokeflip-v1';let db={lots:[],items:[],sales:[]};
-const $=id=>document.getElementById(id);const money=x=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(Number(x)||0);const uid=()=>globalThis.crypto?.randomUUID?.()||String(Date.now())+Math.random().toString(36).slice(2);
+const appLocale=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
+const $=id=>document.getElementById(id);const money=x=>new Intl.NumberFormat(appLocale(),{style:'currency',currency:'CAD'}).format(Number(x)||0);const uid=()=>globalThis.crypto?.randomUUID?.()||String(Date.now())+Math.random().toString(36).slice(2);
 function today(){return new Date().toLocaleDateString('en-CA',{year:'numeric',month:'2-digit',day:'2-digit'});}
 function toast(s){$('toast').textContent=s;$('toast').style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').style.display='none',3800)}
 function load(){try{let v=JSON.parse(localStorage.getItem(KEY));if(v&&Array.isArray(v.lots)&&Array.isArray(v.items)&&Array.isArray(v.sales)){validateBackup(v);db=v;}}catch(e){toast('Could not load saved data.')}}
@@ -73,7 +74,7 @@ function exportHealth(){
  let newest=localStorage.getItem('pokeflip-last-save');let el=document.getElementById('backupHealth');
  if(!el)return;
  let last=localStorage.getItem('pokeflip-last-backup');let days=last?Math.floor((Date.now()-Date.parse(last))/86400000):null;
- el.textContent=days==null?'No backup has been confirmed on this device. Export one before adding valuable stock.':days>=7?`Backup reminder: last export was ${days} days ago.`:`Last export: ${new Date(last).toLocaleString('en-CA')}`;
+ el.textContent=days==null?'No backup has been confirmed on this device. Export one before adding valuable stock.':days>=7?`Backup reminder: last export was ${days} days ago.`:`Last export: ${new Date(last).toLocaleString(appLocale())}`;
  el.classList.toggle('alert',days==null||days>=7);
 }
 function safeSaveCheck(){try{validateBackup(db);return true}catch(e){alert('Cannot save inconsistent records: '+e.message);return false}}

@@ -1,7 +1,8 @@
 'use strict';
 /* A conservative resale scenario calculator. Scenarios do not affect inventory. */
 (function(){
- const $=id=>document.getElementById(id), money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(n);
+ const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
+ const $=id=>document.getElementById(id), money=n=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(n);
  const fieldIds=['dealAsking','dealGross','dealSellThrough','dealFee','dealOrders','dealOrderCost','dealOther','dealTarget'];
  function analyze(input){
   const {asking,gross,sellThrough,fee,orders,orderCost,other,target}=input;

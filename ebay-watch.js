@@ -87,7 +87,8 @@ function listingValue(items,card,fx,{nmOnly=false}={}){
 }
 /** How well two values agree: high within 25%, medium within 40%, low beyond. */
 function agreement(a,b){if(!isNum(a)||!isNum(b)||a<=0||b<=0)return null;const d=Math.abs(a-b)/Math.min(a,b);return d<=0.25?'high':d<=0.40?'medium':'low'}
-const cadFmt=new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'});
+const LOC=()=>globalThis.CardsteadI18n?.lang?.()==='fr'?'fr-CA':'en-CA';
+const cadFmt={format:v=>new Intl.NumberFormat(LOC(),{style:'currency',currency:'CAD'}).format(v)};
 const cad=v=>isNum(v)?cadFmt.format(v):'unknown';
 /** More than 50% under value is almost never the real card in that condition (keychains, replicas, mislabelled copies). */
 const SUSPECT=0.5;
@@ -158,7 +159,7 @@ if(!root?.document)return;
 /* ---------- Page ---------- */
 const doc=root.document,$=id=>doc.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
+const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString(LOC(),{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
 // Where eBay is asked: this site's /api, the Vercel site from the Android app, and the Vercel site as a fallback when this
 // host has no eBay keys (e.g. a Cloudflare Pages copy without keys answers 503).
 const VERCEL='https://pokeflip-studio.vercel.app',native=()=>!!(root.PokeFlipNative&&root.PokeFlipNative.isNative);
@@ -180,21 +181,21 @@ function cardLabel(c){return `${c.name}${c.number?' '+c.number:''} · ${c.set||'
 function dealHtml(r){
  const v=r.value,it=r.item;
  return `<article class="alert-card ac-${esc(r.verdict.code)}" aria-label="${esc('eBay listing: '+cardLabel(r.card))}">
- <div class="ac-head"><div><p class="ac-kind">eBay listing</p><h3 class="ac-title">${esc(cardLabel(r.card))}</h3></div>${it.image?`<img class="ac-img" loading="lazy" alt="" src="${esc(it.image)}">`:''}</div>
+ <div class="ac-head"><div><p class="ac-kind">eBay listing</p><h3 class="ac-title" data-no-translate>${esc(cardLabel(r.card))}</h3></div>${it.image?`<img class="ac-img" loading="lazy" alt="" src="${esc(it.image)}">`:''}</div>
  <dl class="ac-grid"><div><dt>Seller</dt><dd>${esc(it.seller||'unknown')}${isNum(it.feedback)?' ('+esc(it.feedback)+'%)':''}${it.country?' · '+esc(it.country):''}</dd></div><div><dt>Price + shipping</dt><dd><strong>${cad(r.total.cad)}</strong>${r.total.shippingKnown?'':' <span class="ac-sub">+ shipping unknown</span>'}${r.total.converted?' <span class="ac-sub">(converted from '+esc(it.currency)+')</span>':''}</dd></div><div><dt>Condition</dt><dd>${esc(r.condition?r.condition+' (from the title)':it.condition||'not stated')}</dd></div></dl>
- <dl class="ac-rows"><div><dt>Listing</dt><dd class="ac-sub">${esc(it.title)}</dd></div>
+ <dl class="ac-rows"><div><dt>Listing</dt><dd class="ac-sub" data-no-translate>${esc(it.title)}</dd></div>
  <div><dt>Market value</dt><dd>${v&&isNum(v.cad)?cad(v.cad)+` <span class="ac-sub">${esc(v.source)}${v.date?', as of '+esc(day(v.date)):''}</span>`:'unknown <span class="ac-sub">'+(r.card.grade&&r.card.grade!=='raw'?'fewer than 3 matching eBay.ca listings':'no market price')+'</span>'}${v&&isNum(v.cad)?confPill(v.confidence):''}</dd></div>
  ${v&&v.check?`<div><dt>Second opinion</dt><dd>${cad(v.check.cad)} <span class="ac-sub">${esc(v.check.source)}</span></dd></div>`:''}
  ${r.condition&&r.condition!=='NM'&&isNum(r.valueForCondition)?`<div><dt>Value for ${esc(r.condition)}</dt><dd>${cad(r.valueForCondition)} <span class="ac-sub">estimate: ${Math.round(COND_SHARE[r.condition]*100)}% of Near Mint</span></dd></div>`:''}</dl>
  <p class="ac-verdict">${esc(r.verdict.label)}</p>
- <div class="ac-foot"><a class="btn smallbtn primary" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">View on eBay</a><span class="ac-sub">Checked ${esc(new Date(r.fetchedAt).toLocaleString('en-CA'))}</span></div></article>`;
+ <div class="ac-foot"><a class="btn smallbtn primary" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">View on eBay</a><span class="ac-sub">Checked ${esc(new Date(r.fetchedAt).toLocaleString(LOC()))}</span></div></article>`;
 }
 function confPill(c){const k={high:['green','High'],medium:['gold','Medium'],low:['red','Low']}[c];return k?` <span class="pill ${k[0]}" title="How far the price sources agree">${k[1]} confidence</span>`:''}
 function wire(node){node.querySelectorAll('img.ac-img').forEach(i=>i.addEventListener('error',()=>i.remove(),{once:true}))}
 function renderDeals(){
  const host=$('dealsList');if(!host)return;const p=prefs(),res=jget(RESULTS,{});
  const all=assess(res.byCard||{},watched(p),data),under=all.filter(r=>r.verdict.code==='under'),rows=under.filter(r=>{const k=ruleFor(r.card,p);return isDeal(r,k.threshold,k.target)}),maybe=under.filter(r=>!rows.includes(r)),suspect=all.filter(r=>r.verdict.code==='suspect').length;
- $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString('en-CA')} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
+ $('dealsCount').textContent=res.at?`${rows.length} listing(s) under market value · last scan ${new Date(res.at).toLocaleString(LOC())} · alerts at ${Math.round(p.threshold*100)}% under value or your target price${suspect?` · ${suspect} hidden: more than 50% under value, probably not the real card`:''}`:'No scan yet.';
  host.innerHTML=(rows.length?rows.slice(0,40).map(dealHtml).join(''):'<p class="empty">No listing is a sure deal in the last scan.</p>')
   +(maybe.length?`<details class="panel advanced"><summary>${maybe.length} more under value, not alerted (value uncertain, new seller, or less than your alert level)</summary>${maybe.slice(0,40).map(r=>dealHtml(r)+(doubt(r)?`<p class="note">Not alerted: ${esc(doubt(r))}.</p>`:'')).join('')}</details>`:'');wire(host);
 }
@@ -204,9 +205,9 @@ function renderWatch(){
  $('dealsWatchCount').textContent=`${watched(p).length} cards watched (${p.removed.length} removed, ${(p.custom||[]).length} added by you, ${myCards().length} from your Watchlist)`;
  host.replaceChildren();
  for(const c of list.slice(0,200)){const v=valueOf(c,data);const row=doc.createElement('div');row.className='deal-watch';
-  row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source)+(v.date?', '+esc(day(v.date)):''):'Value unknown'}${c.demandSourceUrl?` · <a href="${esc(c.demandSourceUrl)}" target="_blank" rel="noopener noreferrer">why it's watched</a>`:''}</div></div>
+  row.innerHTML=`<div><strong data-no-translate>${esc(cardLabel(c))}</strong><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source)+(v.date?', '+esc(day(v.date)):''):'Value unknown'}${c.demandSourceUrl?` · <a href="${esc(c.demandSourceUrl)}" target="_blank" rel="noopener noreferrer">why it's watched</a>`:''}</div></div>
   <label class="deal-target"><span class="note">Target CAD</span><input type="number" min="0" step="1" inputmode="decimal" value="${esc(p.targets[c.id]??'')}" aria-label="Target price for ${esc(c.name)}"></label><button type="button" class="btn smallbtn">Remove</button>`;
-  if(c.mine){row.innerHTML=`<div><strong>${esc(cardLabel(c))}</strong> <span class="pill">Watchlist</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in Watchlist</button>`;host.append(row);continue}
+  if(c.mine){row.innerHTML=`<div><strong data-no-translate>${esc(cardLabel(c))}</strong> <span class="pill">Watchlist</span><div class="note">${v&&isNum(v.cad)?cad(v.cad)+' · '+esc(v.source):'Value unknown'}${mineExtra(c)}</div></div><button type="button" class="btn smallbtn" data-page-link="mycards">Edit in Watchlist</button>`;host.append(row);continue}
   row.querySelector('input').onchange=e=>{const q2=prefs();const n=Number(e.target.value);if(e.target.value===''||!(n>0))delete q2.targets[c.id];else q2.targets[c.id]=n;jset(KEY,q2)};
   row.querySelector('button').onclick=()=>{const q2=prefs();if(c.custom)q2.custom=q2.custom.filter(x=>x.id!==c.id);else q2.removed=[...new Set([...q2.removed,c.id])];jset(KEY,q2);renderWatch();renderDeals()};
   host.append(row)}
@@ -272,5 +273,6 @@ function init(){
   p.custom=[...(p.custom||[]),c].slice(-200);jset(KEY,p);e.target.reset();renderWatch()};
 }
 core.open=open;core.scan=scan;
+root.addEventListener('cardstead:lang',()=>{if(!data)return;renderWatch();renderDeals()});
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init);else init();
 })(typeof window!=='undefined'?window:globalThis);
