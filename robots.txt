@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://pokeflip-studio.vercel.app/sitemap.xml

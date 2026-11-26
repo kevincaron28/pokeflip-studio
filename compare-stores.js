@@ -24,7 +24,7 @@ const T={
   msrpScalp:x=>`Prix de revendeur (${x}× le PDSF américain converti)`,msrpOver:p=>`Au-dessus du PDSF de ${p} (PDSF américain converti)`,msrpFair:'Environ le PDSF (PDSF américain converti; valeur marchande inconnue)',msrpUnder:p=>`Sous le PDSF de ${p} (PDSF américain converti)`}
 };
 const read=k=>{try{return JSON.parse(root.localStorage?.getItem(k)||'null')}catch{return null}};
-function lang(){const v=read(KEYS.lang);if(v==='fr'||v==='en')return v;return /^fr/i.test(root.navigator?.language||'')?'fr':'en'}
+function lang(){const v=read(KEYS.lang);if(v==='fr'||v==='en')return v;if(root.CardsteadI18n)return root.CardsteadI18n.lang();return /^fr/i.test(root.navigator?.language||'')?'fr':'en'}
 function setLang(l){try{root.localStorage.setItem(KEYS.lang,JSON.stringify(l))}catch{}}
 const FAMILY={sleeved:'pack',blister1:'pack'}; // a sleeved pack or 1-pack blister is still one booster pack
 function keyOf(text,format,data){
