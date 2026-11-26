@@ -16,8 +16,9 @@ Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Prepared 
 | 4.3.2 (40302) | Released 23 Nov 2026 |
 | 4.4.0 (40400) | Approved and available to testers 26 Nov 2026 |
 | 4.4.1 (40401) | Sent for review 26 Nov 2026 (on internal testing since 26 Nov) |
+| 4.6.0 (40600) | On internal testing 26 Nov 2026; sent for closed testing review the same day |
 
-4.4.1 adds product and card pictures, set logos and a new icon. It fixes eBay alerts (they run while the app is open without first opening the eBay deals page) and the app now asks for notification permission when an alert is switched on.
+4.6.0 renames My cards to Watchlist and adds set checklists, search across every listed set, recent restocks and typical asking prices at Canadian shops, optional price alerts, account deletion in the app and price fixes. 4.5.0 was never uploaded. 4.4.1 added pictures and fixed eBay alerts and the notification permission.
 
 Play Console → Monitor and improve → Ratings and reviews → **Testing feedback** showed no feedback on 26 Nov 2026.
 
@@ -25,7 +26,7 @@ Play Console → Monitor and improve → Ratings and reviews → **Testing feedb
 
 Google asks about tester use and feedback, so collect them now.
 
-1. Once 4.4.1 is approved, send testers a short task list: search a card, open its card page, add it to My cards with a target price, browse All sets, add a drop watch. Ask them to reply by email or Play's private feedback.
+1. Once 4.6.0 is approved, send testers a short task list: search a card, open its card page, add it to the Watchlist with a target price, tick cards in a set, open Recent restocks, add a drop watch, and turn on drop alerts if they want. Ask them to reply by email or Play's private feedback.
 2. Write down each reply with its date, and what you changed because of it.
 3. Test on your own Android phone with the Play build (table below).
 4. Keep every `[bracket]` below out of the form: replace it with a fact or delete the sentence. Do not describe feedback or testing that did not happen.
@@ -37,8 +38,10 @@ Google asks about tester use and feedback, so collect them now.
 | Sign in by email (code or link), as someone who is **not** on the Supabase project team | Not verified. Supabase's built-in sender only mails the project team, 2 an hour, unless custom SMTP is set up (`docs/AUTH-EMAIL-SMTP.md`) |
 | Cloud backup between two devices | Not verified |
 | Notification for a price target and a restock watch | Not verified |
-| App push for drop alerts | Not verified. The 4.4.1 bundle has app push switched on (`fcm-config.js`); the server steps in `docs/DROPS-PUSH.md` and delivery to a phone are unchecked, and 4.4.0 was not inspected |
-| Shop checker feeding drop alerts | Not running according to `docs/SHOP-CHECKER-WINDOWS.md` |
+| App push for drop alerts | Not verified. The 4.4.1 bundle has app push switched on (`fcm-config.js`), and the 4.6.0 build log was reported to say "App push on". The Firebase server secret and delivery to a phone are unchecked |
+| Price alerts with the app closed | Not verified. The site offers the choice (`priceAlerts` true on 26 Nov); the daily job and delivery are unchecked |
+| Delete my account, on a phone | Not recorded as verified |
+| Shop checker feeding drop alerts and restocks | Installed and running on the owner's PC, but on 26 Nov most requests were refused (429). The Drops page said "Shop checks have not run yet" above recent sightings, and no product had a typical price |
 | Security review of the cloud save function | Open (`RELEASE-STATUS.md`) |
 
 ## The answers
@@ -60,7 +63,7 @@ I recruited testers through the Testers Community Google Group, which connects d
 **Describe the engagement you received from testers** (features used, and how that compares with real users).
 
 <!-- answer:engagement -->
-[N] testers used the app over 14 days. They tried [price search, card pages with eBay.ca prices, My cards targets, All sets, drop watches]. Not used: [features]. Real collectors would likely [difference, e.g. return more often around releases].
+[N] testers used the app over 14 days. They tried [price search, card pages with eBay.ca prices, Watchlist targets, set checklists, restocks, alerts]. Not used: [features]. Real collectors would likely [difference, e.g. return more often around releases].
 <!-- /answer -->
 
 **Summarize the feedback you received, and how you collected it.**
@@ -80,7 +83,7 @@ Teen and adult trading card collectors in Canada, especially beginners sorting F
 **How does your app provide value to users?**
 
 <!-- answer:value -->
-It shows what a card or sealed product is worth in CA$, with sources, date and confidence, plus eBay.ca asking prices clearly marked as asking prices. Users set price targets, browse every set, and follow Canadian releases and stock watches. English and French, no account needed.
+It shows what a card or sealed product is worth in CA$, with sources, date and confidence, plus eBay.ca asking prices clearly marked as asking prices. Users set price targets, tick off sets, and follow Canadian releases and restocks. English and French, no account needed.
 <!-- /answer -->
 
 **Expected installs in the first year:** suggested: the lowest range offered. It is a new, niche app with no advertising.
@@ -89,10 +92,10 @@ It shows what a card or sealed product is worth in CA$, with sources, date and c
 
 **What changes did you make based on what you learned in your closed test?**
 
-4.4.0, then 4.4.1, replaced 4.3.2 during the test. Those changes came from your own use of the app (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports; add tester-driven fixes when there are some.
+4.4.0, 4.4.1 and 4.6.0 replaced 4.3.2 during the test. Those changes came from your own use of the app and your plans (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports; add tester-driven fixes when there are some.
 
 <!-- answer:changes -->
-From my own testing: too many screens and manual steps. I cut to four tabs, removed the scanner and portfolio, added My cards with price targets, live eBay.ca asking prices, all sets and release dates, then fixed eBay alerts and added pictures. [Tester-driven changes.]
+From my own testing I cut to four tabs, removed the scanner and portfolio, added a watchlist with price targets, set checklists, eBay.ca asking prices and Canadian restocks, and fixed prices and alerts. [Tester-driven changes.]
 <!-- /answer -->
 
 **How did you decide that your app is ready for production?**
@@ -105,25 +108,27 @@ Use the last answer only when it is true: run the phone checks first, and fix or
 
 ## What changed since 4.3.2
 
-- Four tabs: My cards, Prices, Drops, Settings.
-- Prices: CA$ value with sources, date and confidence; price history graphs; All sets with card and sealed prices.
-- Live eBay.ca asking prices on card pages, in My cards and in the daily price check.
-- My cards replaces the portfolio pages: price targets and "under value" alerts while the app is open.
+- Four tabs: Prices, Drops, Watchlist, Settings.
+- Prices: CA$ value with sources, date and confidence; price history graphs; search across every listed set; set pages that work as checklists, with the cost to complete.
+- Live eBay.ca asking prices on card pages, in the Watchlist and in the daily price check.
+- Watchlist replaces the portfolio pages: price targets and "under value" alerts.
 - Camera scanner removed, with its camera permission.
-- Drops: coming releases calendar, more Canadian shops, optional drop alerts.
-- 4.4.1: product and card pictures, set logos, new app icon, eBay alerts and notification permission fixed.
+- Drops: coming releases calendar, recent restocks and typical asking prices at Canadian shops, optional drop alerts and price alerts.
+- Page addresses, Back and sharing; sign-in by email code; account deletion and privacy policy in the app.
+- Fixes: a raw card opens the raw price, graph labels over CA$1,000, no raw history on graded cards; fuller French.
 
 ## Done in Play Console on 26 Nov 2026
 
 Sent for review together and published the same day (7 changes): the 4.4.0 closed release, the store listing ([store-listing.md](store-listing.md)) and Data safety ([data-safety.md](data-safety.md)). Managed publishing is off.
 
-The 4.4.1 closed release was sent for review separately later that day.
+The 4.4.1 closed release was sent for review separately later that day, then the 4.6.0 closed release.
+
+The 4.6.0 store listing (English and French (Canada), new icon, feature graphic and screenshots) was then sent for review, with the icon and feature graphic labelled as AI: see [store-listing.md](store-listing.md). Play restarted the 4.6.0 release review to include it. Approval of either was not seen.
 
 Checked, not changed: content rating (IARC, 23 Nov: Everyone / PEGI 3), privacy policy address `https://pokeflip-studio.vercel.app/privacy.html`.
 
 ## Known problems worth fixing before production
 
-- Tapping a raw card in Prices search can open the graded (PSA 10) page: `product.js` matches `card:ID:printing` without the grade.
-- Price history graph axis labels are cut off for values of CA$1,000 or more (`price-chart.js`).
-- Tablet in landscape (about 720–900 px high): the side menu overlaps "Export backup".
+- Recent restocks says "Shop checks have not run yet" while listing recent sightings. Likely cause: `migrations/008-restock-feed.sql` dates the last check only from shops whose latest answer was 200 or 304, and the checker was being refused.
+- Most shop requests were refused (429) on 26 Nov, so restocks are thin and no product reached the three shops needed for a typical price.
 - Amazon links are untagged on the live site (`AMAZON_ASSOCIATES_TAG` not set), so no disclosure shows. If you set it, check Play's Ads declaration again.
