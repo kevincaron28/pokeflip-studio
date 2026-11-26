@@ -94,7 +94,7 @@ function rowHtml(i){
  const mine=[isNum(i.unitCost)?t('mc.paidEach',M(i.unitCost)):'',isNum(i.target)?t('mc.targetIs',M(i.target)):'',isNum(i.alertPct)?t('mc.alertIs',i.alertPct):''].filter(Boolean);
  const gain=isNum(i.unitCost)&&p.state==='ok'?p.cad-i.unitCost:null;
  return `<li class="mc-card${hit?' mc-hit':''}" data-mc-id="${esc(i.id)}">
-  <div class="mc-row">${i.image?`<img class="mc-img" loading="lazy" alt="" src="${esc(i.image)}">`:'<span class="mc-img mc-noimg" aria-hidden="true">▱</span>'}
+  <div class="mc-row">${i.image?`<img class="pic mc-img" loading="lazy" decoding="async" alt="" src="${esc(i.image)}">`:'<span class="mc-img mc-noimg" aria-hidden="true">▱</span>'}
   <div class="mc-main"><strong>${esc(i.name)}</strong><span class="note">${esc(facts.join(' · '))}</span>
    <div class="mc-price">${priceHtml(i)}${hit?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}${needsCheck(i)?` <span class="pill gold" title="${esc(t('mc.checkWhy'))}">${esc(t('mc.check'))}</span>`:''}</div>
    <div class="mc-ebay" data-mc-ebay="${esc(i.id)}">${ebayHtml(i)}</div>
@@ -249,7 +249,7 @@ root.addEventListener('cardstead:prices',e=>{checkAlerts(e.detail?.changed||null
 /** "In My cards" block for the Prices search (product.js): matching cards with their price, linking to My cards. */
 function findHtml(q){
  const hits=searchMine(active(),q).slice(0,12);if(!hits.length)return '';
- return `<h3>${esc(t('mc.inMine'))}</h3><ul class="prod-list">${hits.map(i=>`<li><button type="button" class="prod-row" data-page-link="mycards"><span class="prod-main"><strong>${esc(i.name)}</strong><span class="note">${esc([i.setName||i.idCode,i.number?'#'+i.number:'',printingLabel({finish:i.finish,edition:i.edition||''}),i.grade&&i.grade!=='raw'?i.grade:''].filter(Boolean).join(' · '))}</span></span><span class="prod-val">${priceHtml(i)}${atTarget(i)?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}${root.CardsteadEbayLive?.cached(ebayCard(i))?'<br>'+root.CardsteadEbayLive.html({state:'ok',live:root.CardsteadEbayLive.cached(ebayCard(i))},{compact:true}):''}</span></button></li>`).join('')}</ul>`;
+ return `<h3>${esc(t('mc.inMine'))}</h3><ul class="prod-list">${hits.map(i=>`<li><button type="button" class="prod-row has-pic" data-page-link="mycards">${root.CardsteadPics?root.CardsteadPics.imgOr(i.image,{cls:'pic prod-pic'}):''}<span class="prod-main"><strong>${esc(i.name)}</strong><span class="note">${esc([i.setName||i.idCode,i.number?'#'+i.number:'',printingLabel({finish:i.finish,edition:i.edition||''}),i.grade&&i.grade!=='raw'?i.grade:''].filter(Boolean).join(' · '))}</span></span><span class="prod-val">${priceHtml(i)}${atTarget(i)?` <span class="pill green">${esc(t('mc.atTarget'))}</span>`:''}${root.CardsteadEbayLive?.cached(ebayCard(i))?'<br>'+root.CardsteadEbayLive.html({state:'ok',live:root.CardsteadEbayLive.cached(ebayCard(i))},{compact:true}):''}</span></button></li>`).join('')}</ul>`;
 }
 core.render=render;core.checkAlerts=checkAlerts;core.findHtml=findHtml;
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',render);else render();

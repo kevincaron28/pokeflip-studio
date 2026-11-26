@@ -35,11 +35,12 @@ async function refresh(){
  // Graded cards and cards with a target whose eBay.ca asking price is not cached: at most 20 lookups a check.
  const ebayDue=()=>E&&MC?L.getData().items.filter(i=>!i.archived&&i.category!=='review'&&i.name&&((i.grade&&i.grade!=='raw')||typeof i.target==='number')).map(MC.ebayCard).filter(c=>!E.cached(c)).slice(0,20):[];
  if(!list.length&&!ebayDue().length)return 0;refreshing=true;let changed=[];
- try{const data=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;const fx=data?.fx;const updates=[];
+ try{const data=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;const fx=data?.fx;const updates=[],images=[];
   for(const [n,i] of list.entries()){if(doc.hidden)break;
    progress={done:n,total:list.length};root.dispatchEvent(new CustomEvent('cardstead:prices-progress',{detail:progress}));
-   for(let attempt=0;attempt<2;attempt++){try{const r=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(i.idCode),{cache:'no-store'});if(r.ok){const j=await r.json();const m=marketFor(i,j.pricing,fx,MR);if(m)updates.push([i.id,m]);break}if(r.status===404)break}catch{}await new Promise(r=>setTimeout(r,1500))}
+   for(let attempt=0;attempt<2;attempt++){try{const r=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(i.idCode),{cache:'no-store'});if(r.ok){const j=await r.json();const m=marketFor(i,j.pricing,fx,MR);if(m)updates.push([i.id,m]);if(!i.image&&typeof j.image==='string')images.push([i.id,j.image+'/low.webp']);break}if(r.status===404)break}catch{}await new Promise(r=>setTimeout(r,1500))}
    await new Promise(r=>setTimeout(r,1100))}
+  if(images.length&&L.updateImages)L.updateImages(images);
   if(updates.length){L.updateMarkets(updates);changed=updates.map(u=>u[0])}
   {const want=ebayDue();
    for(const c of want){if(doc.hidden)break;const r=await E.get(c);if(r.state!=='ok')break;changed.push(c.itemId);await new Promise(r=>setTimeout(r,800))}}

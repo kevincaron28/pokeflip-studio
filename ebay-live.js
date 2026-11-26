@@ -35,7 +35,7 @@ function liveFrom(res,card,fx,W){
  const ok=rows.filter(r=>r.it.url&&r.it.feedback>0&&(!v||r.t.cad>=v.cad*0.5)).sort((a,b)=>a.t.cad-b.t.cad);
  const c=ok[0];
  return {cad:v?v.cad:null,n:rows.length,confidence,spread:v?v.spread:null,truncated,fetchedAt:res?.fetchedAt||null,
-  cheapest:c?{cad:Math.round(c.t.cad*100)/100,shippingKnown:c.t.shippingKnown,url:c.it.url,title:c.it.title,seller:c.it.seller,feedback:c.it.feedback}:null};
+  cheapest:c?{cad:Math.round(c.t.cad*100)/100,shippingKnown:c.t.shippingKnown,url:c.it.url,title:c.it.title,seller:c.it.seller,feedback:c.it.feedback,image:c.it.image||null}:null};
 }
 /** Lookups left today on this device. Pure. */
 function budgetLeft(count,today){return count&&count.day===today?Math.max(0,BUDGET-count.n):BUDGET}
@@ -90,7 +90,7 @@ function html(r,{compact=false}={}){
  const head=isNum(l.cad)?`<strong>${esc(M(l.cad))}</strong> <span class="pill ${PILL[l.confidence]||'red'} pl-conf" title="${esc(t('el.why'))}">${esc(t('pl.'+(l.confidence||'low')))}</span>`:`<span class="note">${esc(t('el.few',l.n))}</span>`;
  const cheap=l.cheapest?`<a class="el-cheap" href="${esc(l.cheapest.url)}" target="_blank" rel="noopener noreferrer">${esc(t('el.cheapest',M(l.cheapest.cad)))}${l.cheapest.shippingKnown?'':' '+esc(t('el.plusShip'))}</a>`:'';
  return compact?`<span class="price-line el-line">${head} <span class="pl-src">${esc(src)}</span>${cheap?' · '+cheap:''}</span>`
-  :`<span class="price-line el-line">${head}<span class="pl-src">${esc(src)}${l.truncated?' · '+esc(t('el.truncated')):''}</span>${cheap?`<span class="el-cheap-row">${cheap}</span>`:''}</span>`;
+  :`<span class="price-line el-line">${head}<span class="pl-src">${esc(src)}${l.truncated?' · '+esc(t('el.truncated')):''}</span>${cheap?`<span class="el-cheap-row">${l.cheapest.image&&root.CardsteadPics?root.CardsteadPics.img(l.cheapest.image,{cls:'pic el-pic'}):''}${cheap}</span>`:''}</span>`;
 }
 /** Fill a placeholder element with the live price of a card (cached first, then one lookup). */
 async function render(el,card,{compact=false,force=false}={}){
