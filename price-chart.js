@@ -18,8 +18,12 @@ function points(history,key,days){
 /** Change over the range: first -> last point. */
 function change(pts){if(pts.length<2)return null;const a=pts[0].cad,b=pts[pts.length-1].cad;return {from:a,to:b,abs:b-a,rel:a>0?(b-a)/a:null}}
 function daysCovered(history,key){const s=history?.series?.[key];return s?s.filter(isNum).length:0}
-/** Product key in price-history.js: sealed products by TCGplayer product id, cards by "id|printing". */
-function keyFor(item){if(!item)return null;return item.printing?item.id+'|'+item.printing:String(item.id)}
+/** Product key in price-history.js: sealed products by TCGplayer product id, cards by "id|printing".
+ *  The card history is for raw cards only, so a graded card has no key. */
+function keyFor(item){if(!item||(item.grade&&item.grade!=='raw'))return null;return item.printing?item.id+'|'+item.printing:String(item.id)}
+
+/** A price on the graph's side scale: whole dollars, cents only when the whole range is a few dollars. Pure. */
+function axisMoney(v,lang='en',cents=false){const d=cents?2:0;return new Intl.NumberFormat(lang==='fr'?'fr-CA':'en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:d,maximumFractionDigits:d}).format(v)}
 
 /* ---------- SVG ---------- */
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -27,13 +31,15 @@ function svg(pts,{msrpCad=null,dots=[],w=640,h=220,spark=false}={}){
  const I=root.CardsteadI18n;
  const vals=pts.map(p=>p.cad).concat(isNum(msrpCad)&&!spark?[msrpCad]:[]).concat(spark?[]:dots.map(d=>d.price));
  let lo=Math.min(...vals),hi=Math.max(...vals);if(lo===hi){lo*=0.95;hi*=1.05}const pad=(hi-lo)*0.08;lo=Math.max(0,lo-pad);hi+=pad;
- const t0=pts[0].t,t1=pts[pts.length-1].t,L=spark?2:56,R=spark?2:12,T=spark?2:12,B=spark?2:26;
+ const marks=[lo+(hi-lo)*0.1,(lo+hi)/2,hi-(hi-lo)*0.1],labels=spark?[]:marks.map(v=>axisMoney(v,I?.lang?.(),hi-lo<4));
+ // The left margin grows with the longest price, so four- and five-figure cards stay inside the picture.
+ const t0=pts[0].t,t1=pts[pts.length-1].t,L=spark?2:Math.max(56,...labels.map(s=>s.length*7+10)),R=spark?2:12,T=spark?2:12,B=spark?2:26;
  const x=t=>L+(t1===t0?0.5:(t-t0)/(t1-t0))*(w-L-R),y=v=>T+(1-(v-lo)/(hi-lo))*(h-T-B);
  const line=pts.map((p,i)=>(i?'L':'M')+x(p.t).toFixed(1)+' '+y(p.cad).toFixed(1)).join(' ');
  const up=pts[pts.length-1].cad>=pts[0].cad;
  if(spark)return `<svg class="spark ${up?'spark-up':'spark-down'}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${line}" fill="none" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
  const area=line+` L${x(t1).toFixed(1)} ${h-B} L${x(t0).toFixed(1)} ${h-B} Z`;
- const ticks=[lo+(hi-lo)*0.1,(lo+hi)/2,hi-(hi-lo)*0.1].map(v=>`<line class="g-grid" x1="${L}" x2="${w-R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}"/><text class="g-ylab" x="${L-6}" y="${(y(v)+4).toFixed(1)}" text-anchor="end">${esc(I?I.money(v):v.toFixed(0)).replace(/\.\d\d|,\d\d/,'')}</text>`).join('');
+ const ticks=marks.map((v,i)=>`<line class="g-grid" x1="${L}" x2="${w-R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}"/><text class="g-ylab" x="${L-6}" y="${(y(v)+4).toFixed(1)}" text-anchor="end">${esc(labels[i]||'')}</text>`).join('');
  const msrp=isNum(msrpCad)?`<line class="g-msrp" x1="${L}" x2="${w-R}" y1="${y(msrpCad).toFixed(1)}" y2="${y(msrpCad).toFixed(1)}"/>`:'';
  const dot=dots.filter(d=>d.t>=t0&&d.t<=t1+3*DAY).map(d=>`<circle class="g-dot" cx="${x(Math.min(d.t,t1)).toFixed(1)}" cy="${y(d.price).toFixed(1)}" r="4"><title>${esc(d.store)}: ${esc(I?I.money(d.price):d.price)}</title></circle>`).join('');
  const last=pts[pts.length-1];
@@ -66,7 +72,7 @@ function load(){
  loading=new Promise(res=>{const d=root.document;if(!d)return res(null);const s=d.createElement('script');s.src='./price-history.js';s.onload=()=>res(root.CardsteadPriceHistory||null);s.onerror=()=>{loading=null;res(null)};d.head.appendChild(s)});
  return loading;
 }
-const api={RANGES,points,change,daysCovered,keyFor,svg,sparkline,render,load};
+const api={RANGES,points,change,daysCovered,keyFor,axisMoney,svg,sparkline,render,load};
 root.CardsteadChart=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);
