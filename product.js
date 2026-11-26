@@ -184,6 +184,7 @@ async function open(it,from){
   ${a?.contents?.evCad?`<div class="metric"><label>${esc(t('p.ev'))}</label><strong>${esc(M(a.contents.evCad))}</strong><span class="note">${a.contents.packs} × EV</span></div>`:''}
  </div>
  ${v&&best?`<p class="cmp-verdict ac-verdict-${esc(v.code)}">${esc(v.text)}</p>`:''}
+ ${it.kind==='sealed'?'<div id="productShops" class="shop-price" hidden></div>':''}
  ${it.kind==='sealed'?`<div class="prod-watch">${w?`<span class="pill green">✓ ${esc(t('p.watching'))} · ≤ ${esc(M(w.ceiling))}</span>`:`<details id="watchBox"><summary class="btn primary">${esc(t('p.watch'))}</summary><form id="watchForm" class="watch-form"><label class="field" for="watchMax">${esc(t('p.maxPrice'))}</label><input id="watchMax" type="number" min="1" step="1" inputmode="decimal" required value="${def.ceiling??''}"><p class="note">${esc(t('p.watchNote'))}</p><button class="btn primary" type="submit">${esc(t('p.save'))}</button></form></details>`}</div>`:String(it.card?.id).startsWith('tcg-')?'':`<p><span class="pill">${esc(t('p.onEbay'))}</span> <a class="btn smallbtn" href="#" data-goto-deals>${esc(t('chip.ebay'))}</a></p>`}
  <div id="productChart" class="g-box">${graded(it)?`<p class="g-empty">${esc(t('p.gradedNoHistory'))}</p>${raw?`<button type="button" class="btn smallbtn" data-item="${esc(refOf(raw))}">${esc(t('p.seeRaw'))}</button>`:''}`:''}</div>
  ${it.kind==='sealed'?'<div id="productCompare" class="cmp cmp-inline"></div>':''}
@@ -192,6 +193,7 @@ async function open(it,from){
  host.querySelector('[data-back]').onclick=()=>{if(!root.CardsteadRoutes?.backTo(back))root.CardsteadNav?.show(back)};
  host.querySelector('[data-goto-deals]')?.addEventListener('click',e=>{e.preventDefault();root.CardsteadNav?.show('deals')});
  if(!graded(it))root.CardsteadChart.render($('productChart'),history,key,{msrpCad:a?.msrp?.cadAtRate??null,dots});
+ if(it.kind==='sealed')root.CardsteadRestockFeed?.productPrice($('productShops'),it);
  if(it.kind==='sealed')C?.render($('productCompare'),{product:it.name,format:WATCH_FORMAT[it.type]});
  if(it.kind==='card'&&it.card)root.CardsteadEbayLive?.render($('productEbay'),it.card);
  $('watchForm')?.addEventListener('submit',e=>{e.preventDefault();const n=Number($('watchMax').value);if(!(n>0))return;

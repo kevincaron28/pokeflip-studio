@@ -58,7 +58,7 @@ try:
     with sync_playwright() as p:
         b = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         ctx = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="fr-CA")
-        ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
+        ctx.route("**/rpc/{restock_feed,shop_prices}", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
         for pat in ("**/products.json*", "https://tcgplayer-cdn.tcgplayer.com/**", "**/api/**"):
             ctx.route(pat, lambda r: r.fulfill(status=404, body=""))
         ctx.add_init_script("if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');" + SEED + "}")

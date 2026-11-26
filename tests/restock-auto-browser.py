@@ -17,7 +17,7 @@ try:
  with sync_playwright() as p:
   b=p.chromium.launch(headless=True,args=["--no-sandbox","--disable-dev-shm-usage"])
   ctx=b.new_context(viewport={"width":390,"height":844},service_workers="block", locale="en-CA")
-  ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
+  ctx.route("**/rpc/{restock_feed,shop_prices}", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
   # This test covers the single-shop check, so the user follows no region (the Québec default follows them all).
   ctx.add_init_script("localStorage.setItem('pokeflip-restock-regions-v1','[]')")
   page=ctx.new_page();errors=[]

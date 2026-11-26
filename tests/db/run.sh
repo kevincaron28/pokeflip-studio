@@ -14,3 +14,5 @@ run migrations/007-delete-account.sql   # safe to run again
 run tests/db/delete-account.sql
 run migrations/008-restock-feed.sql   # safe to run again
 run tests/db/restock-feed.sql
+run migrations/009-shop-prices.sql    # safe to run again
+run tests/db/shop-prices.sql

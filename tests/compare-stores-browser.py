@@ -28,7 +28,7 @@ try:
         b = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         for lang in ("en", "fr"):
             ctx = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="en-CA")
-            ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
+            ctx.route("**/rpc/{restock_feed,shop_prices}", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
             ctx.route("**/products.json*", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"products":[]}'))
             ctx.route("https://tcgplayer-cdn.tcgplayer.com/**", lambda r: r.fulfill(status=404, body=""))
             ctx.add_init_script(f"""localStorage.setItem('pokeflip-restock-v1',{json.dumps(json.dumps(restock))});

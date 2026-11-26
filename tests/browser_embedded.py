@@ -23,7 +23,7 @@ OLD={"lots":[{"id":"L1","name":"Old lot","cost":85,"date":"2026-11-01","source":
 with sync_playwright() as p:
  browser=p.chromium.launch(headless=True,executable_path=os.environ.get('CHROMIUM_PATH') or None,args=['--no-sandbox','--disable-dev-shm-usage'])
  page=browser.new_page(viewport={'width':390,'height':844},locale='en-CA')
- page.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
+ page.route("**/rpc/{restock_feed,shop_prices}", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
  errors=[]
  page.on('pageerror', lambda e:errors.append(str(e)))
  page.on('dialog', lambda d:d.accept())

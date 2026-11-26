@@ -26,3 +26,21 @@ test('the public database function returns only shop checks and no member data',
   const key=/sb_publishable_[A-Za-z0-9_-]+/;
   assert.equal(fs.readFileSync('restock-feed.js','utf8').match(key)[0],fs.readFileSync('cloud-sync.js','utf8').match(key)[0]);
 });
+test('typical shop price needs three shops, and compares within 5 percent',()=>{
+  const got=F.cleanPrices({'a|box|EN':{shops:3,typical:220,low:200,high:300},'b|box|EN':{shops:2,typical:220,low:200,high:300},'c|box|EN':{shops:5,typical:10,low:20,high:30},'d|box|EN':null});
+  assert.deepStrictEqual([...got.keys()],['a|box|EN']);
+  for(const bad of [null,[],'x'])assert.equal(F.cleanPrices(bad).size,0);
+  assert.deepStrictEqual(F.compare(220,220),{code:'same',pct:0});
+  assert.deepStrictEqual(F.compare(231,220),{code:'same',pct:5});
+  assert.deepStrictEqual(F.compare(275,220),{code:'above',pct:25});
+  assert.deepStrictEqual(F.compare(165,220),{code:'below',pct:25});
+  assert.equal(F.compare(null,220),null);
+  const cat=JSON.parse(fs.readFileSync('data/drop-catalogue.json','utf8')),s=cat.sets.find(x=>x.products.some(p=>p.kind==='box')),box=s.products.find(p=>p.kind==='box');
+  assert.deepStrictEqual(F.productKeys(cat,box.id),[{lang:'EN',key:s.slug+'|box|EN'},{lang:'FR',key:s.slug+'|box|FR'}]);
+  assert.deepStrictEqual(F.productKeys(cat,'0'),[]);
+});
+test('typical prices come only from shops with stock that answered lately, three or more',()=>{
+  const sql=fs.readFileSync('migrations/009-shop-prices.sql','utf8');
+  assert.match(sql,/s\.in_stock and s\.price_cad > 0/);assert.match(sql,/having count\(\*\) >= 3/);
+  assert.doesNotMatch(sql.replace(/^--.*$/gm,''),/reporter|discord|auth\.|user_id|disable row level/i);
+});
