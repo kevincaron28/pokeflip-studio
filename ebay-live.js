@@ -46,8 +46,6 @@ if(!root.document)return;
 
 const jget=(k,d)=>{try{const v=JSON.parse(root.localStorage.getItem(k)||'null');return v??d}catch{return d}};
 const jset=(k,v)=>{try{root.localStorage.setItem(k,JSON.stringify(v))}catch{}};
-const API=()=>(root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'')+'/api/ebay-search';
-const SRC=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'&src=app':'';
 const today=()=>new Date().toISOString().slice(0,10);
 const inflight=new Map();
 async function fx(){try{const d=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;return d?.fx?.usdToCad??null}catch{return null}}
@@ -61,7 +59,8 @@ async function get(card,{force=false}={}){
  const p=(async()=>{
   const count=jget(COUNT,null);if(budgetLeft(count,today())<=0)return {state:'limit'};
   try{
-   const r=await fetch(API()+'?mode=value&q='+encodeURIComponent(queryFor(card))+SRC());
+   const api=W.api?await W.api():{url:'/api/ebay-search',src:''};
+   const r=await fetch(api.url+'?mode=value&q='+encodeURIComponent(queryFor(card))+api.src);
    jset(COUNT,{day:today(),n:(count&&count.day===today()?count.n:0)+1});
    const j=await r.json().catch(()=>({}));
    if(r.status===503)return {state:'off'};

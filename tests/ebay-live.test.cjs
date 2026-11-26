@@ -66,7 +66,8 @@ test('wired in: card page, My cards, Prices search, daily check; the app asks wi
  assert.match(read('product.js'),/CardsteadEbayLive\?\.render\(\$\('productEbay'\),it\.card\)/);
  const mc=read('mycards.js');assert.match(mc,/data-mc-ebay=/);assert.match(mc,/slice\(0,30\)/,'at most 30 automatic lookups per visit');
  assert.match(read('collection-value.js'),/slice\(0,20\)/,'at most 20 eBay lookups per daily check');
- for(const f of ['ebay-live.js','ebay-watch.js'])assert.match(read(f),/'&src=app'/,f);
+ assert.ok(read('ebay-watch.js').includes("'&src='+(native()?'app':'web')"),'another origin asks with its own URL');
+ assert.ok(read('ebay-live.js').includes('await W.api()'),'eBay live prices use the same endpoint as eBay deals');
  assert.match(read('functions/api/ebay-search.js'),/internal\/' \+ mode \+ '\/'/,'Cloudflare edge cache keyed by mode');
  global.window=global;const I=require('../ui-i18n.js');for(const k of Object.keys(I.S.en).filter(k=>k.startsWith('el.')))assert.ok(k in I.S.fr,k);
 });
@@ -75,4 +76,20 @@ test('a collector number is not hit points: "4/102 HP" is Heavily Played, "HP 12
  assert.equal(W.condition('1999 Pokemon Base Set Unlimited Charizard 4/102 HP PKL'),'HP');
  assert.equal(W.condition('Charizard 4/102 HP 120 holo'),null);
  assert.equal(W.condition('Charizard 120 HP 4/102 NM'),'NM');
+});
+
+test('alerts do not wait for the eBay deals page; notifications are asked for; config and eBay are never shared between origins by the CDN',()=>{
+ const w=read('ebay-watch.js');
+ assert.ok(w.includes('setTimeout(background,20000)'),'background check shortly after Cardstead opens');
+ assert.ok(w.includes('now-at>55*60*1000'),'a scan when the last one is over an hour old');
+ assert.ok(w.includes("fetch(VERCEL+'/api/ebay-search?status=1&src=web'"),'a host without eBay keys falls back to the Vercel site');
+ assert.ok(w.includes('root.CardsteadNotify?.ask()'),'switching automatic checks on asks for notifications');
+ const mc=read('mycards.js');assert.ok(mc.includes("if($('mcTarget').value||$('mcAlert').value)root.CardsteadNotify?.ask()"),'a target asks for notifications');
+ const cfg=require('../api/_config-core.js');const r=cfg.handle({origin:'https://localhost'});
+ assert.equal(r.headers['Cache-Control'],'private, max-age=3600','never cached by the CDN for another origin');assert.equal(r.headers['Access-Control-Allow-Origin'],'https://localhost');
+ assert.equal(cfg.handle({origin:'https://cardstead.pages.dev'}).headers['Access-Control-Allow-Origin'],'https://cardstead.pages.dev');
+ assert.ok(core.origins({}).has('https://cardstead.pages.dev'));
+ for(const f of ['affiliate.js','push-link.js'])assert.ok(read(f).includes("?src=app"),f);
+ assert.ok(read('collection-value.js').includes('for(let attempt=0;attempt<2;attempt++)'),'one retry when TCGdex fails');
+ assert.ok(JSON.parse(read('vercel.json')).headers[0].headers.find(h=>h.key==='Content-Security-Policy').value.includes("connect-src 'self' https://pokeflip-studio.vercel.app"));
 });

@@ -18,7 +18,7 @@ const TOKEN_URL='https://api.ebay.com/identity/v1/oauth2/token';
 const SEARCH_URL='https://api.ebay.com/buy/browse/v1/item_summary/search';
 const SCOPE='https://api.ebay.com/oauth/api_scope';
 const CARDS_CATEGORY='183454'; // CCG Individual Cards
-const BASE_ORIGINS=['https://pokeflip-studio.vercel.app','https://localhost','capacitor://localhost','http://localhost'];
+const BASE_ORIGINS=['https://pokeflip-studio.vercel.app','https://cardstead.pages.dev','https://localhost','capacitor://localhost','http://localhost'];
 const CACHE_MS=10*60*1000,VALUE_CACHE_MS=6*60*60*1000,RATE=60;
 // deals: the cheapest listings first (a deal is a low price). value: eBay's best match order, not sorted by price, so
 // the asking median is not pulled down when more listings exist than one answer holds (measured 25 Nov 2026).

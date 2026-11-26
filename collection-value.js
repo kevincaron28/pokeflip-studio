@@ -38,7 +38,7 @@ async function refresh(){
  try{const data=root.CardsteadPackEv?.loadData?await root.CardsteadPackEv.loadData():root.CardsteadPackData;const fx=data?.fx;const updates=[];
   for(const [n,i] of list.entries()){if(doc.hidden)break;
    progress={done:n,total:list.length};root.dispatchEvent(new CustomEvent('cardstead:prices-progress',{detail:progress}));
-   try{const r=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(i.idCode),{cache:'no-store'});if(r.ok){const j=await r.json();const m=marketFor(i,j.pricing,fx,MR);if(m)updates.push([i.id,m])}}catch{}
+   for(let attempt=0;attempt<2;attempt++){try{const r=await fetch('https://api.tcgdex.net/v2/en/cards/'+encodeURIComponent(i.idCode),{cache:'no-store'});if(r.ok){const j=await r.json();const m=marketFor(i,j.pricing,fx,MR);if(m)updates.push([i.id,m]);break}if(r.status===404)break}catch{}await new Promise(r=>setTimeout(r,1500))}
    await new Promise(r=>setTimeout(r,1100))}
   if(updates.length){L.updateMarkets(updates);changed=updates.map(u=>u[0])}
   {const want=ebayDue();
