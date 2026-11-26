@@ -12,3 +12,5 @@ run cloud-schema.sql
 for f in migrations/*.sql; do run "$f"; done
 run migrations/007-delete-account.sql   # safe to run again
 run tests/db/delete-account.sql
+run migrations/008-restock-feed.sql   # safe to run again
+run tests/db/restock-feed.sql

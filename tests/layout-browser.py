@@ -23,6 +23,7 @@ try:
         b = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         for lang, width, height in (("fr", 1280, 800), ("en", 900, 640), ("fr", 320, 700), ("en", 390, 844)):
             ctx = b.new_context(viewport={"width": width, "height": height}, service_workers="block", locale="fr-CA" if lang == "fr" else "en-CA")
+            ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
             for pat in ("**/products.json*", "https://tcgplayer-cdn.tcgplayer.com/**", "**/api/**"):
                 ctx.route(pat, lambda r: r.fulfill(status=404, body=""))
             page = ctx.new_page(); errors = []; page.on("pageerror", lambda e: errors.append(str(e)))
@@ -67,6 +68,7 @@ try:
         ids = None
         for label, prefs in (("new visitor", None), ("one target", "target")):
             ctx = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block", locale="en-CA")
+            ctx.route("**/rpc/restock_feed", lambda r: r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"}, body='{"items":null}'))  # no live network
             calls = []
             def ebay(route):
                 url = route.request.url; calls.append(url)
