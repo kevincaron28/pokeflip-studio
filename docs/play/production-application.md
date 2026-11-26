@@ -123,7 +123,7 @@ Sent for review together and published the same day (7 changes): the 4.4.0 close
 
 The 4.4.1 closed release was sent for review separately later that day, then the 4.6.0 closed release.
 
-The 4.6.0 store listing (English and French (Canada), new screenshots) was saved as a draft and **not** sent for review: see [store-listing.md](store-listing.md).
+The 4.6.0 store listing (English and French (Canada), new icon, feature graphic and screenshots) was then sent for review, with the icon and feature graphic labelled as AI: see [store-listing.md](store-listing.md). Play restarted the 4.6.0 release review to include it. Approval of either was not seen.
 
 Checked, not changed: content rating (IARC, 23 Nov: Everyone / PEGI 3), privacy policy address `https://pokeflip-studio.vercel.app/privacy.html`.
 

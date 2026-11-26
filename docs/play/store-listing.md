@@ -2,7 +2,9 @@
 
 Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Change the text here first, then in the console.
 
-**Status, 26 Nov 2026:** this 4.6.0 text and the new screenshots are **saved as a draft** in the Default store listing. They are **not sent for review**. The draft also holds a new icon and feature graphic (replaced the same day, separately). The review step asks for Google's **AI asset declaration**, which the owner answers before Save and Submit. Until then the live listing is the older text published that morning.
+**Status, 26 Nov 2026:** this 4.6.0 text, the new screenshots and a new icon and feature graphic were **sent for review**. They are **not approved yet**. The 4.6.0 closed release was already in review, so Play restarted that review and now reviews both together (9 changes); Google's quick checks were still running when this was written. Managed publishing is off, so approved changes publish without another step. Until then the live listing is the older text published that morning.
+
+**AI asset declaration** (answered with the owner's approval): "Label assets as created or edited using AI", with only the **app icon** and the **feature graphic** ticked. Both were generated with ChatGPT image generation. The screenshots are real captures and are **not** labelled.
 
 ## App name
 
@@ -120,7 +122,7 @@ Cardstead n’est ni affiliée à Nintendo, Creatures Inc., GAME FREAK inc., The
 
 ## Graphics
 
-- Icon and feature graphic: handled separately; the listing work did not change them.
+- Icon and feature graphic: new on 26 Nov 2026, generated with ChatGPT image generation (made separately from the listing text) and labelled as AI in Play Console. Label any later AI-made or AI-edited asset the same way.
 - Phone screenshots (1080×1920), real captures of the live 4.6.0 site on 26 Nov 2026, in this order: Prices, Watchlist, set checklist, card page with the eBay.ca asking price, product page with its history, Coming drops, alert settings.
 - 7-inch and 10-inch tablet screenshots (1440×2560): Prices, Watchlist, set checklist, card page, product page.
 - French (Canada) has no graphics of its own, so Play shows the English ones.
