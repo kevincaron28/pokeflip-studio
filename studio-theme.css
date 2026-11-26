@@ -603,7 +603,7 @@ details.advanced>summary{cursor:pointer;font-weight:700;min-height:44px;display:
 .mc-add .mc-row{margin-bottom:10px}
 .mc-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:8px}
 .mc-result{display:flex;gap:10px;align-items:center;text-align:left;background:#121d30;border:1px solid var(--pf-line);border-radius:10px;padding:8px;color:var(--pf-text);cursor:pointer}
-.mc-result img{width:44px;height:61px;object-fit:contain;flex:0 0 auto}
+.mc-result img,.mc-result .pic-ph{width:44px;height:61px;object-fit:contain;flex:0 0 auto}
 .mc-result span{display:grid;gap:2px;min-width:0}
 .mc-result:hover,.mc-result:focus-visible{border-color:#6ddbaf}
 .mc-filter{max-width:220px}
