@@ -313,7 +313,7 @@ test('setup: verification Medium, Onboarding within Discord limits (ids kept on 
   send:async(ch,msg)=>{sent.push({ch,msg});return {id:'W'+sent.length}},edit:async(ch,id,msg)=>{edits.push({ch,id,msg})}});
  const bot=service(F.deps);const log=await bot.setup();
  assert.deepEqual(patches,[{verification_level:2}]);
- assert.ok(log.some(l=>/^onboarding 4 questions, 10 default channels$/.test(l)),log.join(' | '));
+ assert.ok(log.some(l=>/^onboarding 4 questions, 11 default channels$/.test(l)),log.join(' | '));
  assert.equal(onboarding.enabled,true);
  assert.deepEqual(onboarding.prompts.map(p=>p.title),['Region / Région','Stores / Magasins','Products / Produits','Language / Langue']);
  assert.deepEqual(onboarding.prompts.map(p=>p.options.length),[8,8,6,2]);
@@ -333,4 +333,35 @@ test('setup: verification Medium, Onboarding within Discord limits (ids kept on 
  assert.equal(sent.filter(m=>m.msg.embeds?.[0]?.title===C.WELCOME_TITLE).length,1,'re-run does not post a second welcome');
  assert.equal(edits.length,1,'re-run edits the welcome');
  assert.throws(()=>C.onboardingBody({roles:{},channels:{},existing:null,now:T0}),/missing role/);
+});
+
+test('coming drops: same grouping as the website calendar, one message edited daily, official dates labelled',async()=>{
+ const C=await load('discord-core.mjs');const Cal=require('../calendar.js');
+ const cal=JSON.parse(fs.readFileSync(path.join(ROOT,'data/release-calendar.json'),'utf8'));
+ const official=JSON.parse(fs.readFileSync(path.join(ROOT,'data/official-releases.json'),'utf8'));
+ const today='2026-11-26';
+ const mine=C.comingReleases(cal,official,today),site=Cal.releases(cal,official,today);
+ assert.deepEqual(mine.map(r=>[r.set,r.date,r.dateDiffers,r.products.length]),site.map(r=>[r.set,r.date,r.dateDiffers,r.products.length]),'bot and website agree');
+ const fake={items:[{date:'2027-02-05',set:'Flowing Fists',code:'FF',kind:'etb'},{date:'2027-02-05',set:'Flowing Fists',code:'FF',kind:'box'},{date:'2026-12-04',set:'30th Celebration',code:'30C',kind:'tin'},{date:'2026-01-01',set:'Old',kind:'pack'}]};
+ const off={releases:[{set:'Flowing Fists',date:'2027-02-06',prerelease:'2027-01-23',status:'announced',sources:[{name:'x',url:'https://example.test/ff'}]}]};
+ const list=C.comingReleases(fake,off,today);
+ assert.deepEqual(list.map(r=>r.set),['30th Celebration','Flowing Fists'],'past releases dropped, soonest first');
+ const m=C.comingMessage(list,{today,siteUrl:'https://pokeflip-studio.vercel.app/'}),d=m.embeds[0].description;
+ assert.equal(m.embeds[0].title,C.COMING_TITLE);
+ assert.match(d,/\*\*Flowing Fists\*\* \(FF\) · <t:\d+:D> · Announced · Annoncé · presale lists 2027-02-05/);
+ assert.match(d,/\*\*30th Celebration\*\* \(30C\) · <t:\d+:D> · Presale estimate/);
+ assert.match(d,/\[source\]\(https:\/\/example\.test\/ff\)/);
+ assert.deepEqual(m.allowed_mentions,{parse:[]},'never pings');
+
+ const {service}=await load('discord-service.mjs');const now={t:Date.parse('2026-11-26T12:00:00Z')};const F=fakes(now);
+ const posted=[],edited=[];
+ F.discord.channels=async()=>[{id:'C-cd',name:'coming-drops',type:0}];
+ F.discord.recentMessages=async()=>posted.map((p,i)=>({id:'P'+i,author:{id:'APP'},embeds:p.embeds}));
+ F.discord.send=async(ch,msg)=>{posted.push(msg);return {id:'P'+posted.length}};
+ F.discord.edit=async(ch,id,msg)=>{edited.push({ch,id})};
+ F.deps.fetch=async u=>({ok:true,json:async()=>(/official/.test(u)?off:fake)});
+ const bot=service(F.deps);
+ assert.deepEqual(await bot.comingDrops(),{sets:2,action:'posted'});
+ assert.deepEqual(await bot.comingDrops(),{sets:2,action:'updated'});
+ assert.equal(posted.length,1,'never a second message');assert.deepEqual(edited,[{ch:'C-cd',id:'P0'}]);
 });

@@ -1,6 +1,6 @@
 // Runs on a schedule (Supabase Cron) and on demand from the dashboard.
 // Body {"task":"tick"} every minute: post new drop events, expire member reports.
-// Body {"task":"speed-log"} weekly. Body {"task":"setup"} once after inviting the bot.
+// Body {"task":"speed-log"} weekly. Body {"task":"coming-drops"} daily (release calendar in #coming-drops). Body {"task":"setup"} once after inviting the bot.
 // Only callers holding a server key (service role or sb_secret_, as Supabase Cron and the dashboard tester send) are accepted.
 import { discordClient } from '../_shared/discord-api.mjs';
 import { supabaseStore } from '../_shared/discord-store.mjs';
@@ -26,6 +26,7 @@ Deno.serve(async (req) => {
   try {
     if (task === 'tick') return Response.json({ published: await bot.publishPending(), expired: await bot.expireReports() });
     if (task === 'speed-log') return Response.json({ stores: await bot.weeklySpeedLog() });
+    if (task === 'coming-drops') return Response.json(await bot.comingDrops());
     if (task === 'setup') return Response.json({ created: await bot.setup() });
     return Response.json({ error: 'unknown task' }, { status: 400 });
   } catch (e) {

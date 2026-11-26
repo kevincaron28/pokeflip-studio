@@ -119,6 +119,22 @@ export function service(deps) {
     return rows.length;
   }
 
+  /** Daily: edit (or post once) the release calendar in #coming-drops from the site's published calendar files. */
+  async function comingDrops() {
+    const g = await guild();
+    const ch = g.channels['coming-drops'];
+    if (!ch) throw Error('No #coming-drops channel (run setup)');
+    const site = (env.CARDSTEAD_URL || 'https://pokeflip-studio.vercel.app/').replace(/\/?$/, '/');
+    const get = async (path) => { const r = await deps.fetch(site + path); if (!r.ok) throw Error(`${path} ${r.status}`); return r.json(); };
+    const [cal, official] = await Promise.all([get('data/release-calendar.json'), get('data/official-releases.json')]);
+    const today = new Date(now()).toISOString().slice(0, 10);
+    const list = C.comingReleases(cal, official, today);
+    const msg = C.comingMessage(list, { today, siteUrl: site });
+    const mine = ((await discord.recentMessages(ch)) || []).find((m) => m.author?.id === env.DISCORD_APP_ID && m.embeds?.[0]?.title === C.COMING_TITLE);
+    if (mine) await discord.edit(ch, mine.id, msg); else await discord.send(ch, msg);
+    return { sets: list.length, action: mine ? 'updated' : 'posted' };
+  }
+
   // ---------- Interactions (slash commands and buttons) ----------
 
   /** Returns { response, after? }. `after` runs once the response has been sent (Discord wants an answer within 3 s). */
@@ -269,6 +285,7 @@ export function service(deps) {
       { cat: 'Start here · Commencer', chans: [
         ['bienvenue-welcome', 0, readOnly(), 'Rules and how to pick your pings · Règles et choix des alertes'],
         ['how-alerts-work', 0, readOnly(), 'Sources, confidence, and why big chains are slower · Sources et confiance'],
+        ['coming-drops', 0, readOnly(), 'Upcoming sets and release dates, updated daily · Prochaines sorties, mises à jour chaque jour'],
         ['speed-log', 0, readOnly(), 'Weekly: minutes to alert and false alerts · Rapidité chaque semaine']] },
       { cat: 'Chains · Chaînes', chans: C.CHAINS.map((c) => [c.key, 0, onlyFor(c.role), `${c.name} alerts. Retailer emails and member reports; never automated checks of their site.${c.key === 'amazon-ca' ? ' As an Amazon Associate I earn from qualifying purchases.' : ''}`]) },
       { cat: 'Card shops by region · Boutiques', chans: C.REGIONS.map((r) => [r.key, 0, onlyFor(r.role), `${r.en} · ${r.fr}. Card shops checked every 2–5 minutes.`]) },
@@ -329,5 +346,5 @@ export function service(deps) {
     return log;
   }
 
-  return { publishEvent, publishPending, expireReports, weeklySpeedLog, interaction, setup, priceCheck };
+  return { publishEvent, publishPending, expireReports, weeklySpeedLog, comingDrops, interaction, setup, priceCheck };
 }
