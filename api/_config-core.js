@@ -4,13 +4,13 @@
  * Files starting with "_" in api/ are not routes on Vercel. */
 'use strict';
 const TAG=/^[a-z0-9][a-z0-9-]{1,38}-20$/;
-const BASE_ORIGINS=['https://pokeflip-studio.vercel.app','https://localhost','capacitor://localhost','http://localhost'];
+const BASE_ORIGINS=['https://pokeflip-studio.vercel.app','https://cardstead.pages.dev','https://localhost','capacitor://localhost','http://localhost'];
 function origins(env={}){return new Set([...BASE_ORIGINS,...String(env.CARDSTEAD_ORIGINS||'').split(',').map(s=>s.trim()).filter(s=>/^https:\/\/[\w.-]+$/.test(s))])}
 // VAPID_PUBLIC_KEY: the Web Push public key (tools/make-vapid-keys.mjs). Public by design; the private key stays in Supabase.
 const VAPID=/^[A-Za-z0-9_-]{80,100}$/;
 function config(env={}){const t=String(env.AMAZON_ASSOCIATES_TAG||'').trim(),v=String(env.VAPID_PUBLIC_KEY||'').trim();return {amazonTag:TAG.test(t)?t:null,vapidPublicKey:VAPID.test(v)?v:null}}
 function handle({method='GET',origin,env={}}={}){
- const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'public, max-age=3600','X-Content-Type-Options':'nosniff'};
+ const headers={'Content-Type':'application/json; charset=utf-8','Cache-Control':'private, max-age=3600','X-Content-Type-Options':'nosniff'};
  if(origin&&origins(env).has(origin)){headers['Access-Control-Allow-Origin']=origin;headers.Vary='Origin'}
  if(method==='OPTIONS')return {status:204,headers,body:null};
  if(method!=='GET')return {status:405,headers,body:JSON.stringify({error:'GET only'})};

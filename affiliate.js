@@ -26,6 +26,6 @@ if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',show);else
 const base=(root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'');
 // Local static servers (tests, file previews) have no /api: skip the lookup there instead of logging a 404.
 const local=!base&&(root.location.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(root.location.hostname));
-if(!local)fetch(base+'/api/config',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;setTag(j.amazonTag);
+if(!local)fetch(base+'/api/config'+(base?'?src=app':''),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;setTag(j.amazonTag);
  try{root.localStorage.setItem(KEY,JSON.stringify({amazonTag:tag,at:Date.now()}))}catch{}show()}).catch(()=>{});
 })(typeof window!=='undefined'?window:globalThis);

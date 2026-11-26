@@ -148,18 +148,28 @@ function myCards(){try{const L=root.pokeflipLedger,M=root.CardsteadMyCards;retur
 /** Alert level and target for a card: its own (My cards) or the eBay deals settings. */
 function ruleFor(card,p){return card.mine?{threshold:isNum(card.threshold)?card.threshold:p.threshold,target:isNum(card.target)?card.target:undefined}:{threshold:p.threshold,target:p.targets[card.id]}}
 
-const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,ruleFor,KEY,norm};
+const core={BAD,doubt,matches,edition,condition,COND_SHARE,valueOf,total,listingValue,agreement,verdict,assess,isDeal,prefs,watched,ruleFor,KEY,norm,RESULTS:'cardstead-ebay-results-v1'};
 root.CardsteadEbayWatch=core;
 if(typeof module!=='undefined'&&module.exports)module.exports=core;
+// Ask for notification permission once (Android app or browser), from a tap. Used when alerts are switched on.
+root.CardsteadNotify=root.CardsteadNotify||{async ask(){try{if(root.PokeFlipNative&&root.PokeFlipNative.isNative)return await root.PokeFlipNative.requestNotifications();if('Notification' in root&&Notification.permission==='default')return (await Notification.requestPermission())==='granted';return 'Notification' in root&&Notification.permission==='granted'}catch{return false}}};
 if(!root?.document)return;
 
 /* ---------- Page ---------- */
 const doc=root.document,$=id=>doc.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const day=s=>{const t=Date.parse(s);return Number.isFinite(t)?new Date(t).toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric',timeZone:'UTC'}):'unknown date'};
-const API=()=>(root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'')+'/api/ebay-search';
-// The app (another origin) asks with its own URL, so the CDN never hands it a copy cached for the website (CORS).
-const SRC=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'&src=app':'';
+// Where eBay is asked: this site's /api, the Vercel site from the Android app, and the Vercel site as a fallback when this
+// host has no eBay keys (e.g. a Cloudflare Pages copy without keys answers 503).
+const VERCEL='https://pokeflip-studio.vercel.app',native=()=>!!(root.PokeFlipNative&&root.PokeFlipNative.isNative);
+let base=native()?VERCEL:'',resolving=null;
+const API=()=>base+'/api/ebay-search';
+// Another origin asks with its own URL, so the CDN never hands it a copy cached for the website (CORS).
+const SRC=()=>base?'&src='+(native()?'app':'web'):'';
+core.api=async()=>{await resolveApi();return {url:API(),src:SRC()}};
+function resolveApi(){return resolving||(resolving=(async()=>{if(base)return;
+ try{const r=await fetch('/api/ebay-search?status=1',{cache:'no-store'});const j=await r.json().catch(()=>({}));if(j.configured)return}catch{}
+ if(root.location&&root.location.origin!==VERCEL){try{const r=await fetch(VERCEL+'/api/ebay-search?status=1&src=web',{cache:'no-store'});const j=await r.json().catch(()=>({}));if(j.configured)base=VERCEL}catch{}}})())}
 let data=null,status='unknown',scanning=false,timer=null;
 function script(src,ready){return ready()?Promise.resolve():new Promise((res,rej)=>{const s=doc.createElement('script');s.src=src;s.onload=()=>res();s.onerror=()=>rej(Error(src+' could not load'));doc.head.appendChild(s)})}
 async function loadAll(){
@@ -203,6 +213,7 @@ function renderWatch(){
  void fx;
 }
 async function checkStatus(){
+ await resolveApi();
  const box=$('dealsSetup');
  try{const r=await fetch(API()+'?status=1',{cache:'no-store'});const j=await r.json().catch(()=>({}));status=j.configured?'ready':'setup'}catch{status='offline'}
  box.classList.toggle('hidden',status==='ready');
@@ -239,15 +250,21 @@ async function open(){
  try{await loadAll()}catch(e){$('dealsMessage').textContent=e.message;return}
  $('dealsThreshold').value=Math.round(prefs().threshold*100);$('dealsAuto').checked=prefs().auto;
  renderWatch();renderDeals();
- if(await checkStatus()==='ready'&&prefs().auto&&!timer){timer=setInterval(()=>{if(prefs().auto&&!doc.hidden)scan()},60*60*1000)}
+ if(await checkStatus()==='ready')autoScan();
 }
+/** Automatic checks (alerts): a scan when the last one is over an hour old, then every hour while Cardstead is open. */
+function stale(now=Date.now()){const at=Date.parse(jget(RESULTS,{}).at||'');return !Number.isFinite(at)||now-at>55*60*1000}
+function autoScan(){if(!prefs().auto)return;if(stale())scan();if(!timer)timer=setInterval(()=>{if(prefs().auto&&(!doc.hidden||native())&&stale())scan()},10*60*1000)}
+async function background(){if(!prefs().auto||data)return;try{await loadAll()}catch{return}if(await checkStatus()==='ready'){renderDeals();autoScan()}}
 function init(){
  const tab=doc.querySelector('[data-tab="deals"]');if(!tab||!$('dealsList'))return;
  tab.addEventListener('click',()=>{if(!data)open()});
+ // Alerts do not wait for the eBay deals page: the background check starts shortly after Cardstead opens.
+ setTimeout(background,20000);
  $('dealsScan').onclick=scan;
  $('dealsFilter').addEventListener('input',renderWatch);
  $('dealsThreshold').onchange=e=>{const p=prefs(),n=Number(e.target.value);if(n>=0&&n<=90){p.threshold=n/100;jset(KEY,p);renderDeals()}};
- $('dealsAuto').onchange=e=>{const p=prefs();p.auto=e.target.checked;jset(KEY,p)};
+ $('dealsAuto').onchange=e=>{const p=prefs();p.auto=e.target.checked;jset(KEY,p);if(p.auto){root.CardsteadNotify?.ask();autoScan()}};
  $('dealsRestore').onclick=()=>{const p=prefs();p.removed=[];jset(KEY,p);renderWatch();renderDeals()};
  $('dealsAddForm').onsubmit=e=>{e.preventDefault();const p=prefs();const name=$('dealsAddName').value.trim(),query=$('dealsAddQuery').value.trim();if(!name||query.length<3)return;
   const val=Number($('dealsAddValue').value);

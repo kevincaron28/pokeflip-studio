@@ -17,7 +17,7 @@ const $=id=>document.getElementById(id);
 const say=t=>{const m=$('pushStatus');if(m)m.textContent=t};
 const base=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'';
 async function client(){const c=root.PokeFlipCloudClient&&root.PokeFlipCloudClient();if(!c)throw Error('Set up cloud sync and sign in first (Settings > Backup and cloud).');const {data}=await c.auth.getUser();if(!data?.user)throw Error('Sign in first (Settings > Backup and cloud).');return c}
-async function vapidKey(){const r=await fetch(base()+'/api/config',{cache:'no-store'});const j=r.ok?await r.json():{};if(!j.vapidPublicKey)throw Error('Drop alerts are not switched on for this site yet.');return j.vapidPublicKey}
+async function vapidKey(){const r=await fetch(base()+'/api/config'+(base()?'?src=app':''),{cache:'no-store'});const j=r.ok?await r.json():{};if(!j.vapidPublicKey)throw Error('Drop alerts are not switched on for this site yet.');return j.vapidPublicKey}
 function prefs(){const P=root.CardsteadStorePrefs;const p=P?P.get():{};return core.prefsFor(p.province||'QC',{chains:$('pushChains')?.checked!==false,goodPriceOnly:$('pushGood')?.checked!==false})}
 async function turnOn(){
  const N=root.PokeFlipNative;
