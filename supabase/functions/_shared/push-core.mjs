@@ -50,6 +50,8 @@ export function message(ev, lang = 'en', site = 'https://pokeflip-studio.vercel.
 
 /** One pass: send pending drops to matching members. deps: {store, send(sub, payload) -> {ok, gone}, now, site}. */
 export async function runPush({ store, send, now, site, limit = 100 }) {
+  // Drop delivery records are only for the 30-minute cooldown (price alerts keep theirs until the price rises again).
+  await store.pruneDeliveries?.(new Date(now() - COOLDOWN_MS).toISOString());
   const events = await store.pendingEvents(limit);
   const out = { events: events.length, sent: 0, skipped: 0, removed: 0 };
   if (!events.length) return out;
@@ -83,7 +85,11 @@ export function pushStore({ url, serviceKey, fetch: f = globalThis.fetch }) {
   return {
     pendingEvents: (limit) => q('GET', `/drop_events?push_processed_at=is.null&order=created_at.asc&limit=${limit}`),
     markEvent: (id, at) => q('PATCH', `/drop_events?id=eq.${e(id)}`, { push_processed_at: at }),
-    subscriptions: () => q('GET', '/push_subscriptions?select=id,kind,endpoint,p256dh,auth,prefs,lang&limit=10000'),
+    subscriptions: () => q('GET', '/push_subscriptions?select=id,user_id,kind,endpoint,p256dh,auth,prefs,lang&limit=10000'),
+    // Only the saved cards of the backup, and only for members who asked for price alerts (price-alerts.mjs).
+    watchlists: (users) => q('GET', `/pokeflip_snapshots?user_id=in.(${users.map(e).join(',')})&select=user_id,items:payload->ledger->items`),
+    removeDelivery: (id, key) => q('DELETE', `/push_deliveries?subscription_id=eq.${e(id)}&dedupe_key=eq.${e(key)}`),
+    pruneDeliveries: (before) => q('DELETE', `/push_deliveries?sent_at=lt.${e(before)}&dedupe_key=not.like.${e('price|')}*`),
     lastDelivery: async (id, key) => { const r = await q('GET', `/push_deliveries?subscription_id=eq.${e(id)}&dedupe_key=eq.${e(key)}&select=sent_at&limit=1`); return r && r[0] ? r[0].sent_at : null; },
     recordDelivery: (id, key, at) => q('POST', '/push_deliveries?on_conflict=subscription_id,dedupe_key', { subscription_id: id, dedupe_key: key, sent_at: at }, 'resolution=merge-duplicates,return=minimal'),
     removeSubscription: (id) => q('DELETE', `/push_subscriptions?id=eq.${e(id)}`),
