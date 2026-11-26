@@ -1,5 +1,5 @@
 /* Settings -> Drop alerts on this device: Web Push for restocks found by the drops pipeline (drop_events).
- * Needs a signed-in Cardstead account (cloud sync) so the subscription is tied to you and can be removed.
+ * Needs a signed-in Cardstead account so the subscription is tied to you and can be removed.
  * Preferences: your area (from My area & stores), big chains on or off, and "good prices only" (at or under market + 10%).
  * The Android app's web view has no Web Push: there, alerts come through the website in Chrome until app push exists. */
 (function(root){'use strict';
@@ -16,7 +16,7 @@ if(typeof document==='undefined'){if(typeof module!=='undefined'&&module.exports
 const $=id=>document.getElementById(id);
 const say=t=>{const m=$('pushStatus');if(m)m.textContent=t};
 const base=()=>root.PokeFlipNative&&root.PokeFlipNative.isNative?'https://pokeflip-studio.vercel.app':'';
-async function client(){const c=root.PokeFlipCloudClient&&root.PokeFlipCloudClient();if(!c)throw Error('Set up cloud sync and sign in first (Settings > Backup and cloud).');const {data}=await c.auth.getUser();if(!data?.user)throw Error('Sign in first (Settings > Backup and cloud).');return c}
+async function client(){const c=root.PokeFlipCloudClient&&root.PokeFlipCloudClient();if(!c)throw Error('Sign in first (Settings, Your account and backup).');const {data}=await c.auth.getUser();if(!data?.user)throw Error('Sign in first (Settings, Your account and backup).');return c}
 async function vapidKey(){const r=await fetch(base()+'/api/config'+(base()?'?src=app':''),{cache:'no-store'});const j=r.ok?await r.json():{};if(!j.vapidPublicKey)throw Error('Drop alerts are not switched on for this site yet.');return j.vapidPublicKey}
 function prefs(){const P=root.CardsteadStorePrefs;const p=P?P.get():{};return core.prefsFor(p.province||'QC',{chains:$('pushChains')?.checked!==false,goodPriceOnly:$('pushGood')?.checked!==false})}
 async function turnOn(){

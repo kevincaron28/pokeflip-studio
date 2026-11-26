@@ -10,6 +10,14 @@ const core={
  privacyUrl(lang,section){const fr=lang==='fr';return PRIVACY_URL+(section==='delete'?(fr?'#supprimer':'#delete'):(fr?'#fr':''))},
  /** True when the database does not have the deletion function yet (migration 007 not applied). Pure. */
  deletionMissing(error){return !!error&&(error.code==='PGRST202'||error.code==='42883'||/could not find the function|does not exist/i.test(String(error.message||'')))},
+ /** A sign-in error from the server in plain words, or null to show it as it is. Pure. */
+ authMessage(error){const m=String(error?.message||''),c=String(error?.code||'');
+  if(c==='over_email_send_rate_limit'||c==='over_request_rate_limit'||/rate limit|only request this after/i.test(m))return 'Too many sign-in emails. Wait a few minutes, then try again.';
+  if(c==='email_address_not_authorized'||/not authorized/i.test(m))return 'Cardstead cannot email this address yet. Sign-in is not open to everyone.';
+  if(c==='otp_expired'||/token has expired|invalid (token|otp)/i.test(m))return 'That code is wrong or has expired. Ask for a new one.';
+  if(/error sending|smtp/i.test(m))return 'The sign-in email could not be sent. Try again later.';
+  if(/failed to fetch|networkerror|load failed/i.test(m))return 'No connection. Check your internet and try again.';
+  return null},
  canAutoUpload(remoteRevision,expectedRevision){return Number.isSafeInteger(expectedRevision)&&expectedRevision>0&&remoteRevision===expectedRevision},validUrl(x){try{const u=new URL(x);return u.protocol==='https:'&&/^[a-z0-9-]+\.supabase\.co$/i.test(u.hostname)&&u.pathname==='/'?u.origin:''}catch{return ''}},
  validKey(k){return /^sb_publishable_[A-Za-z0-9_-]{12,}$/.test(k)||/^eyJ[A-Za-z0-9._-]{80,}$/.test(k)},
  validateSnapshot(s){if(!s||s.schema!==5||!s.ledger||!Array.isArray(s.ledger.lots)||!Array.isArray(s.ledger.items)||!Array.isArray(s.ledger.sales))throw Error('Unsupported cloud backup');if(!Array.isArray(s.portfolioHistory)||!Array.isArray(s.ebayComparables)||!Array.isArray(s.sealedObservations)||!Array.isArray(s.alertHub)||!s.restockWatch)throw Error('Incomplete cloud backup');return true}};
@@ -18,7 +26,9 @@ if(typeof document==='undefined')return;
 let client=null,revision=null,busy=false,autoTimer=null,autoUserId='',lastSyncedPayload='',pendingAuto=false;
 function autoSettings(){try{return JSON.parse(localStorage.getItem(AUTO_KEY)||'null')}catch{return null}}
 function autoEnabled(userId){return !!userId&&autoSettings()?.userId===userId&&autoSettings()?.enabled===true}
-function drawAuto(){const b=$('cloudAutoToggle');if(!b)return;b.textContent=autoEnabled(autoUserId)?'Disable automatic cloud backup':'Enable automatic cloud backup';b.setAttribute('aria-pressed',String(autoEnabled(autoUserId)))}
+/** Signed out: the email form. Signed in: the backup buttons. */
+function showAuth(signedIn){const form=$('cloudSignIn'),tools=$('cloudSignedIn');if(form)form.hidden=signedIn;if(tools)tools.hidden=!signedIn}
+function drawAuto(){showAuth(!!autoUserId);const b=$('cloudAutoToggle');if(!b)return;b.textContent=autoEnabled(autoUserId)?'Disable automatic cloud backup':'Enable automatic cloud backup';b.setAttribute('aria-pressed',String(autoEnabled(autoUserId)))}
 function stopAuto(message){if(autoTimer)clearTimeout(autoTimer);autoTimer=null;localStorage.removeItem(AUTO_KEY);drawAuto();if(message)status(message,true)}
 function rememberSynced(userId,rev,payload){revision=rev;localStorage.setItem(REV_KEY,JSON.stringify({userId,revision:rev}));lastSyncedPayload=JSON.stringify(payload);drawAuto()}
 async function saveRemote(user,payload,expected){const {data,error}=await client.rpc('pokeflip_save_snapshot',{expected_revision:expected,next_payload:payload});if(error)throw error;const n=Number(data);if(!Number.isSafeInteger(n)||n<=expected)throw Error('Unexpected cloud revision');rememberSynced(user.id,n,payload);return n}
@@ -47,7 +57,7 @@ async function deleteAccount(){
  status('Signed out. Local inventory remains on this device.');accountStatus('Your account is deleted. Cards saved on this device are still here.')}
 function init(){setPrivacyLinks();root.addEventListener('cardstead:lang',setPrivacyLinks);if(!$('cloudConfigure'))return;
  if($('accountDelete'))$('accountDelete').onclick=()=>safely(async()=>{try{await deleteAccount()}catch{accountStatus('Your account was not deleted. Try again, or ask by email from the privacy policy page.',true)}});
-const c=savedConfig();if(c){$('cloudUrl').value=c.url||'';$('cloudKey').value=c.key||'';try{connect();status('Cardstead Canada cloud configured. Sign in, then explicitly upload or download.')}catch(e){status(e.message,true)}}
+const c=savedConfig();if(c){$('cloudUrl').value=c.url||'';$('cloudKey').value=c.key||'';try{connect();status('Not signed in.')}catch(e){status(e.message,true)}}
 if(client){
  client.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_IN'&&session?.user?.id){
@@ -59,10 +69,10 @@ if(client){
   if(data?.user?.id){autoUserId=data.user.id;drawAuto();status('Signed in as '+(data.user.email||'your account')+'. Cloud data is not transferred until you choose Upload or Download.');if(autoEnabled(autoUserId))scheduleAuto(6500);}
  }).catch(()=>{});
 }
-$('cloudConfigure').onclick=()=>safely(async()=>{const url=core.validUrl($('cloudUrl').value.trim()),key=$('cloudKey').value.trim();if(!url||!core.validKey(key))throw Error('Enter a valid HTTPS *.supabase.co project URL and publishable key. Never enter a secret key.');localStorage.setItem(CONFIG_KEY,JSON.stringify({url,key}));revision=null;localStorage.removeItem(REV_KEY);stopAuto();connect();status('Project configured. Email sign-in is required. No data uploaded.')});
-$('cloudSendOtp').onclick=()=>safely(async()=>{if(!client)connect();const email=$('cloudEmail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw Error('Enter a valid email');const {error}=await client.auth.signInWithOtp({email,options:{shouldCreateUser:true,emailRedirectTo:root.PokeFlipNative&&root.PokeFlipNative.isNative?root.PokeFlipNative.AUTH_URL:location.origin+location.pathname}});if(error)throw error;status('Sign-in email sent. Enter the code if the email contains one; otherwise open its sign-in link on this device.')});
+$('cloudConfigure').onclick=()=>safely(async()=>{const url=core.validUrl($('cloudUrl').value.trim()),key=$('cloudKey').value.trim();if(!url||!core.validKey(key))throw Error('Enter a valid HTTPS *.supabase.co project URL and publishable key. Never enter a secret key.');localStorage.setItem(CONFIG_KEY,JSON.stringify({url,key}));revision=null;localStorage.removeItem(REV_KEY);stopAuto();connect();showAuth(false);status('Project configured. Email sign-in is required. No data uploaded.')});
+$('cloudSendOtp').onclick=()=>safely(async()=>{if(!client)connect();const email=$('cloudEmail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw Error('Enter a valid email');status('Sending…');const {error}=await client.auth.signInWithOtp({email,options:{shouldCreateUser:true,emailRedirectTo:root.PokeFlipNative&&root.PokeFlipNative.isNative?root.PokeFlipNative.AUTH_URL:location.origin+location.pathname}});if(error)throw Error(core.authMessage(error)||error.message);status('Sign-in email sent. Type its code, or open its link on this device. Check your junk folder too.');$('cloudOtp').focus()});
 async function afterSignIn(){const user=await requireUser();const remote=await fetchRemote(user);const prior=JSON.parse(localStorage.getItem(REV_KEY)||'null');revision=prior?.userId===user.id?prior.revision:0;autoUserId=user.id;drawAuto();status('Signed in. Cloud snapshot '+(remote?'exists (revision '+remote.revision+') — download before first upload':'not yet created')+'. No data exchanged.')}
-$('cloudVerifyOtp').onclick=()=>safely(async()=>{if(!client)connect();const {error}=await client.auth.verifyOtp({email:$('cloudEmail').value.trim(),token:$('cloudOtp').value.trim(),type:'email'});if(error)throw error;await afterSignIn()});
+$('cloudVerifyOtp').onclick=()=>safely(async()=>{if(!client)connect();if(!$('cloudOtp').value.trim())throw Error('Enter the code from the email.');const {error}=await client.auth.verifyOtp({email:$('cloudEmail').value.trim(),token:$('cloudOtp').value.trim(),type:'email'});if(error)throw Error(core.authMessage(error)||error.message);$('cloudOtp').value='';await afterSignIn()});
 // Android app: the emailed sign-in link opens the app (top.kcaron.cardstudio://auth#...) and arrives here.
 async function acceptAuthLink(a){if(!a)return;if(a.error)throw Error(a.error);if(!client)connect();if(a.accessToken){const {error}=await client.auth.setSession({access_token:a.accessToken,refresh_token:a.refreshToken});if(error)throw error}else if(a.code){const {error}=await client.auth.exchangeCodeForSession(a.code);if(error)throw error}else return;await afterSignIn()}
 root.addEventListener('pokeflip:authlink',()=>{const a=root.PokeFlipNative?.takePendingAuth?.();if(a)safely(()=>acceptAuthLink(a))});

@@ -80,7 +80,7 @@ The code is the reliable path on Android, since some mail apps open links in the
 
 ## Step 4: test (2 minutes)
 
-1. On the website and on the phone: **Settings > Optional private cloud synchronization**, enter your email, then **Send**.
+1. On the website and on the phone: **Settings > Your account and backup**, enter your email, then **Email me a code**.
 2. The email arrives from `Cardstead <connexion@mail.kcaron.top>` with a 6-digit code. Type it in Cardstead: you are signed in.
 3. Resend > **Emails** lists the message as Delivered. If it went to spam, check that the DKIM and DMARC records are verified.
 4. Send three sign-in emails within an hour to different addresses. All arrive (before, the third failed).
