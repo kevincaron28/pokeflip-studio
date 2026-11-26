@@ -5,6 +5,7 @@ What was saved in Play Console → App content → Data safety and published on 
 - Collects data: yes. Shares data: no. Encrypted in transit: yes.
 - Account method: "Username and other authentication" (email sign-in, optional).
 - Deletion link: `https://pokeflip-studio.vercel.app/privacy.html#delete`.
+- In the app: Settings → Account and privacy → **Delete my account** (needs `migrations/007-delete-account.sql` applied in Supabase), plus the privacy policy link there and in the footer.
 
 | Data type | Required? | Purpose | What it is in Cardstead |
 |---|---|---|---|
