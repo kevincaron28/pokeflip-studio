@@ -27,7 +27,7 @@ test('four main tabs (Prices, Drops, My cards, Settings); the scanner and portfo
 test('offline shell caches visual assets, not personal data',()=>{
   for(const file of ['studio-theme.css','studio-mark.svg','studio-horizon.svg','mycards.js','collection-value.js','app.js'])assert.ok(sw.includes("'./"+file+"'"),file);
   for(const file of ['card-detect.js','art-rank.js','scan-pipeline.js','scan-tray.js','continuous-scan.js','portfolio.js','home.js'])assert.ok(!sw.includes("'./"+file+"'"),file+' removed');
-  assert.match(sw,/const CACHE='pokeflip-shell-v4\.15\.1'/);
+  assert.match(sw,/const CACHE='pokeflip-shell-v4\.16\.0'/);
   assert.doesNotMatch(sw,/supabase\.co/);
   assert.equal(manifest.theme_color,'#111a2e');
 });

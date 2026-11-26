@@ -53,7 +53,7 @@ function ebayCard(i){
  const ed=i.edition==='1st'?' 1st Edition':i.edition==='shadowless'?' Shadowless':i.edition==='unlimited'?' Unlimited':'';
  const num=String(i.number||'').split('/')[0]||String(i.idCode||'').split('-').pop()||'';
  return {id:'my-'+i.id,mine:true,itemId:i.id,name:i.name,number:i.number||num,set:(i.setName||'')+ed,printing,grade:graded?i.grade:'raw',lang:i.lang,
-  value:p.state==='ok'?{cad:p.cad,source:'My cards price (recent sales)',date:p.at,confidence:p.confidence}:null,
+  value:p.state==='ok'?{cad:p.cad,source:'Watchlist price (recent sales)',date:p.at,confidence:p.confidence}:null,
   target:isNum(i.target)?i.target:null,threshold:isNum(i.alertPct)?i.alertPct/100:null,
   ebayQuery:[i.name,num,i.setName,i.edition==='1st'?'1st edition':i.edition==='shadowless'?'shadowless':'',graded?i.grade:'',i.lang==='fr'?'french':''].filter(Boolean).join(' '),exclude:[]};
 }

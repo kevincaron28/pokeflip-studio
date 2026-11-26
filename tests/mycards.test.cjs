@@ -74,6 +74,6 @@ test('every My cards string exists in English and French, French in tu; the page
  for(const k of used)assert.ok(k in I.S.en&&k in I.S.fr,k);
  const frText=fr.map(k=>I.S.fr[k]).map(v=>typeof v==='function'?v(2,'a','b'):v).join(' ');assert.ok(!/\bvous\b|\bvotre\b|\bvos\b/i.test(frText),'tu, not vous');
  const html=read('index.html');assert.match(html,/<script src="\.\/collection-value\.js" defer><\/script><script src="\.\/mycards\.js" defer><\/script>/);
- assert.match(html,/<section id="mycards" class="hidden"><h1 data-i18n="nav\.mycards">My cards<\/h1><div id="myCards"/);
+ assert.match(html,/<section id="mycards" class="hidden"><h1 data-i18n="nav\.mycards">Watchlist<\/h1><div id="myCards"/);
  assert.match(read('product.js'),/CardsteadMyCards\?\.findHtml\?\.\(q\)/);
 });
