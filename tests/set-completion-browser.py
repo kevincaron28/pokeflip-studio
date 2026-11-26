@@ -50,7 +50,8 @@ try:
             page.locator('[data-sc-mode="set"]').click()
             page.locator('[data-sc-filter="owned"]').click(); assert page.locator("#scGrid li").count() == 4
             page.locator('[data-sc-filter="missing"]').click(); page.locator('[data-sort="missing-price"]').click()
-            page.mouse.wheel(0, 40000); page.wait_for_timeout(600); assert page.locator("#scGrid li").count() > 60, "more cards drawn on scroll"
+            page.locator("#scMore").scroll_into_view_if_needed(); page.mouse.wheel(0, 40000)
+            page.wait_for_function("document.querySelectorAll('#scGrid li').length>60", timeout=8000)  # more cards drawn on scroll (CI runners are slow)
             page.locator("[data-sc-undo]").click()
             assert max(max(v.values()) for v in page.evaluate("CardsteadSetCompletion.get()")["sets"][str(SET["id"])].values()) == 1, "undo"
             page.locator("[data-sc-watch]").click(); page.wait_for_timeout(300)
