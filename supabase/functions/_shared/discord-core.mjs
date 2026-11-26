@@ -48,7 +48,7 @@ export const MOD_ROLE = 'Moderator';
 export const LANGUAGE_ROLES = ['Français', 'English'];
 
 export const CHANNELS = {
-  start: ['bienvenue-welcome', 'how-alerts-work', 'speed-log'],
+  start: ['bienvenue-welcome', 'how-alerts-work', 'coming-drops', 'speed-log'],
   chains: CHAINS.map((c) => c.key),
   regions: REGIONS.map((r) => r.key),
   deals: ['ebay-deals', 'under-market'],
@@ -464,7 +464,7 @@ const ONBOARDING_EPOCH = 1420070400000n;
 export const newSnowflake = (now, i) => String(((BigInt(now) - ONBOARDING_EPOCH) << 22n) + BigInt(i));
 
 /** The channels anyone can see on joining. Discord asks for at least 7, at least 5 of them where @everyone can write. */
-export const ONBOARDING_DEFAULT_CHANNELS = ['bienvenue-welcome', 'how-alerts-work', 'speed-log', 'ebay-deals', 'under-market', 'price-check', 'general', 'général', 'pulls-collections', 'help-aide'];
+export const ONBOARDING_DEFAULT_CHANNELS = ['bienvenue-welcome', 'how-alerts-work', 'coming-drops', 'speed-log', 'ebay-deals', 'under-market', 'price-check', 'general', 'général', 'pulls-collections', 'help-aide'];
 export const ONBOARDING_WRITABLE = ['price-check', 'general', 'général', 'pulls-collections', 'help-aide'];
 
 /**
@@ -545,5 +545,65 @@ export function welcomeMessage(siteUrl) {
       { title: WELCOME_TITLE, color: 0x3fa7d6, description: en.join('\n').slice(0, 4000) },
       { title: 'Version française', color: 0x3fa7d6, description: fr.join('\n').slice(0, 4000) },
     ],
+  };
+}
+
+// ---------- Coming drops (release calendar) ----------
+
+export const COMING_TITLE = 'Coming drops · Prochaines sorties';
+const normSet = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+
+/**
+ * Upcoming sets, soonest first: TCGplayer presale products grouped by set plus the hand-kept official entry.
+ * Same grouping as the website's calendar.js releases() (tests check they agree). cal = data/release-calendar.json,
+ * official = data/official-releases.json, today = 'YYYY-MM-DD'.
+ */
+export function comingReleases(cal, official, today) {
+  const by = new Map();
+  for (const i of cal?.items || []) {
+    if (!i?.date || i.date < today) continue;
+    const k = normSet(i.set);
+    if (!by.has(k)) by.set(k, { set: i.set, code: i.code, tcgDate: i.date, products: [] });
+    const r = by.get(k);
+    if (i.date < r.tcgDate) r.tcgDate = i.date;
+    r.products.push(i);
+  }
+  for (const o of official?.releases || []) {
+    if (!o?.date || o.date < today) continue;
+    const k = normSet(o.set);
+    if (!by.has(k)) by.set(k, { set: o.set, code: '', tcgDate: null, products: [] });
+    by.get(k).official = o;
+  }
+  const out = [...by.values()].map((r) => ({ ...r, date: r.official?.date || r.tcgDate, dateDiffers: !!(r.official && r.tcgDate && r.official.date !== r.tcgDate) }));
+  return out.sort((a, b) => a.date.localeCompare(b.date) || a.set.localeCompare(b.set));
+}
+
+const KIND_LABEL = { pack: 'packs', box: 'booster boxes', etb: 'ETBs', bundle: 'bundles', collection: 'collections', tin: 'tins', blister: 'blisters' };
+
+/** The one message in #coming-drops, edited daily. Official dates come first; presale estimates are labelled. */
+export function comingMessage(list, { today, siteUrl, max = 12 } = {}) {
+  const site = siteUrl || 'https://pokeflip-studio.vercel.app/';
+  const lines = list.slice(0, max).map((r) => {
+    const unix = Math.floor(Date.parse(`${r.date}T12:00:00Z`) / 1000);
+    const how = r.official ? (r.official.status === 'announced' ? 'Announced · Annoncé' : 'Official · Officiel') : 'Presale estimate · Estimation prévente';
+    const kinds = [...new Set(r.products.map((p) => KIND_LABEL[p.kind] || p.kind).filter(Boolean))].slice(0, 5).join(', ');
+    const src = r.official?.sources?.[0];
+    const parts = [`**${r.set}**${r.code ? ` (${r.code})` : ''} · <t:${unix}:D> · ${how}`];
+    if (r.dateDiffers) parts.push(`presale lists ${r.tcgDate} · prévente : ${r.tcgDate}`);
+    if (r.official?.prerelease) parts.push(`prerelease · avant-première ${r.official.prerelease}`);
+    if (kinds) parts.push(`${r.products.length} product(s): ${kinds}`);
+    if (src?.url) parts.push(`[source](${src.url})`);
+    return `• ${parts.join(' · ')}`;
+  });
+  return {
+    content: '',
+    allowed_mentions: { parse: [] },
+    embeds: [{
+      title: COMING_TITLE,
+      color: 0x8e6bd8,
+      url: site,
+      description: (lines.length ? lines.join('\n') : 'No upcoming releases listed yet. · Aucune sortie annoncée pour l’instant.').slice(0, 4000),
+      footer: { text: `Official dates come from The Pokémon Company; presale dates are store estimates. Canadian shops can be a day or two off. Updated ${today}. · Les dates officielles viennent de The Pokémon Company.` },
+    }],
   };
 }

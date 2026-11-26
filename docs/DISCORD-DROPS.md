@@ -43,6 +43,7 @@ Region channels are visible only to members with that region's role, and chain c
 8. **Schedules:** Supabase → Integrations → **Cron** (install it; also run `create extension if not exists pg_net with schema extensions;` once) → Create job ×2, type "Supabase Edge Function", function `discord-publisher`, method POST, timeout 5000 ms, header from **Add header ▾ → Add secret key** (it sends the project's `sb_secret_` key as `apikey`; the function accepts it), and in the function's Settings turn **Verify JWT** off:
    - `discord-drops-tick`, schedule `* * * * *`, body `{"task":"tick"}`
    - `discord-speed-log`, schedule `0 13 * * 1` (Monday 8:00 Eastern), body `{"task":"speed-log"}`
+   - `discord-coming-drops`, schedule `0 12 * * *` (daily 7:00 Eastern), body `{"task":"coming-drops"}`: edits the one release-calendar message in `#coming-drops` from the site's `data/release-calendar.json` (TCGplayer presales) and `data/official-releases.json` (official announcements). Never pings.
 9. **In Discord (server settings, as owner):** turn on Community (it asks you to accept Discord's community rules: your call; rules channel `#bienvenue-welcome`, updates channel `#mod-queue`). Then run setup again: it sets Verification Level to Medium, turns on **Onboarding** with four questions ("Region / Région", "Stores / Magasins" with "Online only", "Products / Produits" with eBay deals, "Language / Langue") and ten default channels that everyone can see (five where anyone can write, as Discord requires), and posts one bilingual rules and how-it-works message in `#bienvenue-welcome` (edited, not duplicated, on later runs). Give your two moderators the `Moderator` role.
 10. Keep the server private (no invite links) until the pipeline has caught real drops; then create one invite and link it from Cardstead.
 
@@ -53,3 +54,7 @@ Region channels are visible only to members with that region's role, and chain c
 ## Costs
 
 Free: Discord server, application, AutoMod; Supabase functions and cron within the free tier (about 45,000 publisher calls a month plus interactions, against 500,000 included).
+
+## Sources considered for big chains (26 Nov 2026)
+
+Reddit is not usable: new Data API apps need Reddit's approval, commercial use (Cardstead has affiliate links) needs a written agreement, and Reddit closed new API requests on 31 Oct 2026 and RSS on 13 Nov 2026. Best Buy's developer API is US-only and Google's Merchant API only reads a merchant's own account. Allowed routes, fastest first: member `/report` (built), retailer emails and newsletters into the drops inbox (owner sign-up), Amazon Creators API (after 10 qualifying sales in 30 days), affiliate feeds (Impact for Best Buy Canada, Rakuten for Walmart Canada; refresh is roughly daily, owner sign-up), and official release dates (#coming-drops, built). Full table: research notes `big-chain-sources-2026-11-26.md`.
