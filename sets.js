@@ -55,6 +55,7 @@ function list(){
 async function detail(id){
  const host=$('setsView'),s=index.sets.find(x=>x.id===id);if(!s)return;
  if(open!==id){open=id;filter='all';rarity='';shown=BATCH}
+ root.dispatchEvent(new CustomEvent('cardstead:set'));
  if(!setData||setData.id!==id){
   host.innerHTML=`<p class="note">${esc(t('sets.loading'))}</p>`;
   try{const r=await fetch(`${BASE()}/data/sets/${id}.json`,{cache:'no-cache'});setData=await r.json();setData.id=id}catch{host.innerHTML=`<p class="empty">${esc(t('sets.fail'))}</p>`;return}
@@ -71,7 +72,7 @@ function render(){
  if(rarity)cards=cards.filter(c=>c[3]===rarity);
  visible=cards;
  const chip=(attr,val,cur,label)=>`<button type="button" class="chip${cur===val?' on':''}" ${attr}="${esc(val)}">${esc(label)}</button>`;
- host.innerHTML=`<button type="button" class="btn smallbtn" data-sets-back>← ${esc(t('sets.back'))}</button>
+ host.innerHTML=`<div class="page-bar"><button type="button" class="btn smallbtn" data-sets-back>← ${esc(t('sets.back'))}</button><button type="button" class="btn smallbtn" data-share>${esc(t('share.label'))}</button></div>
  <div class="sets-head">${s.logo&&root.CardsteadPics?root.CardsteadPics.img(s.logo,{cls:'pic sets-head-logo'}):''}<div><p class="ac-kind">${esc(s.seriesName)} · ${esc(day(s.released))}${s.code?' · '+esc(s.code):''}</p><h2>${esc(s.name)}</h2></div></div>
  <div class="panel sc-progress" id="scProgress">${progressHtml(sum)}</div>
  <div class="sc-tools">
@@ -82,7 +83,7 @@ function render(){
  <p class="note sc-hint">${esc(t('sc.hint'))}</p>
  <ul class="sets-grid sc-grid" id="scGrid"></ul><div id="scMore" class="sc-more"></div>
  <div id="scSheet" class="sc-sheet" hidden></div>`;
- host.querySelector('[data-sets-back]').onclick=()=>{open=null;setData=null;list()};
+ host.querySelector('[data-sets-back]').onclick=()=>{if(root.CardsteadRoutes?.backTo('sets'))return;open=null;setData=null;list();root.dispatchEvent(new CustomEvent('cardstead:set'))};
  host.querySelectorAll('[data-sc-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.scFilter;shown=BATCH;render()});
  host.querySelectorAll('[data-sort]').forEach(b=>b.onclick=()=>{sort=b.dataset.sort;shown=BATCH;render()});
  host.querySelector('[data-sc-rarity]').onchange=e=>{rarity=e.target.value;shown=BATCH;render()};
@@ -169,4 +170,6 @@ root.addEventListener('cardstead:show',e=>{if(e.detail==='sets')show()});
 root.addEventListener('cardstead:lang',()=>{if(root.CardsteadNav?.current?.()==='sets')show()});
 root.addEventListener('cardstead:sets-changed',()=>{if(root.CardsteadNav?.current?.()==='sets')show()});
 core.show=show;
+// Page addresses (routes.js): which set is open, and opening one from a link.
+core.current=()=>open;core.title=()=>index?.sets.find(x=>x.id===open)?.name||'';core.select=id=>{if(open!==id){open=null;setData=null;if(id){open=id;filter='all';rarity='';shown=BATCH}}};
 })(typeof window!=='undefined'?window:globalThis);

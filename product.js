@@ -174,7 +174,7 @@ async function open(it,from){
  // A graded card has no sold history: the history on file is the raw card's, so it is not shown here.
  const raw=graded(it)?find(items,refOf({...it,grade:'raw'})):null;
  const img=root.CardsteadPics?root.CardsteadPics.img(root.CardsteadPics.tcgSrc(it.id),{cls:'pic prod-img'}):'';
- host.innerHTML=`<button type="button" class="btn smallbtn" data-back>← ${esc(t('p.back'))}</button>
+ host.innerHTML=`<div class="page-bar"><button type="button" class="btn smallbtn" data-back>← ${esc(t('p.back'))}</button><button type="button" class="btn smallbtn" data-share>${esc(t('share.label'))}</button></div>
  <div class="prod-head">${img}<div><p class="ac-kind">${esc(kindLabel(it))} · ${esc(it.set||'')}</p><h1 class="prod-title">${esc(it.name)}</h1></div></div>
  <div class="prod-metrics">
   <div class="metric"><label>${esc(t('p.market'))}</label>${root.CardsteadPriceLine?root.CardsteadPriceLine.html(it.kind==='sealed'?root.CardsteadPriceLine.sealed(it.marketUsd,data):root.CardsteadPriceLine.card(it.card,data)):`<strong>${esc(M(val))}</strong>`}${ch?`<span class="${ch.abs>=0?'g-up':'g-down'}">${esc(I().pct(ch.rel))} · ${esc(t('p.change30'))}</span>`:''}</div>
@@ -189,7 +189,7 @@ async function open(it,from){
  ${it.kind==='sealed'?'<div id="productCompare" class="cmp cmp-inline"></div>':''}
  <p><a class="btn smallbtn" href="https://www.tcgplayer.com/product/${encodeURIComponent(it.id)}" target="_blank" rel="noopener noreferrer">${esc(t('p.tcg'))}</a></p>`;
  host.querySelector('img.prod-img')?.addEventListener('error',e=>e.target.remove(),{once:true});
- host.querySelector('[data-back]').onclick=()=>root.CardsteadNav?.show(back);
+ host.querySelector('[data-back]').onclick=()=>{if(!root.CardsteadRoutes?.backTo(back))root.CardsteadNav?.show(back)};
  host.querySelector('[data-goto-deals]')?.addEventListener('click',e=>{e.preventDefault();root.CardsteadNav?.show('deals')});
  if(!graded(it))root.CardsteadChart.render($('productChart'),history,key,{msrpCad:a?.msrp?.cadAtRate??null,dots});
  if(it.kind==='sealed')C?.render($('productCompare'),{product:it.name,format:WATCH_FORMAT[it.type]});
@@ -206,6 +206,6 @@ async function init(){
  root.addEventListener('cardstead:show',async e=>{if(e.detail==='prices'){await ensure();renderResults();deeper()}});
  root.addEventListener('cardstead:lang',()=>{if(items&&root.CardsteadNav?.current?.()==='prices')renderResults();if(last&&root.CardsteadNav?.current?.()==='product')open(last)});
 }
-core.open=open;core.ensure=ensure;core.items=()=>items;
+core.open=open;core.ensure=ensure;core.items=()=>items;core.ref=()=>last?refOf(last):null;core.title=()=>last?.name||'';
 if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init);else init();
 })(typeof window!=='undefined'?window:globalThis);

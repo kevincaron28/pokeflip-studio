@@ -23,7 +23,9 @@ async function handleBack(){
  const doc=root.document,dialog=doc.querySelector('dialog[open]');
  if(dialog){dialog.close();return}
  const drawer=doc.getElementById('mobileDrawer');if(drawer&&drawer.getAttribute('aria-hidden')==='false'){doc.getElementById('mobileScrim')?.click();return}
- // Back from any page goes to Prices (the first tab); from Prices it leaves the app.
+ // Back returns to the page you came from.
+ if(root.CardsteadRoutes?.back())return;
+ // With no history, back from any page goes to Prices (the first tab); from Prices it leaves the app.
  const open=doc.querySelector('main section:not(.hidden)');
  if(open&&open.id!=='prices'&&typeof root.go==='function'){root.go('prices');return}
  await P().App?.exitApp?.();
