@@ -4,8 +4,8 @@
  * in the language shown. */
 (function(root){'use strict';
 const SITE='https://pokeflip-studio.vercel.app/';
-const PAGES={prices:'',sets:'sets',packs:'packs',restock:'drops',calendar:'drops/calendar',deals:'drops/ebay',mycards:'watchlist',settings:'settings',deal:'settings/buy-or-pass',ebay:'settings/ebay-sold',sealed:'settings/sealed'};
-const TITLES={sets:'chip.sets',packs:'chip.packs',restock:'nav.drops',calendar:'chip.calendar',deals:'chip.ebay',mycards:'nav.mycards',settings:'nav.settings',deal:'chip.deal',ebay:'chip.ebaySold',sealed:'chip.sealed'};
+const PAGES={prices:'',sets:'sets',packs:'packs',restock:'drops',calendar:'drops/calendar',deals:'drops/ebay',mycards:'watchlist',settings:'settings',help:'help',deal:'settings/buy-or-pass',ebay:'settings/ebay-sold',sealed:'settings/sealed'};
+const TITLES={sets:'chip.sets',packs:'chip.packs',restock:'nav.drops',calendar:'chip.calendar',deals:'chip.ebay',mycards:'nav.mycards',settings:'nav.settings',help:'chip.help',deal:'chip.deal',ebay:'chip.ebaySold',sealed:'chip.sealed'};
 /** The address of a page; '' when there is none (a product page without its product). Pure. */
 function toHash(page,id){
  if(page==='product')return id?'#/product/'+encodeURIComponent(id):'';
@@ -63,6 +63,8 @@ core.back=()=>{if(!(root.history.state?.depth>0))return false;root.history.back(
 core.backTo=(p,id)=>root.history.state?.from===toHash(p,id)&&core.back();
 async function share(){
  const url=shareUrl(toHash(page,idOf(page))||'#/'),title=nameOf(page)||'Cardstead';
+ // The Android app opens the phone's share sheet.
+ if(await root.PokeFlipNative?.share?.({title,url}))return;
  try{if(root.navigator.share){await root.navigator.share({title,url});return}}catch(e){if(e?.name==='AbortError')return}
  try{await root.navigator.clipboard.writeText(url);root.pokeflipToast?.(t('share.copied'))}catch{root.prompt?.(t('share.copy'),url)}
 }

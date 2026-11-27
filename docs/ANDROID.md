@@ -72,7 +72,10 @@ Note: the sign-in link must be opened on the same phone that has the app install
 
 | Feature | Implementation | Notes |
 |---|---|---|
-| Back button | `App.backButton`: closes an open dialog → drawer → returns to Prices → exits | |
+| Back button | `App.backButton`: closes an open dialog → drawer → previous page → Prices; on the first page, “Press Back again to exit” | `tests/play-feedback.test.cjs` |
+| Keyboard | `adjustResize`; the bottom bar and floating buttons hide and the field stays in view (`mobile-experience.js`) | check on a phone |
+| Share | `@capacitor/share` (Settings → Share Cardstead, and Share on a product or set) | check on a phone |
+| Rating | Rate button opens the Play Store page; Google's in-app card is requested once, after a first saved alert (`AppReviewPlugin.java`) | only shows for an app installed from Google Play |
 | Status bar | `#111a2e`, light icons | |
 | Icon / splash | generated from `icon-512.png`; adaptive icon background `#0B1220` | |
 | Restock alerts | `@capacitor/local-notifications` (local only, from checks the user records in the app) | no server push; app is not polling retailers in the background |

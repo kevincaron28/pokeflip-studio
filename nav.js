@@ -9,7 +9,7 @@ const GROUPS=[
  {id:'watch',tab:'restock',pages:['restock','calendar','deals'],chips:[['restock','chip.watches'],['calendar','chip.calendar'],['deals','chip.ebay']]},
  // Cards you own or want, with prices and alerts (owner decision, 25 Nov 2026: replaces the portfolio, scanner, lots and sales).
  {id:'mycards',tab:'mycards',pages:['mycards'],chips:[]},
- {id:'settings',tab:'settings',pages:['settings','deal','ebay','sealed'],chips:[['settings','chip.settings'],['|','chip.advanced'],['deal','chip.deal'],['ebay','chip.ebaySold'],['sealed','chip.sealed']]},
+ {id:'settings',tab:'settings',pages:['settings','help','deal','ebay','sealed'],chips:[['settings','chip.settings'],['help','chip.help'],['|','chip.advanced'],['deal','chip.deal'],['ebay','chip.ebaySold'],['sealed','chip.sealed']]},
 ];
 const groupOf=page=>GROUPS.find(g=>g.pages.includes(page))||GROUPS[0];
 // Restock panels that are power tools: folded into one Advanced section (matched by their heading).

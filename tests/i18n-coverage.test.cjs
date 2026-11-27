@@ -60,7 +60,7 @@ test('the translator ships with the app and only changes the screen, never saved
 
 /* A new page or script must not ship in English only. */
 // Scripts that write no text of the older screens: they carry their own EN/FR text (ui-i18n.js or an inline pair) or only data.
-const OWN_LANGUAGE=['pictures.js','card-lookup.js','canada-shops.js','affiliate.js','canada-retailers.js','ui-i18n.js','price-chart.js','pack-ev-rates.js','store-prefs.js','ebay-live.js','compare-stores.js','routes.js','restock-feed.js','price-line.js','set-completion.js','sets.js','calendar.js','product.js','collection-value.js','mycards.js','nav.js','i18n-fr.js','dom-i18n.js'];
+const OWN_LANGUAGE=['pictures.js','card-lookup.js','canada-shops.js','affiliate.js','canada-retailers.js','ui-i18n.js','price-chart.js','pack-ev-rates.js','store-prefs.js','ebay-live.js','compare-stores.js','routes.js','restock-feed.js','help.js','app-actions.js','price-line.js','set-completion.js','sets.js','calendar.js','product.js','collection-value.js','mycards.js','nav.js','i18n-fr.js','dom-i18n.js'];
 
 test('every script of the page is either checked for French or listed as bilingual or data',async()=>{
  const {RUNTIME_FILES}=await import('../tools/extract-ui-strings.mjs');

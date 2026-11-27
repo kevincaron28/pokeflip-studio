@@ -4,6 +4,7 @@
 (function(root,factory){const api=factory(root);if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.PokeFlipNative=api;})(typeof window!=='undefined'?window:undefined,function(root){
 'use strict';
 const SCHEME='top.kcaron.cardstudio',AUTH_URL=SCHEME+'://auth';
+const STORE_URL='market://details?id=top.kcaron.cardstudio',EXIT_MS=3000;
 /** Parse a sign-in link such as top.kcaron.cardstudio://auth#access_token=..&refresh_token=.. (or ?code=..). */
 function parseAuthUrl(url){
  try{
@@ -19,6 +20,7 @@ const cap=root&&root.Capacitor,isNative=!!(cap&&cap.isNativePlatform&&cap.isNati
 let pending=null;
 function deliver(url){const a=parseAuthUrl(url);if(!a)return;pending=a;root.dispatchEvent(new CustomEvent('pokeflip:authlink',{detail:a}))}
 function takePendingAuth(){const a=pending;pending=null;return a}
+let armed=0;
 async function handleBack(){
  const doc=root.document,dialog=doc.querySelector('dialog[open]');
  if(dialog){dialog.close();return}
@@ -28,8 +30,18 @@ async function handleBack(){
  // With no history, back from any page goes to Prices (the first tab); from Prices it leaves the app.
  const open=doc.querySelector('main section:not(.hidden)');
  if(open&&open.id!=='prices'&&typeof root.go==='function'){root.go('prices');return}
- await P().App?.exitApp?.();
+ // On the first page one Back asks; a second one right after leaves.
+ const now=Date.now();
+ if(now-armed>EXIT_MS){armed=now;root.pokeflipToast?.(root.CardsteadI18n?.t('back.again')||'Press Back again to exit');return}
+ armed=0;await P().App?.exitApp?.();
 }
+// The phone's share sheet. True when it opened (even if closed again); false lets the page share another way.
+async function share(data){const S=P().Share;if(!S?.share)return false;try{await S.share({...data,dialogTitle:data.title});return true}catch(e){return /cancel/i.test(String(e?.message||e))}}
+// Google's own rating card (MainActivity registers AppReview). Google decides whether it appears.
+async function requestReview(){const R=P().AppReview;if(!isNative||!R?.request)return false;try{await R.request();return true}catch{return false}}
+// The Play Store page of the app, for the Rate button.
+function openStore(){try{root.location.href=STORE_URL;return true}catch{return false}}
+async function appInfo(){try{return await P().App.getInfo()}catch{return null}}
 async function requestNotifications(){try{const r=await P().LocalNotifications.requestPermissions();return r.display==='granted'}catch{return false}}
 // Checkout and retailer pages open in the system browser (Chrome Custom Tab) so saved logins, Shop Pay and autofill work.
 async function openExternal(url){try{if(!/^https:\/\//i.test(String(url)))return false;const B=P().Browser;if(B&&B.open){await B.open({url:String(url)});return true}}catch{}try{root.open(String(url),'_blank','noopener');return true}catch{return false}}
@@ -57,5 +69,5 @@ if(isNative&&root.document){
  // Tapping a drop alert opens the store's page in the system browser.
  if(root.CARDSTEAD_FCM===true)plugins.PushNotifications?.addListener?.('pushNotificationActionPerformed',a=>{const u=a&&a.notification&&a.notification.data&&a.notification.data.url;if(u)openExternal(u)});
 }
-return {isNative,AUTH_URL,SCHEME,parseAuthUrl,takePendingAuth,notify,requestNotifications,openExternal,pushAvailable,registerPush};
+return {isNative,AUTH_URL,SCHEME,STORE_URL,parseAuthUrl,takePendingAuth,notify,requestNotifications,openExternal,pushAvailable,registerPush,handleBack,share,requestReview,openStore,appInfo};
 });

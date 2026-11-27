@@ -96,3 +96,32 @@
  html .smallbtn{padding-block:10px}
  .source-row input[type=checkbox]{width:24px;height:24px}
 }
+
+/* Phone keyboard open (mobile-experience.js): nothing floats over the field being typed in. */
+body.kb-open .mobile-dock,body.kb-open .add-card-fab,body.kb-open .to-top{display:none!important}
+input,textarea,select{scroll-margin-block:96px 80px}
+@media(max-width:760px){
+ body.kb-open{padding-bottom:0}
+ #toast{bottom:calc(var(--dock-height,72px) + 14px + env(safe-area-inset-bottom,0px))!important;z-index:40!important;width:max-content;text-align:center}
+}
+
+/* Help & FAQ, first-run walkthrough, privacy policy and problem report. */
+.faq summary{cursor:pointer;font-weight:750;font-size:15px;min-height:28px}
+.faq[open] summary{margin-bottom:8px}
+.doc-dialog h1{font-size:21px}
+.doc-dialog h2{font-size:16px;margin-top:22px;scroll-margin-top:72px}
+.doc-dialog .box{background:#151f34;border:1px solid #33415c;border-radius:10px;padding:2px 14px}
+.doc-bar{position:sticky;top:-24px;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#121d30;padding:10px 0;border-bottom:1px solid #29384e}
+.doc-toc summary{cursor:pointer;padding:12px 0;font-weight:700}
+.doc-toc div{display:flex;flex-direction:column;gap:6px}
+.doc-toc button{text-align:left}
+.doc-body{overflow-wrap:anywhere}
+.report-dialog select,.report-dialog textarea{margin-bottom:10px}
+.report-details{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 inherit;margin:8px 0}
+.tour-dialog{text-align:center}
+.tour-icon{font-size:46px;line-height:1.1;margin-bottom:8px}
+dialog.tour-dialog h2:focus,dialog.tour-dialog h2:focus-visible{outline:none!important}
+.tour-dots{display:flex;justify-content:center;gap:8px;margin:16px 0 0}
+.tour-dots i{width:8px;height:8px;border-radius:50%;background:#3a4b66}
+.tour-dots i.on{background:#58d7b0}
+@media(max-width:560px){.doc-bar{top:-15px}}

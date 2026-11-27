@@ -84,7 +84,7 @@ test('alerts do not wait for the eBay deals page; notifications are asked for; c
  assert.ok(w.includes('now-at>55*60*1000'),'a scan when the last one is over an hour old');
  assert.ok(w.includes("fetch(VERCEL+'/api/ebay-search?status=1&src=web'"),'a host without eBay keys falls back to the Vercel site');
  assert.ok(w.includes('root.CardsteadNotify?.ask()'),'switching automatic checks on asks for notifications');
- const mc=read('mycards.js');assert.ok(mc.includes("if($('mcTarget').value||$('mcAlert').value)root.CardsteadNotify?.ask()"),'a target asks for notifications');
+ const mc=read('mycards.js');assert.ok(mc.includes("if($('mcTarget').value||$('mcAlert').value)alertSaved()")&&mc.includes('Promise.resolve(root.CardsteadNotify?.ask())'),'a target asks for notifications');
  const cfg=require('../api/_config-core.js');const r=cfg.handle({origin:'https://localhost'});
  assert.equal(r.headers['Cache-Control'],'private, max-age=3600','never cached by the CDN for another origin');assert.equal(r.headers['Access-Control-Allow-Origin'],'https://localhost');
  assert.equal(cfg.handle({origin:'https://cardstead.pages.dev'}).headers['Access-Control-Allow-Origin'],'https://cardstead.pages.dev');
