@@ -171,6 +171,17 @@ def app(browser, lang):
     assert mail.startswith("mailto:") and "40700" in mail and "Test%20report" in mail
     r.locator("#reportDetails").uncheck(); r.locator("button[type=submit]").click(); page.wait_for_function("window.__mail.length===2")
     assert "40700" not in page.evaluate("window.__mail[1]")
+    # Some Android WebViews refuse the clipboard: the text appears on the page, selected, to copy by hand.
+    page.evaluate("() => { navigator.clipboard.writeText = () => Promise.reject(Error('refused')); document.execCommand = () => false; window.__prompts = 0; window.prompt = () => { window.__prompts++; return null } }")
+    r.locator("#reportCopy").click()
+    box = r.locator("#reportCopyText"); box.wait_for()
+    text = box.input_value()
+    assert "Test report" in text and "@" in text
+    assert page.evaluate("document.getElementById('reportCopyText').selectionEnd") == len(text), "the text is selected"
+    assert not page.evaluate("window.__prompts")
+    assert ("Sélectionne" if fr else "Select the text") in r.locator("#reportStatus").inner_text()
+    no_sideways(page, "report copy"); shot(page, f"{lang}-06b-report-copy")
+    r.locator("#reportText").fill("Test report: changed."); assert not box.count(), "an edited report drops the old copy"
     page.evaluate("PokeFlipNative.handleBack()"); assert not page.locator("dialog[open]").count()
 
     # Keyboard: the page gets shorter, the bottom bar steps aside and the field stays in view.

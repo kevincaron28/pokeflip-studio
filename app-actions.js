@@ -10,13 +10,13 @@ const TEXT={
   report:'Report a problem',reportNote:'This opens your email app with the message ready. Nothing is sent until you send it.',kind:'What is it about?',message:'What happened?',
   hint:'What you did, what you expected and what you saw. For a price, name the card or product.',details:'Add the app version and phone details',send:'Open my email app',copy:'Copy instead',cancel:'Cancel',
   empty:'Write a few words first.',noContact:'The contact address could not be loaded. Check your connection and try again.',
-  opened:to=>`If no email app opens, tap Copy instead and send the text to ${to}.`,copied:to=>`Copied. Send it to ${to}.`,copyAsk:'Copy this text',
+  opened:to=>`If no email app opens, tap Copy instead and send the text to ${to}.`,copied:to=>`Copied. Send it to ${to}.`,copyAsk:'Copy this text',select:to=>`Select the text below, copy it and send it to ${to}.`,
   shareText:'Pokémon card prices in CA$ and Canadian restock alerts.',linkCopied:'Link copied.',copyLink:'Copy this link',web_app:'Website',android:'Android app',lang:'Language',page:'Page',device:'Device',to:'To'},
  fr:{privacy:'Politique de confidentialité',close:'Fermer',sections:'Sections',web:'Ouvrir sur le Web',loading:'Chargement…',failed:'La politique de confidentialité n’a pas pu s’afficher ici. Ouvre-la sur le Web.',
   report:'Signaler un problème',reportNote:'Ton application de courriel s’ouvre avec le message prêt. Rien n’est envoyé tant que tu ne l’envoies pas.',kind:'C’est à propos de quoi?',message:'Qu’est-ce qui s’est passé?',
   hint:'Ce que tu as fait, ce que tu attendais et ce que tu as vu. Pour un prix, nomme la carte ou le produit.',details:'Ajouter la version de l’application et les détails du téléphone',send:'Ouvrir mon courriel',copy:'Copier à la place',cancel:'Annuler',
   empty:'Écris d’abord quelques mots.',noContact:'L’adresse de contact n’a pas pu être chargée. Vérifie ta connexion et réessaie.',
-  opened:to=>`Si aucune application de courriel ne s’ouvre, touche « Copier à la place » et envoie le texte à ${to}.`,copied:to=>`Copié. Envoie-le à ${to}.`,copyAsk:'Copie ce texte',
+  opened:to=>`Si aucune application de courriel ne s’ouvre, touche « Copier à la place » et envoie le texte à ${to}.`,copied:to=>`Copié. Envoie-le à ${to}.`,copyAsk:'Copie ce texte',select:to=>`Sélectionne le texte ci-dessous, copie-le et envoie-le à ${to}.`,
   shareText:'Les prix des cartes Pokémon en $ CA et les alertes d’arrivage au Canada.',linkCopied:'Lien copié.',copyLink:'Copie ce lien',web_app:'Site Web',android:'Application Android',lang:'Langue',page:'Page',device:'Appareil',to:'À'},
 };
 const KINDS={
@@ -108,14 +108,24 @@ async function openReport(){
   await contact;if(!to){say(T().noContact);return null}
   return draft({to,kind:$('reportKind').value,message,details:$('reportDetails').checked?details:'',lang:lang()});
  };
- $('reportText').oninput=()=>say('');
- $('reportDetails').onchange=e=>{d.querySelector('.report-details').hidden=!e.target.checked};
+ const stale=()=>{say('');$('reportCopyText')?.remove()};
+ $('reportText').oninput=stale;
+ $('reportDetails').onchange=e=>{d.querySelector('.report-details').hidden=!e.target.checked;stale()};
+ $('reportKind').onchange=stale;
  $('reportForm').onsubmit=async e=>{e.preventDefault();const m=await made();if(!m)return;say(T().opened(to));core.mail(m.href)};
  $('reportCopy').onclick=async()=>{const m=await made();if(!m)return;const text=`${T().to}: ${to}\n${m.subject}\n\n${m.body}`;
-  try{await root.navigator.clipboard.writeText(text);say(T().copied(to))}catch{root.prompt?.(T().copyAsk,text);say(T().opened(to))}};
+  try{await root.navigator.clipboard.writeText(text);say(T().copied(to))}catch{showText(text,to,say)}};
  if(!d.open)d.showModal();
 }
 core.mail=href=>{root.location.href=href};
+/** Some Android WebViews refuse the clipboard, and the app's prompt box shows no text: put it on the page, selected. */
+function showText(text,to,say){
+ let box=$('reportCopyText');
+ if(!box){box=doc.createElement('textarea');box.id='reportCopyText';box.readOnly=true;box.rows=6;$('reportStatus').after(box)}
+ box.value=text;box.setAttribute('aria-label',T().copyAsk);box.focus();box.select();
+ let done=false;try{done=doc.execCommand('copy')}catch{}
+ say((done?T().copied:T().select)(to));box.scrollIntoView({block:'nearest'});
+}
 
 /* ---------- Share and rate ---------- */
 async function shareApp(){
