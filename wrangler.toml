@@ -9,3 +9,5 @@ compatibility_date = "2026-11-01"
 [vars]
 # Shows the price-alert choice in Settings: the daily price-alert job runs (docs/DROPS-PUSH.md).
 PRICE_ALERTS = "1"
+# Public half of the Web Push key pair (the same value Vercel serves at /api/config); the private half stays a secret.
+VAPID_PUBLIC_KEY = "BCdm2l_tFKaXlL18E1x714B3AW0VJpp-2tyd2kPj8917rzV070JhPhnuMs1JOZR9yM7QAdW0Wf0Oct9eMTO2wa4"
