@@ -1,0 +1,60 @@
+# Temporary: emulator check of the eight Play-testing fixes. Lives only on ci-check/play-47; delete the branch afterwards.
+name: Emulator check (temporary)
+on:
+  push:
+    branches: ['ci-check/play-47']
+permissions:
+  contents: write   # only to push the screenshots to ci-check-results/play-47-api*
+jobs:
+  emulator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix: { api: ['29', '35'] }
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with: { node-version: '22' }
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with: { distribution: temurin, java-version: '21' }
+      - name: Build the 4.7.0 debug APK
+        working-directory: mobile
+        env: { VERSION_CODE: '40700', VERSION_NAME: '4.7.0' }
+        run: |
+          npm ci && npm run build:web && npx cap sync android
+          cd android && for try in 1 2 3; do ./gradlew assembleDebug --no-daemon && break; sleep 20; false; done
+      - name: Start the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+          image="system-images;android-${{ matrix.api }};google_apis_playstore;x86_64"
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platform-tools" "emulator" "$image" >/dev/null
+          echo no | avdmanager create avd --force -n check -k "$image" -d pixel_5
+          cfg="$(find "$HOME" -path '*check.avd/config.ini' | head -1)"
+          printf 'hw.keyboard=no\nhw.ramSize=3072\ndisk.dataPartition.size=4G\n' >> "$cfg"
+          nohup emulator -avd check -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect > "$RUNNER_TEMP/emulator.log" 2>&1 &
+          timeout 600 adb wait-for-device
+          timeout 600 bash -c 'until [ "$(adb shell getprop sys.boot_completed | tr -d "\r")" = 1 ]; do sleep 5; done'
+          sleep 30
+          for s in window_animation_scale transition_animation_scale animator_duration_scale; do adb shell settings put global $s 0; done
+          adb shell input keyevent 82
+          adb install -r mobile/android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Run the check
+        timeout-minutes: 20
+        run: |
+          python -m pip install --quiet websocket-client==1.8.0
+          python tools/emulator-check.py 2>&1 | tee run.log; exit ${PIPESTATUS[0]}
+      - name: Push the results
+        if: always()
+        env: { TOKEN: '${{ github.token }}', API: '${{ matrix.api }}' }
+        run: |
+          mkdir -p emu-results && cp run.log "$RUNNER_TEMP/emulator.log" emu-results/ 2>/dev/null || true
+          cd emu-results
+          printf '{ "git": { "deploymentEnabled": false } }\n' > vercel.json
+          git init -q && git checkout -q -b results
+          git add -A && git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "Emulator check, API $API, ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "results:ci-check-results/play-47-api$API"
