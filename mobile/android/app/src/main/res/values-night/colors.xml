@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Behind the status and navigation bars in the dark theme: the app's top bar colour, light icons. -->
+    <color name="system_bars">#111a2e</color>
+</resources>

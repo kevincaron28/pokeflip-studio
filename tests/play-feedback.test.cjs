@@ -68,3 +68,21 @@ test('Android: the keyboard resizes the page, and rating and sharing are wired i
  // The Rate button goes to the store page: Google asks apps not to put the rating card behind a button.
  assert.ok(read('app-actions.js').includes("closest?.('[data-rate]')){e.preventDefault();root.PokeFlipNative?.openStore?.()}"));
 });
+
+test('Android: the status and navigation bars follow the phone’s light or dark theme',()=>{
+ const res='mobile/android/app/src/main/res/';
+ const colour=folder=>read(res+folder+'/colors.xml').match(/<color name="system_bars">#([0-9a-f]{6})<\/color>/i)[1];
+ const light=hex=>parseInt(hex.slice(0,2),16)+parseInt(hex.slice(2,4),16)+parseInt(hex.slice(4),16)>3*128;
+ assert.ok(light(colour('values')),'light theme: a light bar behind dark icons');
+ assert.ok(!light(colour('values-night')),'dark theme: a dark bar behind light icons');
+ // Capacitor paints the area behind both bars with the window background.
+ assert.ok(read(res+'values/styles.xml').includes('<item name="android:windowBackground">@color/system_bars</item>'));
+ // Forcing one icon colour or bar colour from the page is what left white icons on a white bar.
+ assert.ok(!/StatusBar\??\.(setStyle|setBackgroundColor)|SystemBars/.test(read('mobile/web-overlay/native-bridge.js')));
+ assert.ok(!/"(StatusBar|SystemBars)"/.test(read('mobile/capacitor.config.json')));
+ // The activity is not recreated on a theme change, so it sets both again itself, after the plugins.
+ const main=read('mobile/android/app/src/main/java/top/kcaron/cardstudio/MainActivity.java');
+ const changed=main.slice(main.indexOf('public void onConfigurationChanged('));
+ const order=['super.onConfigurationChanged(','R.color.system_bars','setAppearanceLightStatusBars(light)','setAppearanceLightNavigationBars(light)'].map(s=>changed.indexOf(s));
+ assert.ok(order.every((at,i)=>at>=0&&(!i||at>order[i-1])),'MainActivity.onConfigurationChanged');
+});

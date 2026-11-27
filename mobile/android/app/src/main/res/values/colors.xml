@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Behind the status and navigation bars in the light theme: the icons there are dark. -->
+    <color name="system_bars">#fafafa</color>
+</resources>

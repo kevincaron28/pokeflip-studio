@@ -64,7 +64,6 @@ if(isNative&&root.document){
  plugins.App?.addListener?.('backButton',()=>{handleBack().catch(()=>{})});
  plugins.App?.addListener?.('appUrlOpen',e=>deliver(e&&e.url));
  plugins.App?.getLaunchUrl?.().then(r=>{if(r&&r.url)deliver(r.url)}).catch(()=>{});
- plugins.StatusBar?.setBackgroundColor?.({color:'#111a2e'});plugins.StatusBar?.setStyle?.({style:'DARK'});
  root.addEventListener('load',()=>setTimeout(()=>plugins.SplashScreen?.hide?.(),150));
  // Tapping a drop alert opens the store's page in the system browser.
  if(root.CARDSTEAD_FCM===true)plugins.PushNotifications?.addListener?.('pushNotificationActionPerformed',a=>{const u=a&&a.notification&&a.notification.data&&a.notification.data.url;if(u)openExternal(u)});

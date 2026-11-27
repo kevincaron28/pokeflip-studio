@@ -13,6 +13,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
+        <!-- What shows behind the status and navigation bars: light or dark with the phone's theme. -->
+        <item name="android:windowBackground">@color/system_bars</item>
     </style>
 
 
