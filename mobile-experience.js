@@ -3,7 +3,27 @@
 (function(root){'use strict';
 if(!root?.document)return;
 const $=id=>document.getElementById(id);
+// The phone keyboard takes half the screen: the bottom bar and the floating buttons step aside, and the field
+// being typed in is brought into the part still visible.
+function keyboard(){
+ const view=root.visualViewport,height=()=>view?view.height*view.scale:root.innerHeight;
+ const field=el=>!!el&&(el.tagName==='TEXTAREA'||(el.tagName==='INPUT'&&/^(text|search|email|number|tel|url|password)?$/.test(el.getAttribute('type')||'')));
+ let full=height(),width=root.innerWidth;
+ function reveal(){const el=document.activeElement,r=el.getBoundingClientRect(),top=view?view.offsetTop:0,bottom=top+(view?view.height:root.innerHeight);
+  if(r.top<top+90||r.bottom>bottom-70)el.scrollIntoView({block:'center'})}
+ function check(){
+  if(root.innerWidth!==width){width=root.innerWidth;full=height()}
+  full=Math.max(full,height());
+  // The keyboard is up when someone is typing and the page lost a good part of its height.
+  const up=field(document.activeElement)&&full-height()>150;
+  document.body.classList.toggle('kb-open',up);if(up)reveal();
+ }
+ (view||root).addEventListener?.('resize',check);
+ document.addEventListener('focusin',()=>setTimeout(check,250));
+ document.addEventListener('focusout',()=>setTimeout(check,100));
+}
 function init(){
+ keyboard();
  const mainNav=[...document.querySelectorAll('.tabs .tab')];
  const drawer=$('mobileDrawer'),more=$('mobileMore'),scrim=$('mobileScrim'),links=$('mobileDrawerLinks');
  if(!drawer||!links)return;

@@ -202,16 +202,18 @@ async function previewPrice(){
  adding.priceHtml=choice.grade!=='raw'?`<span class="note">${esc(t('mc.gradedPrice'))}</span>`:m?priceHtml({market:m,grade:'raw',idCode:adding.card.idCode}):`<span class="note">${esc(t(adding.full?'mc.noPrice.no-sale':'mc.pricing'))}</span>`;
  const el=$('mcAddPrice');if(el)el.innerHTML=adding.priceHtml;
 }
+// An alert was saved: ask for notification permission first, then say so (app-actions.js asks for a rating once).
+function alertSaved(){Promise.resolve(root.CardsteadNotify?.ask()).catch(()=>{}).then(()=>root.dispatchEvent(new Event('cardstead:alert-saved')))}
 function saveNew(){
  const choice=currentChoice();
  try{const r=L().addCard({...adding.card,...choice,qty:$('mcQty').value,paid:$('mcPaid').value,target:$('mcTarget').value,alertPct:$('mcAlert').value,market:choice.grade==='raw'?adding.market:null});
-  if(!r)return;if($('mcTarget').value||$('mcAlert').value)root.CardsteadNotify?.ask();toast(t(r.merged?'mc.merged':'mc.added',adding.card.name));adding=null;results=[];render();checkAlerts([r.id]);}
+  if(!r)return;if($('mcTarget').value||$('mcAlert').value)alertSaved();toast(t(r.merged?'mc.merged':'mc.added',adding.card.name));adding=null;results=[];render();checkAlerts([r.id]);}
  catch(e){toast(t('mc.invalid',e.message))}
 }
 function saveEdit(id){
  const p=JSON.parse($('mcEPrint').value);
  try{const ok=L().updateCard(id,{finish:p.finish,edition:p.edition,grade:$('mcEGrade').value,condition:$('mcECond').value,lang:$('mcELang').value,confirm:true,qty:$('mcEQty').value,paid:$('mcEPaid').value,target:$('mcETarget').value,alertPct:$('mcEAlert').value});
-  if(ok){if($('mcETarget').value||$('mcEAlert').value)root.CardsteadNotify?.ask();editing=null;toast(t('mc.saved'));render();checkAlerts([id]);setTimeout(()=>root.CardsteadCollection?.refresh?.(),500)}}
+  if(ok){if($('mcETarget').value||$('mcEAlert').value)alertSaved();editing=null;toast(t('mc.saved'));render();checkAlerts([id]);setTimeout(()=>root.CardsteadCollection?.refresh?.(),500)}}
  catch(e){toast(t('mc.invalid',e.message))}
 }
 function notify(title,body){
