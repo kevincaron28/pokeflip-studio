@@ -116,6 +116,7 @@ class Page:
             raise RuntimeError('no WebView to inspect')
         self.ws = websocket.create_connection(page['webSocketDebuggerUrl'], suppress_origin=True, timeout=60)
         self.send('Runtime.enable')
+        self.send('Page.enable')
         wait(lambda: self.js("document.readyState==='complete' && !!window.CardsteadHelp && !!window.CardsteadActions"), 60, 1)
         dismiss_anr()
         for n in ui_nodes():
@@ -144,6 +145,11 @@ class Page:
                 js_errors.append((d.get('exception', {}).get('description') or d.get('text', ''))[:400])
             if m.get('method') == 'Runtime.consoleAPICalled' and m['params'].get('type') == 'error':
                 js_errors.append('console.error: ' + ' '.join(str(a.get('value', a.get('description', ''))) for a in m['params']['args'])[:400])
+            if m.get('method') == 'Page.javascriptDialogOpening':
+                info.setdefault('js_dialogs', []).append(m['params'].get('type', '') + ': ' + m['params'].get('message', '')[:80])
+                shot('js-dialog')
+                self.n += 1
+                self.ws.send(json.dumps({'id': self.n, 'method': 'Page.handleJavaScriptDialog', 'params': {'accept': False}}))
             if m.get('id') == me:
                 return m
 
@@ -275,25 +281,44 @@ def _(d):
     return d['closedAfterStart'] and not d['reopenedOnSecondRun'] and len(set(titles)) == 4
 
 
-@check('7 Back on the first page asks to press again, then exits')
-def _(d):
+def back_trial(n):
+    d = {}
     launch()
+    time.sleep(3)
+    adb('logcat', '-c')
+    d['pidBefore'] = sh(f'pidof {PKG}').strip()
+    d['topBefore'] = top()
     back()
     d['afterOne'] = top()
-    d['toast'] = page.js("(()=>{const t=document.getElementById('toast');return t&&getComputedStyle(t).display!=='none'?t.textContent:''})()")
-    shot('en-03-back-once')
+    d['pidAfterOne'] = sh(f'pidof {PKG}').strip()
     first = ours(d['afterOne'])
-    time.sleep(4)
-    sh('input keyevent KEYCODE_BACK')
-    time.sleep(0.8)
-    d['afterLateSecond'] = top()
-    late = ours(d['afterLateSecond'])
-    sh('input keyevent KEYCODE_BACK')
-    time.sleep(2)
-    d['afterQuickSecond'] = top()
-    gone = not ours(d['afterQuickSecond'])
-    shot('en-04-back-twice-left-app')
-    return first and late and gone and 'again' in (d['toast'] or '')
+    if first:
+        d['toast'] = page.js("(()=>{const t=document.getElementById('toast');return t&&getComputedStyle(t).display!=='none'?t.textContent:''})()")
+        if n == 1:
+            shot('en-03-back-once')
+        time.sleep(4)
+        sh('input keyevent KEYCODE_BACK')
+        time.sleep(0.8)
+        d['afterLateSecond'] = top()
+        sh('input keyevent KEYCODE_BACK')
+        time.sleep(2)
+        d['afterQuickSecond'] = top()
+        if n == 1:
+            shot('en-04-back-twice-left-app')
+    else:
+        shot(f'back-trial-{n}-left-at-once')
+    log = adb('logcat', '-d')
+    open(f'{OUT}/logcat-back-{n}.txt', 'w').write(chr(10).join(l for l in log.splitlines() if re.search(
+        r'kcaron|Capacitor|ActivityManager|ActivityTaskManager|WindowManager|libc |DEBUG|Fatal|FATAL|has died|Killing|webview|BackAnimation|OnBackInvoked|InputDispatcher', l))[-150000:])
+    d['ok'] = bool(first and ours(d.get('afterLateSecond', '')) and not ours(d.get('afterQuickSecond', '')) and 'again' in (d.get('toast') or ''))
+    return d
+
+
+for trial in (1, 2, 3, 4):
+    @check(f'7 Back on the first page asks to press again, then exits (try {trial})')
+    def _(d, trial=trial):
+        d.update(back_trial(trial))
+        return d['ok']
 
 
 @check('7 Back from another page returns to the first page')
@@ -435,6 +460,8 @@ def _(d):
     page.tap('#reportCopy')
     time.sleep(1.5)
     d['copyStatus'] = page.js("document.getElementById('reportStatus').textContent.slice(0,40)")
+    d['copyBox'] = page.js("(()=>{const b=document.getElementById('reportCopyText');return b?{chars:b.value.length,selected:b.selectionEnd-b.selectionStart,typed:b.value.includes('Emulator check')}:null})()")
+    d['webview'] = page.js("(navigator.userAgent.match(/Chrome\/[0-9.]+/)||[''])[0]")
     shot('en-16-report-copied')
     page.tap('#reportForm button[type="submit"]')
     d['onTop'] = wait(lambda: (lambda t: t if t and not ours(t) else None)(top()), 10) or top()
@@ -442,7 +469,8 @@ def _(d):
     shot('en-17-report-mail-app')
     opened = not ours(d['onTop'])
     return_to_app()
-    return d['open'] and d['keyboardShown'] and d['textAboveKeyboard'] and '4.7.0 (40700)' in d['details'] and bool(d['typed']) and opened
+    copied = d['copyStatus'].startswith('Copied') or bool(d['copyBox'] and d['copyBox']['typed'])
+    return d['open'] and d['keyboardShown'] and d['textAboveKeyboard'] and '4.7.0 (40700)' in d['details'] and bool(d['typed']) and copied and opened and not info.get('js_dialogs')
 
 
 @check('3 Rate button opens the Play Store page')
