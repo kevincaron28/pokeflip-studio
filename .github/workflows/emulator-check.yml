@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      matrix: { api: ['33', '35'] }
+      matrix: { api: ['33'] }
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -48,12 +48,15 @@ jobs:
         timeout-minutes: 20
         run: |
           python -m pip install --quiet websocket-client==1.8.0
+          adb logcat -G 16M || true
+          nohup adb logcat -v threadtime > "$RUNNER_TEMP/logcat-full.txt" 2>&1 &
           python tools/emulator-check.py 2>&1 | tee run.log; exit ${PIPESTATUS[0]}
       - name: Push the results
         if: always()
         env: { TOKEN: '${{ github.token }}', API: '${{ matrix.api }}' }
         run: |
           mkdir -p emu-results && cp run.log "$RUNNER_TEMP/emulator.log" emu-results/ 2>/dev/null || true
+          grep -aE 'kcaron|ActivityManager|ActivityTaskManager|AndroidRuntime|libc +:|DEBUG +:|Zygote|PackageManager|PackageInstaller|lowmemorykiller|lmkd|Finsky.*(Install|kcaron)' "$RUNNER_TEMP/logcat-full.txt" | gzip -9 > emu-results/logcat-system.txt.gz || true
           cd emu-results
           printf '{ "git": { "deploymentEnabled": false } }\n' > vercel.json
           git init -q && git checkout -q -b results

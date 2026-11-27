@@ -248,6 +248,25 @@ def save():
 
 # ---------------------------------------------------------------------------
 adb('logcat', '-c')
+
+
+@check('0 the app stays open across repeated launches right after install')
+def _(d):
+    runs = []
+    for n in range(1, 9):
+        sh(f'am force-stop {PKG}')
+        time.sleep(1)
+        sh(f'am start -W -n {ACT}')
+        time.sleep(3)
+        first = (sh(f'pidof {PKG}').strip(), sh('date +%H:%M:%S').strip())
+        time.sleep(17)
+        runs.append({'n': n, 'started': first[1], 'pid': first[0], 'pidAfter20s': sh(f'pidof {PKG}').strip(), 'onTop': ours()})
+        if not runs[-1]['onTop']:
+            shot(f'launch-{n}-gone')
+    d['runs'] = runs
+    return all(r['onTop'] and r['pid'] == r['pidAfter20s'] for r in runs)
+
+
 launch()
 
 
@@ -285,7 +304,6 @@ def back_trial(n):
     d = {}
     launch()
     time.sleep(3)
-    adb('logcat', '-c')
     d['pidBefore'] = sh(f'pidof {PKG}').strip()
     d['topBefore'] = top()
     back()
