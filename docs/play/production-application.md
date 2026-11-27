@@ -48,6 +48,8 @@ Google asks about tester use and feedback, so collect them now.
 
 The question wording and the 300-character limit for part 1 were read from the console's preview on 26 Nov 2026. Parts 2 and 3 follow Google's [help article](https://support.google.com/googleplay/android-developer/answer/14151465); check the limit in the form. Each draft below is under 300 characters before you fill the brackets; check the length again after.
 
+A testing provider's questionnaire report (Testers Community, written for another of your apps) lists the same questions with ready-made answers. Those answers are a template: surveys, active feedback, 10k to 100k installs and a stable app are **not** established facts about Cardstead, so none of that wording is used here. Only its list of questions was used.
+
 ### 1. About your closed test
 
 **How did you recruit users for your closed test?**
@@ -63,7 +65,7 @@ I recruited testers through the Testers Community Google Group, which connects d
 **Describe the engagement you received from testers** (features used, and how that compares with real users).
 
 <!-- answer:engagement -->
-[N] testers used the app over 14 days. They tried [price search, card pages with eBay.ca prices, Watchlist targets, set checklists, restocks, alerts]. Not used: [features]. Real collectors would likely [difference, e.g. return more often around releases].
+[N] testers used the app over 14 days. They tried [price search, eBay.ca prices, Watchlist targets, set checklists, restocks, alerts]. Not used: [features]. Real collectors would likely [difference, e.g. return more often around releases].
 <!-- /answer -->
 
 **Summarize the feedback you received, and how you collected it.**
@@ -86,16 +88,24 @@ Teen and adult trading card collectors in Canada, especially beginners sorting F
 It shows what a card or sealed product is worth in CA$, with sources, date and confidence, plus eBay.ca asking prices clearly marked as asking prices. Users set price targets, tick off sets, and follow Canadian releases and restocks. English and French, no account needed.
 <!-- /answer -->
 
-**Expected installs in the first year:** suggested: the lowest range offered. It is a new, niche app with no advertising.
+**How many installs do you expect in the first year?** Suggested: the lowest range offered. It is a new, niche app with no advertising, and nothing measured supports a higher one.
 
 ### 3. Your production readiness
 
 **What changes did you make based on what you learned in your closed test?**
 
-4.4.0, 4.4.1 and 4.6.0 replaced 4.3.2 during the test. Those changes came from your own use of the app and your plans (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports; add tester-driven fixes when there are some.
+4.4.0, 4.4.1 and 4.6.0 replaced 4.3.2 during the test. Those changes came from your own use of the app and your plans (`docs/plans/SIMPLIFY_2026-11.md`), not from tester reports.
+
+Use this one **if 4.7.0 is not on the track** when you apply:
 
 <!-- answer:changes -->
 From my own testing I cut to four tabs, removed the scanner and portfolio, added a watchlist with price targets, set checklists, eBay.ca asking prices and Canadian restocks, and fixed prices and alerts. [Tester-driven changes.]
+<!-- /answer -->
+
+Use this one **only after 4.7.0 is on the track**, keeping only the items that shipped and that you tried on a phone. The advice came from a testing provider's report on your other app, not from Cardstead testers, and the answer says so:
+
+<!-- answer:changes47 -->
+4.7.0 adds [rating, sharing, a Help section, a walkthrough], following a testing provider's advice from my other app's report. Earlier, from my own testing, I simplified to four tabs, added set checklists and restocks, and fixed prices. [Tester fixes.]
 <!-- /answer -->
 
 **How did you decide that your app is ready for production?**
@@ -104,7 +114,13 @@ From my own testing I cut to four tabs, removed the scanner and portfolio, added
 Automated unit and browser tests run on each change, plus checks of the live site. 12 testers had the app for [14] days. On my Android phone I checked [install, sign-in, notifications, offline use] and fixed [issues]. No blocking problem is open.
 <!-- /answer -->
 
-Use the last answer only when it is true: run the phone checks first, and fix or list anything that blocks.
+Use this readiness answer only when it is true: run the phone checks first, and fix or list anything that blocks.
+
+**What did you do differently this time?** Expected only if Google asks you to apply again. Write it from what really changed since the refusal:
+
+<!-- answer:different -->
+Since my last application I [changes made], collected feedback by [how] from [N] testers over [days] days, and checked [what] on an Android phone.
+<!-- /answer -->
 
 ## What changed since 4.3.2
 
