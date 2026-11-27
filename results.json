@@ -1,0 +1,311 @@
+{
+ "info": {
+  "webview_bounds": "[0,136][1080,2274]",
+  "android": "13",
+  "fatal": []
+ },
+ "results": [
+  {
+   "check": "0 the app stays open across repeated launches right after install",
+   "ok": false,
+   "detail": {
+    "runs": [
+     {
+      "n": 1,
+      "started": "11:46:02",
+      "pid": "4486",
+      "pidAfter20s": "4486",
+      "onTop": true
+     },
+     {
+      "n": 2,
+      "started": "11:46:25",
+      "pid": "5432",
+      "pidAfter20s": "6911",
+      "onTop": false
+     },
+     {
+      "n": 3,
+      "started": "11:46:49",
+      "pid": "7236",
+      "pidAfter20s": "7236",
+      "onTop": true
+     },
+     {
+      "n": 4,
+      "started": "11:47:13",
+      "pid": "7741",
+      "pidAfter20s": "7741",
+      "onTop": true
+     },
+     {
+      "n": 5,
+      "started": "11:47:35",
+      "pid": "7904",
+      "pidAfter20s": "7904",
+      "onTop": true
+     },
+     {
+      "n": 6,
+      "started": "11:47:58",
+      "pid": "8044",
+      "pidAfter20s": "8044",
+      "onTop": true
+     },
+     {
+      "n": 7,
+      "started": "11:48:21",
+      "pid": "8187",
+      "pidAfter20s": "8187",
+      "onTop": true
+     },
+     {
+      "n": 8,
+      "started": "11:48:43",
+      "pid": "8330",
+      "pidAfter20s": "8330",
+      "onTop": true
+     }
+    ]
+   }
+  },
+  {
+   "check": "0 version in the installed app",
+   "ok": true,
+   "detail": {
+    "versionName": "4.7.0",
+    "versionCode": "40700",
+    "footer": "Cardstead 4.7 · Built for the hunt, accountable to the numbers · Always verify card identity and prices",
+    "native": true,
+    "android": "13"
+   }
+  },
+  {
+   "check": "6 walkthrough opens once on first run, four steps",
+   "ok": false,
+   "detail": {}
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 1)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "8655",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity}",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity}",
+    "pidAfterOne": "8655",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity}",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity}",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 2)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "8884",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity}",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity}",
+    "pidAfterOne": "8884",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity}",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity}",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 3)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "9094",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity}",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity}",
+    "pidAfterOne": "9094",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity}",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity}",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 4)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "9338",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity}",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity}",
+    "pidAfterOne": "9338",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity}",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity}",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back from another page returns to the first page",
+   "ok": true,
+   "detail": {
+    "before": "settings",
+    "after": "prices"
+   }
+  },
+  {
+   "check": "1 keyboard: price search",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 499,
+    "fieldTop": 331,
+    "fieldBottom": 375,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "1 keyboard: sign-in email in Settings",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 499,
+    "fieldTop": 375,
+    "fieldBottom": 419,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "1 keyboard: product watch maximum price (alert form)",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 543,
+    "fieldTop": 375,
+    "fieldBottom": 419,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "2 privacy policy opens inside the app, also offline",
+   "ok": true,
+   "detail": {
+    "dialog": true,
+    "sections": 16,
+    "stayedInApp": true,
+    "backClosedIt": true
+   }
+  },
+  {
+   "check": "5 Help and FAQ page",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "topics": 7
+   }
+  },
+  {
+   "check": "6 walkthrough can be replayed from Settings",
+   "ok": true,
+   "detail": {
+    "open": true,
+    "backClosedIt": true
+   }
+  },
+  {
+   "check": "4 share opens the Android share sheet",
+   "ok": true,
+   "detail": {
+    "onTop": "android/com.android.internal.app.ChooserActivity}",
+    "returned": true
+   }
+  },
+  {
+   "check": "8 report a problem: form, keyboard, opens a mail draft",
+   "ok": true,
+   "detail": {
+    "open": true,
+    "details": "Cardstead: Android app 4.7.0 (40700)",
+    "keyboardShown": true,
+    "textAboveKeyboard": true,
+    "typed": "Emulator check",
+    "copyStatus": "Copied. Send it to kevincaron28@gmail.co",
+    "copyBox": {
+     "chars": 326,
+     "selected": 326,
+     "typed": true
+    },
+    "webview": "Chrome/109.0.5414.123",
+    "onTop": "com.google.android.gm/.ComposeActivityGmailExternal}"
+   }
+  },
+  {
+   "check": "3 Rate button opens the Play Store page",
+   "ok": true,
+   "detail": {
+    "hidden": false,
+    "onTop": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity}"
+   }
+  },
+  {
+   "check": "3 in-app rating is requested after a first saved alert, not before",
+   "ok": true,
+   "detail": {
+    "callsBeforeSaving": 0,
+    "saved": true,
+    "callsAfterSaving": 1,
+    "googleAccepted": [
+     true
+    ],
+    "rememberedAsAsked": "2026-11-27",
+    "onTop": "top.kcaron.cardstudio/.MainActivity}",
+    "plugin": "resolved",
+    "playCoreLog": [
+     "11-27 11:46:07.335  1374  1678 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : deferredInstall([tenoranimation_feature_split])",
+     "11-27 11:46:07.343  1374  4767 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : Initiate binding to the service.",
+     "7.361  1374  1374 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : ServiceConnectionImpl.onServiceConnected(ComponentInfo{com.android.vending/com.google.android.finsky.splitinstallservice.SplitInstallService})",
+     "11-27 11:46:07.362  1374  4767 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : linkToDeath",
+     "11-27 11:46:07.404  1374  1400 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : onDeferredInstall",
+     "11-27 11:46:07.404  1374  4767 I PlayCore: UID: [10137]  PID: [1374] SplitInstallService : Unbind from service.",
+     "11-27 11:51:29.910  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest.",
+     "11-27 11:51:33.438  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest.",
+     "11-27 11:51:38.557  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest.",
+     "11-27 11:51:42.211  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest.",
+     "11-27 11:51:44.370  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest.",
+     "11-27 11:51:49.073  1374  1374 W PlayCore: UID: [10137]  PID: [1374] SplitInstallInfoProvider : No metadata found in AndroidManifest."
+    ]
+   }
+  },
+  {
+   "check": "French: walkthrough, Help, privacy and report",
+   "ok": true,
+   "detail": {
+    "tour": "Des prix en dollars canadiens",
+    "help": "Aide et FAQ",
+    "privacy": "Politique de confidentialité",
+    "report": "Signaler un problème",
+    "back": "Appuie encore sur Retour pour quitter"
+   }
+  }
+ ],
+ "js_errors": [
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Object",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28"
+ ]
+}

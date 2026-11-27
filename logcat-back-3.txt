@@ -1,0 +1,1143 @@
+uide.js
+11-27 11:47:32.156  7904  7942 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:47:32.156  7904  7950 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:47:32.157  7904  7940 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:47:32.157  7904  7950 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:47:32.157  7904  7940 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:47:32.157  7904  7940 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:47:32.158  7904  7950 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:47:32.158  7904  7942 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:47:32.158  7904  7935 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:47:32.159  7904  7935 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:47:32.160  7904  7942 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:47:32.160  7904  7935 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:47:32.161  7904  7940 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:47:32.161  7904  7950 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:47:32.161  7904  7947 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:47:32.161  7904  7948 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:47:32.162  7904  7942 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:47:32.164  7904  7942 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:47:32.164  7904  7940 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:47:32.166  7904  7950 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:47:32.166  7904  7947 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:47:32.166  7904  7947 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:47:32.167  7904  7947 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:47:32.167  7904  7947 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:47:32.168  7904  7947 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:47:32.169  7904  7940 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:47:32.170  7904  7935 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:47:32.172  7904  7942 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:47:32.175  7904  7947 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:47:32.189  7904  7940 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:47:32.191  7904  7947 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:47:32.192  7904  7947 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:47:32.192  7904  7948 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:47:32.193  7904  7942 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:47:32.231  7904  7940 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:47:32.257  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.260  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605974, pluginId: App, methodName: addListener
+11-27 11:47:32.260  7904  7904 V Capacitor: callback: 112605974, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:47:32.260  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.261  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605975, pluginId: App, methodName: addListener
+11-27 11:47:32.261  7904  7904 V Capacitor: callback: 112605975, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:47:32.261  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.262  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605976, pluginId: App, methodName: getLaunchUrl
+11-27 11:47:32.262  7904  7904 V Capacitor: callback: 112605976, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:47:32.262  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.263  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605977, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:47:32.263  7904  7904 V Capacitor: callback: 112605977, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:47:32.263  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.263  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605978, pluginId: StatusBar, methodName: setStyle
+11-27 11:47:32.263  7904  7904 V Capacitor: callback: 112605978, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:47:32.316  7904  7948 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:47:32.341  7904  7904 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:32.341  7904  7904 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:32.344  7904  7950 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:47:32.344  7904  7904 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:32.350  7904  7950 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:47:32.377  7904  7948 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:47:32.378  7904  7948 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:32.378  7904  7948 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:32.379  7904  7948 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:32.379  7904  7948 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:32.392  7904  7950 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:47:32.394  7904  7950 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:32.524  7904  7904 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:32.524  7904  7904 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 112605979, pluginId: SplashScreen, methodName: hide
+11-27 11:47:32.524  7904  7904 V Capacitor: callback: 112605979, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:47:32.525  7904  7904 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:32.688   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:47:32.688   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s473ms
+11-27 11:47:32.736  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:47:34.700   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{cc23a8e u0 top.kcaron.cardstudio/.MainActivity} t13} state 2
+11-27 11:47:34.724   462  1566 W InputManager-JNI: Input channel object '6add645 Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:47:34.753   462  2280 W WindowManager: Failed looking up window session=Session{28865bd 716:u0a10157} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6050 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:943 android.view.IWindowSession$Stub.onTransact:1180 
+11-27 11:47:34.753   462  2280 E WindowManager: setOnBackInvokedCallback(): No window state for package:com.android.systemui
+11-27 11:47:36.984  7904  8009 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:47:52.789   462  2311 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8028
+11-27 11:47:52.791   462  2311 I ActivityManager: Killing 7904:top.kcaron.cardstudio/u0a174 (adj 0): stop top.kcaron.cardstudio due to from pid 8028
+11-27 11:47:52.793   462  2311 I ActivityManager: Killing 7929:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i4 (adj 0): isolated not needed
+11-27 11:47:52.793   462  2311 W ActivityTaskManager: Force removing ActivityRecord{cc23a8e u0 top.kcaron.cardstudio/.MainActivity} t13 f}}: app died, no saved state
+11-27 11:47:52.796   462  2311 W InputManager-JNI: Input channel object 'dffb4e5 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:47:52.833   462   483 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-27 11:47:52.853   462   657 D ConnectivityService: releasing NetworkRequest [ REQUEST id=179, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ] (release request)
+11-27 11:47:52.890   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:47:52.934   462  2256 V ActivityManager: Got obituary of 7904:top.kcaron.cardstudio
+11-27 11:47:52.947   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 7904
+11-27 11:47:53.858   462  2256 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:47:53.889   462  1566 D CoreBackPreview: Window{305c90b u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@b222a01, mPriority=0}
+11-27 11:47:53.894   462   492 I ActivityManager: Start proc 8044:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:47:54.052  8044  8044 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:47:54.052  8044  8044 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:47:54.288  8044  8044 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:47:54.320  8044  8044 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:47:54.321  8044  8044 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:47:54.461  8044  8044 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:47:54.468  8044  8044 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:47:54.470  8044  8044 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:47:54.553   462   492 I ActivityManager: Start proc 8070:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i5 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:47:54.609  8044  8090 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/wasm: No such file or directory (2)
+11-27 11:47:54.609  8044  8090 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/js: No such file or directory (2)
+11-27 11:47:54.610  8070  8070 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:47:54.621   462  1566 D ConnectivityService: requestNetwork for uid/pid:10174/8044 activeRequest: null callbackRequest: 181 [NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:47:54.623   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:47:54.623   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:47:54.623   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:47:54.623   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:47:54.638  8044  8044 D Capacitor: Starting BridgeActivity
+11-27 11:47:54.647  8044  8044 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:47:54.649  8044  8044 D Capacitor: Registering plugin instance: WebView
+11-27 11:47:54.650  8044  8044 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:47:54.650  8044  8044 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:47:54.651  8044  8044 D Capacitor: Registering plugin instance: AppReview
+11-27 11:47:54.652  8044  8044 D Capacitor: Registering plugin instance: App
+11-27 11:47:54.653  8044  8044 D Capacitor: Registering plugin instance: Browser
+11-27 11:47:54.653  8044  8044 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:47:54.657  8044  8044 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:47:54.659  8044  8044 D Capacitor: Registering plugin instance: Share
+11-27 11:47:54.660  8044  8044 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:47:54.662  8044  8044 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:47:54.665  8044  8044 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:47:54.665  8044  8044 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:47:54.666  8044  8044 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:47:54.666  8044  8044 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:47:54.674  8044  8044 W Capacitor: Unable to read file at path public/plugins
+11-27 11:47:54.677  8044  8044 D Capacitor: Loading app at https://localhost
+11-27 11:47:54.703  8044  8044 D Capacitor: App started
+11-27 11:47:54.704  8044  8044 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:47:54.704  8044  8044 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:47:54.706  8044  8044 D Capacitor/AppPlugin: Firing change: true
+11-27 11:47:54.706  8044  8044 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:47:54.706  8044  8044 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:47:54.710  8044  8044 D Capacitor: App resumed
+11-27 11:47:54.720   462  1526 D CoreBackPreview: Window{b42b8ab u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@786b2a1, mPriority=0}
+11-27 11:47:54.722  8044  8082 D Capacitor: Handling local request: https://localhost/
+11-27 11:47:54.813  8044  8082 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:47:54.817  8044  8092 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:47:54.878  8044  8094 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:47:54.878  8044  8090 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:47:54.880  8044  8090 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:47:54.880  8044  8094 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:47:54.881  8044  8094 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:47:54.882  8044  8092 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:47:54.882  8044  8092 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:47:54.883  8044  8081 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:47:54.883  8044  8084 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:47:54.886  8044  8084 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:47:54.886  8044  8084 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:47:54.887  8044  8084 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:47:54.888  8044  8081 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:47:54.888  8044  8092 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:47:54.888  8044  8081 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:47:54.889  8044  8092 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:47:54.891  8044  8092 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:47:54.891  8044  8092 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:47:54.892  8044  8094 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:47:54.893  8044  8090 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:47:54.893  8044  8094 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:47:54.895  8044  8081 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:47:54.895  8044  8081 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:47:54.897  8044  8084 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:47:54.898  8044  8090 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:47:54.902  8044  8081 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:47:54.902  8044  8081 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:47:54.902  8044  8094 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:47:54.902  8044  8081 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:47:54.903  8044  8081 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:47:54.903  8044  8084 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:47:54.904  8044  8090 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:47:54.905  8044  8084 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:47:54.905  8044  8082 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:47:54.907  8044  8090 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:47:54.908  8044  8090 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:47:54.908  8044  8082 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:47:54.909  8044  8084 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:47:54.909  8044  8084 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:47:54.911  8044  8084 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:47:54.911  8044  8084 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:47:54.911  8044  8082 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:47:54.912  8044  8090 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:47:54.948  8044  8084 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:47:54.982  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:54.985  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021554, pluginId: App, methodName: addListener
+11-27 11:47:54.985  8044  8044 V Capacitor: callback: 6021554, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:47:54.985  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:54.986  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021555, pluginId: App, methodName: addListener
+11-27 11:47:54.986  8044  8044 V Capacitor: callback: 6021555, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:47:54.986  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:54.986  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021556, pluginId: App, methodName: getLaunchUrl
+11-27 11:47:54.986  8044  8044 V Capacitor: callback: 6021556, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:47:54.987  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:54.987  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021557, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:47:54.987  8044  8044 V Capacitor: callback: 6021557, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:47:54.987  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:54.987  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021558, pluginId: StatusBar, methodName: setStyle
+11-27 11:47:54.987  8044  8044 V Capacitor: callback: 6021558, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:47:55.036  8044  8090 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:47:55.067  8044  8084 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:47:55.070  8044  8044 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:55.071  8044  8044 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:55.071  8044  8044 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:55.079  8044  8084 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:47:55.097  8044  8082 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:47:55.098  8044  8082 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:55.099  8044  8082 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:55.099  8044  8082 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:55.100  8044  8082 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:47:55.103  8044  8084 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:47:55.103  8044  8082 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:55.245  8044  8044 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:47:55.246  8044  8044 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 6021559, pluginId: SplashScreen, methodName: hide
+11-27 11:47:55.246  8044  8044 V Capacitor: callback: 6021559, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:47:55.417   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:47:55.419   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s559ms
+11-27 11:47:55.420  8044  8044 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:47:57.425   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{46c3fc u0 top.kcaron.cardstudio/.MainActivity} t14} state 2
+11-27 11:47:57.449   462  2256 D CoreBackPreview: Window{305c90b u0 Splash Screen top.kcaron.cardstudio EXITING}: Setting back callback null
+11-27 11:47:57.450   462  1566 W InputManager-JNI: Input channel object '305c90b Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:47:58.814  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:48:00.366  8044  8160 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:48:15.498   462  2256 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8172
+11-27 11:48:15.499   462  2256 I ActivityManager: Killing 8044:top.kcaron.cardstudio/u0a174 (adj 0): stop top.kcaron.cardstudio due to from pid 8172
+11-27 11:48:15.500   462  2256 I ActivityManager: Killing 8070:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i5 (adj 0): isolated not needed
+11-27 11:48:15.502   462  2256 W ActivityTaskManager: Force removing ActivityRecord{46c3fc u0 top.kcaron.cardstudio/.MainActivity} t14 f}}: app died, no saved state
+11-27 11:48:15.509   462  2256 W InputManager-JNI: Input channel object 'b42b8ab top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:48:15.537   462   483 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-27 11:48:15.537   462   657 D ConnectivityService: releasing NetworkRequest [ REQUEST id=182, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ] (release request)
+11-27 11:48:15.549   462  1762 V ActivityManager: Got obituary of 8044:top.kcaron.cardstudio
+11-27 11:48:15.549   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8044
+11-27 11:48:15.569   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:48:16.573   462   775 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:48:16.586   462  2319 D CoreBackPreview: Window{dad61a3 u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@bdb3059, mPriority=0}
+11-27 11:48:16.612   462   492 I ActivityManager: Start proc 8187:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:48:16.795  8187  8187 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:16.804  8187  8187 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:17.005  8187  8187 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:48:17.038  8187  8187 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:48:17.039  8187  8187 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:48:17.164  8187  8187 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:48:17.170  8187  8187 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:48:17.173  8187  8187 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:48:17.219   462   492 I ActivityManager: Start proc 8210:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i6 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:48:17.248  8210  8210 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:48:17.267  8187  8236 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/js: No such file or directory (2)
+11-27 11:48:17.276   462   988 D ConnectivityService: requestNetwork for uid/pid:10174/8187 activeRequest: null callbackRequest: 187 [NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:48:17.277   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:17.277   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:17.277   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:17.277   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:17.294  8187  8187 D Capacitor: Starting BridgeActivity
+11-27 11:48:17.303  8187  8187 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:48:17.305  8187  8187 D Capacitor: Registering plugin instance: WebView
+11-27 11:48:17.305  8187  8187 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:48:17.306  8187  8187 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:48:17.307  8187  8187 D Capacitor: Registering plugin instance: AppReview
+11-27 11:48:17.308  8187  8187 D Capacitor: Registering plugin instance: App
+11-27 11:48:17.308  8187  8187 D Capacitor: Registering plugin instance: Browser
+11-27 11:48:17.309  8187  8187 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:48:17.313  8187  8187 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:48:17.314  8187  8187 D Capacitor: Registering plugin instance: Share
+11-27 11:48:17.315  8187  8187 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:48:17.317  8187  8187 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:48:17.321  8187  8187 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:48:17.321  8187  8187 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:48:17.321  8187  8187 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:48:17.321  8187  8187 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:48:17.330  8187  8187 W Capacitor: Unable to read file at path public/plugins
+11-27 11:48:17.332  8187  8187 D Capacitor: Loading app at https://localhost
+11-27 11:48:17.358  8187  8187 D Capacitor: App started
+11-27 11:48:17.359  8187  8187 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:48:17.359  8187  8187 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:48:17.359  8187  8187 D Capacitor/AppPlugin: Firing change: true
+11-27 11:48:17.359  8187  8187 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:48:17.359  8187  8187 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:48:17.362  8187  8187 D Capacitor: App resumed
+11-27 11:48:17.374   462   988 D CoreBackPreview: Window{92b67c0 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@93f3fec, mPriority=0}
+11-27 11:48:17.381  8187  8222 D Capacitor: Handling local request: https://localhost/
+11-27 11:48:17.548  8187  8224 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:48:17.549  8187  8222 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:48:17.559  8187  8187 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:48:17.559  8187  8187 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:48:17.562  8187  8236 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:48:17.577  8187  8240 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:48:17.578  8187  8240 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:48:17.582  8187  8222 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:48:17.583  8187  8227 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:48:17.583  8187  8236 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:48:17.584  8187  8240 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:48:17.584  8187  8223 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:48:17.585  8187  8222 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:48:17.585  8187  8227 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:48:17.586  8187  8223 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:48:17.586  8187  8222 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:48:17.587  8187  8223 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:48:17.587  8187  8227 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:48:17.589  8187  8227 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:48:17.589  8187  8222 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:48:17.590  8187  8236 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:48:17.595  8187  8223 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:48:17.596  8187  8223 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:48:17.597  8187  8223 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:48:17.597  8187  8236 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:48:17.597  8187  8222 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:48:17.598  8187  8227 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:48:17.598  8187  8240 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:48:17.598  8187  8223 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:48:17.599  8187  8223 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:48:17.599  8187  8227 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:48:17.599  8187  8222 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:48:17.599  8187  8236 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:48:17.600  8187  8222 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:48:17.600  8187  8222 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:48:17.602  8187  8227 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:48:17.602  8187  8236 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:48:17.603  8187  8223 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:48:17.606  8187  8222 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:48:17.607  8187  8236 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:48:17.607  8187  8227 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:48:17.607  8187  8227 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:48:17.607  8187  8223 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:48:17.608  8187  8240 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:48:17.608  8187  8236 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:48:17.609  8187  8227 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:48:17.610  8187  8222 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:48:17.610  8187  8224 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:48:17.668  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.669  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463769, pluginId: App, methodName: addListener
+11-27 11:48:17.670  8187  8187 V Capacitor: callback: 63463769, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:48:17.670  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.671  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463770, pluginId: App, methodName: addListener
+11-27 11:48:17.671  8187  8187 V Capacitor: callback: 63463770, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:48:17.671  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.672  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463771, pluginId: App, methodName: getLaunchUrl
+11-27 11:48:17.672  8187  8187 V Capacitor: callback: 63463771, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:48:17.672  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.672  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463772, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:48:17.672  8187  8187 V Capacitor: callback: 63463772, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:48:17.673  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.673  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463773, pluginId: StatusBar, methodName: setStyle
+11-27 11:48:17.673  8187  8187 V Capacitor: callback: 63463773, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:48:17.728  8187  8187 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:17.729  8187  8227 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:48:17.752  8187  8187 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:17.753  8187  8187 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:17.762  8187  8227 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:48:17.782  8187  8227 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:48:17.819  8187  8224 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:48:17.820  8187  8224 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:17.821  8187  8224 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:17.821  8187  8224 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:17.822  8187  8224 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:17.826  8187  8224 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:48:17.829  8187  8222 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:48:17.965  8187  8187 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:17.965  8187  8187 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 63463774, pluginId: SplashScreen, methodName: hide
+11-27 11:48:17.966  8187  8187 V Capacitor: callback: 63463774, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:48:17.966  8187  8187 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:18.133   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:18.134   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s559ms
+11-27 11:48:18.316  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:48:20.179   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{2c13b5d u0 top.kcaron.cardstudio/.MainActivity} t15} state 2
+11-27 11:48:20.254   462  2311 D CoreBackPreview: Window{dad61a3 u0 Splash Screen top.kcaron.cardstudio EXITING}: Setting back callback null
+11-27 11:48:20.255   462  2311 W InputManager-JNI: Input channel object 'dad61a3 Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:48:23.337  8187  8304 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:48:26.847   462  2311 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.UnstableInternalBoundBrokerService } U=0: not found
+11-27 11:48:26.850   462   988 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.UnstableInternalBoundBrokerService } U=0: not found
+11-27 11:48:38.210   462  2311 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8315
+11-27 11:48:38.212   462  2311 I ActivityManager: Killing 8187:top.kcaron.cardstudio/u0a174 (adj 0): stop top.kcaron.cardstudio due to from pid 8315
+11-27 11:48:38.218   462  2311 I ActivityManager: Killing 8210:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i6 (adj 0): isolated not needed
+11-27 11:48:38.218   462  2311 W ActivityTaskManager: Force removing ActivityRecord{2c13b5d u0 top.kcaron.cardstudio/.MainActivity} t15 f}}: app died, no saved state
+11-27 11:48:38.220   462  2311 W InputManager-JNI: Input channel object '92b67c0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:48:38.238   462   483 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-27 11:48:38.240   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:48:38.303   462  2319 V ActivityManager: Got obituary of 8187:top.kcaron.cardstudio
+11-27 11:48:38.305   462   657 D ConnectivityService: releasing NetworkRequest [ REQUEST id=188, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ] (release request)
+11-27 11:48:38.305   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8187
+11-27 11:48:39.289   462  1000 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:48:39.317   462   492 I ActivityManager: Start proc 8330:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:48:39.319   462   705 D CoreBackPreview: Window{8e83b0d u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@6dc20d3, mPriority=0}
+11-27 11:48:39.500  8330  8330 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:39.502  8330  8330 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:39.647  8330  8330 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:48:39.672  8330  8330 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:48:39.672  8330  8330 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:48:39.821  8330  8330 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:48:39.825  8330  8330 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:48:39.827  8330  8330 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:48:39.932   462   492 I ActivityManager: Start proc 8355:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i7 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:48:39.962  8355  8355 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:48:39.982   462   790 D ConnectivityService: requestNetwork for uid/pid:10174/8330 activeRequest: null callbackRequest: 190 [NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:48:39.983   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:39.983   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:39.983   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:39.983   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:48:39.996  8330  8330 D Capacitor: Starting BridgeActivity
+11-27 11:48:40.004  8330  8330 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:48:40.006  8330  8330 D Capacitor: Registering plugin instance: WebView
+11-27 11:48:40.006  8330  8330 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:48:40.007  8330  8330 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:48:40.008  8330  8330 D Capacitor: Registering plugin instance: AppReview
+11-27 11:48:40.008  8330  8330 D Capacitor: Registering plugin instance: App
+11-27 11:48:40.009  8330  8330 D Capacitor: Registering plugin instance: Browser
+11-27 11:48:40.010  8330  8330 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:48:40.013  8330  8330 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:48:40.014  8330  8330 D Capacitor: Registering plugin instance: Share
+11-27 11:48:40.015  8330  8330 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:48:40.017  8330  8330 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:48:40.020  8330  8330 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:48:40.020  8330  8330 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:48:40.020  8330  8330 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:48:40.020  8330  8330 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:48:40.028  8330  8330 W Capacitor: Unable to read file at path public/plugins
+11-27 11:48:40.030  8330  8330 D Capacitor: Loading app at https://localhost
+11-27 11:48:40.061  8330  8330 D Capacitor: App started
+11-27 11:48:40.063  8330  8330 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:48:40.063  8330  8330 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:48:40.066  8330  8330 D Capacitor/AppPlugin: Firing change: true
+11-27 11:48:40.066  8330  8330 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:48:40.066  8330  8330 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:48:40.071  8330  8330 D Capacitor: App resumed
+11-27 11:48:40.085   462  2317 D CoreBackPreview: Window{83625ad u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@6359c73, mPriority=0}
+11-27 11:48:40.087  8330  8374 D Capacitor: Handling local request: https://localhost/
+11-27 11:48:40.159  8330  8362 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:48:40.173  8330  8361 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:48:40.219  8330  8375 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:48:40.220  8330  8374 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:48:40.221  8330  8368 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:48:40.223  8330  8367 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:48:40.229  8330  8362 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:48:40.234  8330  8361 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:48:40.234  8330  8374 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:48:40.235  8330  8367 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:48:40.235  8330  8368 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:48:40.235  8330  8375 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:48:40.236  8330  8368 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:48:40.236  8330  8361 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:48:40.236  8330  8367 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:48:40.236  8330  8368 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:48:40.237  8330  8361 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:48:40.237  8330  8368 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:48:40.237  8330  8367 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:48:40.237  8330  8361 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:48:40.237  8330  8367 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:48:40.237  8330  8361 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:48:40.239  8330  8374 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:48:40.242  8330  8374 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:48:40.243  8330  8374 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:48:40.244  8330  8361 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:48:40.244  8330  8374 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:48:40.244  8330  8368 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:48:40.244  8330  8367 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:48:40.250  8330  8368 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:48:40.250  8330  8367 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:48:40.250  8330  8367 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:48:40.252  8330  8368 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:48:40.253  8330  8362 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:48:40.254  8330  8362 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:48:40.270  8330  8362 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:48:40.276  8330  8362 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:48:40.277  8330  8368 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:48:40.277  8330  8368 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:48:40.278  8330  8375 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:48:40.278  8330  8368 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:48:40.278  8330  8368 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:48:40.278  8330  8375 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:48:40.279  8330  8375 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:48:40.279  8330  8367 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:48:40.313  8330  8361 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:48:40.332  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.334  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684143, pluginId: App, methodName: addListener
+11-27 11:48:40.334  8330  8330 V Capacitor: callback: 71684143, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:48:40.334  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.334  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684144, pluginId: App, methodName: addListener
+11-27 11:48:40.335  8330  8330 V Capacitor: callback: 71684144, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:48:40.335  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.335  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684145, pluginId: App, methodName: getLaunchUrl
+11-27 11:48:40.335  8330  8330 V Capacitor: callback: 71684145, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:48:40.335  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.336  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684146, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:48:40.336  8330  8330 V Capacitor: callback: 71684146, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:48:40.336  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.337  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684147, pluginId: StatusBar, methodName: setStyle
+11-27 11:48:40.337  8330  8330 V Capacitor: callback: 71684147, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:48:40.378  8330  8375 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:48:40.401  8330  8367 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:48:40.404  8330  8330 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:40.405  8330  8330 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:40.405  8330  8330 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:40.411  8330  8367 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:48:40.442  8330  8375 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:48:40.442  8330  8375 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:40.442  8330  8375 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:40.445  8330  8368 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:40.445  8330  8368 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:48:40.452  8330  8368 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:48:40.455  8330  8368 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:48:40.589  8330  8330 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:48:40.589  8330  8330 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71684148, pluginId: SplashScreen, methodName: hide
+11-27 11:48:40.589  8330  8330 V Capacitor: callback: 71684148, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:48:40.590  8330  8330 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:48:40.749   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:48:40.750   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s460ms
+11-27 11:48:42.770   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{15fddf8 u0 top.kcaron.cardstudio/.MainActivity} t16} state 2
+11-27 11:48:42.839   462   790 D CoreBackPreview: Window{8e83b0d u0 Splash Screen top.kcaron.cardstudio EXITING}: Setting back callback null
+11-27 11:48:42.839   462  2280 W InputManager-JNI: Input channel object '8e83b0d Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:48:44.049   462   557 I InputDispatcher: 83625ad top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (server) spent 3283ms processing FocusEvent(hasFocus=true)
+11-27 11:48:44.059  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:48:45.257  8330  8428 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:48:48.644  5955  5983 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 11:48:48.644  5955  5983 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 11:49:00.822   462  1000 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8449
+11-27 11:49:00.823   462  1000 I ActivityManager: Killing 8330:top.kcaron.cardstudio/u0a174 (adj 0): stop top.kcaron.cardstudio due to from pid 8449
+11-27 11:49:00.823   462  1000 I ActivityManager: Killing 8355:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i7 (adj 0): isolated not needed
+11-27 11:49:00.828   462  1000 W ActivityTaskManager: Force removing ActivityRecord{15fddf8 u0 top.kcaron.cardstudio/.MainActivity} t16 f}}: app died, no saved state
+11-27 11:49:00.830   462  1000 W InputManager-JNI: Input channel object '83625ad top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:49:00.857   462   657 D ConnectivityService: releasing NetworkRequest [ REQUEST id=191, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ] (release request)
+11-27 11:49:00.871   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:49:00.891   462   986 V ActivityManager: Got obituary of 8330:top.kcaron.cardstudio
+11-27 11:49:00.897   462   483 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-27 11:49:00.898   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8330
+11-27 11:49:01.884   462   986 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:49:01.903   462   492 I ActivityManager: Start proc 8466:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:49:01.905   462  2280 D CoreBackPreview: Window{92567ba u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@c4d85c8, mPriority=0}
+11-27 11:49:01.988  8466  8466 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:01.988  8466  8466 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:02.199  8466  8466 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:49:02.224  8466  8466 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:49:02.226  8466  8466 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:49:02.437  8466  8466 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:49:02.441  8466  8466 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:02.444  8466  8466 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:02.548   462   492 I ActivityManager: Start proc 8493:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i8 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:49:02.599  8493  8493 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:49:02.629  8466  8515 E chromium: [ERROR:simple_backend_impl.cc(749)] Simple Cache Backend: cache directory inaccessible right after creation; path: /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/js
+11-27 11:49:02.642   462  2299 D ConnectivityService: requestNetwork for uid/pid:10174/8466 activeRequest: null callbackRequest: 193 [NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:49:02.643   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:02.643   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:02.643   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:02.643   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:02.657  8466  8466 D Capacitor: Starting BridgeActivity
+11-27 11:49:02.665  8466  8466 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:49:02.666  8466  8466 D Capacitor: Registering plugin instance: WebView
+11-27 11:49:02.667  8466  8466 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:49:02.668  8466  8466 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:49:02.669  8466  8466 D Capacitor: Registering plugin instance: AppReview
+11-27 11:49:02.669  8466  8466 D Capacitor: Registering plugin instance: App
+11-27 11:49:02.669  8466  8466 D Capacitor: Registering plugin instance: Browser
+11-27 11:49:02.670  8466  8466 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:49:02.673  8466  8466 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:49:02.674  8466  8466 D Capacitor: Registering plugin instance: Share
+11-27 11:49:02.675  8466  8466 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:49:02.677  8466  8466 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:49:02.680  8466  8466 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:02.680  8466  8466 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:02.680  8466  8466 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:02.680  8466  8466 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:02.688  8466  8466 W Capacitor: Unable to read file at path public/plugins
+11-27 11:49:02.690  8466  8466 D Capacitor: Loading app at https://localhost
+11-27 11:49:02.713  8466  8466 D Capacitor: App started
+11-27 11:49:02.714  8466  8466 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:49:02.714  8466  8466 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:49:02.714  8466  8466 D Capacitor/AppPlugin: Firing change: true
+11-27 11:49:02.715  8466  8466 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:49:02.715  8466  8466 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:49:02.717  8466  8466 D Capacitor: App resumed
+11-27 11:49:02.748  8466  8514 D Capacitor: Handling local request: https://localhost/
+11-27 11:49:02.753   462   705 D CoreBackPreview: Window{48ea1da u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@d4501a6, mPriority=0}
+11-27 11:49:02.795  8466  8514 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:49:02.809  8466  8515 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:49:02.886  8466  8514 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:49:02.888  8466  8508 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:49:02.888  8466  8515 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:49:02.891  8466  8515 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:49:02.892  8466  8514 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:49:02.892  8466  8514 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:49:02.893  8466  8514 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:49:02.894  8466  8507 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:49:02.894  8466  8515 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:49:02.895  8466  8514 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:49:02.895  8466  8507 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:49:02.895  8466  8508 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:49:02.896  8466  8515 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:49:02.896  8466  8505 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:49:02.897  8466  8505 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:49:02.897  8466  8507 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:49:02.897  8466  8505 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:49:02.898  8466  8515 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:49:02.900  8466  8515 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:49:02.901  8466  8506 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:49:02.902  8466  8506 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:49:02.903  8466  8507 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:49:02.903  8466  8505 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:49:02.903  8466  8507 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:49:02.903  8466  8505 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:49:02.903  8466  8507 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:49:02.903  8466  8506 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:49:02.904  8466  8507 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:49:02.904  8466  8505 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:49:02.904  8466  8505 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:49:02.905  8466  8507 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:49:02.905  8466  8506 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:49:02.905  8466  8507 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:49:02.905  8466  8506 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:49:02.905  8466  8506 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:49:02.906  8466  8507 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:49:02.906  8466  8505 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:49:02.906  8466  8506 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:49:02.906  8466  8515 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:49:02.908  8466  8515 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:49:02.908  8466  8505 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:49:02.908  8466  8515 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:49:02.910  8466  8508 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:49:02.949  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:02.950  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522104, pluginId: App, methodName: addListener
+11-27 11:49:02.951  8466  8466 V Capacitor: callback: 71522104, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:49:02.951  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:02.952  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522105, pluginId: App, methodName: addListener
+11-27 11:49:02.952  8466  8466 V Capacitor: callback: 71522105, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:49:02.952  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:02.952  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522106, pluginId: App, methodName: getLaunchUrl
+11-27 11:49:02.952  8466  8466 V Capacitor: callback: 71522106, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:49:02.953  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:02.953  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522107, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:49:02.953  8466  8466 V Capacitor: callback: 71522107, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:49:02.953  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:02.953  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522108, pluginId: StatusBar, methodName: setStyle
+11-27 11:49:02.954  8466  8466 V Capacitor: callback: 71522108, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:49:02.976  8466  8507 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:49:02.989  8466  8466 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:03.002  8466  8466 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:03.002  8466  8466 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:03.015  8466  8507 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:49:03.070  8466  8508 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:49:03.082  8466  8507 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:49:03.126  8466  8515 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:49:03.127  8466  8515 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:03.128  8466  8515 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:03.129  8466  8515 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:03.129  8466  8515 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:03.133  8466  8505 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:49:03.135  8466  8505 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:49:03.271  8466  8466 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:03.271  8466  8466 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 71522109, pluginId: SplashScreen, methodName: hide
+11-27 11:49:03.271  8466  8466 V Capacitor: callback: 71522109, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:49:03.272  8466  8466 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:03.381   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:03.382   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s497ms
+11-27 11:49:03.426  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:49:05.580   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{fca744f u0 top.kcaron.cardstudio/.MainActivity} t17} state 2
+11-27 11:49:05.617   462   986 W InputManager-JNI: Input channel object '92567ba Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:49:05.637   462  2299 W WindowManager: Failed looking up window session=Session{28865bd 716:u0a10157} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6050 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:943 android.view.IWindowSession$Stub.onTransact:1180 
+11-27 11:49:05.640   462  2299 E WindowManager: setOnBackInvokedCallback(): No window state for package:com.android.systemui
+11-27 11:49:08.455   462  2317 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:49:08.524  8466  8603 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:49:10.453   462  2317 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:49:12.782   462  2317 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:27.857   462   478 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8642
+11-27 11:49:27.858   462   478 I ActivityManager: Killing 8466:top.kcaron.cardstudio/u0a174 (adj 0): stop top.kcaron.cardstudio due to from pid 8642
+11-27 11:49:27.858   462   478 I ActivityManager: Killing 8493:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i8 (adj 0): isolated not needed
+11-27 11:49:27.864   462   478 W ActivityTaskManager: Force removing ActivityRecord{fca744f u0 top.kcaron.cardstudio/.MainActivity} t17 f}}: app died, no saved state
+11-27 11:49:27.869   462   478 W InputManager-JNI: Input channel object '48ea1da top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:49:27.884   462   483 V WindowManager: Unknown focus tokens, dropping reportFocusChanged
+11-27 11:49:27.885   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:49:27.894   462   657 D ConnectivityService: releasing NetworkRequest [ REQUEST id=194, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ] (release request)
+11-27 11:49:27.899   462  2311 V ActivityManager: Got obituary of 8466:top.kcaron.cardstudio
+11-27 11:49:27.904   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8466
+11-27 11:49:28.915   462   986 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:49:28.935   462   492 I ActivityManager: Start proc 8655:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:49:28.950   462   928 D CoreBackPreview: Window{3d5b48c u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@60f9edb, mPriority=0}
+11-27 11:49:29.111  8655  8655 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:29.112  8655  8655 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:29.275  8655  8655 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:49:29.300  8655  8655 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:49:29.300  8655  8655 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:49:29.385  8655  8655 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:49:29.388  8655  8655 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:29.394  8655  8655 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:29.491   462   492 I ActivityManager: Start proc 8693:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i9 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:49:29.531   462  2318 D ConnectivityService: requestNetwork for uid/pid:10174/8655 activeRequest: null callbackRequest: 197 [NetworkRequest [ REQUEST id=198, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:49:29.533   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=198, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:29.533   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=198, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:29.533   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=198, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:29.533   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=198, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:29.546  8693  8693 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:49:29.553  8655  8655 D Capacitor: Starting BridgeActivity
+11-27 11:49:29.562  8655  8655 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:49:29.563  8655  8655 D Capacitor: Registering plugin instance: WebView
+11-27 11:49:29.564  8655  8655 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:49:29.565  8655  8655 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:49:29.566  8655  8655 D Capacitor: Registering plugin instance: AppReview
+11-27 11:49:29.567  8655  8655 D Capacitor: Registering plugin instance: App
+11-27 11:49:29.567  8655  8655 D Capacitor: Registering plugin instance: Browser
+11-27 11:49:29.568  8655  8655 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:49:29.572  8655  8655 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:49:29.573  8655  8655 D Capacitor: Registering plugin instance: Share
+11-27 11:49:29.574  8655  8655 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:49:29.576  8655  8655 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:49:29.579  8655  8655 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:29.579  8655  8655 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:29.579  8655  8655 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:29.579  8655  8655 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:29.587  8655  8655 W Capacitor: Unable to read file at path public/plugins
+11-27 11:49:29.590  8655  8655 D Capacitor: Loading app at https://localhost
+11-27 11:49:29.607  8655  8655 D Capacitor: App started
+11-27 11:49:29.618  8655  8655 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:49:29.618  8655  8655 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:49:29.619  8655  8655 D Capacitor/AppPlugin: Firing change: true
+11-27 11:49:29.619  8655  8655 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:49:29.619  8655  8655 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:49:29.627  8655  8655 D Capacitor: App resumed
+11-27 11:49:29.655  8655  8691 D Capacitor: Handling local request: https://localhost/
+11-27 11:49:29.658   462  2318 D CoreBackPreview: Window{f56ae75 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@366067b, mPriority=0}
+11-27 11:49:29.673  8655  8691 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:49:29.684  8655  8682 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:49:29.750  8655  8691 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:49:29.752  8655  8691 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:49:29.755  8655  8655 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:49:29.755  8655  8655 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:49:29.764  8655  8691 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:49:29.765  8655  8682 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:49:29.767  8655  8687 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:49:29.768  8655  8687 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:49:29.768  8655  8687 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:49:29.768  8655  8683 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:49:29.768  8655  8690 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:49:29.769  8655  8691 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:49:29.773  8655  8691 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:49:29.774  8655  8690 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:49:29.774  8655  8691 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:49:29.774  8655  8681 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:49:29.775  8655  8681 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:49:29.775  8655  8687 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:49:29.775  8655  8690 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:49:29.776  8655  8687 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:49:29.776  8655  8687 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:49:29.777  8655  8687 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:49:29.777  8655  8683 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:49:29.778  8655  8683 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:49:29.778  8655  8690 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:49:29.779  8655  8687 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:49:29.779  8655  8691 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:49:29.779  8655  8682 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:49:29.780  8655  8683 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:49:29.780  8655  8683 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:49:29.781  8655  8690 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:49:29.781  8655  8682 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:49:29.781  8655  8691 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:49:29.781  8655  8683 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:49:29.781  8655  8681 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:49:29.781  8655  8683 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:49:29.781  8655  8681 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:49:29.782  8655  8682 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:49:29.782  8655  8681 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:49:29.782  8655  8690 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:49:29.782  8655  8681 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:49:29.783  8655  8682 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:49:29.783  8655  8683 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:49:29.783  8655  8687 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:49:29.783  8655  8691 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:49:29.810  8655  8682 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:49:29.849  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:29.850  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909606, pluginId: App, methodName: addListener
+11-27 11:49:29.850  8655  8655 V Capacitor: callback: 126909606, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:49:29.851  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:29.851  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909607, pluginId: App, methodName: addListener
+11-27 11:49:29.851  8655  8655 V Capacitor: callback: 126909607, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:49:29.852  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:29.852  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909608, pluginId: App, methodName: getLaunchUrl
+11-27 11:49:29.852  8655  8655 V Capacitor: callback: 126909608, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:49:29.853  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:29.853  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909609, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:49:29.853  8655  8655 V Capacitor: callback: 126909609, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:49:29.854  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:29.854  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909610, pluginId: StatusBar, methodName: setStyle
+11-27 11:49:29.854  8655  8655 V Capacitor: callback: 126909610, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:49:29.858  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:29.899  8655  8683 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:49:29.922  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:29.922  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:29.929  8655  8746 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:49:29.934  8655  8746 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:49:29.968  8655  8687 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:49:29.969  8655  8687 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:29.970  8655  8683 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:29.971  8655  8681 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:29.971  8655  8681 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:29.971  8655  8681 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:49:29.973  8655  8687 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:49:30.115  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:30.116  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909611, pluginId: SplashScreen, methodName: hide
+11-27 11:49:30.116  8655  8655 V Capacitor: callback: 126909611, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:49:30.117  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:30.277   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:30.277   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s361ms
+11-27 11:49:30.309  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:49:32.303   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{475d260 u0 top.kcaron.cardstudio/.MainActivity} t18} state 2
+11-27 11:49:32.348   462  2318 W InputManager-JNI: Input channel object '3d5b48c Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:49:32.351   462  1497 W WindowManager: Failed looking up window session=Session{28865bd 716:u0a10157} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6050 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:943 android.view.IWindowSession$Stub.onTransact:1180 
+11-27 11:49:32.352   462  1497 E WindowManager: setOnBackInvokedCallback(): No window state for package:com.android.systemui
+11-27 11:49:35.002   462  1000 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:49:35.620  8655  8781 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:49:37.001   462  2299 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:49:42.364  8655  8655 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:49:42.366  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:49:47.936  8655  8655 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:49:47.938  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:49:48.763  8655  8655 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:49:48.765  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:49:48.766  8655  8655 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:48.766  8655  8655 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 126909612, pluginId: App, methodName: exitApp
+11-27 11:49:48.766  8655  8655 V Capacitor: callback: 126909612, pluginId: App, methodName: exitApp, methodData: {}
+11-27 11:49:48.768  8655  8655 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:48.818  8655  8655 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 11:49:48.820  8655  8655 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 11:49:48.826  8655  8655 D Capacitor: App paused
+11-27 11:49:49.172  8655  8655 D Capacitor: App stopped
+11-27 11:49:49.205  8655  8655 D Capacitor: App destroyed
+11-27 11:49:49.208   462   986 D CoreBackPreview: Window{f56ae75 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 11:49:49.405   462  1497 W InputManager-JNI: Input channel object 'f56ae75 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:49:49.488   462   986 I ActivityManager: Killing 8693:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i9 (adj 0): isolated not needed
+11-27 11:49:51.523   462   986 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 8875
+11-27 11:49:51.524   462   986 I ActivityManager: Killing 8655:top.kcaron.cardstudio/u0a174 (adj 900): stop top.kcaron.cardstudio due to from pid 8875
+11-27 11:49:51.527   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:49:51.538   462  1000 V ActivityManager: Got obituary of 8655:top.kcaron.cardstudio
+11-27 11:49:51.538   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8655
+11-27 11:49:52.540   462   986 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:49:52.554   462   492 I ActivityManager: Start proc 8884:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:49:52.578   462   709 D CoreBackPreview: Window{2f05f62 u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@1d829b0, mPriority=0}
+11-27 11:49:52.757   462  2311 W ActivityTaskManager: takeTaskSnapshot: taskId=19 not found or not visible
+11-27 11:49:52.773  8884  8884 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:52.773  8884  8884 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:52.984  8884  8884 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:49:52.994  8884  8884 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:49:52.994  8884  8884 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:49:53.163  8884  8884 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:49:53.167  8884  8884 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:53.168  8884  8884 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:49:53.238   462   492 I ActivityManager: Start proc 8911:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i10 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:49:53.280  8911  8911 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:49:53.311   462   479 D ConnectivityService: requestNetwork for uid/pid:10174/8884 activeRequest: null callbackRequest: 200 [NetworkRequest [ REQUEST id=201, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:49:53.313   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=201, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:53.314   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=201, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:53.316   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=201, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:53.316   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=201, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:49:53.327  8884  8884 D Capacitor: Starting BridgeActivity
+11-27 11:49:53.336  8884  8884 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:49:53.337  8884  8884 D Capacitor: Registering plugin instance: WebView
+11-27 11:49:53.338  8884  8884 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:49:53.338  8884  8884 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:49:53.339  8884  8884 D Capacitor: Registering plugin instance: AppReview
+11-27 11:49:53.340  8884  8884 D Capacitor: Registering plugin instance: App
+11-27 11:49:53.340  8884  8884 D Capacitor: Registering plugin instance: Browser
+11-27 11:49:53.341  8884  8884 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:49:53.344  8884  8884 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:49:53.345  8884  8884 D Capacitor: Registering plugin instance: Share
+11-27 11:49:53.346  8884  8884 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:49:53.348  8884  8884 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:49:53.351  8884  8884 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:53.351  8884  8884 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:53.351  8884  8884 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:53.351  8884  8884 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:53.359  8884  8884 W Capacitor: Unable to read file at path public/plugins
+11-27 11:49:53.361  8884  8884 D Capacitor: Loading app at https://localhost
+11-27 11:49:53.380  8884  8884 D Capacitor: App started
+11-27 11:49:53.381  8884  8884 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:49:53.381  8884  8884 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:49:53.381  8884  8884 D Capacitor/AppPlugin: Firing change: true
+11-27 11:49:53.382  8884  8884 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:49:53.382  8884  8884 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:49:53.384  8884  8884 D Capacitor: App resumed
+11-27 11:49:53.406  8884  8924 D Capacitor: Handling local request: https://localhost/
+11-27 11:49:53.407   462   479 D CoreBackPreview: Window{e36dd1b u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@45d4ff6, mPriority=0}
+11-27 11:49:53.520  8884  8923 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:49:53.523  8884  8928 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:49:53.525  8884  8884 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:49:53.525  8884  8884 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 11:49:53.537  8884  8928 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:49:53.540  8884  8928 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:49:53.542  8884  8924 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:49:53.543  8884  8924 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:49:53.544  8884  8930 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:49:53.544  8884  8932 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:49:53.544  8884  8932 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:49:53.547  8884  8932 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:49:53.547  8884  8924 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:49:53.548  8884  8930 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:49:53.549  8884  8930 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:49:53.550  8884  8924 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:49:53.550  8884  8932 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:49:53.553  8884  8924 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:49:53.554  8884  8925 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:49:53.555  8884  8925 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:49:53.555  8884  8925 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:49:53.555  8884  8925 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:49:53.556  8884  8928 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:49:53.557  8884  8928 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:49:53.558  8884  8930 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:49:53.559  8884  8932 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:49:53.560  8884  8924 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:49:53.562  8884  8930 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:49:53.563  8884  8932 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:49:53.564  8884  8928 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:49:53.566  8884  8932 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:49:53.568  8884  8923 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:49:53.569  8884  8923 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:49:53.570  8884  8923 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:49:53.570  8884  8923 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:49:53.570  8884  8923 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:49:53.571  8884  8923 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:49:53.571  8884  8923 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:49:53.572  8884  8923 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:49:53.574  8884  8925 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:49:53.583  8884  8925 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:49:53.585  8884  8930 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:49:53.609  8884  8930 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:49:53.631  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.633  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868241, pluginId: App, methodName: addListener
+11-27 11:49:53.633  8884  8884 V Capacitor: callback: 90868241, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:49:53.634  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.634  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868242, pluginId: App, methodName: addListener
+11-27 11:49:53.634  8884  8884 V Capacitor: callback: 90868242, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:49:53.634  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.635  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868243, pluginId: App, methodName: getLaunchUrl
+11-27 11:49:53.635  8884  8884 V Capacitor: callback: 90868243, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:49:53.635  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.635  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868244, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:49:53.635  8884  8884 V Capacitor: callback: 90868244, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:49:53.635  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.636  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868245, pluginId: StatusBar, methodName: setStyle
+11-27 11:49:53.636  8884  8884 V Capacitor: callback: 90868245, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:49:53.691  8884  8923 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:49:53.694  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:53.719  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:53.719  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:53.722  8884  8923 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:49:53.727  8884  8923 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:49:53.770  8884  8932 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:49:53.771  8884  8932 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:53.771  8884  8923 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:53.772  8884  8932 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:53.772  8884  8932 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:49:53.772  8884  8932 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:49:53.774  8884  8923 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:49:53.916  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:49:53.917  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868246, pluginId: SplashScreen, methodName: hide
+11-27 11:49:53.917  8884  8884 V Capacitor: callback: 90868246, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:49:53.917  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:49:54.070   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:49:54.071   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s530ms
+11-27 11:49:54.258  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:49:56.134   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{36953f1 u0 top.kcaron.cardstudio/.MainActivity} t19} state 2
+11-27 11:49:56.214   462   479 W InputManager-JNI: Input channel object '2f05f62 Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:49:56.215   462  1000 W WindowManager: Failed looking up window session=Session{28865bd 716:u0a10157} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6050 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:943 android.view.IWindowSession$Stub.onTransact:1180 
+11-27 11:49:56.215   462  1000 E WindowManager: setOnBackInvokedCallback(): No window state for package:com.android.systemui
+11-27 11:49:58.569  8884  9005 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:49:58.945   462   479 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:50:00.938   462   709 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:50:06.260  8884  8884 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:06.262  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:11.502  8884  8884 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:11.503  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:12.329  8884  8884 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:12.330  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:12.330  8884  8884 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:12.331  8884  8884 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 90868247, pluginId: App, methodName: exitApp
+11-27 11:50:12.331  8884  8884 V Capacitor: callback: 90868247, pluginId: App, methodName: exitApp, methodData: {}
+11-27 11:50:12.333  8884  8884 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:12.367  8884  8884 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 11:50:12.367  8884  8884 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 11:50:12.368  8884  8884 D Capacitor: App paused
+11-27 11:50:12.550  8884  8884 D Capacitor: App stopped
+11-27 11:50:12.552  8884  8884 D Capacitor: App destroyed
+11-27 11:50:12.552   462  1837 D CoreBackPreview: Window{e36dd1b u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 11:50:12.638   462  1837 W InputManager-JNI: Input channel object 'e36dd1b top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:50:12.702   462  1837 I ActivityManager: Killing 8911:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i10 (adj 0): isolated not needed
+11-27 11:50:14.520   462   709 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10174 user=0: from pid 9086
+11-27 11:50:14.521   462   709 I ActivityManager: Killing 8884:top.kcaron.cardstudio/u0a174 (adj 900): stop top.kcaron.cardstudio due to from pid 9086
+11-27 11:50:14.524   910   910 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 11:50:14.540   462   483 W ActivityManager: setHasOverlayUi called on unknown pid: 8884
+11-27 11:50:14.540   462   479 V ActivityManager: Got obituary of 8884:top.kcaron.cardstudio
+11-27 11:50:15.539   462   479 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} from uid 2000
+11-27 11:50:15.555   462  2318 D CoreBackPreview: Window{3dc820b u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@7e0b01, mPriority=0}
+11-27 11:50:15.567   462   492 I ActivityManager: Start proc 9094:top.kcaron.cardstudio/u0a174 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 11:50:15.766  9094  9094 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:50:15.766  9094  9094 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:50:15.934  9094  9094 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/lib/x86_64:/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 11:50:15.961  9094  9094 V GraphicsEnvironment: ANGLE Developer option for 'top.kcaron.cardstudio' set to: 'default'
+11-27 11:50:15.961  9094  9094 V GraphicsEnvironment: ANGLE GameManagerService for top.kcaron.cardstudio: false
+11-27 11:50:16.097  9094  9094 I WebViewFactory: Loading com.google.android.webview version 109.0.5414.123 (code 541412337)
+11-27 11:50:16.099  9094  9094 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk. target_sdk_version=33, uses_libraries=ALL, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:50:16.106  9094  9094 D nativeloader: Configuring classloader-namespace for other apk /data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk. target_sdk_version=33, uses_libraries=, library_path=/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/lib/x86_64:/data/app/~~ULFgFl72yoKcwysNjim19Q==/com.google.android.webview-lhv28R3cZaWGtz0swLwfoQ==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~veZJ_gATUItP0Y6-89P36A==/com.google.android.trichromelibrary_541412337-A4j7Dx5v0bEp_08hMIC7Pw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 11:50:16.192   462   492 I ActivityManager: Start proc 9126:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i11 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 11:50:16.243  9126  9126 I cr_WebViewApkApp: Launched version=109.0.5414.123 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 11:50:16.243   462  1762 D ConnectivityService: requestNetwork for uid/pid:10174/9094 activeRequest: null callbackRequest: 205 [NetworkRequest [ REQUEST id=206, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+11-27 11:50:16.246   462   650 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=206, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:50:16.247   462   650 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=206, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:50:16.247   462   650 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=206, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:50:16.247   462   650 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=206, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10174 RequestorUid: 10174 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 11:50:16.260  9094  9094 D Capacitor: Starting BridgeActivity
+11-27 11:50:16.270  9094  9094 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:50:16.272  9094  9094 D Capacitor: Registering plugin instance: WebView
+11-27 11:50:16.273  9094  9094 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:50:16.273  9094  9094 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:50:16.274  9094  9094 D Capacitor: Registering plugin instance: AppReview
+11-27 11:50:16.275  9094  9094 D Capacitor: Registering plugin instance: App
+11-27 11:50:16.275  9094  9094 D Capacitor: Registering plugin instance: Browser
+11-27 11:50:16.276  9094  9094 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:50:16.280  9094  9094 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:50:16.281  9094  9094 D Capacitor: Registering plugin instance: Share
+11-27 11:50:16.283  9094  9094 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:50:16.285  9094  9094 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:50:16.287  9094  9094 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:50:16.287  9094  9094 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:50:16.287  9094  9094 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:50:16.287  9094  9094 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:50:16.295  9094  9094 W Capacitor: Unable to read file at path public/plugins
+11-27 11:50:16.297  9094  9094 D Capacitor: Loading app at https://localhost
+11-27 11:50:16.320  9094  9094 D Capacitor: App started
+11-27 11:50:16.324  9094  9094 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:50:16.324  9094  9094 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:50:16.325  9094  9094 D Capacitor/AppPlugin: Firing change: true
+11-27 11:50:16.325  9094  9094 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:50:16.325  9094  9094 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:50:16.328  9094  9094 D Capacitor: App resumed
+11-27 11:50:16.347  9094  9140 D Capacitor: Handling local request: https://localhost/
+11-27 11:50:16.351   462  2299 D CoreBackPreview: Window{14b4e1c u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e73f7fa, mPriority=0}
+11-27 11:50:16.396  9094  9141 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:50:16.399  9094  9121 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:50:16.438  9094  9140 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:50:16.438  9094  9140 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:50:16.464  9094  9122 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:50:16.465  9094  9122 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:50:16.470  9094  9122 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:50:16.470  9094  9121 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:50:16.470  9094  9137 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:50:16.471  9094  9137 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:50:16.472  9094  9120 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:50:16.472  9094  9140 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:50:16.472  9094  9140 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:50:16.472  9094  9140 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:50:16.473  9094  9141 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:50:16.473  9094  9120 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:50:16.473  9094  9141 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:50:16.473  9094  9137 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:50:16.473  9094  9120 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:50:16.473  9094  9121 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:50:16.474  9094  9120 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:50:16.474  9094  9137 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:50:16.474  9094  9120 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:50:16.474  9094  9137 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:50:16.476  9094  9137 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:50:16.476  9094  9137 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:50:16.476  9094  9137 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:50:16.477  9094  9137 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:50:16.478  9094  9137 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:50:16.478  9094  9137 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:50:16.478  9094  9137 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:50:16.478  9094  9137 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:50:16.478  9094  9137 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:50:16.479  9094  9137 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:50:16.479  9094  9137 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:50:16.479  9094  9120 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:50:16.480  9094  9122 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:50:16.480  9094  9140 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:50:16.480  9094  9141 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:50:16.480  9094  9121 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:50:16.531  9094  9140 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 11:50:16.572  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.574  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557404, pluginId: App, methodName: addListener
+11-27 11:50:16.575  9094  9094 V Capacitor: callback: 133557404, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 11:50:16.575  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.576  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557405, pluginId: App, methodName: addListener
+11-27 11:50:16.576  9094  9094 V Capacitor: callback: 133557405, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 11:50:16.576  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.577  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557406, pluginId: App, methodName: getLaunchUrl
+11-27 11:50:16.577  9094  9094 V Capacitor: callback: 133557406, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 11:50:16.577  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.578  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557407, pluginId: StatusBar, methodName: setBackgroundColor
+11-27 11:50:16.578  9094  9094 V Capacitor: callback: 133557407, pluginId: StatusBar, methodName: setBackgroundColor, methodData: {"color":"#111a2e"}
+11-27 11:50:16.578  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.578  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557408, pluginId: StatusBar, methodName: setStyle
+11-27 11:50:16.578  9094  9094 V Capacitor: callback: 133557408, pluginId: StatusBar, methodName: setStyle, methodData: {"style":"DARK"}
+11-27 11:50:16.620  9094  9137 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 11:50:16.644  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:16.645  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:16.646  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:16.650  9094  9122 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 11:50:16.666  9094  9122 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 11:50:16.693  9094  9120 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 11:50:16.693  9094  9120 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:50:16.696  9094  9122 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:50:16.700  9094  9137 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:50:16.701  9094  9137 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 11:50:16.712  9094  9122 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:50:16.714  9094  9122 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:50:16.840  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:16.840  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557409, pluginId: SplashScreen, methodName: hide
+11-27 11:50:16.840  9094  9094 V Capacitor: callback: 133557409, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 11:50:16.841  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:17.020   462   480 W ziparchive: Unable to open '/data/app/~~S0rIj3KeJSce9m5JaxCinQ==/top.kcaron.cardstudio-Jm8uxGX2rox7vM0yyqxROw==/base.dm': No such file or directory
+11-27 11:50:17.020   462   480 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity: +1s480ms
+11-27 11:50:17.110  1374  1374 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1877 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x12000000 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=top.kcaron.cardstudio fieldId=2131230926 fieldName=null extras=null}, false)
+11-27 11:50:19.048   462   483 W ActivityTaskManager: Activity transferring splash screen timeout for ActivityRecord{a7f38fc u0 top.kcaron.cardstudio/.MainActivity} t20} state 2
+11-27 11:50:19.087   462  1762 D CoreBackPreview: Window{3dc820b u0 Splash Screen top.kcaron.cardstudio EXITING}: Setting back callback null
+11-27 11:50:19.088   462  2107 W InputManager-JNI: Input channel object '3dc820b Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 11:50:20.967   462  2299 I ActivityManager: Process com.android.localtransport (pid 2056) has died: cch+99 CEM 
+11-27 11:50:21.143   952   952 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
+11-27 11:50:21.143   952   952 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 11:50:21.227   462  2317 D CoreBackPreview: Window{d6dc7af u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@ac04345, mPriority=0}
+11-27 11:50:21.308   462  1762 I ActivityTaskManager: Activity reported stop, but no longer stopping: ActivityRecord{a1dd2b6 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity} t8} STOPPED
+11-27 11:50:21.317   462  1566 D CoreBackPreview: Window{3d594f9 u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@379a1bb, mPriority=0}
+11-27 11:50:21.982   462   533 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:50:22.085  9094  9233 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 11:50:23.967   462  1762 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 11:50:28.935   462  1762 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.UnstableInternalBoundBrokerService } U=0: not found
+11-27 11:50:28.937   462  1762 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.UnstableInternalBoundBrokerService } U=0: not found
+11-27 11:50:29.293  9094  9094 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:29.294  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:34.542  9094  9094 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:34.543  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:35.370  9094  9094 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 11:50:35.371  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 11:50:35.372  9094  9094 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 11:50:35.373  9094  9094 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 133557410, pluginId: App, methodName: exitApp
+11-27 11:50:35.373  9094  9094 V Capacitor: callback: 133557410, pluginId: App, methodName: exitApp, methodData: {}
+11-27 11:50:35.374  9094  9094 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 11:50:35.385  9094  9094 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 11:50:35.385  9094  9094 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 11:50:35.386  9094  9094 D Capacitor: App paused
+11-27 11:50:35.582  9094  9094 D Capacitor: App stopped
+11-27 11:50:35.589  9094  9094 D Capacitor: App destroyed
+11-27 11:50:35.589   462  1762 D CoreBackPreview: Window{14b4e1c u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 11:50:35.686   462  1762 W InputManager-JNI: Input channel object '14b4e1c top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 11:50:35.757   462   533 I ActivityManager: Killing 9126:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a174i11 (adj 0): isolated not needed
