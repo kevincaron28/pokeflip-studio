@@ -1,0 +1,278 @@
+{
+ "info": {
+  "webview_bounds": "[0,136][1080,2274]",
+  "fatal": []
+ },
+ "results": [
+  {
+   "check": "theme: opened in light mode",
+   "ok": true,
+   "detail": {
+    "theme-01-light-start:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3796,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-01-light-start:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2954,
+     "lightIconPixels": 0,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: switched to dark and back while open, without restarting",
+   "ok": true,
+   "detail": {
+    "theme-02-live-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4165,
+     "ok": true
+    },
+    "theme-02-live-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3536,
+     "ok": true
+    },
+    "theme-03-live-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3909,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-03-live-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2954,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-04-live-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4165,
+     "ok": true
+    },
+    "theme-04-live-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3536,
+     "ok": true
+    },
+    "samePage": true,
+    "samePid": true
+   }
+  },
+  {
+   "check": "theme: opened in dark mode",
+   "ok": true,
+   "detail": {
+    "theme-05-dark-start:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4284,
+     "ok": true
+    },
+    "theme-05-dark-start:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3536,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: switched while the app was in the background",
+   "ok": true,
+   "detail": {
+    "theme-06-resumed-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3998,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-06-resumed-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2954,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-07-resumed-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4284,
+     "ok": true
+    },
+    "theme-07-resumed-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3536,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: keyboard open and Settings page, light",
+   "ok": true,
+   "detail": {
+    "theme-08-settings-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3998,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-08-settings-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2954,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "keyboardShown": true,
+    "theme-08-keyboard-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3849,
+     "lightIconPixels": 0,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: keyboard open and Settings page, dark",
+   "ok": true,
+   "detail": {
+    "theme-09-settings-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4123,
+     "ok": true
+    },
+    "theme-09-settings-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3536,
+     "ok": true
+    },
+    "keyboardShown": true,
+    "theme-09-keyboard-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 4249,
+     "ok": true
+    }
+   }
+  }
+ ],
+ "js_errors": [
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28"
+ ]
+}
