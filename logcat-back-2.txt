@@ -1,0 +1,112 @@
+11-27 17:10:11.827   540  2046 W ActivityManager: pid 1365 com.google.android.googlequicksearchbox:interactor sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 17:10:11.827   540  1016 I ActivityManager: Process com.google.android.googlequicksearchbox:search (pid 1435) has died: cch+5 CEM 
+11-27 17:10:11.827   540  1016 W ActivityManager: Scheduling restart of crashed service com.google.android.googlequicksearchbox/com.google.android.apps.gsa.search.core.service.SearchService in 10846ms for connection
+11-27 17:10:11.828   540  1016 I ActivityManager: Killing 2971:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a144i0 (adj 0): isolated not needed
+11-27 17:10:11.870   540  2605 W ActivityManager: pid 1032 com.google.android.bluetooth sent binder code 4 with flags 0 to frozen apps and got error -32
+11-27 17:10:11.870   540  2605 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:11.966  5671  5671 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 17:10:11.976  5671  5671 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 17:10:12.097   540  2040 I ActivityManager: Process com.android.vending (pid 4875) has died: prcm  +2 TRNB
+11-27 17:10:12.097   540  2037 W ActivityManager: pid 4888 com.android.vending:background sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 17:10:12.097   540  2037 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.098   540  2040 W ActivityManager: Scheduling restart of crashed service com.android.vending/com.google.android.finsky.crossprofile.ProfileStateService in 20576ms for connection
+11-27 17:10:12.098   540  2040 W ActivityManager: Scheduling restart of crashed service com.android.vending/com.google.frameworks.client.data.android.server.play.MainProcessEndpointService in 30575ms for connection
+11-27 17:10:12.099   540  2040 W ActivityManager: pid 5180 com.android.vending:quick_launch sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 17:10:12.099   540  2040 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.150   540  1412 I ActivityManager: Process com.google.android.inputmethod.latin (pid 1297) has died: prcp IMPB
+11-27 17:10:12.150   540  1412 W ActivityManager: Scheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 30523ms for connection
+11-27 17:10:12.151   540  1412 I WindowManager: WIN DEATH: Window{e0f97a u0 InputMethod}
+11-27 17:10:12.152   540   566 W ActivityManager: setHasOverlayUi called on unknown pid: 1297
+11-27 17:10:12.158   540   540 W ActivityManager: pid 540 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 17:10:12.158   540   540 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.175   540   540 W ActivityManager: pid 540 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 17:10:12.175   540   540 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.175   540   540 W ActivityManager: pid 540 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 17:10:12.175   540   540 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.186   540   576 W ActivityManager: Slow operation: 53ms so far, now at startProcess: returned from zygote!
+11-27 17:10:12.195   540   576 W ActivityManager: Slow operation: 61ms so far, now at startProcess: done updating battery stats
+11-27 17:10:12.195   540   576 W ActivityManager: Slow operation: 62ms so far, now at startProcess: building log message
+11-27 17:10:12.195   540   576 I ActivityManager: Start proc 6039:com.android.vending/u0a140 for service {com.android.vending/com.google.frameworks.client.data.android.server.play.MainProcessEndpointService}
+11-27 17:10:12.195   540   576 W ActivityManager: Slow operation: 62ms so far, now at startProcess: starting to update pids map
+11-27 17:10:12.198   540   576 W ActivityManager: Slow operation: 66ms so far, now at startProcess: done updating pids map
+11-27 17:10:12.232   540   561 W ActivityManager: pid 5904 com.google.android.gms sent binder code 3 with flags 0 to frozen apps and got error -32
+11-27 17:10:12.232   540   561 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.232   540   561 W ActivityManager: pid 1119 com.google.android.apps.nexuslauncher sent binder code 21 with flags 2 to frozen apps and got error -32
+11-27 17:10:12.233   540   561 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 17:10:12.233   540   937 I ActivityManager: Process com.google.android.apps.wellbeing (pid 1278) has died: vis BFGS
+11-27 17:10:12.258   540   576 I ActivityManager: Start proc 6041:com.google.android.googlequicksearchbox:search/u0a144 for service {com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService}
+11-27 17:10:12.630   540   575 W ActivityManager: Rescheduling restart of crashed service com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService in 43ms for other
+11-27 17:10:12.631   540   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.googlequicksearchbox/com.google.android.apps.gsa.search.core.service.SearchService in 10043ms for other
+11-27 17:10:12.631   540   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 20043ms for other
+11-27 17:10:12.669  5904  6008 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 17:10:12.704   540   576 I ActivityManager: Start proc 6116:com.android.chrome/u0a146 for service {com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService}
+11-27 17:10:12.760   540   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 390ms for other
+11-27 17:10:13.097   540   576 I ActivityManager: Start proc 6190:com.google.android.gms.unstable/u0a145 for service {com.google.android.gms/com.google.android.gms.droidguard.DroidGuardService}
+11-27 17:10:13.180   540   576 I ActivityManager: Start proc 6237:com.google.android.inputmethod.latin/u0a156 for service {com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME}
+11-27 17:10:14.038   540  2035 D ActivityManager: sync unfroze 2670 com.google.android.rkpdapp for 6
+11-27 17:10:14.142  6237  6237 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1986 onStartInput(EditorInfo{EditorInfo{packageName=top.kcaron.cardstudio, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=12000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-27 17:10:14.145   540  2043 W PackageConfigPersister: App-specific configuration not found for packageName: top.kcaron.cardstudio and userId: 0
+11-27 17:10:14.387   540  2048 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 17:10:14.688  5904  6004 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 17:10:14.827   540   575 D ActivityManager: sync unfroze 4255 com.google.android.settings.intelligence for 3
+11-27 17:10:14.948  5904  6022 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 17:10:15.145  5904  5910 W gle.android.gms: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~n0oW0u4QMWiO-Q95dV6Z2g==/top.kcaron.cardstudio-CtPdQn9Ex0OA3peeQIOCBw==/base.apk' with 1 weak references
+11-27 17:10:15.228  6190  6200 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 17:10:15.228  6190  6200 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 17:10:15.495  6190  6200 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 17:10:15.495  6190  6200 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 17:10:16.060  5904  5910 W gle.android.gms: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~n0oW0u4QMWiO-Q95dV6Z2g==/top.kcaron.cardstudio-CtPdQn9Ex0OA3peeQIOCBw==/base.apk' with 1 weak references
+11-27 17:10:16.122  6190  6200 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 17:10:16.130  6190  6200 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 17:10:16.864   540   575 D ActivityManager: sync unfroze 1992 com.google.android.partnersetup for 3
+11-27 17:10:17.168   540   576 I ActivityManager: Start proc 6524:com.google.android.apps.wellbeing/u0a143 for broadcast {com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.fences.screen.ScreenTurningOffReceiver_Receiver}
+11-27 17:10:17.272  5671  5671 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 17:10:17.277  5671  5671 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 17:10:17.540  6190  6331 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 17:10:17.540  6190  6331 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 17:10:18.096  6190  6383 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 17:10:18.096  6190  6383 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 17:10:18.134  5671  5671 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 17:10:18.137  5671  5671 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 17:10:18.138  5671  5671 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 17:10:18.141  5671  5671 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 18896866, pluginId: App, methodName: exitApp
+11-27 17:10:18.141  5671  5671 V Capacitor: callback: 18896866, pluginId: App, methodName: exitApp, methodData: {}
+11-27 17:10:18.144  5671  5671 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 17:10:18.147   877   938 V WindowManagerShell: Transition requested (#31): android.os.BinderProxy@bc33613 TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=150378 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@24a0050} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 31 }
+11-27 17:10:18.152  5671  5671 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 17:10:18.153  5671  5671 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 17:10:18.159  5671  5671 D Capacitor: App paused
+11-27 17:10:18.177   877   938 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=552
+11-27 17:10:18.228   877  4995 V WindowManagerShell: onTransitionReady(transaction=2319282340868)
+11-27 17:10:18.230   877   938 V WindowManagerShell: onTransitionReady (#31) android.os.BinderProxy@bc33613: {id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@bb32a05} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x37ab249 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@6f49a5a} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0xb06574e sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{2c62b4b token=android.os.Binder@197941a})/@0x4a1206f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 17:10:18.230   877   938 V WindowManagerShell: Playing animation for (#31) android.os.BinderProxy@bc33613@0
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@838ee62
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@aab8bf3
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@a0d0b0
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@c2eab29
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@2bb8eae
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@7e8f44f
+11-27 17:10:18.230   877   938 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@cba47dc
+11-27 17:10:18.230   877   938 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@bb32a05} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x37ab249 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@6f49a5a} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0xb06574e sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{2c62b4b token=android.os.Binder@197941a})/@0x4a1206f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 17:10:18.230   877   938 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[OPEN,TO_FRONT] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@b724c36, appThread = android.app.IApplicationThread$Stub$Proxy@aa71737, debugName = OverlaySwipeBack }}
+11-27 17:10:18.230   877   938 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@dc1d4a4, appThread = android.app.IApplicationThread$Stub$Proxy@529b20d, debugName = LauncherToDream }}
+11-27 17:10:18.230   877   938 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a0ef5c2, appThread = android.app.IApplicationThread$Stub$Proxy@d4befd3, debugName = QuickstepLaunchHome }}
+11-27 17:10:18.230   877   938 V WindowManagerShell:  Delegate animation for (#31) to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a0ef5c2, appThread = android.app.IApplicationThread$Stub$Proxy@d4befd3, debugName = QuickstepLaunchHome }
+11-27 17:10:18.273   540   563 V WindowManager: Sent Transition (#31) createdAt=11-27 17:10:18.145 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=150378 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{bfe6833 Task{363cb78 #11 type=standard A=10209:top.kcaron.cardstudio}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 31 }
+11-27 17:10:18.276   540   563 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-27 17:10:18.276   540   563 V WindowManager:     info={id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-27 17:10:18.276   540   563 V WindowManager:         {WCT{RemoteToken{e2f2881 Task{cc9c3b8 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb13d07f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 17:10:18.276   540   563 V WindowManager:         {WCT{RemoteToken{bfe6833 Task{363cb78 #11 type=standard A=10209:top.kcaron.cardstudio}}} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x600c997 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 17:10:18.276   540   563 V WindowManager:         {null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{2c62b4b token=android.os.Binder@197941a})/@0xa5e7040 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}
+11-27 17:10:18.276   540   563 V WindowManager:     ]}
+11-27 17:10:18.292   877   938 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@cba47dc
+11-27 17:10:18.292   877   938 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#31) android.os.BinderProxy@bc33613@0
+11-27 17:10:18.312   877   938 V WindowManagerShell: Track 0 became idle
+11-27 17:10:18.312   877   938 V WindowManagerShell: All active transition animations finished
+11-27 17:10:18.313   540   563 V WindowManager: Finish Transition (#31): created at 11-27 17:10:18.145 collect-started=0.022ms request-sent=0.535ms started=2.598ms ready=37.452ms sent=79.085ms finished=163.308ms
+11-27 17:10:18.582   540   599 I AppsFilter: interaction: PackageSetting{6c62724 top.kcaron.cardstudio/10209} -> PackageSetting{5ebc552 com.google.android.apps.messaging/10142} BLOCKED
+11-27 17:10:18.640  5671  5671 D Capacitor: App stopped
+11-27 17:10:18.664  5671  5671 D Capacitor: App destroyed
+11-27 17:10:18.669   540   619 D CoreBackPreview: Window{7ce69ab u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 17:10:18.713   540  2043 W InputManager-JNI: Input channel object '7ce69ab top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 17:10:18.779   540  2043 I ActivityManager: Killing 5699:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i4 (adj 0): isolated not needed

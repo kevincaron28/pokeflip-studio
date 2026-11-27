@@ -1,0 +1,39 @@
+/home/runner/work/pokeflip-studio/pokeflip-studio/tools/emulator-check.py:464: SyntaxWarning: invalid escape sequence '\/'
+  d['webview'] = page.js("(navigator.userAgent.match(/Chrome\/[0-9.]+/)||[''])[0]")
+== 0 version in the installed app
+{"check": "0 version in the installed app", "ok": true, "detail": {"versionName": "4.7.0", "versionCode": "40700", "footer": "Cardstead 4.7 \u00b7 Built for the hunt, accountable to the numbers \u00b7 Always verify card identity and prices", "native": true, "android": "15"}}
+== 6 walkthrough opens once on first run, four steps
+{"check": "6 walkthrough opens once on first run, four steps", "ok": true, "detail": {"titles": ["Prices in Canadian dollars", "Your Watchlist and sets", "Restocks and drops", "Help is in Settings"], "closedAfterStart": true, "noReviewAtLaunch": true, "reopenedOnSecondRun": false}}
+== 7 Back on the first page asks to press again, then exits (try 1)
+{"check": "7 Back on the first page asks to press again, then exits (try 1)", "ok": true, "detail": {"pidBefore": "5029", "topBefore": "top.kcaron.cardstudio/.MainActivity", "afterOne": "top.kcaron.cardstudio/.MainActivity", "pidAfterOne": "5029", "toast": "Press Back again to exit", "afterLateSecond": "top.kcaron.cardstudio/.MainActivity", "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity", "ok": true}}
+== 7 Back on the first page asks to press again, then exits (try 2)
+{"check": "7 Back on the first page asks to press again, then exits (try 2)", "ok": true, "detail": {"pidBefore": "5671", "topBefore": "top.kcaron.cardstudio/.MainActivity", "afterOne": "top.kcaron.cardstudio/.MainActivity", "pidAfterOne": "5671", "toast": "Press Back again to exit", "afterLateSecond": "top.kcaron.cardstudio/.MainActivity", "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity", "ok": true}}
+== 7 Back on the first page asks to press again, then exits (try 3)
+{"check": "7 Back on the first page asks to press again, then exits (try 3)", "ok": true, "detail": {"pidBefore": "6639", "topBefore": "top.kcaron.cardstudio/.MainActivity", "afterOne": "top.kcaron.cardstudio/.MainActivity", "pidAfterOne": "6639", "toast": "Press Back again to exit", "afterLateSecond": "top.kcaron.cardstudio/.MainActivity", "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity", "ok": true}}
+== 7 Back on the first page asks to press again, then exits (try 4)
+{"check": "7 Back on the first page asks to press again, then exits (try 4)", "ok": true, "detail": {"pidBefore": "6921", "topBefore": "top.kcaron.cardstudio/.MainActivity", "afterOne": "top.kcaron.cardstudio/.MainActivity", "pidAfterOne": "6921", "toast": "Press Back again to exit", "afterLateSecond": "top.kcaron.cardstudio/.MainActivity", "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity", "ok": true}}
+== 7 Back from another page returns to the first page
+{"check": "7 Back from another page returns to the first page", "ok": true, "detail": {"before": "settings", "after": "prices"}}
+== 1 keyboard: price search
+{"check": "1 keyboard: price search", "ok": true, "detail": {"keyboardShown": true, "viewportBefore": 778, "viewportWithKeyboard": 499, "fieldTop": 331, "fieldBottom": 375, "barsHidden": true, "fieldAboveKeyboard": true, "pageResized": true, "backClosedKeyboardOnly": true, "barsBackAfter": true}}
+== 1 keyboard: sign-in email in Settings
+{"check": "1 keyboard: sign-in email in Settings", "ok": true, "detail": {"keyboardShown": true, "viewportBefore": 778, "viewportWithKeyboard": 499, "fieldTop": 375, "fieldBottom": 419, "barsHidden": true, "fieldAboveKeyboard": true, "pageResized": true, "backClosedKeyboardOnly": true, "barsBackAfter": true}}
+== 1 keyboard: product watch maximum price (alert form)
+{"check": "1 keyboard: product watch maximum price (alert form)", "ok": true, "detail": {"keyboardShown": true, "viewportBefore": 778, "viewportWithKeyboard": 543, "fieldTop": 375, "fieldBottom": 419, "barsHidden": true, "fieldAboveKeyboard": true, "pageResized": true, "backClosedKeyboardOnly": true, "barsBackAfter": true}}
+== 2 privacy policy opens inside the app, also offline
+{"check": "2 privacy policy opens inside the app, also offline", "ok": true, "detail": {"dialog": true, "sections": 16, "stayedInApp": true, "backClosedIt": true}}
+== 5 Help and FAQ page
+{"check": "5 Help and FAQ page", "ok": true, "detail": {"visible": true, "topics": 7}}
+== 6 walkthrough can be replayed from Settings
+{"check": "6 walkthrough can be replayed from Settings", "ok": true, "detail": {"open": true, "backClosedIt": true}}
+== 4 share opens the Android share sheet
+{"check": "4 share opens the Android share sheet", "ok": true, "detail": {"onTop": "com.android.intentresolver/.ChooserActivityLauncher", "returned": true}}
+== 8 report a problem: form, keyboard, opens a mail draft
+{"check": "8 report a problem: form, keyboard, opens a mail draft", "ok": true, "detail": {"open": true, "details": "Cardstead: Android app 4.7.0 (40700)", "keyboardShown": true, "textAboveKeyboard": true, "typed": "Emulator check", "copyStatus": "Copied. Send it to kevincaron28@gmail.co", "copyBox": null, "webview": "Chrome/124.0.6367.219", "onTop": "com.google.android.gm/.ComposeActivityGmailExternal"}}
+== 3 Rate button opens the Play Store page
+{"check": "3 Rate button opens the Play Store page", "ok": true, "detail": {"hidden": false, "onTop": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity"}}
+== 3 in-app rating is requested after a first saved alert, not before
+{"check": "3 in-app rating is requested after a first saved alert, not before", "ok": true, "detail": {"callsBeforeSaving": 0, "saved": true, "callsAfterSaving": 1, "googleAccepted": [true], "rememberedAsAsked": "2026-11-27", "onTop": "top.kcaron.cardstudio/.MainActivity", "plugin": "resolved", "playCoreLog": ["11-27 17:11:43.667  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:11:46.992  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:11:54.758  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:11:58.476  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:00.801  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:05.620  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:09.331  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:11.412  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:16.227  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:12:55.712  6237  6237 W PlayCore: UID: [10156]  PID: [6237] SplitInstallInfoProvider : No metadata found in AndroidManifest.", "11-27 17:13:43.544  8319  8375 I PlayCore: UID: [10209]  PID: [8319] ReviewService : requestInAppReview (top.kcaron.cardstudio)", "11-27 17:13:43.545  8319  8477 I PlayCore: UID: [10209]  PID: [8319] ReviewService : Initiate binding to the service."]}}
+== French: walkthrough, Help, privacy and report
+{"check": "French: walkthrough, Help, privacy and report", "ok": true, "detail": {"tour": "Des prix en dollars canadiens", "help": "Aide et FAQ", "privacy": "Politique de confidentialit\u00e9", "report": "Signaler un probl\u00e8me", "back": "Appuie encore sur Retour pour quitter"}}
+18/18 checks passed; failed: []; page errors: 5
