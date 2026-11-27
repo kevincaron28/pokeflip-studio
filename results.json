@@ -1,0 +1,525 @@
+{
+ "info": {
+  "webview_bounds": "[0,136][1080,2274]",
+  "android": "15",
+  "fatal": [
+   "11-27 19:56:02.191  9436  9453 E AndroidRuntime: FATAL EXCEPTION: UiAutomation",
+   "11-27 19:56:31.069  9669  9681 E AndroidRuntime: FATAL EXCEPTION: UiAutomation"
+  ]
+ },
+ "results": [
+  {
+   "check": "0 version in the installed app",
+   "ok": true,
+   "detail": {
+    "versionName": "4.7.1",
+    "versionCode": "40701",
+    "footer": "Cardstead 4.7 · Built for the hunt, accountable to the numbers · Always verify card identity and prices",
+    "native": true,
+    "android": "15"
+   }
+  },
+  {
+   "check": "6 walkthrough opens once on first run, four steps",
+   "ok": true,
+   "detail": {
+    "titles": [
+     "Prices in Canadian dollars",
+     "Your Watchlist and sets",
+     "Restocks and drops",
+     "Help is in Settings"
+    ],
+    "closedAfterStart": true,
+    "noReviewAtLaunch": true,
+    "reopenedOnSecondRun": false
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 1)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "5196",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity",
+    "pidAfterOne": "5196",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 2)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "5751",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity",
+    "pidAfterOne": "5751",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 3)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "6726",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity",
+    "pidAfterOne": "6726",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back on the first page asks to press again, then exits (try 4)",
+   "ok": true,
+   "detail": {
+    "pidBefore": "6952",
+    "topBefore": "top.kcaron.cardstudio/.MainActivity",
+    "afterOne": "top.kcaron.cardstudio/.MainActivity",
+    "pidAfterOne": "6952",
+    "toast": "Press Back again to exit",
+    "afterLateSecond": "top.kcaron.cardstudio/.MainActivity",
+    "afterQuickSecond": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+    "ok": true
+   }
+  },
+  {
+   "check": "7 Back from another page returns to the first page",
+   "ok": true,
+   "detail": {
+    "before": "settings",
+    "after": "prices"
+   }
+  },
+  {
+   "check": "1 keyboard: price search",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 499,
+    "fieldTop": 331,
+    "fieldBottom": 375,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "1 keyboard: sign-in email in Settings",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 499,
+    "fieldTop": 375,
+    "fieldBottom": 419,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "1 keyboard: product watch maximum price (alert form)",
+   "ok": true,
+   "detail": {
+    "keyboardShown": true,
+    "viewportBefore": 778,
+    "viewportWithKeyboard": 543,
+    "fieldTop": 375,
+    "fieldBottom": 419,
+    "barsHidden": true,
+    "fieldAboveKeyboard": true,
+    "pageResized": true,
+    "backClosedKeyboardOnly": true,
+    "barsBackAfter": true
+   }
+  },
+  {
+   "check": "2 privacy policy opens inside the app, also offline",
+   "ok": true,
+   "detail": {
+    "dialog": true,
+    "sections": 16,
+    "stayedInApp": true,
+    "backClosedIt": true
+   }
+  },
+  {
+   "check": "5 Help and FAQ page",
+   "ok": true,
+   "detail": {
+    "visible": true,
+    "topics": 7
+   }
+  },
+  {
+   "check": "6 walkthrough can be replayed from Settings",
+   "ok": true,
+   "detail": {
+    "open": true,
+    "backClosedIt": true
+   }
+  },
+  {
+   "check": "4 share opens the Android share sheet",
+   "ok": true,
+   "detail": {
+    "onTop": "com.android.intentresolver/.ChooserActivityLauncher",
+    "returned": true
+   }
+  },
+  {
+   "check": "8 report a problem: form, keyboard, opens a mail draft",
+   "ok": true,
+   "detail": {
+    "open": true,
+    "details": "Cardstead: Android app 4.7.1 (40701)",
+    "keyboardShown": true,
+    "textAboveKeyboard": true,
+    "typed": "Emulator check",
+    "copyStatus": "Copied. Send it to kevincaron28@gmail.co",
+    "copyBox": null,
+    "webview": "Chrome/124.0.6367.219",
+    "onTop": "com.google.android.gm/.ComposeActivityGmailExternal"
+   }
+  },
+  {
+   "check": "3 Rate button opens the Play Store page",
+   "ok": true,
+   "detail": {
+    "hidden": false,
+    "onTop": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity"
+   }
+  },
+  {
+   "check": "3 in-app rating is requested after a first saved alert, not before",
+   "ok": true,
+   "detail": {
+    "callsBeforeSaving": 0,
+    "saved": true,
+    "callsAfterSaving": 1,
+    "googleAccepted": [
+     true
+    ],
+    "rememberedAsAsked": "2026-11-27",
+    "onTop": "top.kcaron.cardstudio/.MainActivity",
+    "plugin": "resolved",
+    "playCoreLog": [
+     "11-27 19:49:45.327  1600  2120 I PlayCore: UID: [10142]  PID: [1600] OnWarmUpIntegrityTokenCallback : onWarmUpExpressIntegrityToken",
+     "11-27 19:49:45.329  1600  1757 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : requestExpressIntegrityToken(-3081138636299034054)",
+     "11-27 19:49:45.344  1600  3899 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : Unbind from service.",
+     "11-27 19:49:45.464  1600  3899 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : Initiate binding to the service.",
+     " 1600  1600 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : ServiceConnectionImpl.onServiceConnected(ComponentInfo{com.android.vending/com.google.android.finsky.expressintegrityservice.ExpressIntegrityService})",
+     "11-27 19:49:45.494  1600  3899 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : linkToDeath",
+     "11-27 19:49:45.577  1600  1770 I PlayCore: UID: [10142]  PID: [1600] OnRequestIntegrityTokenCallback : onRequestExpressIntegrityToken",
+     "11-27 19:49:45.614  1600  3899 I PlayCore: UID: [10142]  PID: [1600] StandardIntegrity : Unbind from service.",
+     "11-27 19:51:21.058  6228  6280 I PlayCore: UID: [10157]  PID: [6228] SplitInstallService : deferredInstall([brella_feature_split])",
+     "11-27 19:51:21.065  6228  6307 I PlayCore: UID: [10157]  PID: [6228] SplitInstallService : Initiate binding to the service.",
+     "11-27 19:51:21.081  6228  6280 I PlayCore: UID: [10157]  PID: [6228] SplitInstallService : deferredInstall([tenoranimation_feature_split])",
+     "11-27 19:51:21.082  6228  6307 I PlayCore: UID: [10157]  PID: [6228] SplitInstallService : Already connected to the service."
+    ]
+   }
+  },
+  {
+   "check": "French: walkthrough, Help, privacy and report",
+   "ok": true,
+   "detail": {
+    "tour": "Des prix en dollars canadiens",
+    "help": "Aide et FAQ",
+    "privacy": "Politique de confidentialité",
+    "report": "Signaler un problème",
+    "back": "Appuie encore sur Retour pour quitter"
+   }
+  },
+  {
+   "check": "theme: opened in light mode",
+   "ok": true,
+   "detail": {
+    "theme-01-light-start:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3054,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-01-light-start:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2940,
+     "lightIconPixels": 0,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: switched to dark and back while open, without restarting",
+   "ok": true,
+   "detail": {
+    "theme-02-live-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3298,
+     "ok": true
+    },
+    "theme-02-live-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 2940,
+     "ok": true
+    },
+    "theme-03-live-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3059,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-03-live-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2940,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-04-live-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3298,
+     "ok": true
+    },
+    "theme-04-live-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 2940,
+     "ok": true
+    },
+    "samePage": true,
+    "samePid": true
+   }
+  },
+  {
+   "check": "theme: opened in dark mode",
+   "ok": true,
+   "detail": {
+    "theme-05-dark-start:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3203,
+     "ok": true
+    },
+    "theme-05-dark-start:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 2940,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: switched while the app was in the background",
+   "ok": true,
+   "detail": {
+    "theme-06-resumed-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3002,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-06-resumed-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2940,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-07-resumed-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3216,
+     "ok": true
+    },
+    "theme-07-resumed-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 2940,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: keyboard open and Settings page, light",
+   "ok": true,
+   "detail": {
+    "theme-08-settings-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3002,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "theme-08-settings-light:navigation": {
+     "height": 66,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 2940,
+     "lightIconPixels": 0,
+     "ok": true
+    },
+    "keyboardShown": true,
+    "theme-08-keyboard-light:status": {
+     "height": 136,
+     "background": [
+      250,
+      250,
+      250
+     ],
+     "darkIconPixels": 3002,
+     "lightIconPixels": 0,
+     "ok": true
+    }
+   }
+  },
+  {
+   "check": "theme: keyboard open and Settings page, dark",
+   "ok": true,
+   "detail": {
+    "theme-09-settings-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3337,
+     "ok": true
+    },
+    "theme-09-settings-dark:navigation": {
+     "height": 66,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 2940,
+     "ok": true
+    },
+    "keyboardShown": true,
+    "theme-09-keyboard-dark:status": {
+     "height": 136,
+     "background": [
+      17,
+      26,
+      46
+     ],
+     "darkIconPixels": 0,
+     "lightIconPixels": 3337,
+     "ok": true
+    }
+   }
+  }
+ ],
+ "js_errors": [
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Object",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28",
+  "console.error: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')\n    at <anonymous>:2:28"
+ ]
+}

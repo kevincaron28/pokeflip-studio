@@ -1,0 +1,1055 @@
+9   544   971 I ActivityManager:   Force stopping service ServiceRecord{992ecbe u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:03.630   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.634   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.634   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.634   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.634   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.636   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.647   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.647   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.647   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.647   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.649   544   971 I ActivityManager:   Force stopping service ServiceRecord{509b522 u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:03.650   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.655   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.655   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.655   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.655   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.658   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.658   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.658   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.658   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.658   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.661   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.661   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.661   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.661   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.666   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.666   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.666   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.666   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.667   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.667   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.667   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.668   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.668   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.668   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.668   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.669   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.670   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.670   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.670   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.670   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.670   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.675   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.675   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.675   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.675   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.676   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.706   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.706   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.706   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.706   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.707   544  1124 I ActivityManager:   Force stopping service ServiceRecord{db1e9a6 u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:03.708   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.708   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.708   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.708   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.711   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.711   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.712   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.712   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.712   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.712   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.716   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.803   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.803   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.803   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.803   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.805   544  1124 I ActivityManager:   Force stopping service ServiceRecord{5c8b818 u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:03.805   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:03.826   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:03.826   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:03.826   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:03.826   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:03.828   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.070   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.070   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.070   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.070   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{1df4cc1 u0 com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{54ce145 u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{5ab7589 u0 com.google.android.gms/com.google.android.location.network.NetworkLocationService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{2568d8d u0 com.google.android.gms/.geotimezone.GeoTimeZoneService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{e5a23cf u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{d396d51 u0 com.google.android.gms/com.google.android.location.fused.FusedLocationService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{c284e84 u0 com.google.android.gms/.chimera.GmsApiService c:com.google.android.apps.messaging}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{c337992 u0 com.google.android.gms/.location.geocode.GeocodeService c:android}
+11-27 19:51:04.073   544   971 I ActivityManager:   Force stopping service ServiceRecord{a3fb78f u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:04.076   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.077   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.077   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.077   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.077   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.079   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.079   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.079   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.079   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.081   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.081   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.115   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.115   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.115   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.115   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.116   544  2506 I ActivityManager:   Force stopping service ServiceRecord{179e79b u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:04.118   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.157   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.157   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.157   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.157   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.158   544  2506 I ActivityManager: Killing 5597:com.google.android.apps.messaging/u0a140 (adj 200): stop com.google.android.gms due to start failure
+11-27 19:51:04.159   544  2506 W ActivityManager: Scheduling restart of crashed service com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService in 1000ms for connection
+11-27 19:51:04.161   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.168   544  2505 V ActivityManager: Got obituary of 5597:com.google.android.apps.messaging
+11-27 19:51:04.274  5196  5196 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:04.279  5196  5196 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:04.286  5196  5196 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:04.287  5196  5196 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 8429723, pluginId: App, methodName: exitApp
+11-27 19:51:04.287  5196  5196 V Capacitor: callback: 8429723, pluginId: App, methodName: exitApp, methodData: {}
+11-27 19:51:04.289  5196  5196 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:04.291   877   924 V WindowManagerShell: Transition requested (#31): android.os.BinderProxy@ec51a0a TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=10 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=126905 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@597527b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 31 }
+11-27 19:51:04.300  5196  5196 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 19:51:04.300  5196  5196 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 19:51:04.303  5196  5196 D Capacitor: App paused
+11-27 19:51:04.320   877   924 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=552
+11-27 19:51:04.451   544  2506 D ActivityManager: sync unfroze 1481 com.google.android.googlequicksearchbox:search for 6
+11-27 19:51:04.476   544   576 W ActivityManager: Slow operation: 93ms so far, now at startProcess: returned from zygote!
+11-27 19:51:04.478   877  1508 V WindowManagerShell: onTransitionReady(transaction=2336462209954)
+11-27 19:51:04.484   544   563 V WindowManager: Sent Transition (#31) createdAt=11-27 19:51:04.290 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=10 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=126905 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{e12dc0d Task{9875d7c #10 type=standard A=10209:top.kcaron.cardstudio}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 31 }
+11-27 19:51:04.484   544   563 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-27 19:51:04.484   544   563 V WindowManager:     info={id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-27 19:51:04.484   544   563 V WindowManager:         {WCT{RemoteToken{6a2dd3b Task{cc806da #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x84ce90f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:04.484   544   563 V WindowManager:         {WCT{RemoteToken{e12dc0d Task{9875d7c #10 type=standard A=10209:top.kcaron.cardstudio}}} m=CLOSE f=NONE leash=Surface(name=Task=10)/@0xb7e1755 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:04.484   544   563 V WindowManager:         {null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0xa3e0657 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}
+11-27 19:51:04.484   544   563 V WindowManager:     ]}
+11-27 19:51:04.485   877   924 V WindowManagerShell: onTransitionReady (#31) android.os.BinderProxy@ec51a0a: {id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@a46d644} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x2b1c898 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@20a232d} m=CLOSE f=NONE leash=Surface(name=Task=10)/@0xe60e8f1 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x1a2ccd6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:04.486   544   971 W ActivityManager: Slow operation: 103ms so far, now at startProcess: done updating battery stats
+11-27 19:51:04.486   544   971 W ActivityManager: Slow operation: 103ms so far, now at startProcess: building log message
+11-27 19:51:04.487   544   971 I ActivityManager: Start proc 5651:com.google.android.apps.messaging/u0a140 for service {com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService}
+11-27 19:51:04.487   544   971 W ActivityManager: Slow operation: 104ms so far, now at startProcess: starting to update pids map
+11-27 19:51:04.488   544   971 W ActivityManager: Slow operation: 105ms so far, now at startProcess: done updating pids map
+11-27 19:51:04.501   877   924 V WindowManagerShell: Playing animation for (#31) android.os.BinderProxy@ec51a0a@0
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@9e939b1
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@7c7ae96
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@53b3a17
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@ab4ee04
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@aa6bfed
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@5c81e22
+11-27 19:51:04.501   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:04.501   877   924 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=31 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@a46d644} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x2b1c898 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@20a232d} m=CLOSE f=NONE leash=Surface(name=Task=10)/@0xe60e8f1 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x1a2ccd6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:04.501   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[OPEN,TO_FRONT] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a8537b, appThread = android.app.IApplicationThread$Stub$Proxy@d3d3598, debugName = OverlaySwipeBack }}
+11-27 19:51:04.501   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@4f451f1, appThread = android.app.IApplicationThread$Stub$Proxy@e6481d6, debugName = LauncherToDream }}
+11-27 19:51:04.502   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }}
+11-27 19:51:04.504   877   924 V WindowManagerShell:  Delegate animation for (#31) to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }
+11-27 19:51:04.516   877   924 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:04.584   877   924 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#31) android.os.BinderProxy@ec51a0a@0
+11-27 19:51:04.646   877   924 V WindowManagerShell: Track 0 became idle
+11-27 19:51:04.646   877   924 V WindowManagerShell: All active transition animations finished
+11-27 19:51:04.646   544   971 W ActivityManager: Slow operation: 78ms so far, now at startProcess: done creating new process record
+11-27 19:51:04.646   544   971 W ActivityManager: Slow operation: 78ms so far, now at startProcess: stepping in to startProcess
+11-27 19:51:04.647   544   971 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:04.647   544   971 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:04.647   544   971 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:04.647   544   971 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:04.679   544   971 W ActivityManager: Slow operation: 111ms so far, now at startProcess: done starting proc!
+11-27 19:51:04.721   544   563 V WindowManager: Finish Transition (#31): created at 11-27 19:51:04.290 collect-started=0.025ms request-sent=0.063ms started=8.285ms ready=108.672ms sent=159.594ms finished=326.589ms
+11-27 19:51:04.772   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:04.889  5196  5196 D Capacitor: App stopped
+11-27 19:51:04.899  5196  5196 D Capacitor: App destroyed
+11-27 19:51:04.903   544  1370 D CoreBackPreview: Window{a975c43 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 19:51:05.022   544  2506 W InputManager-JNI: Input channel object 'a975c43 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 19:51:05.175   544  1370 I ActivityManager: Killing 5247:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i3 (adj 0): isolated not needed
+11-27 19:51:05.310   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.310   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.310   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.310   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.313   544  1370 I ActivityManager:   Force stopping service ServiceRecord{ff90328 u0 com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService c:android}
+11-27 19:51:05.313   544  1370 I ActivityManager:   Force stopping service ServiceRecord{71a2f3c u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:android}
+11-27 19:51:05.313   544  1370 I ActivityManager:   Force stopping service ServiceRecord{c5f0210 u0 com.google.android.gms/com.google.android.location.network.NetworkLocationService c:android}
+11-27 19:51:05.314   544  1370 I ActivityManager:   Force stopping service ServiceRecord{7768fa4 u0 com.google.android.gms/.geotimezone.GeoTimeZoneService c:android}
+11-27 19:51:05.314   544  1370 I ActivityManager:   Force stopping service ServiceRecord{cf6c417 u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:top.kcaron.cardstudio}
+11-27 19:51:05.314   544  1370 I ActivityManager:   Force stopping service ServiceRecord{186abf8 u0 com.google.android.gms/com.google.android.location.fused.FusedLocationService c:android}
+11-27 19:51:05.314   544  1370 I ActivityManager:   Force stopping service ServiceRecord{91f663f u0 com.google.android.gms/.location.geocode.GeocodeService c:android}
+11-27 19:51:05.314   544  1370 I ActivityManager:   Force stopping service ServiceRecord{86dd9a5 u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.316   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.316   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.316   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.316   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.323   544  1450 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.323   544  1450 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.323   544  1450 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.323   544  1450 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.324   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.324   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.324   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.328   544  1450 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.328   544  1450 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.328   544  1450 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.328   544  1450 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.329   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.356   544  2635 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.356   544  2635 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.356   544  2635 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.356   544  2635 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.359   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.367   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.367   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.367   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.367   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.368   544  2506 I ActivityManager:   Force stopping service ServiceRecord{163893d u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.370   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.374   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.374   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.374   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.374   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.377   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.380   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.380   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.380   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.380   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.398   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.398   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.398   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.398   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.398   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.399   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.400   544  2635 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.400   544  2635 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.400   544  2635 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.400   544  2635 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.402   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.404   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.404   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.404   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.404   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.411   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.412   544  2635 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.412   544  2635 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.412   544  2635 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.412   544  2635 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.414   544  2635 I ActivityManager:   Force stopping service ServiceRecord{4742dbf u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.414   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.458   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.458   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.458   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.458   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.460   544  2506 I ActivityManager:   Force stopping service ServiceRecord{db7148d u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.461   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.463   544  2506 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.463   544  2506 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.463   544  2506 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.463   544  2506 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.475   544  1451 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.475   544  1451 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.475   544  1451 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.475   544  1451 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.478   544  1451 I ActivityManager:   Force stopping service ServiceRecord{b192b54 u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.482   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.482   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.482   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.482   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.485   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.485   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.485   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.488   544   976 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.488   544   976 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.488   544   976 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.488   544   976 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.488   544   976 I ActivityManager:   Force stopping service ServiceRecord{69ebb97 u0 com.google.android.gms/.chimera.GmsApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.492   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.496   544   976 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.496   544   976 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.496   544   976 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.496   544   976 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.503   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.527   544  1450 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.527   544  1450 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.527   544  1450 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.527   544  1450 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.528   544  1450 I ActivityManager:   Force stopping service ServiceRecord{2324d25 u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:com.google.android.apps.messaging}
+11-27 19:51:05.528   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.543   544   976 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.543   544   976 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.543   544   976 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.543   544   976 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.544   544   976 I ActivityManager:   Force stopping service ServiceRecord{abdfbdd u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:05.545   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.565   544  1450 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:05.565   544  1450 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:05.565   544  1450 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:05.565   544  1450 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:05.570   544  1450 I ActivityManager: Killing 5651:com.google.android.apps.messaging/u0a140 (adj 905): stop com.google.android.gms due to start failure
+11-27 19:51:05.574   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:05.581   544  1450 V ActivityManager: Got obituary of 5651:com.google.android.apps.messaging
+11-27 19:51:06.268   544   576 I ActivityManager: Start proc 5695:com.google.android.apps.messaging/u0a140 for content provider {com.google.android.apps.messaging/com.google.android.apps.messaging.shared.datamodel.provider.sharedstorage.SharedStorageProvider}
+11-27 19:51:06.458   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.458   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.458   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.458   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{64aacbd u0 com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService c:android}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{cece244 u0 com.google.android.gms/.nearby.sharing.SharingTileService c:com.android.systemui}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{c88f981 u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:android}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{1314205 u0 com.google.android.gms/com.google.android.location.network.NetworkLocationService c:android}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{4c74a49 u0 com.google.android.gms/.geotimezone.GeoTimeZoneService c:android}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{fe7e7fe u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.inputmethod.latin}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{c5a964d u0 com.google.android.gms/com.google.android.location.fused.FusedLocationService c:android}
+11-27 19:51:06.459   544  1370 I ActivityManager:   Force stopping service ServiceRecord{c4a6a11 u0 com.google.android.gms/.location.geocode.GeocodeService c:android}
+11-27 19:51:06.463   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.466   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.466   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.466   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.466   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.470   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.512   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.512   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.512   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.512   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.514   544  1370 I ActivityManager:   Force stopping service ServiceRecord{871691a u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:06.515   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.515   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.515   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.515   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.530   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.530   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.533   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.533   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.533   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.533   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.535   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.547   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.547   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.547   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.547   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.548   544  1370 I ActivityManager:   Force stopping service ServiceRecord{6f07304 u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:06.548   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.552   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.552   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.552   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.552   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.554   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.554   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.554   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.555   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.555   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.555   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.566   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:06.567   544  1370 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.567   544  1370 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.567   544  1370 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.567   544  1370 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.570   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.579   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.579   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.579   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.579   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.586   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.586   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.586   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.586   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.586   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.593   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.610   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.610   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.610   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.610   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.616   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.658   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.658   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.658   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.658   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.666   544  1124 I ActivityManager:   Force stopping service ServiceRecord{309c364 u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:06.666   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.667   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.667   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.667   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.667   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.670   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:06.674   544  1124 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:06.674   544  1124 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:06.674   544  1124 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:06.674   544  1124 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:06.676   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:07.142   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:07.142   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.

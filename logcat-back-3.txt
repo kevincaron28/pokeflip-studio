@@ -1,0 +1,850 @@
+kcaron.cardstudio/10209} -> PackageSetting{7e756c3 com.google.android.overlay.pixelconfigcommon/10046} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{7c18b40 com.android.systemui.accessibility.accessibilitymenu.auto_generated_rro_product__/10000} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{955fa79 com.android.systemui.emulation.pixel_3a/10053} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{e82b3be com.android.systemui.emulation.pixel_4a/10063} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{35e9c1f com.android.systemui.emulation.pixel_6a/10067} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{1d41b6c com.android.systemui.emulation.pixel_7a/10064} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{932c535 com.android.systemui.emulation.pixel_8a/10069} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{f68b25c com.google.android.settings.intelligence/10141} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{d7d82ba com.google.android.projection.gearhead/10130} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{9dadb3b com.google.android.uwb.resources/10203} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{221856b com.android.cts.ctsshim/10187} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{b9d8258 com.google.android.wifi.resources/10200} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{7d77fb1 com.google.android.wifi.dialog/10202} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{38f7c96 com.android.wallpaper/10179} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{735c1d4 com.android.microdroid.empty_payload/10195} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{e11f017 com.google.android.apps.wallpaper/10181} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{d946c04 com.google.android.odad/10136} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{3365ed com.android.settings.auto_generated_rro_product__/10057} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{13ecc22 com.android.systemui.emulation.pixel_9_pro_xl/10073} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{e3b76b3 com.android.companiondevicemanager.auto_generated_characteristics_rro/10010} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{eee4470 com.android.internal.systemui.navbar.gestural/10044} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{2ed73e9 com.google.android.apps.youtube.music/10166} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{7a1886e com.android.bluetoothmidiservice/10111} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{a6ccb0f com.android.storagemanager.auto_generated_rro_product__/10049} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{2cb379c com.google.android.cellbroadcastreceiver/10185} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{a2065a5 com.android.phone.auto_generated_rro_product__/10077} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{161bd7a com.android.systemui.emulation.pixel_9_pro_fold/10072} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{4b5092b android.auto_generated_rro_product__/10084} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{c223188 com.google.android.inputmethod.latin/10157} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{cd6b721 android.auto_generated_rro_vendor__/10090} BLOCKED
+11-27 19:51:09.140   544  1450 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{7be3746 com.google.android.apps.restore/10133} BLOCKED
+11-27 19:51:09.194  5751  5751 D nativeloader: Load /data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk!/lib/x86_64/libmonochrome_64.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:51:09.195  5751  5751 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:51:09.266   544   576 I ActivityManager: Start proc 5773:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i4 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:51:09.286  5773  5773 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:51:09.342   544  1755 D ActivityManager: sync unfroze 3665 com.google.android.webview:webview_service for 6
+11-27 19:51:09.375   544  1755 D ConnectivityService: requestNetwork for uid/pid:10209/5751 activeRequest: null callbackRequest: 177 [NetworkRequest [ REQUEST id=178, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false
+11-27 19:51:09.375   544   789 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=178, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:09.375   544   789 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=178, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:09.375   544   789 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=178, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:09.375   544   789 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=178, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:09.407  5751  5751 D Capacitor: Starting BridgeActivity
+11-27 19:51:09.430  5751  5751 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:51:09.431  5751  5751 D Capacitor: Registering plugin instance: WebView
+11-27 19:51:09.432  5751  5751 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:51:09.433  5751  5751 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:51:09.438  5751  5751 D Capacitor: Registering plugin instance: AppReview
+11-27 19:51:09.438  5751  5751 D Capacitor: Registering plugin instance: App
+11-27 19:51:09.439  5751  5751 D Capacitor: Registering plugin instance: Browser
+11-27 19:51:09.440  5751  5751 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:51:09.446  5751  5751 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:51:09.448  5751  5751 D Capacitor: Registering plugin instance: Share
+11-27 19:51:09.449  5751  5751 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:51:09.452  5751  5751 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:51:09.454  5751  5751 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:51:09.454  5751  5751 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:51:09.455  5751  5751 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:51:09.455  5751  5751 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:51:09.471  5751  5751 W Capacitor: Unable to read file at path public/plugins
+11-27 19:51:09.473  5751  5751 D Capacitor: Loading app at https://localhost
+11-27 19:51:09.496  5751  5751 D Capacitor: App started
+11-27 19:51:09.496  5751  5751 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+11-27 19:51:09.496  5751  5751 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 19:51:09.500  5751  5751 D Capacitor/AppPlugin: Firing change: true
+11-27 19:51:09.500  5751  5751 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:51:09.501  5751  5751 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:51:09.523   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:09.523   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:09.525  5751  5751 D Capacitor: App resumed
+11-27 19:51:09.533   544  2510 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:09.533   544  2510 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:09.533   544  2510 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:09.533   544  2510 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{16f1a65 u0 com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService c:android}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{db65ca9 u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:android}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{37b42ad u0 com.google.android.gms/com.google.android.location.network.NetworkLocationService c:android}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{dd71071 u0 com.google.android.gms/.geotimezone.GeoTimeZoneService c:android}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{1d0d03d u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.apps.messaging}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{616c9f5 u0 com.google.android.gms/com.google.android.location.fused.FusedLocationService c:android}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{a5d3208 u0 com.google.android.gms/.chimera.GmsApiService c:top.kcaron.cardstudio}
+11-27 19:51:09.537   544  2510 I ActivityManager:   Force stopping service ServiceRecord{3ff3339 u0 com.google.android.gms/.location.geocode.GeocodeService c:android}
+11-27 19:51:09.546   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:09.563  5751  5789 D Capacitor: Handling local request: https://localhost/
+11-27 19:51:09.568   544  1755 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:09.568   544  1755 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:09.568   544  1755 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:09.570   544  1755 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:09.573   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:09.575   544   976 D CoreBackPreview: Window{5b14657 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@5c9a361, mPriority=0, mIsAnimationCallback=false}
+11-27 19:51:09.611   544  1755 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:09.611   544  1755 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:09.611   544  1755 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:09.611   544  1755 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:09.621   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:09.643   544  1755 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:09.643   544  1755 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:09.643   544  1755 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:09.643   544  1755 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:09.645   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:09.713   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:09.713   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:09.718  5751  5777 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:51:09.738  5751  5788 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:51:09.771  5751  5751 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:51:09.772  5751  5751 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:51:09.782  5751  5779 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:51:09.790  5751  5789 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:51:09.791  5751  5790 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:51:09.800  5751  5794 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:51:10.000  5751  5779 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:51:10.003  5751  5788 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:51:10.003  5751  5788 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:51:10.004  5751  5788 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:51:10.005  5751  5788 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:51:10.006  5751  5790 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:51:10.006  5751  5790 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:51:10.007  5751  5790 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:51:10.008  5751  5790 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:51:10.008  5751  5779 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:51:10.009  5751  5789 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:51:10.009  5751  5794 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:51:10.010  5751  5794 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:51:10.011  5751  5794 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:51:10.012  5751  5788 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:51:10.013  5751  5790 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:51:10.014  5751  5794 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:51:10.014  5751  5779 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:51:10.014  5751  5789 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:51:10.014  5751  5790 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:51:10.015  5751  5788 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:51:10.015  5751  5790 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:51:10.016  5751  5789 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:51:10.016  5751  5789 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:51:10.017  5751  5789 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:51:10.017  5751  5788 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:51:10.018  5751  5779 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:51:10.019  5751  5777 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:51:10.019  5751  5790 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:51:10.020  5751  5788 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:51:10.021  5751  5794 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:51:10.022  5751  5790 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:51:10.023  5751  5788 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:51:10.023  5751  5789 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:51:10.023  5751  5777 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:51:10.024  5751  5777 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:51:10.025  5751  5779 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:51:10.030   544  1755 E ActivityManager: Failure starting process com.google.android.gms
+11-27 19:51:10.030   544  1755 E ActivityManager: java.lang.SecurityException: Package com.google.android.gms is currently frozen!
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService.checkPackageStartable(PackageManagerService.java:4598)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.checkPackageStartable(PackageManagerService.java:4725)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:1871)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2629)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ProcessList.startProcessLocked(ProcessList.java:2775)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.startProcessLocked(ActivityManagerService.java:3014)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProviderImpl(ContentProviderHelper.java:563)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ContentProviderHelper.getContentProvider(ContentProviderHelper.java:150)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.getContentProvider(ActivityManagerService.java:7127)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:2950)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2812)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
+11-27 19:51:10.030   544  1755 E ActivityManager: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 19:51:10.030   544  1755 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: start failure
+11-27 19:51:10.032   544   566 I ActivityManager: Exiting empty application process 0:com.google.android.gms/u0a145 (null)
+11-27 19:51:10.034  5751  5779 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:51:10.041  5751  5790 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:51:10.108  5751  5777 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:51:10.132  5751  5751 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:10.133  5751  5751 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:10.134  5751  5751 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:10.139  5751  5751 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 11906995, pluginId: App, methodName: addListener
+11-27 19:51:10.140  5751  5751 V Capacitor: callback: 11906995, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:51:10.140  5751  5751 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 11906996, pluginId: App, methodName: addListener
+11-27 19:51:10.141  5751  5751 V Capacitor: callback: 11906996, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:51:10.141  5751  5751 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 11906997, pluginId: App, methodName: getLaunchUrl
+11-27 19:51:10.141  5751  5751 V Capacitor: callback: 11906997, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:51:10.199  5751  5777 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:51:10.218  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:10.230   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:10.230   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:10.307   544   563 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:10.308   544   563 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity for user 0: +1s867ms
+11-27 19:51:10.368  5751  5779 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:51:10.374   544   654 I ImeTracker: top.kcaron.cardstudio:5b70e521: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+11-27 19:51:10.374   544   654 I ImeTracker: top.kcaron.cardstudio:5b70e521: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-27 19:51:10.386  1275  1275 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1986 onStartInput(EditorInfo{EditorInfo{packageName=top.kcaron.cardstudio, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=12000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-27 19:51:10.396   544  1450 W PackageConfigPersister: App-specific configuration not found for packageName: top.kcaron.cardstudio and userId: 0
+11-27 19:51:10.426   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:10.426   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:10.452  5751  5788 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:51:10.453   544  1755 W InputManager-JNI: Input channel object '939b8d Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 19:51:10.470   544  2510 W WindowManager: Failed looking up window session=Session{fc1ea4e 877:u0a10180} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6311 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:1020 android.view.IWindowSession$Stub.onTransact:1199 
+11-27 19:51:10.470   544  2510 I WindowManager: setOnBackInvokedCallback(): No window state for package:com.android.systemui
+11-27 19:51:10.782   544   574 W ActivityManager: pid 544 system sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:10.782   544   574 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:10.898   544   637 D ActivityManager: freezing 1310 com.google.android.apps.wellbeing
+11-27 19:51:15.132  5751  5779 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:51:15.132  5751  5779 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:51:15.132  5751  5751 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:15.142  5751  5779 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:51:15.143  5751  5779 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:15.154  5751  5779 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:15.158  5751  5777 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:15.158  5751  5777 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:15.293  5751  5751 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 11906998, pluginId: SplashScreen, methodName: hide
+11-27 19:51:15.293  5751  5751 V Capacitor: callback: 11906998, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:51:15.438   544   637 D ActivityManager: freezing 880 com.google.android.permissioncontroller
+11-27 19:51:15.637  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:15.646  5751  5874 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 19:51:16.166  5880  5880 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:51:17.355   544  2510 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 19:51:18.347  1033  1033 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 19:51:18.358   544   598 I ActivityManager: Force stopping com.google.android.gms appid=10145 user=0: pkg removed
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{e56a8c3 u0 com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{b632127 u0 com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{eb01b4b u0 com.google.android.gms/com.google.android.location.network.NetworkLocationService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{644fb2f u0 com.google.android.gms/.geotimezone.GeoTimeZoneService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{dfed77a u0 com.google.android.gms/.chimera.PersistentDirectBootAwareApiService c:com.google.android.inputmethod.latin}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{5bae4d3 u0 com.google.android.gms/com.google.android.location.fused.FusedLocationService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{de224d0 u0 com.google.android.gms/.chimera.GmsApiService c:top.kcaron.cardstudio}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{ca0bc37 u0 com.google.android.gms/.location.geocode.GeocodeService c:android}
+11-27 19:51:18.359   544   598 I ActivityManager:   Force stopping service ServiceRecord{6d007ff u0 com.google.android.gms/.chimera.PersistentApiService c:com.google.android.apps.messaging}
+11-27 19:51:18.407   544   575 D ActivityManager: sync unfroze 880 com.google.android.permissioncontroller for 3
+11-27 19:51:18.450   544   576 I ActivityManager: Start proc 5918:com.google.android.gms/u0a145 for broadcast {com.google.android.gms/com.google.android.gms.chimera.GmsIntentOperationService$PersistentTrustedReceiver}
+11-27 19:51:18.584   544   544 D ActivityManager: sync unfroze 1629 com.android.keychain for 10
+11-27 19:51:18.585   544   544 D ActivityManager: sync unfroze 1034 com.android.settings for 10
+11-27 19:51:18.585   544   544 D ActivityManager: sync unfroze 2991 com.android.dynsystem:dynsystem for 10
+11-27 19:51:18.586   544   544 D ActivityManager: sync unfroze 2975 com.android.dynsystem for 10
+11-27 19:51:18.586   544   544 D ActivityManager: sync unfroze 1920 com.android.localtransport for 10
+11-27 19:51:18.662   877   888 W ndroid.systemui: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk' with 2 weak references
+11-27 19:51:18.934   544  1124 D ActivityManager: sync unfroze 1310 com.google.android.apps.wellbeing for 7
+11-27 19:51:18.991   544  1466 W ActivityManager: pid 1376 com.google.android.googlequicksearchbox:interactor sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:18.997   544   559 I ActivityManager: Process com.google.android.googlequicksearchbox:search (pid 1481) has died: fg  BFGS
+11-27 19:51:18.998   544   559 W ActivityManager: Scheduling restart of crashed service com.google.android.googlequicksearchbox/com.google.android.apps.gsa.search.core.service.SearchService in 1000ms for connection
+11-27 19:51:18.998   544   559 I ActivityManager: Killing 3680:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a144i0 (adj 0): isolated not needed
+11-27 19:51:19.020   544  1450 W ActivityManager: pid 1031 com.google.android.bluetooth sent binder code 4 with flags 2 to frozen apps and got error -32
+11-27 19:51:19.020   544  1450 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.064   544  1451 I ActivityManager: Process com.android.vending (pid 4790) has died: prcm  +2 TRNB
+11-27 19:51:19.066   544  1466 W ActivityManager: pid 4854 com.android.vending:background sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:19.066   544  1466 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.066   544  1466 W ActivityManager: pid 5040 com.android.vending:quick_launch sent binder code 2 with flags 1 to frozen apps and got error -32
+11-27 19:51:19.066   544  1466 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.067   544  1451 W ActivityManager: Scheduling restart of crashed service com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain in 10931ms for connection
+11-27 19:51:19.067   544  1451 W ActivityManager: Scheduling restart of crashed service com.android.vending/com.google.android.finsky.crossprofile.ProfileStateService in 20931ms for connection
+11-27 19:51:19.067   544  1451 W ActivityManager: Scheduling restart of crashed service com.android.vending/com.google.frameworks.client.data.android.server.play.MainProcessEndpointService in 30931ms for connection
+11-27 19:51:19.130   544   576 I ActivityManager: Start proc 5983:com.android.vending/u0a142 for service {com.android.vending/com.google.frameworks.client.data.android.server.play.MainProcessEndpointService}
+11-27 19:51:19.194   544   576 I ActivityManager: Start proc 5994:com.google.android.googlequicksearchbox:search/u0a144 for service {com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService}
+11-27 19:51:19.322   544  1661 I ActivityManager: Process com.google.android.inputmethod.latin (pid 1275) has died: prcp IMPB
+11-27 19:51:19.322   544  1661 W ActivityManager: Scheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 30676ms for connection
+11-27 19:51:19.323   544  2506 I WindowManager: WIN DEATH: Window{8debfa5 u0 InputMethod}
+11-27 19:51:19.326   544   566 W ActivityManager: setHasOverlayUi called on unknown pid: 1275
+11-27 19:51:19.354   544   544 W ActivityManager: pid 544 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 19:51:19.354   544   544 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.367   544   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.googlequicksearchbox/com.google.android.apps.gsa.search.core.service.SearchService in 631ms for other
+11-27 19:51:19.368   544   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 10631ms for other
+11-27 19:51:19.384   544  1452 I ActivityManager: Process com.google.android.apps.wellbeing (pid 1310) has died: vis BFGS
+11-27 19:51:19.390   544  2527 W ActivityManager: pid 1123 com.google.android.apps.nexuslauncher sent binder code 21 with flags 2 to frozen apps and got error -32
+11-27 19:51:19.390   544  2527 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.396   544   544 W ActivityManager: pid 544 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 19:51:19.396   544   544 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.396   544   544 W ActivityManager: pid 544 system sent binder code 7 with flags 1 to frozen apps and got error -32
+11-27 19:51:19.396   544   544 D ActivityManager: Too many transaction errors, throttling freezer binder callback.
+11-27 19:51:19.716   544   637 D ActivityManager: freezing 3665 com.google.android.webview:webview_service
+11-27 19:51:19.809   544   575 W ActivityManager: Rescheduling restart of crashed service com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME in 513ms for other
+11-27 19:51:19.966   544   576 I ActivityManager: Start proc 6154:com.google.android.gms.unstable/u0a145 for service {com.google.android.gms/com.google.android.gms.droidguard.DroidGuardService}
+11-27 19:51:20.045  5918  6034 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 19:51:20.352   544   576 I ActivityManager: Start proc 6228:com.google.android.inputmethod.latin/u0a157 for service {com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME}
+11-27 19:51:20.926   544  1450 D ActivityManager: sync unfroze 2683 com.google.android.rkpdapp for 6
+11-27 19:51:21.302  6228  6228 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1986 onStartInput(EditorInfo{EditorInfo{packageName=top.kcaron.cardstudio, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=12000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-27 19:51:21.307   544  1755 W PackageConfigPersister: App-specific configuration not found for packageName: top.kcaron.cardstudio and userId: 0
+11-27 19:51:21.414  5751  5758 W aron.cardstudio: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk' with 2 weak references
+11-27 19:51:21.672  6154  6164 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:21.679  6154  6164 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:21.844  6154  6277 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:21.850  6154  6277 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:21.853   544  1477 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 19:51:22.367  5918  6029 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 19:51:22.465  6154  6164 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:22.471  6154  6164 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:22.499   544   575 D ActivityManager: sync unfroze 4235 com.google.android.settings.intelligence for 3
+11-27 19:51:22.698  5918  6046 W libc    : Access denied finding property "ro.hardware.chipname"
+11-27 19:51:23.283  6154  6163 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:23.283  6154  6163 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:23.355  6426  6426 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:51:23.686  5918  5925 W gle.android.gms: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk' with 1 weak references
+11-27 19:51:24.161   544   575 D ActivityManager: sync unfroze 2066 com.google.android.partnersetup for 3
+11-27 19:51:24.354   544  1372 I ActivityManager: Process com.android.chrome (pid 2919) has died: cch CACC
+11-27 19:51:24.354   544  1372 W ActivityManager: Scheduling restart of crashed service com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService in 1000ms for connection
+11-27 19:51:24.371   544   576 I ActivityManager: Start proc 6491:com.google.android.apps.wellbeing/u0a143 for broadcast {com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.fences.screen.ScreenTurningOffReceiver_Receiver}
+11-27 19:51:24.540   544   561 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 19:51:25.365   544   576 I ActivityManager: Start proc 6534:com.android.chrome/u0a146 for service {com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService}
+11-27 19:51:25.790   544   598 I AppsFilter: interaction: PackageSetting{f47ffb6 top.kcaron.cardstudio/10209} -> PackageSetting{2e32437 com.google.android.apps.messaging/10140} BLOCKED
+11-27 19:51:25.835  6154  6163 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:25.835  6154  6163 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:26.854   544   575 D ActivityManager: sync unfroze 2022 com.google.android.tts for 3
+11-27 19:51:29.078   544   637 D ActivityManager: freezing 5040 com.android.vending:quick_launch
+11-27 19:51:29.191   544   637 D ActivityManager: freezing 4854 com.android.vending:background
+11-27 19:51:29.357   544  1099 D ActivityManager: sync unfroze 4854 com.android.vending:background for 6
+11-27 19:51:29.650  6154  6163 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:29.650  6154  6163 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:29.883  5751  5751 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:29.888  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:30.196   544  1100 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fraudprotect.service.SimStateMonitorService } U=0: not found
+11-27 19:51:33.694  6154  6163 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-27 19:51:33.695  6154  6163 W libc    : Access denied finding property "service.adb.tls.port"
+11-27 19:51:34.170   544   629 D ActivityManager: sync unfroze 3069 com.google.android.configupdater for 6
+11-27 19:51:34.381   544   637 D ActivityManager: freezing 2066 com.google.android.partnersetup
+11-27 19:51:35.135  5751  5751 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:35.139  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:35.538   544   637 D ActivityManager: freezing 2683 com.google.android.rkpdapp
+11-27 19:51:35.972  5751  5751 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:35.975  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:35.976  5751  5751 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:35.977  5751  5751 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 11906999, pluginId: App, methodName: exitApp
+11-27 19:51:35.977  5751  5751 V Capacitor: callback: 11906999, pluginId: App, methodName: exitApp, methodData: {}
+11-27 19:51:35.979  5751  5751 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:35.980   877   924 V WindowManagerShell: Transition requested (#33): android.os.BinderProxy@870b50a TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=157109 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@ee2517b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 33 }
+11-27 19:51:35.983  5751  5751 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 19:51:35.983  5751  5751 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 19:51:35.985  5751  5751 D Capacitor: App paused
+11-27 19:51:36.013   877   924 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=552
+11-27 19:51:36.062   877  5128 V WindowManagerShell: onTransitionReady(transaction=2336462210080)
+11-27 19:51:36.073   877   924 V WindowManagerShell: onTransitionReady (#33) android.os.BinderProxy@870b50a: {id=33 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@7dd9944} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb525b98 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@ca52a2d} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x9897ff1 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x9ed17d6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:36.073   877   924 V WindowManagerShell: Playing animation for (#33) android.os.BinderProxy@870b50a@0
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@9e939b1
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@7c7ae96
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@53b3a17
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@ab4ee04
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@aa6bfed
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@5c81e22
+11-27 19:51:36.073   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:36.073   877   924 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=33 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@7dd9944} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb525b98 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@ca52a2d} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x9897ff1 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x9ed17d6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:36.073   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[OPEN,TO_FRONT] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a8537b, appThread = android.app.IApplicationThread$Stub$Proxy@d3d3598, debugName = OverlaySwipeBack }}
+11-27 19:51:36.073   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@4f451f1, appThread = android.app.IApplicationThread$Stub$Proxy@e6481d6, debugName = LauncherToDream }}
+11-27 19:51:36.073   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }}
+11-27 19:51:36.073   877   924 V WindowManagerShell:  Delegate animation for (#33) to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }
+11-27 19:51:36.090   544   563 V WindowManager: Sent Transition (#33) createdAt=11-27 19:51:35.979 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=157109 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{5daf45 Task{44065db #11 type=standard A=10209:top.kcaron.cardstudio}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 33 }
+11-27 19:51:36.090   544   563 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-27 19:51:36.091   544   563 V WindowManager:     info={id=33 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-27 19:51:36.091   544   563 V WindowManager:         {WCT{RemoteToken{6a2dd3b Task{cc806da #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x84ce90f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:36.091   544   563 V WindowManager:         {WCT{RemoteToken{5daf45 Task{44065db #11 type=standard A=10209:top.kcaron.cardstudio}}} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x5ab6389 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:36.091   544   563 V WindowManager:         {null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0xa3e0657 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}
+11-27 19:51:36.091   544   563 V WindowManager:     ]}
+11-27 19:51:36.113   877   924 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:36.113   877   924 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#33) android.os.BinderProxy@870b50a@0
+11-27 19:51:36.114   544   563 V WindowManager: Finish Transition (#33): created at 11-27 19:51:35.979 collect-started=0.03ms request-sent=0.107ms started=3.354ms ready=57.721ms sent=82.37ms finished=134.797ms
+11-27 19:51:36.116   877   924 V WindowManagerShell: Track 0 became idle
+11-27 19:51:36.120   877   924 V WindowManagerShell: All active transition animations finished
+11-27 19:51:36.430  5751  5751 D Capacitor: App stopped
+11-27 19:51:36.441  5751  5751 D Capacitor: App destroyed
+11-27 19:51:36.446   544  1453 D CoreBackPreview: Window{5b14657 u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 19:51:36.482   544  2415 W InputManager-JNI: Input channel object '5b14657 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 19:51:36.626   544  2505 I ActivityManager: Killing 5773:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i4 (adj 0): isolated not needed
+11-27 19:51:36.986  5587  5587 I artd    : Dex parent of /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk is not writable: Permission denied
+11-27 19:51:36.987  5587  5587 I artd    : GetBestInfo checking odex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex)
+11-27 19:51:36.987  5587  5587 I artd    : Loading /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex with executable: 0
+11-27 19:51:36.987  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex: File /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.vdex does not exist.
+11-27 19:51:36.987  5587  5587 I artd    : GetBestInfo checking odex next to the dex file (/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex)
+11-27 19:51:36.987  5587  5587 I artd    : Loading /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex with executable: 0
+11-27 19:51:36.988  5587  5587 I artd    : Successfully loaded /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex with executable: 0
+11-27 19:51:36.989  5587  5587 I artd    : /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex is kOatUpToDate with filter verify
+11-27 19:51:37.001  5983  6071 I Finsky  : [61] ItemStore: Not cached: com.google.android.webview
+11-27 19:51:37.005  5983  6059 I Finsky  : [58] ItemStore: Not cached: top.kcaron.cardstudio
+11-27 19:51:37.006  5983  6059 I Finsky  : [58] ItemStore: Not cached: com.google.android.overlay.googlewebview
+11-27 19:51:37.044   544   637 D ActivityManager: freezing 2022 com.google.android.tts
+11-27 19:51:37.069  5587  5587 I artd    : Dex parent of /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk is not writable: Permission denied
+11-27 19:51:37.069  5587  5587 I artd    : GetBestInfo checking odex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex)
+11-27 19:51:37.069  5587  5587 I artd    : Loading /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex with executable: 0
+11-27 19:51:37.069  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.069  5587  5587 I artd    : GetBestInfo checking odex next to the dex file (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex)
+11-27 19:51:37.069  5587  5587 I artd    : Loading /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex with executable: 0
+11-27 19:51:37.069  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.069  5587  5587 I artd    : GetBestInfo checking vdex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex)
+11-27 19:51:37.069  5587  5587 I artd    : unable to open vdex file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.069  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.070  5587  5587 I artd    : GetBestInfo checking vdex next to the dex file (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex)
+11-27 19:51:37.070  5587  5587 I artd    : unable to open vdex file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.070  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.070  5587  5587 I artd    : GetBestInfo checking dm (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm)
+11-27 19:51:37.070  5587  5587 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:37.070  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm: I/O error
+11-27 19:51:37.070  5587  5587 I artd    : GetBestInfo checking dm (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm)
+11-27 19:51:37.070  5587  5587 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:37.070  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm: I/O error
+11-27 19:51:37.174  5983  6059 E Finsky  : [58] ItemStore: getItems RPC failed for item com.google.android.webview
+11-27 19:51:37.179  5983  6071 E Finsky  : [61] ItemStore: getItems RPC failed for item top.kcaron.cardstudio
+11-27 19:51:37.179  5983  6071 E Finsky  : [61] ItemStore: getItems RPC failed for item com.google.android.overlay.googlewebview
+11-27 19:51:37.251  5587  5587 I artd    : Dex parent of /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk is not writable: Permission denied
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking odex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex)
+11-27 19:51:37.252  5587  5587 I artd    : Loading /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex with executable: 0
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.dex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking odex next to the dex file (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex)
+11-27 19:51:37.252  5587  5587 I artd    : Loading /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex with executable: 0
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.odex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking vdex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex)
+11-27 19:51:37.252  5587  5587 I artd    : unable to open vdex file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex: File /data/dalvik-cache/x86_64/data@app@~~M3jC_rW-UsLYgVryIaZefw==@top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==@base.apk@classes.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking vdex next to the dex file (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex)
+11-27 19:51:37.252  5587  5587 I artd    : unable to open vdex file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex: File /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/oat/x86_64/base.vdex does not exist.
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking dm (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm)
+11-27 19:51:37.252  5587  5587 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm: I/O error
+11-27 19:51:37.252  5587  5587 I artd    : GetBestInfo checking dm (/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm)
+11-27 19:51:37.252  5587  5587 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:37.252  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm: I/O error
+11-27 19:51:37.272  5587  5587 I artd    : Dex parent of /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk is not writable: Permission denied
+11-27 19:51:37.272  5587  5587 I artd    : GetBestInfo checking odex in dalvik-cache (/data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex)
+11-27 19:51:37.272  5587  5587 I artd    : Loading /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex with executable: 0
+11-27 19:51:37.272  5587  5587 I artd    : OatFileAssistant test for existing oat file /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.dex: File /data/dalvik-cache/x86_64/data@app@~~rRUYfpBzs5mzOjPlcKgtOA==@com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==@WebViewGoogle.apk@classes.vdex does not exist.
+11-27 19:51:37.272  5587  5587 I artd    : GetBestInfo checking odex next to the dex file (/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex)
+11-27 19:51:37.272  5587  5587 I artd    : Loading /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex with executable: 0
+11-27 19:51:37.273  5587  5587 I artd    : Successfully loaded /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex with executable: 0
+11-27 19:51:37.273  5587  5587 I artd    : /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/oat/x86_64/WebViewGoogle.odex is kOatUpToDate with filter verify
+11-27 19:51:38.217   544  2505 I ActivityManager: Force stopping top.kcaron.cardstudio appid=10209 user=0: from pid 6717
+11-27 19:51:38.219   544  2505 I ActivityManager: Killing 5751:top.kcaron.cardstudio/u0a209 (adj 900): stop top.kcaron.cardstudio due to from pid 6717
+11-27 19:51:38.222   544  2505 I AppsFilter: interaction: PackageSetting{735c1d4 com.android.microdroid.empty_payload/10195} -> PackageSetting{c26a9a8 top.kcaron.cardstudio/10209} BLOCKED
+11-27 19:51:38.225  1033  1033 D CarrierSvcBindHelper: onHandleForceStop: [top.kcaron.cardstudio]
+11-27 19:51:38.236   544  1372 V ActivityManager: Got obituary of 5751:top.kcaron.cardstudio
+11-27 19:51:38.236   544   566 W ActivityManager: setHasOverlayUi called on unknown pid: 5751
+11-27 19:51:39.241   544  1100 W ActivityTaskManager: callingPackage for (uid=2000, pid=6722) has no WPC
+11-27 19:51:39.247   544  1100 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+11-27 19:51:39.249   544   561 I AppsFilter: interaction: PackageSetting{735c1d4 com.android.microdroid.empty_payload/10195} -> PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} BLOCKED
+11-27 19:51:39.251   877   924 V WindowManagerShell: Transition requested (#34): android.os.BinderProxy@42874ba TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=12 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} topActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=1 lastActiveTime=187336 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@aa68f6b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 136 - 0, 0) topActivityInfo=ActivityInfo{5fdac8 top.kcaron.cardstudio.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 34 }
+11-27 19:51:39.253  1123  1123 I TopTaskTracker: onTaskMovedToFront: (moved taskInfo to front) taskId=12, baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity }
+11-27 19:51:39.261   544  1474 D CoreBackPreview: Window{616878f u0 Splash Screen top.kcaron.cardstudio}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@15203fa, mPriority=0, mIsAnimationCallback=false}
+11-27 19:51:39.261   877   924 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=false, height=552
+11-27 19:51:39.282   544   576 I ActivityManager: Start proc 6726:top.kcaron.cardstudio/u0a209 for next-top-activity {top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}
+11-27 19:51:39.321   877  5128 V WindowManagerShell: onTransitionReady(transaction=2336462210109)
+11-27 19:51:39.321   544   563 V WindowManager: Sent Transition (#34) createdAt=11-27 19:51:39.243 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=12 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} topActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=1 lastActiveTime=187336 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{f6e727f Task{68f266d #12 type=standard A=10209:top.kcaron.cardstudio}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 136 - 0, 0) topActivityInfo=ActivityInfo{623a24c top.kcaron.cardstudio.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 34 }
+11-27 19:51:39.321   544   563 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-27 19:51:39.321   544   563 V WindowManager:     info={id=34 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-27 19:51:39.321   544   563 V WindowManager:         {WCT{RemoteToken{f6e727f Task{68f266d #12 type=standard A=10209:top.kcaron.cardstudio}}} m=OPEN f=NONE leash=Surface(name=Task=12)/@0x6e48723 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:39.321   544   563 V WindowManager:         {WCT{RemoteToken{6a2dd3b Task{cc806da #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x84ce90f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1}
+11-27 19:51:39.321   544   563 V WindowManager:     ]}
+11-27 19:51:39.336   877   924 V WindowManagerShell: onTransitionReady (#34) android.os.BinderProxy@42874ba: {id=34 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@fae295b} m=OPEN f=NONE leash=Surface(name=Task=12)/@0xae3250c sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@52385f8} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb489e55 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1}]}
+11-27 19:51:39.336   877   924 V WindowManagerShell: Playing animation for (#34) android.os.BinderProxy@42874ba@0
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@9e939b1
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@7c7ae96
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@53b3a17
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@ab4ee04
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@aa6bfed
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@5c81e22
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:39.336   877   924 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=34 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@fae295b} m=OPEN f=NONE leash=Surface(name=Task=12)/@0xae3250c sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@52385f8} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb489e55 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1}]}
+11-27 19:51:39.336   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[OPEN,TO_FRONT] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a8537b, appThread = android.app.IApplicationThread$Stub$Proxy@d3d3598, debugName = OverlaySwipeBack }}
+11-27 19:51:39.336   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@4f451f1, appThread = android.app.IApplicationThread$Stub$Proxy@e6481d6, debugName = LauncherToDream }}
+11-27 19:51:39.336   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }}
+11-27 19:51:39.336   877   924 V WindowManagerShell:  Delegate animation for (#34) to null
+11-27 19:51:39.336   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultTransitionHandler@f834f7a
+11-27 19:51:39.336   877   924 V WindowManagerShell: start default transition animation, info = {id=34 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@fae295b} m=OPEN f=NONE leash=Surface(name=Task=12)/@0xae3250c sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@52385f8} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb489e55 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1}]}
+11-27 19:51:39.336   877   924 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@8c1cad1 animAttr=0x13 type=OPEN isEntrance=false
+11-27 19:51:39.336   877   924 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@4f53936 animAttr=0x12 type=OPEN isEntrance=true
+11-27 19:51:39.352   877   924 V WindowManagerShell:  animated by com.android.wm.shell.transition.DefaultTransitionHandler@f834f7a
+11-27 19:51:39.397   877   924 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#34) android.os.BinderProxy@42874ba@0
+11-27 19:51:39.419   544   563 V WindowManager: Finish Transition (#34): created at 11-27 19:51:39.243 collect-started=0.108ms request-sent=3.731ms started=12.524ms ready=71.012ms sent=72.138ms finished=165.906ms
+11-27 19:51:39.461   877   924 V WindowManagerShell: Track 0 became idle
+11-27 19:51:39.461   877   924 V WindowManagerShell: All active transition animations finished
+11-27 19:51:39.588  6726  6726 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:39.588  6726  6726 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:39.768  6726  6726 D nativeloader: Configuring clns-7 for other apk /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/lib/x86_64:/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/top.kcaron.cardstudio
+11-27 19:51:39.842  6726  6726 I WebViewFactory: Loading com.google.android.webview version 124.0.6367.219 (code 636771938)
+11-27 19:51:39.845  6726  6726 V ResourcesManager: The following library key has been added: ResourcesKey{ mHash=4fd59605 mResDir=null mSplitDirs=[] mOverlayDirs=[/product/overlay/EmulationPixel5/EmulationPixel5Overlay.apk,/product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk] mLibDirs=[/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk,/data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk,/system_ext/framework/androidx.window.extensions.jar] mDisplayId=0 mOverrideConfig=v35 mCompatInfo={440dpi always-compat} mLoaders=[]}
+11-27 19:51:39.847  6726  6726 D nativeloader: Configuring clns-8 for other apk /data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/lib/x86_64:/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 19:51:39.850   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d635716 com.android.cts.priv.ctsshim/10186} BLOCKED
+11-27 19:51:39.850   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{8d8f897 com.google.android.youtube/10167} BLOCKED
+11-27 19:51:39.851   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{bea0a84 com.android.internal.display.cutout.emulation.corner/10005} BLOCKED
+11-27 19:51:39.851   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7f2e26d com.android.internal.display.cutout.emulation.double/10006} BLOCKED
+11-27 19:51:39.851  6726  6726 D nativeloader: Configuring clns-9 for other apk /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/lib/x86_64:/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-27 19:51:39.851   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{38789f7 com.google.android.googlequicksearchbox/10144} BLOCKED
+11-27 19:51:39.851   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b5cea2 com.google.android.onetimeinitializer/10131} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5aa8733 com.google.android.ext.shared/10117} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{33f4af0 com.android.virtualmachine.res/10194} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{683869 com.android.managedprovisioning.auto_generated_rro_product__/10039} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7c632ee com.android.carrierconfig.auto_generated_rro_vendor__/10085} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{4fc638f com.google.android.server.deviceconfig.resources/10198} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{566261c com.android.systemui.emulation.pixel_3_xl/10052} BLOCKED
+11-27 19:51:39.852   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{1c2f225 com.android.systemui.emulation.pixel_4_xl/10056} BLOCKED
+11-27 19:51:39.853   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{3668ffa com.android.systemui.emulation.pixel_fold/10074} BLOCKED
+11-27 19:51:39.853   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7e5a9ab com.android.providers.telephony.auto_generated_characteristics_rro/10079} BLOCKED
+11-27 19:51:39.853   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{bbd8808 com.android.simappdialog.auto_generated_rro_product__/10048} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d558ba1 com.android.htmlviewer/10122} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d7db1c6 com.google.android.health.connect.backuprestore/10206} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{fd33587 com.android.systemui.auto_generated_rro_product__/10075} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2e32437 com.google.android.apps.messaging/10140} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d1e40dd com.google.android.soundpicker/10163} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5932452 com.google.android.marvin.talkbackoverlay/10086} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e23a323 com.google.android.configupdater/10129} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{f35020 com.android.internal.emulation.pixel_3a_xl/10030} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2c30dd9 com.android.internal.emulation.pixel_6_pro/10019} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a1b339e com.android.internal.emulation.pixel_7_pro/10022} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{1834e7f com.android.internal.emulation.pixel_8_pro/10025} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{c0d4e4c com.android.internal.emulation.pixel_9_pro/10028} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a4dae95 com.android.internal.emulation.pixel_3a/10014} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a82ebaa com.android.internal.emulation.pixel_4a/10017} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d08539b com.android.internal.emulation.pixel_6a/10020} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ae70338 com.android.internal.emulation.pixel_7a/10023} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ca79f11 com.android.internal.emulation.pixel_8a/10026} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{dfc1876 com.google.android.overlay.googlewebview/10036} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{50e8e77 com.google.android.apps.safetyhub/10139} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{da51ae4 com.google.android.hotspot2.osulogin/10201} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{dd61b4d com.android.simappdialog/10124} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b094602 com.android.internal.display.cutout.emulation.hole/10008} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{dd39b13 com.android.internal.display.cutout.emulation.tall/10009} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b0150 com.android.internal.systemui.navbar.threebutton/10051} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2f61f49 com.android.camera2/10147} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{bc9c04e com.android.internal.ranchu.commonoverlay/10045} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7d2d56f com.android.systemui.auto_generated_rro_vendor__/10087} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{4a6e27c com.google.android.deskclock/10158} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{bf86705 com.android.internal.systemui.navbar.twobutton/10041} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{bf79f7d com.google.android.as/10134} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b05935a com.google.android.gm/10165} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5e1598b com.android.compos.payload/10208} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{6bdaa68 com.android.systemui.emulation.pixel_3/10050} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d1d6e81 com.android.systemui.emulation.pixel_4/10055} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5f98b26 com.android.systemui.emulation.pixel_5/10058} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{90a0367 com.android.systemui.emulation.pixel_6/10059} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ef70514 com.android.systemui.emulation.pixel_7/10062} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{43171bd com.android.systemui.emulation.pixel_8/10065} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ee333b2 com.android.systemui.emulation.pixel_9/10070} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e296f03 com.android.printspooler/10125} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{6c95e80 com.google.android.connectivity.resources.goldfish.overlay/10089} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5886cb9 com.android.dreams.basic/10112} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{c4cd8fe com.google.android.networkstack.tethering.emulator/10032} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{949f85f com.android.providers.settings.auto_generated_rro_product__/10047} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{6a5e2ac com.google.android.as.oss/10128} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{cba1b75 com.android.traceur.auto_generated_rro_product__/10081} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{119870a com.android.internal.emulation.pixel_9_pro_fold/10029} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{abfbb7b com.google.android.devicelockcontroller/10184} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ae47d98 com.google.android.dialer/10138} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d1df9f1 com.android.internal.emulation.pixel_3/10012} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{95109d6 com.android.internal.emulation.pixel_4/10015} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a049457 com.android.internal.emulation.pixel_5/10024} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b6fdb44 com.android.internal.emulation.pixel_6/10018} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e07442d com.android.internal.emulation.pixel_7/10021} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7abed62 com.android.internal.emulation.pixel_8/10037} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2541ef3 com.android.internal.emulation.pixel_9/10027} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{23167b0 com.google.android.captiveportallogin/10115} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ec0f629 android.auto_generated_characteristics_rro/10083} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{fdf7dae com.google.android.appsearch.apk/10204} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d07b74f com.android.musicfx/10105} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{c3d4edc com.google.android.apps.docs/10150} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{df0726 com.google.android.apps.maps/10164} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e49cbe5 com.google.android.markup/10151} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{9a9c6ba com.google.android.rkpdapp/10207} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{5b2796b com.google.android.contacts/10154} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{1be7cc8 com.android.server.telecom.auto_generated_rro_product__/10078} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2d04161 com.android.phone.auto_generated_characteristics_rro/10076} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{89d9486 com.google.android.overlay.googleconfig/10061} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{3fd4147 com.android.bips.auto_generated_rro_product__/10001} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a29d74 com.google.android.apps.customization.pixel/10155} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{cee929d com.google.android.tag/10108} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{4ae7312 com.google.android.overlay.permissioncontroller/10035} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{742aae3 com.google.android.partnersetup/10137} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{6061ce0 com.google.android.apps.wallpaper.nexus/10153} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2a6bb99 com.google.android.apps.nexuslauncher/10176} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{f7cae5e com.android.theme.font.notoserifsource/10033} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{feb123f com.google.android.safetycenter.resources/10189} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{260270c com.android.internal.display.cutout.emulation.waterfall/10034} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e1e7855 com.android.internal.systemui.navbar.transparent/10082} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{261526a com.google.android.connectivity.resources/10188} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{288935b com.android.providers.contacts.auto_generated_rro_product__/10003} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{46ea7f8 com.google.android.feedback/10172} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{c1b44d1 com.google.android.printservice.recommendation/10120} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{13a2b36 com.google.android.apps.photos/10156} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{14b4f5a com.google.android.calendar/10149} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b30a37 com.google.android.documentsui/10098} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{6e24ba4 com.android.systemui.emulation.pixel_3a_xl/10054} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{63e5d0d com.android.systemui.emulation.pixel_6_pro/10060} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{df5c4c2 com.android.systemui.emulation.pixel_7_pro/10066} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{3a412d3 com.android.systemui.emulation.pixel_8_pro/10068} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{cca7e10 com.android.systemui.emulation.pixel_9_pro/10071} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{500bd09 com.android.carrierconfig.auto_generated_rro_product__/10002} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{8df6b0e com.android.devicediagnostics.auto_generated_rro_product__/10004} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{493092f com.android.providers.partnerbookmarks/10121} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{8c16b3c com.android.wallpaper.livepicker/10103} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{56f20c5 com.android.providers.telephony.auto_generated_rro_product__/10080} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{9ab2a1a com.android.phone.auto_generated_rro_vendor__/10088} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ed1094b com.android.imsserviceentitlement/10132} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ad7ff28 com.android.internal.emulation.pixel_9_pro_xl/10040} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{ea60441 com.google.android.healthconnect.controller/10205} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d41cde6 com.android.internal.emulation.pixel_2_xl/10011} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7a4ef27 com.android.internal.emulation.pixel_3_xl/10013} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{141e5d4 com.android.internal.emulation.pixel_4_xl/10016} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{30da37d com.android.internal.emulation.pixel_fold/10031} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{44ce272 com.android.bookmarkprovider/10113} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7e756c3 com.google.android.overlay.pixelconfigcommon/10046} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7c18b40 com.android.systemui.accessibility.accessibilitymenu.auto_generated_rro_product__/10000} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{955fa79 com.android.systemui.emulation.pixel_3a/10053} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e82b3be com.android.systemui.emulation.pixel_4a/10063} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{35e9c1f com.android.systemui.emulation.pixel_6a/10067} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{1d41b6c com.android.systemui.emulation.pixel_7a/10064} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{932c535 com.android.systemui.emulation.pixel_8a/10069} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{f68b25c com.google.android.settings.intelligence/10141} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d7d82ba com.google.android.projection.gearhead/10130} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{9dadb3b com.google.android.uwb.resources/10203} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{221856b com.android.cts.ctsshim/10187} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{b9d8258 com.google.android.wifi.resources/10200} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7d77fb1 com.google.android.wifi.dialog/10202} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{38f7c96 com.android.wallpaper/10179} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{735c1d4 com.android.microdroid.empty_payload/10195} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e11f017 com.google.android.apps.wallpaper/10181} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{d946c04 com.google.android.odad/10136} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{3365ed com.android.settings.auto_generated_rro_product__/10057} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{13ecc22 com.android.systemui.emulation.pixel_9_pro_xl/10073} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{e3b76b3 com.android.companiondevicemanager.auto_generated_characteristics_rro/10010} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{eee4470 com.android.internal.systemui.navbar.gestural/10044} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2ed73e9 com.google.android.apps.youtube.music/10166} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7a1886e com.android.bluetoothmidiservice/10111} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a6ccb0f com.android.storagemanager.auto_generated_rro_product__/10049} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{2cb379c com.google.android.cellbroadcastreceiver/10185} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{a2065a5 com.android.phone.auto_generated_rro_product__/10077} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{161bd7a com.android.systemui.emulation.pixel_9_pro_fold/10072} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{4b5092b android.auto_generated_rro_product__/10084} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{c223188 com.google.android.inputmethod.latin/10157} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{cd6b721 android.auto_generated_rro_vendor__/10090} BLOCKED
+11-27 19:51:39.858   544  1755 I AppsFilter: interaction: PackageSetting{dab5ef0 top.kcaron.cardstudio/10209} -> PackageSetting{7be3746 com.google.android.apps.restore/10133} BLOCKED
+11-27 19:51:39.879  6726  6726 D nativeloader: Load /data/app/~~zpqR1VchyHwaXIOApuuc3A==/com.google.android.trichromelibrary_636771938-sg28yn9ykk8HONJNCEuRiw==/TrichromeLibrary.apk!/lib/x86_64/libmonochrome_64.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:51:39.880  6726  6726 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:51:39.909   544  1755 I ActivityManager: Start proc 6752:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i5 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:51:39.923  6752  6752 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:51:39.938   544  1474 D ActivityManager: sync unfroze 3665 com.google.android.webview:webview_service for 6
+11-27 19:51:39.952   544  1372 D ConnectivityService: requestNetwork for uid/pid:10209/6726 activeRequest: null callbackRequest: 226 [NetworkRequest [ REQUEST id=227, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false
+11-27 19:51:39.953   544   789 D OemPaidWifiNetworkFactory: got request NetworkRequest [ REQUEST id=227, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:39.953   544   789 D MultiInternetWifiNetworkFactory: got request NetworkRequest [ REQUEST id=227, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:39.953   544   789 D WifiNetworkFactory: got request NetworkRequest [ REQUEST id=227, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:39.953   544   789 D UntrustedWifiNetworkFactory: got request NetworkRequest [ REQUEST id=227, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10209 RequestorUid: 10209 RequestorPkg: top.kcaron.cardstudio UnderlyingNetworks: Null] ]
+11-27 19:51:39.968  6726  6726 D Capacitor: Starting BridgeActivity
+11-27 19:51:39.977  6726  6726 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:51:39.979  6726  6726 D Capacitor: Registering plugin instance: WebView
+11-27 19:51:39.980  6726  6726 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:51:39.981  6726  6726 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:51:39.983  6726  6726 D Capacitor: Registering plugin instance: AppReview
+11-27 19:51:39.984  6726  6726 D Capacitor: Registering plugin instance: App
+11-27 19:51:39.984  6726  6726 D Capacitor: Registering plugin instance: Browser
+11-27 19:51:39.986  6726  6726 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:51:39.988  6726  6726 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:51:39.990  6726  6726 D Capacitor: Registering plugin instance: Share
+11-27 19:51:39.991  6726  6726 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:51:39.994  6726  6726 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:51:39.996  6726  6726 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:51:39.996  6726  6726 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:51:39.996  6726  6726 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:51:39.996  6726  6726 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:51:40.006  6726  6726 W Capacitor: Unable to read file at path public/plugins
+11-27 19:51:40.009  6726  6726 D Capacitor: Loading app at https://localhost
+11-27 19:51:40.029  6726  6726 D Capacitor: App started
+11-27 19:51:40.030  6726  6726 W WindowOnBackDispatcher: OnBackInvokedCallback is not enabled for the application.
+11-27 19:51:40.030  6726  6726 W WindowOnBackDispatcher: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-27 19:51:40.031  6726  6726 D Capacitor/AppPlugin: Firing change: true
+11-27 19:51:40.031  6726  6726 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:51:40.031  6726  6726 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:51:40.042  6726  6726 D Capacitor: App resumed
+11-27 19:51:40.063  6726  6760 D Capacitor: Handling local request: https://localhost/
+11-27 19:51:40.081   544  1755 D CoreBackPreview: Window{6f6d4b u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@ad0d672, mPriority=0, mIsAnimationCallback=false}
+11-27 19:51:40.185  6726  6767 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:51:40.199  6726  6764 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:51:40.213  6726  6760 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:51:40.218  6726  6773 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:51:40.219  6726  6763 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:51:40.233  6726  6776 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:51:40.403  6726  6763 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:51:40.404  6726  6764 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:51:40.405  6726  6773 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:51:40.405  6726  6760 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:51:40.405  6726  6760 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:51:40.406  6726  6760 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:51:40.406  6726  6760 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:51:40.406  6726  6760 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:51:40.406  6726  6760 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:51:40.407  6726  6760 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:51:40.407  6726  6760 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:51:40.407  6726  6760 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:51:40.407  6726  6760 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:51:40.407  6726  6760 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:51:40.408  6726  6760 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:51:40.408  6726  6760 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:51:40.408  6726  6760 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:51:40.409  6726  6776 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:51:40.411  6726  6773 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:51:40.412  6726  6773 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:51:40.413  6726  6773 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:51:40.413  6726  6776 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:51:40.413  6726  6776 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:51:40.414  6726  6776 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:51:40.414  6726  6776 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:51:40.414  6726  6776 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:51:40.414  6726  6776 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:51:40.414  6726  6776 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:51:40.415  6726  6776 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:51:40.415  6726  6776 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:51:40.415  6726  6776 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:51:40.415  6726  6776 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:51:40.415  6726  6776 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:51:40.416  6726  6776 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:51:40.416  6726  6776 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:51:40.416  6726  6776 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:51:40.420  6726  6760 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:51:40.421  6726  6764 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:51:40.423  6726  6763 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:51:40.482  6726  6760 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:51:40.505  6726  6726 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:40.506  6726  6726 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:40.506  6726  6726 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:40.524  6726  6726 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 131759241, pluginId: App, methodName: addListener
+11-27 19:51:40.525  6726  6726 V Capacitor: callback: 131759241, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:51:40.525  6726  6726 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 131759242, pluginId: App, methodName: addListener
+11-27 19:51:40.526  6726  6726 V Capacitor: callback: 131759242, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:51:40.526  6726  6726 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 131759243, pluginId: App, methodName: getLaunchUrl
+11-27 19:51:40.527  6726  6726 V Capacitor: callback: 131759243, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:51:40.561  6726  6760 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:51:40.586  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:40.616  6726  6760 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:51:40.620  6726  6760 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:51:40.639  6726  6760 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:51:40.640  6726  6760 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:40.643  6726  6760 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:40.644  6726  6760 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:40.644  6726  6760 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:51:40.661  6726  6767 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:51:40.661  6726  6767 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:51:40.840   544   563 W ziparchive: Unable to open '/data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.dm': No such file or directory
+11-27 19:51:40.840  6726  6726 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:40.842   544   563 I ActivityTaskManager: Displayed top.kcaron.cardstudio/.MainActivity for user 0: +1s599ms
+11-27 19:51:40.851  6726  6726 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 131759244, pluginId: SplashScreen, methodName: hide
+11-27 19:51:40.851  6726  6726 V Capacitor: callback: 131759244, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:51:40.874   544  1755 W ActivityManager: stopServiceToken startId 621 is last, but have 2 remaining args
+11-27 19:51:41.850  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:41.855   544   654 I ImeTracker: top.kcaron.cardstudio:d6e76da4: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+11-27 19:51:41.855   544   654 I ImeTracker: top.kcaron.cardstudio:d6e76da4: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-27 19:51:41.870  6228  6228 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1986 onStartInput(EditorInfo{EditorInfo{packageName=top.kcaron.cardstudio, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=12000000, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+11-27 19:51:41.872   544  1755 W PackageConfigPersister: App-specific configuration not found for packageName: top.kcaron.cardstudio and userId: 0
+11-27 19:51:41.906   544  1755 D CoreBackPreview: Window{616878f u0 Splash Screen top.kcaron.cardstudio}: Setting back callback null
+11-27 19:51:41.906   544  1372 W InputManager-JNI: Input channel object '616878f Splash Screen top.kcaron.cardstudio (client)' was disposed without first being removed with the input manager!
+11-27 19:51:44.148  6491  6498 W .apps.wellbeing: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~M3jC_rW-UsLYgVryIaZefw==/top.kcaron.cardstudio-CpPW42qEo-leEVttI5ZEPg==/base.apk' with 1 weak references
+11-27 19:51:44.217   544   637 D ActivityManager: freezing 3069 com.google.android.configupdater
+11-27 19:51:44.438  6828  6828 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:51:44.919  6726  6841 D ProfileInstaller: Installing profile for top.kcaron.cardstudio
+11-27 19:51:45.555   544  1100 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 19:51:45.645   544   637 D ActivityManager: freezing 1789 com.google.android.as.oss
+11-27 19:51:46.461  6846  6846 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:51:47.351   544   637 D ActivityManager: freezing 5983 com.android.vending
+11-27 19:51:47.352   544   637 D ActivityManager: freezing 4854 com.android.vending:background
+11-27 19:51:47.557   544  1100 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.tachyon/.clientapi.ClientApiService } U=0: not found
+11-27 19:51:48.846   544   637 D ActivityManager: freezing 6154 com.google.android.gms.unstable
+11-27 19:51:50.190   544   637 D ActivityManager: freezing 3665 com.google.android.webview:webview_service
+11-27 19:51:51.272   544   637 D ActivityManager: freezing 880 com.google.android.permissioncontroller
+11-27 19:51:51.551  6726  6735 W aron.cardstudio: ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk' with 2 weak references
+11-27 19:51:52.917  6726  6726 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:52.921  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:54.634   544   637 D ActivityManager: freezing 4235 com.google.android.settings.intelligence
+11-27 19:51:57.581   544   637 D ActivityManager: freezing 5994 com.google.android.googlequicksearchbox:search
+11-27 19:51:58.188  6726  6726 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:58.190  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:58.562   544   637 D ActivityManager: freezing 1034 com.android.settings
+11-27 19:51:58.562   544   637 D ActivityManager: freezing 1629 com.android.keychain
+11-27 19:51:58.563   544   637 D ActivityManager: freezing 2991 com.android.dynsystem:dynsystem
+11-27 19:51:58.563   544   637 D ActivityManager: freezing 2975 com.android.dynsystem
+11-27 19:51:58.563   544   637 D ActivityManager: freezing 1920 com.android.localtransport
+11-27 19:51:59.026  6726  6726 V Capacitor/AppPlugin: Notifying listeners for event backButton
+11-27 19:51:59.029  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: {"canGoBack":false}
+11-27 19:51:59.029  6726  6726 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:51:59.029  6726  6726 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 131759245, pluginId: App, methodName: exitApp
+11-27 19:51:59.030  6726  6726 V Capacitor: callback: 131759245, pluginId: App, methodName: exitApp, methodData: {}
+11-27 19:51:59.031  6726  6726 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:51:59.033   877   924 V WindowManagerShell: Transition requested (#35): android.os.BinderProxy@d18d81a TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=12 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=187882 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@3881f4b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 35 }
+11-27 19:51:59.036  6726  6726 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 19:51:59.036  6726  6726 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 19:51:59.037  6726  6726 D Capacitor: App paused
+11-27 19:51:59.044   877   924 D WindowManagerShell: setLauncherKeepClearAreaHeight: visible=true, height=552
+11-27 19:51:59.070   544  1372 D ActivityManager: sync unfroze 5994 com.google.android.googlequicksearchbox:search for 6
+11-27 19:51:59.134   877   899 V WindowManagerShell: onTransitionReady(transaction=2336462210197)
+11-27 19:51:59.135   877   924 V WindowManagerShell: onTransitionReady (#35) android.os.BinderProxy@d18d81a: {id=35 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@51223d4} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x9805d28 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@99c097d} m=CLOSE f=NONE leash=Surface(name=Task=12)/@0xcfa0a41 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x4dc5be6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:59.135   877   924 V WindowManagerShell: Playing animation for (#35) android.os.BinderProxy@d18d81a@0
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.DefaultMixedHandler@9e939b1
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.keyguard.KeyguardTransitionHandler@7c7ae96
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.pip.PipTransition@53b3a17
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.activityembedding.ActivityEmbeddingController@ab4ee04
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.recents.RecentsTransitionHandler@aa6bfed
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.splitscreen.StageCoordinator@5c81e22
+11-27 19:51:59.135   877   924 V WindowManagerShell:  try handler com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:59.135   877   924 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=35 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{android.window.IWindowContainerToken$Stub$Proxy@51223d4} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x9805d28 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{WCT{android.window.IWindowContainerToken$Stub$Proxy@99c097d} m=CLOSE f=NONE leash=Surface(name=Task=12)/@0xcfa0a41 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0x4dc5be6 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}]}
+11-27 19:51:59.135   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=undefined independent=true modes=[OPEN,TO_FRONT] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=undefined independent=true modes=[CLOSE,TO_BACK] flags=IN_TASK_WITH_EMBEDDED_ACTIVITY mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@a8537b, appThread = android.app.IApplicationThread$Stub$Proxy@d3d3598, debugName = OverlaySwipeBack }}
+11-27 19:51:59.135   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x0 checks=[{atype=dream independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null},{atype=home independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@4f451f1, appThread = android.app.IApplicationThread$Stub$Proxy@e6481d6, debugName = LauncherToDream }}
+11-27 19:51:59.135   877   924 V WindowManagerShell:  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} launchCookie=null},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }}
+11-27 19:51:59.135   877   924 V WindowManagerShell:  Delegate animation for (#35) to RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@1deac57, appThread = android.app.IApplicationThread$Stub$Proxy@69c1344, debugName = QuickstepLaunchHome }
+11-27 19:51:59.193   544   563 V WindowManager: Sent Transition (#35) createdAt=11-27 19:51:59.032 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=12 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=top.kcaron.cardstudio/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity} numActivities=0 lastActiveTime=187882 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{f6e727f Task{68f266d #12 type=standard A=10209:top.kcaron.cardstudio}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 35 }
+11-27 19:51:59.193   544   563 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-27 19:51:59.194   544   563 V WindowManager:     info={id=35 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-27 19:51:59.194   544   563 V WindowManager:         {WCT{RemoteToken{6a2dd3b Task{cc806da #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x84ce90f sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:59.194   544   563 V WindowManager:         {WCT{RemoteToken{f6e727f Task{68f266d #12 type=standard A=10209:top.kcaron.cardstudio}}} m=CLOSE f=NONE leash=Surface(name=Task=12)/@0x6e48723 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 taskParent=-1},
+11-27 19:51:59.194   544   563 V WindowManager:         {null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{758f87d token=android.os.Binder@7016ed4})/@0xa3e0657 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0}
+11-27 19:51:59.194   544   563 V WindowManager:     ]}
+11-27 19:51:59.197   877   924 V WindowManagerShell:  animated by com.android.wm.shell.transition.RemoteTransitionHandler@faf60b3
+11-27 19:51:59.197   877   924 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#35) android.os.BinderProxy@d18d81a@0
+11-27 19:51:59.198   544   563 V WindowManager: Finish Transition (#35): created at 11-27 19:51:59.032 collect-started=0.026ms request-sent=0.128ms started=2.279ms ready=16.79ms sent=101.4ms finished=165.14ms
+11-27 19:51:59.198   877   924 V WindowManagerShell: Track 0 became idle
+11-27 19:51:59.198   877   924 V WindowManagerShell: All active transition animations finished
+11-27 19:51:59.454  6726  6726 D Capacitor: App stopped
+11-27 19:51:59.465  6726  6726 D Capacitor: App destroyed
+11-27 19:51:59.465   544  1100 D CoreBackPreview: Window{6f6d4b u0 top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity}: Setting back callback null
+11-27 19:51:59.478   544  1100 W InputManager-JNI: Input channel object '6f6d4b top.kcaron.cardstudio/top.kcaron.cardstudio.MainActivity (client)' was disposed without first being removed with the input manager!
+11-27 19:51:59.578   544   971 I ActivityManager: Killing 6752:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i5 (adj 0): isolated not needed

@@ -1,0 +1,1044 @@
+5.982  9157  9157 D Capacitor: Registering plugin instance: WebView
+11-27 19:55:35.983  9157  9157 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:55:35.984  9157  9157 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:55:35.985  9157  9157 D Capacitor: Registering plugin instance: AppReview
+11-27 19:55:35.986  9157  9157 D Capacitor: Registering plugin instance: App
+11-27 19:55:35.987  9157  9157 D Capacitor: Registering plugin instance: Browser
+11-27 19:55:35.988  9157  9157 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:55:35.991  9157  9157 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:55:35.992  9157  9157 D Capacitor: Registering plugin instance: Share
+11-27 19:55:35.994  9157  9157 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:55:35.996  9157  9157 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:55:35.998  9157  9157 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:55:35.999  9157  9157 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:55:35.999  9157  9157 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:55:35.999  9157  9157 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:55:36.009  9157  9157 W Capacitor: Unable to read file at path public/plugins
+11-27 19:55:36.011  9157  9157 D Capacitor: Loading app at https://localhost
+11-27 19:55:36.033  9157  9157 D Capacitor: App started
+11-27 19:55:36.035  9157  9157 D Capacitor/AppPlugin: Firing change: true
+11-27 19:55:36.035  9157  9157 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:55:36.035  9157  9157 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:55:36.037  9157  9157 D Capacitor: App resumed
+11-27 19:55:36.059  9181  9207 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:55:36.063  9157  9194 D Capacitor: Handling local request: https://localhost/
+11-27 19:55:36.216  9157  9199 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:55:36.220  9157  9193 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:55:36.238  9157  9157 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:55:36.239  9157  9157 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:55:36.245  9157  9184 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:55:36.251  9157  9185 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:55:36.255  9157  9194 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:55:36.256  9157  9200 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:55:36.380  9157  9194 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:55:36.381  9157  9185 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:55:36.382  9157  9185 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:55:36.382  9157  9185 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:55:36.383  9157  9185 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:55:36.384  9157  9185 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:55:36.384  9157  9194 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:55:36.385  9157  9194 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:55:36.385  9157  9185 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:55:36.386  9157  9185 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:55:36.386  9157  9200 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:55:36.386  9157  9200 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:55:36.387  9157  9200 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:55:36.387  9157  9200 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:55:36.387  9157  9200 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:55:36.388  9157  9200 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:55:36.388  9157  9184 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:55:36.389  9157  9194 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:55:36.389  9157  9200 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:55:36.390  9157  9185 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:55:36.390  9157  9193 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:55:36.391  9157  9193 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:55:36.391  9157  9193 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:55:36.391  9157  9193 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:55:36.391  9157  9193 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:55:36.392  9157  9193 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:55:36.392  9157  9193 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:55:36.392  9157  9193 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:55:36.392  9157  9193 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:55:36.392  9157  9193 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:55:36.393  9157  9193 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:55:36.393  9157  9193 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:55:36.393  9157  9193 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:55:36.393  9157  9193 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:55:36.393  9157  9193 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:55:36.395  9157  9185 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:55:36.395  9157  9200 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:55:36.396  9157  9184 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:55:36.402  9157  9194 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:55:36.457  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.458  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.458  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.459  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.460  9157  9184 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:55:36.461  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.462  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.463  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.474  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.474  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.482  9157  9157 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:36.483  9157  9157 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:36.484  9157  9157 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:36.490  9157  9157 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22588184, pluginId: App, methodName: addListener
+11-27 19:55:36.490  9157  9157 V Capacitor: callback: 22588184, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:55:36.493  9157  9157 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22588185, pluginId: App, methodName: addListener
+11-27 19:55:36.494  9157  9157 V Capacitor: callback: 22588185, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:55:36.494  9157  9157 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22588186, pluginId: App, methodName: getLaunchUrl
+11-27 19:55:36.494  9157  9157 V Capacitor: callback: 22588186, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:55:36.526  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.526  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.541  9157  9184 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:55:36.581  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.581  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.582  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.583  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.584  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.584  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.585  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.600  9157  9157 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:55:36.601  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.603  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.605  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.606  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.606  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.607  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.608  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.608  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.608  9181  9207 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:36.609  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.609  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.615  9157  9185 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:55:36.622  9157  9185 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:55:36.650  9157  9184 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:55:36.651  9157  9184 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:36.651  9157  9185 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:36.654  9157  9185 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:36.655  9157  9185 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:36.661  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.661  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.668  9157  9194 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:55:36.670  9157  9185 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:55:36.689  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.689  9181  9224 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:36.965  9157  9157 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:36.998  9157  9157 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 22588187, pluginId: SplashScreen, methodName: hide
+11-27 19:55:36.999  9157  9157 V Capacitor: callback: 22588187, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:55:37.060  9157  9157 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:55:41.027  9262  9262 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:55:41.031  9262  9262 I AndroidRuntime: Using default boot image
+11-27 19:55:41.031  9262  9262 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:55:41.089  9262  9262 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:55:41.113  9262  9262 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:55:42.166  9262  9262 D AndroidRuntime: Shutting down VM
+11-27 19:55:43.077  9286  9286 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:55:43.081  9286  9286 I AndroidRuntime: Using default boot image
+11-27 19:55:43.081  9286  9286 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:55:43.140  9286  9286 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:55:43.166  9286  9286 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:55:44.218  9286  9286 D AndroidRuntime: Shutting down VM
+11-27 19:55:46.562  9157  9184 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:55:54.624  9181  9181 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 19:55:54.633   544   561 I ActivityManager: Killing 9181:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i12 (adj 0): isolated not needed
+11-27 19:55:56.272  9338  9338 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:55:56.274  9338  9360 I chromium: [1127/195556.274805:INFO:variations_seed_loader.cc(66)] Failed to open file for reading.: No such file or directory (2)
+11-27 19:55:56.310   544  1372 I ActivityManager: Start proc 9363:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i13 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:55:56.330  9363  9363 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:55:56.402  9338  9338 D Capacitor: Starting BridgeActivity
+11-27 19:55:56.412  9338  9338 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:55:56.414  9338  9338 D Capacitor: Registering plugin instance: WebView
+11-27 19:55:56.415  9338  9338 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:55:56.416  9338  9338 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:55:56.417  9338  9338 D Capacitor: Registering plugin instance: AppReview
+11-27 19:55:56.418  9338  9338 D Capacitor: Registering plugin instance: App
+11-27 19:55:56.419  9338  9338 D Capacitor: Registering plugin instance: Browser
+11-27 19:55:56.420  9338  9338 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:55:56.423  9338  9338 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:55:56.424  9338  9338 D Capacitor: Registering plugin instance: Share
+11-27 19:55:56.426  9338  9338 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:55:56.428  9338  9338 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:55:56.430  9338  9338 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:55:56.430  9338  9338 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:55:56.431  9338  9338 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:55:56.431  9338  9338 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:55:56.441  9338  9338 W Capacitor: Unable to read file at path public/plugins
+11-27 19:55:56.443  9338  9338 D Capacitor: Loading app at https://localhost
+11-27 19:55:56.470  9338  9338 D Capacitor: App started
+11-27 19:55:56.471  9338  9338 D Capacitor/AppPlugin: Firing change: true
+11-27 19:55:56.471  9338  9338 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:55:56.471  9338  9338 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:55:56.481  9338  9338 D Capacitor: App resumed
+11-27 19:55:56.497  9338  9375 D Capacitor: Handling local request: https://localhost/
+11-27 19:55:56.504  9363  9383 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:55:56.658  9338  9373 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:55:56.659  9338  9378 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:55:56.665  9338  9338 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:55:56.668  9338  9338 E Capacitor/Console: File:  - Line 6 - Msg: Error injecting safe area CSS: TypeError: Cannot read properties of null (reading 'style')
+11-27 19:55:56.691  9338  9372 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:55:56.694  9338  9375 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:55:56.695  9338  9381 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:55:56.695  9338  9384 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:55:56.822  9338  9373 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:55:56.823  9338  9378 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:55:56.823  9338  9372 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:55:56.823  9338  9381 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:55:56.824  9338  9375 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:55:56.824  9338  9384 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:55:56.824  9338  9381 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:55:56.824  9338  9384 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:55:56.824  9338  9384 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:55:56.825  9338  9381 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:55:56.825  9338  9384 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:55:56.825  9338  9384 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:55:56.825  9338  9381 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:55:56.825  9338  9373 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:55:56.826  9338  9378 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:55:56.826  9338  9384 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:55:56.827  9338  9373 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:55:56.827  9338  9381 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:55:56.828  9338  9373 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:55:56.828  9338  9378 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:55:56.828  9338  9372 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:55:56.829  9338  9372 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:55:56.829  9338  9381 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:55:56.830  9338  9384 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:55:56.830  9338  9375 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:55:56.830  9338  9384 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:55:56.830  9338  9373 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:55:56.831  9338  9372 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:55:56.831  9338  9375 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:55:56.832  9338  9372 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:55:56.832  9338  9381 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:55:56.832  9338  9373 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:55:56.833  9338  9378 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:55:56.833  9338  9375 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:55:56.833  9338  9384 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:55:56.834  9338  9373 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:55:56.834  9338  9375 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:55:56.835  9338  9384 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:55:56.837  9338  9381 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:55:56.900  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.901  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.901  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.901  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.903  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.904  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.904  9338  9372 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:55:56.906  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.915  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:56.916  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:56.932  9338  9338 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:56.934  9338  9338 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:56.935  9338  9338 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:56.940  9338  9338 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80553900, pluginId: App, methodName: addListener
+11-27 19:55:56.940  9338  9338 V Capacitor: callback: 80553900, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:55:56.941  9338  9338 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80553901, pluginId: App, methodName: addListener
+11-27 19:55:56.941  9338  9338 V Capacitor: callback: 80553901, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:55:56.941  9338  9338 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80553902, pluginId: App, methodName: getLaunchUrl
+11-27 19:55:56.941  9338  9338 V Capacitor: callback: 80553902, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:55:56.992  9338  9372 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:55:56.996  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.997  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.998  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:56.999  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.000  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.000  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.000  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.005  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.006  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.056  9338  9338 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:55:57.057  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.059  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.060  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.061  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.062  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.064  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.065  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.065  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.066  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:55:57.067  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.067  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.080  9338  9375 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:55:57.094  9338  9375 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:55:57.126  9338  9373 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:55:57.127  9338  9373 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:57.132  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.133  9338  9375 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:57.134  9338  9375 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:57.134  9338  9375 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:55:57.137  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.141  9338  9378 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:55:57.141  9338  9381 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:55:57.166  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.166  9363  9405 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:55:57.362  9338  9338 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:55:57.385  9338  9338 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 80553903, pluginId: SplashScreen, methodName: hide
+11-27 19:55:57.386  9338  9338 V Capacitor: callback: 80553903, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:55:57.431  9338  9338 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:56:01.063  9436  9436 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:01.066  9436  9436 I AndroidRuntime: Using default boot image
+11-27 19:56:01.066  9436  9436 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:01.126  9436  9436 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:01.152  9436  9436 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:02.190  9436  9436 D AndroidRuntime: Shutting down VM
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: FATAL EXCEPTION: UiAutomation
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: PID: 9436
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.accessibilityservice.IAccessibilityServiceConnection$Stub$Proxy.findAccessibilityNodeInfoByAccessibilityId(IAccessibilityServiceConnection.java:1229)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.view.accessibility.AccessibilityInteractionClient.findAccessibilityNodeInfoByAccessibilityId(AccessibilityInteractionClient.java:671)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.view.accessibility.AccessibilityNodeInfo.refresh(AccessibilityNodeInfo.java:1202)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.view.accessibility.AccessibilityCache$AccessibilityNodeRefresher.refreshNode(AccessibilityCache.java:914)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.view.accessibility.AccessibilityCache.onAccessibilityEvent(AccessibilityCache.java:296)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.view.accessibility.AccessibilityInteractionClient.onAccessibilityEvent(AccessibilityInteractionClient.java:1173)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.lambda$onAccessibilityEvent$2(AccessibilityService.java:2980)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.$r8$lambda$BK9U4O9uTvtOrxe1k6nU74w4nWg(Unknown Source:0)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper$$ExternalSyntheticLambda8.run(D8$$SyntheticClass:0)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+11-27 19:56:02.191  9436  9453 E AndroidRuntime: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: Error reporting crash
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:441)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:428)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:175)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5692)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5689)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:44)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5680)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:170)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+11-27 19:56:02.192  9436  9453 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
+11-27 19:56:02.385  9460  9460 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:02.389  9460  9460 I AndroidRuntime: Using default boot image
+11-27 19:56:02.389  9460  9460 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:02.448  9460  9460 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:02.472  9460  9460 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:03.508  9460  9460 D AndroidRuntime: Shutting down VM
+11-27 19:56:05.876  9338  9372 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:56:07.562  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.570  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.577  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.579  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.602  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.603  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:07.603  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.131  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.132  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.135  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.137  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.152  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.162  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:12.162  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.660  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.661  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.661  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.662  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.676  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.676  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:16.677  9363  9383 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:23.205   544  1451 I ActivityManager: Killing 9363:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i13 (adj 0): isolated not needed
+11-27 19:56:24.826  9577  9577 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:56:24.828  9577  9598 I chromium: [1127/195624.828209:INFO:variations_seed_loader.cc(66)] Failed to open file for reading.: No such file or directory (2)
+11-27 19:56:24.868   544  1451 I ActivityManager: Start proc 9601:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i14 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:56:24.879  9577  9603 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/js: No such file or directory (2)
+11-27 19:56:24.879  9577  9603 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-27 19:56:24.879  9577  9603 E chromium: [ERROR:simple_file_enumerator.cc(21)] opendir /data/user/0/top.kcaron.cardstudio/cache/WebView/Default/HTTP Cache/Code Cache/wasm: No such file or directory (2)
+11-27 19:56:24.879  9577  9603 E chromium: [ERROR:simple_index_file.cc(614)] Could not reconstruct index from disk
+11-27 19:56:24.886  9601  9601 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:56:24.928  9577  9577 D Capacitor: Starting BridgeActivity
+11-27 19:56:24.938  9577  9577 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:56:24.941  9577  9577 D Capacitor: Registering plugin instance: WebView
+11-27 19:56:24.942  9577  9577 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:56:24.943  9577  9577 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:56:24.944  9577  9577 D Capacitor: Registering plugin instance: AppReview
+11-27 19:56:24.945  9577  9577 D Capacitor: Registering plugin instance: App
+11-27 19:56:24.946  9577  9577 D Capacitor: Registering plugin instance: Browser
+11-27 19:56:24.947  9577  9577 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:56:24.950  9577  9577 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:56:24.952  9577  9577 D Capacitor: Registering plugin instance: Share
+11-27 19:56:24.953  9577  9577 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:56:24.955  9577  9577 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:56:24.958  9577  9577 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:56:24.958  9577  9577 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:56:24.958  9577  9577 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:56:24.958  9577  9577 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:56:24.975  9577  9577 W Capacitor: Unable to read file at path public/plugins
+11-27 19:56:24.978  9577  9577 D Capacitor: Loading app at https://localhost
+11-27 19:56:24.999  9577  9577 D Capacitor: App started
+11-27 19:56:25.001  9577  9577 D Capacitor/AppPlugin: Firing change: true
+11-27 19:56:25.001  9577  9577 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:56:25.001  9577  9577 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:56:25.003  9577  9577 D Capacitor: App resumed
+11-27 19:56:25.018  9577  9614 D Capacitor: Handling local request: https://localhost/
+11-27 19:56:25.046  9601  9628 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:56:25.098  9577  9603 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:56:25.100  9577  9605 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:56:25.173  9577  9618 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:56:25.176  9577  9614 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:56:25.179  9577  9613 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:56:25.180  9577  9617 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:56:25.311  9577  9614 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:56:25.311  9577  9605 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:56:25.312  9577  9603 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:56:25.312  9577  9613 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:56:25.313  9577  9613 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:56:25.313  9577  9613 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:56:25.314  9577  9605 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:56:25.314  9577  9603 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:56:25.314  9577  9618 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:56:25.315  9577  9605 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:56:25.315  9577  9603 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:56:25.316  9577  9614 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:56:25.316  9577  9603 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:56:25.317  9577  9617 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:56:25.318  9577  9603 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:56:25.318  9577  9618 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:56:25.318  9577  9605 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:56:25.318  9577  9613 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:56:25.319  9577  9614 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:56:25.319  9577  9618 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:56:25.320  9577  9605 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:56:25.320  9577  9603 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:56:25.321  9577  9614 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:56:25.321  9577  9613 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:56:25.321  9577  9618 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:56:25.322  9577  9617 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:56:25.322  9577  9603 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:56:25.323  9577  9614 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:56:25.323  9577  9603 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:56:25.324  9577  9614 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:56:25.324  9577  9618 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:56:25.324  9577  9617 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:56:25.325  9577  9618 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:56:25.325  9577  9617 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:56:25.325  9577  9605 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:56:25.326  9577  9613 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:56:25.326  9577  9603 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:56:25.328  9577  9618 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:56:25.329  9577  9614 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:56:25.391  9577  9577 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:25.392  9577  9577 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:25.392  9577  9577 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:25.394  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.395  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.398  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.398  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.400  9577  9603 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:56:25.403  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.403  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.403  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.406  9577  9577 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 83652811, pluginId: App, methodName: addListener
+11-27 19:56:25.406  9577  9577 V Capacitor: callback: 83652811, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:56:25.407  9577  9577 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 83652812, pluginId: App, methodName: addListener
+11-27 19:56:25.407  9577  9577 V Capacitor: callback: 83652812, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:56:25.407  9577  9577 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 83652813, pluginId: App, methodName: getLaunchUrl
+11-27 19:56:25.407  9577  9577 V Capacitor: callback: 83652813, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:56:25.421  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.425  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.442  9577  9577 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:56:25.470  9577  9603 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:56:25.502  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.503  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.503  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.504  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.505  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.505  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.506  9601  9628 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:25.528  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.528  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.540  9577  9613 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:56:25.557  9577  9603 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:56:25.611  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.612  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.619  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.620  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.626  9577  9605 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:56:25.627  9577  9605 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:25.628  9577  9603 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:25.628  9577  9614 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:56:25.629  9577  9614 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:25.629  9577  9614 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:25.634  9577  9613 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:56:25.641  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.642  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.672  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.673  9601  9642 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:25.921  9577  9577 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:25.958  9577  9577 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 83652814, pluginId: SplashScreen, methodName: hide
+11-27 19:56:25.959  9577  9577 V Capacitor: callback: 83652814, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:56:26.827  9577  9577 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:56:29.923  9669  9669 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:29.926  9669  9669 I AndroidRuntime: Using default boot image
+11-27 19:56:29.926  9669  9669 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:29.982  9669  9669 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:30.007  9669  9669 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:31.068  9669  9669 D AndroidRuntime: Shutting down VM
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: FATAL EXCEPTION: UiAutomation
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: PID: 9669
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.accessibilityservice.IAccessibilityServiceConnection$Stub$Proxy.findAccessibilityNodeInfoByAccessibilityId(IAccessibilityServiceConnection.java:1229)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.view.accessibility.AccessibilityInteractionClient.findAccessibilityNodeInfoByAccessibilityId(AccessibilityInteractionClient.java:671)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.view.accessibility.AccessibilityNodeInfo.refresh(AccessibilityNodeInfo.java:1202)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.view.accessibility.AccessibilityCache$AccessibilityNodeRefresher.refreshNode(AccessibilityCache.java:914)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.view.accessibility.AccessibilityCache.onAccessibilityEvent(AccessibilityCache.java:296)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.view.accessibility.AccessibilityInteractionClient.onAccessibilityEvent(AccessibilityInteractionClient.java:1173)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.lambda$onAccessibilityEvent$2(AccessibilityService.java:2980)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper.$r8$lambda$BK9U4O9uTvtOrxe1k6nU74w4nWg(Unknown Source:0)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.accessibilityservice.AccessibilityService$IAccessibilityServiceClientWrapper$$ExternalSyntheticLambda8.run(D8$$SyntheticClass:0)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:317)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: Error reporting crash
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:441)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:428)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:175)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5692)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5689)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:44)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5680)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:170)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+11-27 19:56:31.069  9669  9681 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
+11-27 19:56:31.265  9691  9691 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:31.268  9691  9691 I AndroidRuntime: Using default boot image
+11-27 19:56:31.268  9691  9691 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:31.324  9691  9691 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:31.347  9691  9691 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:32.383  9691  9691 D AndroidRuntime: Shutting down VM
+11-27 19:56:34.749  9577  9603 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:56:40.690  9577  9621 E chromium: [ERROR:ssl_client_socket_impl.cc(879)] handshake failed; returned -1, SSL error code 1, net_error -113
+11-27 19:56:41.201  9577  9621 E chromium: [ERROR:ssl_client_socket_impl.cc(879)] handshake failed; returned -1, SSL error code 1, net_error -113
+11-27 19:56:42.786   544  1466 I ActivityManager: Killing 9601:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i14 (adj 0): isolated not needed
+11-27 19:56:44.338  9742  9742 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:56:44.340  9742  9763 I chromium: [1127/195644.340607:INFO:variations_seed_loader.cc(66)] Failed to open file for reading.: No such file or directory (2)
+11-27 19:56:44.375   544   971 I ActivityManager: Start proc 9766:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i15 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:56:44.399  9766  9766 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:56:44.456  9742  9742 D Capacitor: Starting BridgeActivity
+11-27 19:56:44.465  9742  9742 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:56:44.467  9742  9742 D Capacitor: Registering plugin instance: WebView
+11-27 19:56:44.468  9742  9742 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:56:44.469  9742  9742 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:56:44.471  9742  9742 D Capacitor: Registering plugin instance: AppReview
+11-27 19:56:44.472  9742  9742 D Capacitor: Registering plugin instance: App
+11-27 19:56:44.473  9742  9742 D Capacitor: Registering plugin instance: Browser
+11-27 19:56:44.474  9742  9742 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:56:44.477  9742  9742 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:56:44.479  9742  9742 D Capacitor: Registering plugin instance: Share
+11-27 19:56:44.480  9742  9742 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:56:44.483  9742  9742 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:56:44.485  9742  9742 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:56:44.485  9742  9742 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:56:44.485  9742  9742 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:56:44.485  9742  9742 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:56:44.495  9742  9742 W Capacitor: Unable to read file at path public/plugins
+11-27 19:56:44.498  9742  9742 D Capacitor: Loading app at https://localhost
+11-27 19:56:44.521  9742  9742 D Capacitor: App started
+11-27 19:56:44.523  9742  9742 D Capacitor/AppPlugin: Firing change: true
+11-27 19:56:44.523  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:56:44.523  9742  9742 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:56:44.525  9742  9742 D Capacitor: App resumed
+11-27 19:56:44.536  9766  9792 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:56:44.537  9742  9778 D Capacitor: Handling local request: https://localhost/
+11-27 19:56:44.648  9742  9775 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:56:44.664  9742  9781 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:56:44.701  9742  9769 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:56:44.709  9742  9784 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:56:44.721  9742  9786 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:56:44.723  9742  9778 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:56:44.851  9742  9781 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:56:44.851  9742  9781 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:56:44.852  9742  9781 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:56:44.852  9742  9781 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:56:44.853  9742  9786 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:56:44.853  9742  9784 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:56:44.853  9742  9786 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:56:44.854  9742  9781 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:56:44.854  9742  9786 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:56:44.855  9742  9781 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:56:44.855  9742  9786 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:56:44.855  9742  9786 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:56:44.856  9742  9781 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:56:44.856  9742  9786 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:56:44.857  9742  9781 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:56:44.857  9742  9786 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:56:44.857  9742  9769 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:56:44.858  9742  9781 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:56:44.858  9742  9778 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:56:44.859  9742  9769 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:56:44.859  9742  9778 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:56:44.860  9742  9784 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:56:44.860  9742  9786 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:56:44.860  9742  9784 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:56:44.861  9742  9781 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:56:44.861  9742  9781 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:56:44.861  9742  9769 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:56:44.862  9742  9781 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:56:44.862  9742  9786 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:56:44.862  9742  9781 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:56:44.862  9742  9781 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:56:44.862  9742  9769 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:56:44.863  9742  9781 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:56:44.863  9742  9781 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:56:44.863  9742  9786 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:56:44.863  9742  9781 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:56:44.863  9742  9786 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:56:44.863  9742  9778 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:56:44.866  9742  9781 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:56:44.909  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.910  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.911  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.911  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.912  9742  9769 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:56:44.913  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.913  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.913  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:44.922  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.923  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.932  9742  9742 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:44.933  9742  9742 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:44.934  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.935  9742  9742 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:44.944  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.947  9742  9742 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 122665865, pluginId: App, methodName: addListener
+11-27 19:56:44.947  9742  9742 V Capacitor: callback: 122665865, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:56:44.948  9742  9742 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 122665866, pluginId: App, methodName: addListener
+11-27 19:56:44.948  9742  9742 V Capacitor: callback: 122665866, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:56:44.949  9742  9742 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 122665867, pluginId: App, methodName: getLaunchUrl
+11-27 19:56:44.949  9742  9742 V Capacitor: callback: 122665867, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:56:44.961  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.962  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:44.987  9742  9769 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:56:45.018  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.018  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.019  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.019  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.020  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.020  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.020  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:56:45.031  9742  9742 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:56:45.035  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.035  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.064  9742  9775 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:56:45.069  9742  9781 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:56:45.101  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.102  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.112  9742  9769 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:56:45.114  9742  9769 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:45.115  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.116  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.117  9742  9769 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:45.118  9742  9775 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:45.118  9742  9775 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:56:45.120  9742  9781 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:56:45.123  9742  9769 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:56:45.143  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.143  9766  9807 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:56:45.412  9742  9742 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:56:45.421  9742  9742 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 122665868, pluginId: SplashScreen, methodName: hide
+11-27 19:56:45.421  9742  9742 V Capacitor: callback: 122665868, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:56:45.451  9742  9742 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:56:49.403  9836  9836 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:49.407  9836  9836 I AndroidRuntime: Using default boot image
+11-27 19:56:49.407  9836  9836 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:49.464  9836  9836 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:49.490  9836  9836 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:50.564  9836  9836 D AndroidRuntime: Shutting down VM
+11-27 19:56:51.509  9859  9859 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:56:51.512  9859  9859 I AndroidRuntime: Using default boot image
+11-27 19:56:51.512  9859  9859 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:56:51.570  9859  9859 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:56:51.598  9859  9859 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:56:52.639  9859  9859 D AndroidRuntime: Shutting down VM
+11-27 19:56:55.002  9742  9769 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:56:56.526  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 19:56:56.526  9742  9742 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 19:56:56.532  9742  9742 D Capacitor: App paused
+11-27 19:56:56.755  9742  9742 D Capacitor/AppPlugin: Firing change: false
+11-27 19:56:56.755  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:56:56.755  9742  9742 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:56:56.755  9742  9742 D Capacitor: App stopped
+11-27 19:56:56.756  9742  9742 D Capacitor: Saving instance state!
+11-27 19:57:00.677  9742  9742 D Capacitor: App restarted
+11-27 19:57:00.677  9742  9742 D Capacitor: App started
+11-27 19:57:00.678  9742  9742 D Capacitor/AppPlugin: Firing change: true
+11-27 19:57:00.678  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:57:00.678  9742  9742 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:57:00.678  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-27 19:57:00.678  9742  9742 D Capacitor/AppPlugin: No listeners found for event resume
+11-27 19:57:00.680  9742  9742 D Capacitor: App resumed
+11-27 19:57:01.007  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.009  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.009  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.010  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.042  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.050  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:01.054  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:05.712  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event pause
+11-27 19:57:05.713  9742  9742 D Capacitor/AppPlugin: No listeners found for event pause
+11-27 19:57:05.717  9742  9742 D Capacitor: App paused
+11-27 19:57:05.978  9742  9742 D Capacitor/AppPlugin: Firing change: false
+11-27 19:57:05.978  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:57:05.978  9742  9742 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:57:05.978  9742  9742 D Capacitor: App stopped
+11-27 19:57:05.978  9742  9742 D Capacitor: Saving instance state!
+11-27 19:57:09.849  9742  9742 D Capacitor: App restarted
+11-27 19:57:09.851  9742  9742 D Capacitor: App started
+11-27 19:57:09.851  9742  9742 D Capacitor/AppPlugin: Firing change: true
+11-27 19:57:09.851  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:57:09.851  9742  9742 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:57:09.853  9742  9742 V Capacitor/AppPlugin: Notifying listeners for event resume
+11-27 19:57:09.853  9742  9742 D Capacitor/AppPlugin: No listeners found for event resume
+11-27 19:57:09.856  9742  9742 D Capacitor: App resumed
+11-27 19:57:10.079  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.079  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.080  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.080  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.124  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.124  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:10.124  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.765  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.767  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.768  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.768  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.778  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.778  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:14.778  9766  9792 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:16.746  9766  9766 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 19:57:16.752   544  1451 I ActivityManager: Killing 9766:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i15 (adj 0): isolated not needed
+11-27 19:57:18.419  9994  9994 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:57:18.424  9994 10017 I chromium: [1127/195718.424142:INFO:variations_seed_loader.cc(66)] Failed to open file for reading.: No such file or directory (2)
+11-27 19:57:18.464   544  1099 I ActivityManager: Start proc 10020:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i16 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:57:18.484 10020 10020 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:57:18.533  9994  9994 D Capacitor: Starting BridgeActivity
+11-27 19:57:18.543  9994  9994 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:57:18.544  9994  9994 D Capacitor: Registering plugin instance: WebView
+11-27 19:57:18.546  9994  9994 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:57:18.547  9994  9994 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:57:18.548  9994  9994 D Capacitor: Registering plugin instance: AppReview
+11-27 19:57:18.549  9994  9994 D Capacitor: Registering plugin instance: App
+11-27 19:57:18.550  9994  9994 D Capacitor: Registering plugin instance: Browser
+11-27 19:57:18.551  9994  9994 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:57:18.554  9994  9994 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:57:18.556  9994  9994 D Capacitor: Registering plugin instance: Share
+11-27 19:57:18.557  9994  9994 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:57:18.560  9994  9994 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:57:18.562  9994  9994 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:57:18.562  9994  9994 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:57:18.563  9994  9994 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:57:18.563  9994  9994 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:57:18.579  9994  9994 W Capacitor: Unable to read file at path public/plugins
+11-27 19:57:18.582  9994  9994 D Capacitor: Loading app at https://localhost
+11-27 19:57:18.603  9994  9994 D Capacitor: App started
+11-27 19:57:18.605 10020 10046 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:57:18.618  9994  9994 D Capacitor/AppPlugin: Firing change: true
+11-27 19:57:18.618  9994  9994 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:57:18.619  9994  9994 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:57:18.623  9994  9994 D Capacitor: App resumed
+11-27 19:57:18.646  9994 10025 D Capacitor: Handling local request: https://localhost/
+11-27 19:57:18.716  9994 10025 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:57:18.722  9994 10030 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:57:18.764  9994 10024 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:57:18.772  9994 10036 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:57:18.773  9994 10040 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:57:18.776  9994 10035 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:57:18.912  9994 10024 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:57:18.913  9994 10030 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:57:18.913  9994 10040 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:57:18.913  9994 10025 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:57:18.914  9994 10024 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:57:18.914  9994 10030 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:57:18.915  9994 10030 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:57:18.915  9994 10040 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:57:18.916  9994 10030 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:57:18.916  9994 10035 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:57:18.917  9994 10030 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:57:18.917  9994 10035 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:57:18.918  9994 10030 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:57:18.918  9994 10035 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:57:18.918  9994 10030 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:57:18.918  9994 10035 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:57:18.918  9994 10030 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:57:18.918  9994 10035 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:57:18.919  9994 10024 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:57:18.919  9994 10036 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:57:18.919  9994 10024 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:57:18.919  9994 10036 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:57:18.920  9994 10024 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:57:18.921  9994 10036 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:57:18.921  9994 10030 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:57:18.922  9994 10036 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:57:18.922  9994 10030 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:57:18.922  9994 10036 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:57:18.923  9994 10030 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:57:18.923  9994 10036 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:57:18.923  9994 10036 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:57:18.923  9994 10030 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:57:18.923  9994 10036 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:57:18.923  9994 10025 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:57:18.923  9994 10036 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:57:18.924  9994 10036 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:57:18.924  9994 10030 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:57:18.924  9994 10040 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:57:18.925  9994 10024 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:57:18.973 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.974 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.974 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.975 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.976  9994 10024 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:57:18.977 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.978 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.978 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:18.988 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:18.989 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.006  9994  9994 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:19.007  9994  9994 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:19.008  9994  9994 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:19.009 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.010 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.023  9994  9994 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 32228870, pluginId: App, methodName: addListener
+11-27 19:57:19.023  9994  9994 V Capacitor: callback: 32228870, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:57:19.024  9994  9994 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 32228871, pluginId: App, methodName: addListener
+11-27 19:57:19.024  9994  9994 V Capacitor: callback: 32228871, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:57:19.024  9994  9994 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 32228872, pluginId: App, methodName: getLaunchUrl
+11-27 19:57:19.024  9994  9994 V Capacitor: callback: 32228872, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:57:19.065  9994 10024 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:57:19.095 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.096 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.096 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.096 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.097 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.097 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.097 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:19.107  9994  9994 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:57:19.109 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.109 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.121  9994 10040 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:57:19.127  9994 10025 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:57:19.161 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.161 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.169  9994 10035 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:57:19.170  9994 10035 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:19.175 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.176 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.176  9994 10035 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:19.177  9994 10030 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:19.178  9994 10030 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:19.182  9994 10024 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:57:19.188  9994 10024 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:57:19.206 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.206 10020 10061 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:19.509  9994  9994 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:19.550  9994  9994 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 32228873, pluginId: SplashScreen, methodName: hide
+11-27 19:57:19.554  9994  9994 V Capacitor: callback: 32228873, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:57:22.928  9994  9994 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:57:23.492 10087 10087 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:57:23.495 10087 10087 I AndroidRuntime: Using default boot image
+11-27 19:57:23.495 10087 10087 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:57:23.553 10087 10087 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:57:23.579 10087 10087 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:57:24.639 10087 10087 D AndroidRuntime: Shutting down VM
+11-27 19:57:25.549 10111 10111 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:57:25.552 10111 10111 I AndroidRuntime: Using default boot image
+11-27 19:57:25.553 10111 10111 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:57:25.613 10111 10111 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:57:25.637 10111 10111 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:57:26.675 10111 10111 D AndroidRuntime: Shutting down VM
+11-27 19:57:29.020  9994 10024 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:57:30.527  9994 10024 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:57:30.541 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:30.541 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:36.550  9994 10024 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:57:39.085  9994  9994 D InputMethodManager: showSoftInput() view=com.getcapacitor.CapacitorWebView{82b3577 VFEDHVC.. .F...... 0,0-1080,2138 #7f0800ce app:id/webview aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+11-27 19:57:39.530 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:39.530 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:40.486 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:40.487 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:40.488 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:40.567  6228  6228 W PlayCore: UID: [10157]  PID: [6228] SplitInstallInfoProvider : No metadata found in AndroidManifest.
+11-27 19:57:45.396 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:45.463 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.692 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.693 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.698 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.700 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.713 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.714 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:46.714 10020 10046 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:48.701 10020 10020 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 19:57:48.709   544  1451 I ActivityManager: Killing 10020:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0a209i16 (adj 0): isolated not needed
+11-27 19:57:50.333 10271 10271 D nativeloader: Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~rRUYfpBzs5mzOjPlcKgtOA==/com.google.android.webview-SlRVg_3UFcMMHTu04pK-kw==/WebViewGoogle.apk): ok
+11-27 19:57:50.336 10271 10292 I chromium: [1127/195750.336070:INFO:variations_seed_loader.cc(66)] Failed to open file for reading.: No such file or directory (2)
+11-27 19:57:50.366   544   559 I ActivityManager: Start proc 10295:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0/u0i17 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0:0}
+11-27 19:57:50.386 10295 10295 I cr_WebViewApkApp: Launched version=124.0.6367.219 minSdkVersion=29 isBundle=false processName=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0
+11-27 19:57:50.441 10271 10271 D Capacitor: Starting BridgeActivity
+11-27 19:57:50.451 10271 10271 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 19:57:50.453 10271 10271 D Capacitor: Registering plugin instance: WebView
+11-27 19:57:50.454 10271 10271 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 19:57:50.455 10271 10271 D Capacitor: Registering plugin instance: SystemBars
+11-27 19:57:50.456 10271 10271 D Capacitor: Registering plugin instance: AppReview
+11-27 19:57:50.457 10271 10271 D Capacitor: Registering plugin instance: App
+11-27 19:57:50.458 10271 10271 D Capacitor: Registering plugin instance: Browser
+11-27 19:57:50.459 10271 10271 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 19:57:50.461 10271 10271 D Capacitor: Registering plugin instance: PushNotifications
+11-27 19:57:50.463 10271 10271 D Capacitor: Registering plugin instance: Share
+11-27 19:57:50.464 10271 10271 D Capacitor: Registering plugin instance: SplashScreen
+11-27 19:57:50.467 10271 10271 D Capacitor: Registering plugin instance: StatusBar
+11-27 19:57:50.469 10271 10271 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:57:50.469 10271 10271 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:57:50.470 10271 10271 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 19:57:50.470 10271 10271 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 19:57:50.480 10271 10271 W Capacitor: Unable to read file at path public/plugins
+11-27 19:57:50.482 10271 10271 D Capacitor: Loading app at https://localhost
+11-27 19:57:50.508 10271 10271 D Capacitor: App started
+11-27 19:57:50.510 10271 10271 D Capacitor/AppPlugin: Firing change: true
+11-27 19:57:50.510 10271 10271 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 19:57:50.510 10271 10271 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 19:57:50.511 10295 10316 W chromium: [WARNING:runtime_features.cc(694)] SharedStorage for M118+ cannot be enabled in this configuration. Use --enable-features=SharedStorageAPI,SharedStorageAPIM118 in addition.
+11-27 19:57:50.513 10271 10271 D Capacitor: App resumed
+11-27 19:57:50.538 10271 10305 D Capacitor: Handling local request: https://localhost/
+11-27 19:57:50.582 10271 10305 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 19:57:50.583 10271 10307 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 19:57:50.680 10271 10311 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 19:57:50.680 10271 10308 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 19:57:50.682 10271 10306 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 19:57:50.695 10271 10314 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 19:57:50.806 10271 10307 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 19:57:50.806 10271 10307 D Capacitor: Handling local request: https://localhost/app.js
+11-27 19:57:50.806 10271 10307 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 19:57:50.806 10271 10307 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 19:57:50.807 10271 10307 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 19:57:50.807 10271 10307 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 19:57:50.807 10271 10307 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 19:57:50.808 10271 10307 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 19:57:50.808 10271 10307 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 19:57:50.808 10271 10307 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 19:57:50.809 10271 10307 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 19:57:50.809 10271 10307 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 19:57:50.809 10271 10307 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 19:57:50.809 10271 10307 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 19:57:50.810 10271 10311 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 19:57:50.811 10271 10311 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 19:57:50.811 10271 10311 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 19:57:50.811 10271 10311 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 19:57:50.811 10271 10311 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 19:57:50.812 10271 10311 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 19:57:50.812 10271 10311 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 19:57:50.812 10271 10311 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 19:57:50.813 10271 10311 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 19:57:50.813 10271 10311 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 19:57:50.813 10271 10311 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 19:57:50.813 10271 10311 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 19:57:50.814 10271 10308 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 19:57:50.815 10271 10308 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 19:57:50.815 10271 10308 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 19:57:50.815 10271 10308 D Capacitor: Handling local request: https://localhost/product.js
+11-27 19:57:50.816 10271 10308 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 19:57:50.816 10271 10308 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 19:57:50.816 10271 10308 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 19:57:50.816 10271 10308 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 19:57:50.817 10271 10308 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 19:57:50.817 10271 10308 D Capacitor: Handling local request: https://localhost/help.js
+11-27 19:57:50.817 10271 10308 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 19:57:50.817 10271 10308 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 19:57:50.822 10271 10308 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 19:57:50.873 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.875 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.875 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.876 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.877 10271 10305 D Capacitor: Handling local request: https://localhost/studio-horizon.svg
+11-27 19:57:50.878 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.878 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.878 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.892 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:50.892 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:50.897 10271 10271 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:50.898 10271 10271 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:50.899 10271 10271 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:50.906 10271 10271 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 114080088, pluginId: App, methodName: addListener
+11-27 19:57:50.907 10271 10271 V Capacitor: callback: 114080088, pluginId: App, methodName: addListener, methodData: {"eventName":"backButton"}
+11-27 19:57:50.907 10271 10271 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 114080089, pluginId: App, methodName: addListener
+11-27 19:57:50.907 10271 10271 V Capacitor: callback: 114080089, pluginId: App, methodName: addListener, methodData: {"eventName":"appUrlOpen"}
+11-27 19:57:50.907 10271 10271 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 114080090, pluginId: App, methodName: getLaunchUrl
+11-27 19:57:50.907 10271 10271 V Capacitor: callback: 114080090, pluginId: App, methodName: getLaunchUrl, methodData: {}
+11-27 19:57:50.923 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:50.923 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:50.951 10271 10305 D Capacitor: Handling local request: https://localhost/pack-ev-data.js
+11-27 19:57:50.982 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.983 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.983 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.983 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.984 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.984 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.984 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:57:50.995 10271 10271 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:57:50.997 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:50.997 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:51.009 10271 10306 D Capacitor: Handling local request: https://localhost/sought-cards.js
+11-27 19:57:51.015 10271 10306 D Capacitor: Handling local request: https://localhost/price-history.js
+11-27 19:57:51.076 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:51.076 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:51.094 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:51.095 10295 10337 E chromium: [ERROR:tile_manager.cc(982)] WARNING: tile memory limits exceeded, some content may not draw
+11-27 19:57:51.105 10271 10305 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 19:57:51.108 10271 10307 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:57:51.109 10271 10308 D Capacitor: Handling local request: https://localhost/sw.js
+11-27 19:57:51.110 10271 10308 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:51.111 10271 10307 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:51.112 10271 10308 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:51.112 10271 10308 E Capacitor: Unable to open asset URL: https://localhost/sw.js
+11-27 19:57:51.448 10271 10271 I Capacitor/Console: File:  - Line 350 - Msg: [object Object]
+11-27 19:57:51.454 10271 10271 V Capacitor/Plugin: To native (Capacitor plugin): callbackId: 114080091, pluginId: SplashScreen, methodName: hide
+11-27 19:57:51.454 10271 10271 V Capacitor: callback: 114080091, pluginId: SplashScreen, methodName: hide, methodData: {}
+11-27 19:57:51.509 10271 10271 I Capacitor/Console: File:  - Line 334 - Msg: undefined
+11-27 19:57:55.569 10374 10374 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:57:55.573 10374 10374 I AndroidRuntime: Using default boot image
+11-27 19:57:55.573 10374 10374 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:57:55.632 10374 10374 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:57:55.656 10374 10374 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:57:56.697 10374 10374 D AndroidRuntime: Shutting down VM
+11-27 19:57:57.620 10401 10401 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 19:57:57.623 10401 10401 I AndroidRuntime: Using default boot image
+11-27 19:57:57.623 10401 10401 I AndroidRuntime: Leaving lock profiling enabled
+11-27 19:57:57.680 10401 10401 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+11-27 19:57:57.705 10401 10401 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 19:57:58.737 10401 10401 D AndroidRuntime: Shutting down VM
+11-27 19:58:01.085 10271 10305 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:58:02.593 10271 10306 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:58:02.655 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:02.656 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:08.626 10271 10305 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 19:58:11.158 10271 10271 D InputMethodManager: showSoftInput() view=com.getcapacitor.CapacitorWebView{ecf4d95 VFEDHVC.. .F...... 0,0-1080,2138 #7f0800ce app:id/webview aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+11-27 19:58:12.633 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:12.636 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:12.687 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:12.687 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:12.688 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:12.743  6228  6228 W PlayCore: UID: [10157]  PID: [6228] SplitInstallInfoProvider : No metadata found in AndroidManifest.
+11-27 19:58:17.614 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:17.648 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.828 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.828 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.844 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.844 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.918 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.920 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
+11-27 19:58:18.921 10295 10316 I chromium: [INFO:document_style_environment_variables.cc(104)] E2E_Used SafeAreaInsetBottom
