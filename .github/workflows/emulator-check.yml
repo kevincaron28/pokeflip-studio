@@ -22,8 +22,10 @@ jobs:
         working-directory: mobile
         env: { VERSION_CODE: '40700', VERSION_NAME: '4.7.0' }
         run: |
-          npm ci && npm run build:web && npx cap sync android
-          cd android && { ./gradlew assembleDebug --no-daemon || { sleep 30; ./gradlew assembleDebug --no-daemon; } || { sleep 60; ./gradlew assembleDebug --no-daemon; }; }
+          set -o pipefail
+          build() { (cd android && ./gradlew assembleDebug --no-daemon) 2>&1 | tee -a "$RUNNER_TEMP/build.log"; }
+          { npm ci && npm run build:web && npx cap sync android; } 2>&1 | tee "$RUNNER_TEMP/build.log"
+          build || { sleep 60; build; } || { sleep 120; build; }
       - name: Start the emulator
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -56,6 +58,7 @@ jobs:
         env: { TOKEN: '${{ github.token }}', API: '${{ matrix.api }}' }
         run: |
           mkdir -p emu-results && cp run.log "$RUNNER_TEMP/emulator.log" emu-results/ 2>/dev/null || true
+          tail -c 60000 "$RUNNER_TEMP/build.log" > emu-results/build.log || true
           grep -aE 'kcaron|ActivityManager|ActivityTaskManager|AndroidRuntime|libc +:|DEBUG +:|Zygote|PackageManager|PackageInstaller|lowmemorykiller|lmkd|Finsky.*(Install|kcaron)' "$RUNNER_TEMP/logcat-full.txt" | gzip -9 > emu-results/logcat-system.txt.gz || true
           cd emu-results
           printf '{ "git": { "deploymentEnabled": false } }\n' > vercel.json
