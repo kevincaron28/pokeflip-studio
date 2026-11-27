@@ -1,0 +1,905 @@
+alhost/collection-value.js","line":27,"col":107,"errorObject":"{}"}}
+11-27 11:43:32.863 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.864 11337 11337 E Capacitor/Console: File: https://localhost/collection-value.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.864 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mycards.js","line":30,"col":22,"errorObject":"{}"}}
+11-27 11:43:32.864 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.865 11337 11337 E Capacitor/Console: File: https://localhost/mycards.js - Line 30 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.865 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/nav.js","line":72,"col":133,"errorObject":"{}"}}
+11-27 11:43:32.865 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.866 11337 11337 E Capacitor/Console: File: https://localhost/nav.js - Line 72 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.866 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/routes.js","line":35,"col":51,"errorObject":"{}"}}
+11-27 11:43:32.866 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.866 11337 11337 E Capacitor/Console: File: https://localhost/routes.js - Line 35 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.866 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.867 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-feed.js","line":41,"col":24,"errorObject":"{}"}}
+11-27 11:43:32.867 11337 11337 E Capacitor/Console: File: https://localhost/restock-feed.js - Line 41 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.868 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.868 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/help.js","line":87,"col":35,"errorObject":"{}"}}
+11-27 11:43:32.868 11337 11337 E Capacitor/Console: File: https://localhost/help.js - Line 87 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.869 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app-actions.js","line":39,"col":45,"errorObject":"{}"}}
+11-27 11:43:32.869 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:43:32.869 11337 11337 E Capacitor/Console: File: https://localhost/app-actions.js - Line 39 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:43:32.870 11337 11439 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/dom-i18n.js","line":42,"col":150,"errorObject":"{}"}}
+11-27 11:43:32.870 11337 11337 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:43:32.871 11337 11337 E Capacitor/Console: File: https://localhost/dom-i18n.js - Line 42 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:43:32.884 11337 11442 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:43:32.885 11337 11442 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:44:36.640 11659 11659 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:44:36.643 11659 11659 I AndroidRuntime: Using default boot image
+11-27 11:44:36.643 11659 11659 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:44:36.691 11659 11659 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:44:37.709 11659 11659 D AndroidRuntime: Shutting down VM
+11-27 11:44:37.797 11678 11678 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:44:37.798 11678 11678 I AndroidRuntime: Using default boot image
+11-27 11:44:37.798 11678 11678 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:44:37.835 11678 11678 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:44:38.861 11678 11678 D AndroidRuntime: Shutting down VM
+11-27 11:44:40.449 11695 11695 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:44:40.451 11695 11695 I AndroidRuntime: Using default boot image
+11-27 11:44:40.451 11695 11695 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:44:40.488 11695 11695 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:44:40.492 11695 11695 D AndroidRuntime: Shutting down VM
+11-27 11:44:46.089 11717 11717 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:44:46.090 11717 11717 I AndroidRuntime: Using default boot image
+11-27 11:44:46.090 11717 11717 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:44:46.128 11717 11717 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:44:46.130 11717 11717 D AndroidRuntime: Shutting down VM
+11-27 11:44:46.993 11732 11732 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:44:46.995 11732 11732 I AndroidRuntime: Using default boot image
+11-27 11:44:46.995 11732 11732 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:44:47.032 11732 11732 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:44:47.034 11732 11732 D AndroidRuntime: Shutting down VM
+11-27 11:44:49.401 11365 11365 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 11:44:49.420  7998 11715 I ActivityManager: Killing 11365:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0a147i0 (adj 0): isolated not needed
+11-27 11:44:50.655 11768 11768 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:44:50.727 11768 11768 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-27 11:44:50.790  7998  8031 I ActivityManager: Start proc 11803:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0i1 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0}
+11-27 11:44:50.851 11768 11768 D Capacitor: Starting BridgeActivity
+11-27 11:44:50.861 11768 11768 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:44:50.862 11768 11768 D Capacitor: Registering plugin instance: WebView
+11-27 11:44:50.863 11768 11768 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:44:50.864 11768 11768 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:44:50.864 11768 11768 D Capacitor: Registering plugin instance: AppReview
+11-27 11:44:50.865 11768 11768 D Capacitor: Registering plugin instance: App
+11-27 11:44:50.865 11768 11768 D Capacitor: Registering plugin instance: Browser
+11-27 11:44:50.866 11768 11768 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:44:50.869 11768 11768 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:44:50.870 11768 11768 D Capacitor: Registering plugin instance: Share
+11-27 11:44:50.870 11768 11768 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:44:50.875 11768 11768 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:44:50.876 11768 11768 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:44:50.876 11768 11768 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:44:50.876 11768 11768 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:44:50.876 11768 11768 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:44:50.882 11768 11768 W Capacitor: Unable to read file at path public/plugins
+11-27 11:44:50.883 11768 11768 D Capacitor: Loading app at https://localhost
+11-27 11:44:50.889 11768 11825 D Capacitor: Handling local request: https://localhost/
+11-27 11:44:50.893 11768 11768 D Capacitor: App started
+11-27 11:44:50.893 11768 11768 D Capacitor/AppPlugin: Firing change: true
+11-27 11:44:50.894 11768 11768 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:44:50.894 11768 11768 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:44:50.896 11768 11768 D Capacitor: App resumed
+11-27 11:44:50.930 11803 11829 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:44:51.052 11768 11825 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:44:51.097 11768 11821 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:44:51.097 11768 11821 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:44:51.098 11768 11825 D Capacitor: Handling local request: https://localhost/assets/empty/empty-watches.webp
+11-27 11:44:51.106 11768 11825 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:44:51.106 11768 11825 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:44:51.107 11768 11824 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:44:51.108 11768 11821 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:44:51.109 11768 11821 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:44:51.110 11768 11798 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:44:51.122 11768 11825 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:44:51.123 11768 11821 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:44:51.124 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.125 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/native-bridge.js","line":27,"col":141,"errorObject":"{}"}}
+11-27 11:44:51.125 11768 11768 E Capacitor/Console: File: https://localhost/native-bridge.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.133 11768 11798 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:44:51.134 11768 11798 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:44:51.134 11768 11801 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:44:51.134 11768 11801 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:44:51.134 11768 11801 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:44:51.135 11768 11824 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:44:51.138 11768 11801 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:44:51.138 11768 11801 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:44:51.138 11768 11801 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:44:51.139 11768 11801 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:44:51.140 11768 11801 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:44:51.141 11768 11798 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:44:51.142 11768 11825 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:44:51.142 11768 11825 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:44:51.142 11768 11798 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:44:51.143 11768 11799 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:44:51.143 11768 11821 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:44:51.144 11768 11801 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:44:51.145 11768 11825 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:44:51.145 11768 11825 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:44:51.146 11768 11801 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:44:51.147 11768 11825 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:44:51.149 11768 11798 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:44:51.149 11768 11801 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:44:51.149 11768 11825 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:44:51.166 11768 11799 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:44:51.167 11768 11825 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:44:51.167 11768 11825 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:44:51.167 11768 11825 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:44:51.168 11768 11821 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:44:51.168 11768 11799 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:44:51.169 11768 11798 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:44:51.169 11768 11821 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:44:51.170 11768 11801 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:44:51.179 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:44:51.179 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/pictures.js","line":9,"col":23,"errorObject":"{}"}}
+11-27 11:44:51.180 11768 11768 E Capacitor/Console: File: https://localhost/pictures.js - Line 9 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:44:51.180 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.180 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/card-lookup.js","line":10,"col":80,"errorObject":"{}"}}
+11-27 11:44:51.181 11768 11768 E Capacitor/Console: File: https://localhost/card-lookup.js - Line 10 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.181 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app.js","line":7,"col":46,"errorObject":"{}"}}
+11-27 11:44:51.182 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.182 11768 11768 E Capacitor/Console: File: https://localhost/app.js - Line 7 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.182 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.183 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/market-reference.js","line":15,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.183 11768 11768 E Capacitor/Console: File: https://localhost/market-reference.js - Line 15 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.183 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.183 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/deal.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.184 11768 11768 E Capacitor/Console: File: https://localhost/deal.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.184 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.184 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-pricing.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.184 11768 11768 E Capacitor/Console: File: https://localhost/ebay-pricing.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.185 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.185 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sealed-guide.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.185 11768 11768 E Capacitor/Console: File: https://localhost/sealed-guide.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.187 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.187 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/affiliate.js","line":21,"col":10,"errorObject":"{}"}}
+11-27 11:44:51.187 11768 11768 E Capacitor/Console: File: https://localhost/affiliate.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.191 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ui-i18n.js","line":175,"col":64,"errorObject":"{}"}}
+11-27 11:44:51.191 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.191 11768 11768 E Capacitor/Console: File: https://localhost/ui-i18n.js - Line 175 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.191 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.191 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-chart.js","line":11,"col":18,"errorObject":"{}"}}
+11-27 11:44:51.191 11768 11768 E Capacitor/Console: File: https://localhost/price-chart.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.193 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.193 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/pack-ev.js","line":14,"col":22,"errorObject":"{}"}}
+11-27 11:44:51.193 11768 11768 E Capacitor/Console: File: https://localhost/pack-ev.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.193 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.194 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/store-prefs.js","line":22,"col":62,"errorObject":"{}"}}
+11-27 11:44:51.194 11768 11768 E Capacitor/Console: File: https://localhost/store-prefs.js - Line 22 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.194 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.194 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-watch.js","line":65,"col":16,"errorObject":"{}"}}
+11-27 11:44:51.195 11768 11768 E Capacitor/Console: File: https://localhost/ebay-watch.js - Line 65 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.195 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.195 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-live.js","line":29,"col":60,"errorObject":"{}"}}
+11-27 11:44:51.196 11768 11768 E Capacitor/Console: File: https://localhost/ebay-live.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.196 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.196 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-value.js","line":40,"col":22,"errorObject":"{}"}}
+11-27 11:44:51.196 11768 11768 E Capacitor/Console: File: https://localhost/alert-value.js - Line 40 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.197 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.197 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/compare-stores.js","line":26,"col":56,"errorObject":"{}"}}
+11-27 11:44:51.198 11768 11768 E Capacitor/Console: File: https://localhost/compare-stores.js - Line 26 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.198 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.198 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-watch.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.199 11768 11768 E Capacitor/Console: File: https://localhost/restock-watch.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.199 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.199 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-hub.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:44:51.199 11768 11768 E Capacitor/Console: File: https://localhost/alert-hub.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.207 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token =
+11-27 11:44:51.207 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token =","url":"https://localhost/vendor/supabase.min.js","line":1,"col":454,"errorObject":"{}"}}
+11-27 11:44:51.207 11768 11768 E Capacitor/Console: File: https://localhost/vendor/supabase.min.js - Line 1 - Msg: Uncaught SyntaxError: Unexpected token =
+11-27 11:44:51.208 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.208 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/cloud-sync.js","line":14,"col":42,"errorObject":"{}"}}
+11-27 11:44:51.208 11768 11768 E Capacitor/Console: File: https://localhost/cloud-sync.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.208 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.208 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/discord-link.js","line":18,"col":223,"errorObject":"{}"}}
+11-27 11:44:51.208 11768 11768 E Capacitor/Console: File: https://localhost/discord-link.js - Line 18 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.209 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.209 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/push-link.js","line":19,"col":203,"errorObject":"{}"}}
+11-27 11:44:51.209 11768 11768 E Capacitor/Console: File: https://localhost/push-link.js - Line 19 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mobile-experience.js","line":4,"col":10,"errorObject":"{}"}}
+11-27 11:44:51.210 11768 11768 E Capacitor/Console: File: https://localhost/mobile-experience.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-line.js","line":13,"col":35,"errorObject":"{}"}}
+11-27 11:44:51.210 11768 11768 E Capacitor/Console: File: https://localhost/price-line.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.210 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/set-completion.js","line":29,"col":49,"errorObject":"{}"}}
+11-27 11:44:51.211 11768 11768 E Capacitor/Console: File: https://localhost/set-completion.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.211 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sets.js","line":13,"col":67,"errorObject":"{}"}}
+11-27 11:44:51.211 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.211 11768 11768 E Capacitor/Console: File: https://localhost/sets.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.211 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/calendar.js","line":11,"col":21,"errorObject":"{}"}}
+11-27 11:44:51.211 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.212 11768 11768 E Capacitor/Console: File: https://localhost/calendar.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.212 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.212 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/product.js","line":21,"col":22,"errorObject":"{}"}}
+11-27 11:44:51.212 11768 11768 E Capacitor/Console: File: https://localhost/product.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.212 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.212 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/collection-value.js","line":27,"col":107,"errorObject":"{}"}}
+11-27 11:44:51.213 11768 11768 E Capacitor/Console: File: https://localhost/collection-value.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.213 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mycards.js","line":30,"col":22,"errorObject":"{}"}}
+11-27 11:44:51.213 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.213 11768 11768 E Capacitor/Console: File: https://localhost/mycards.js - Line 30 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.214 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.214 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/nav.js","line":72,"col":133,"errorObject":"{}"}}
+11-27 11:44:51.214 11768 11768 E Capacitor/Console: File: https://localhost/nav.js - Line 72 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.215 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/routes.js","line":35,"col":51,"errorObject":"{}"}}
+11-27 11:44:51.215 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.216 11768 11768 E Capacitor/Console: File: https://localhost/routes.js - Line 35 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.216 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.216 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-feed.js","line":41,"col":24,"errorObject":"{}"}}
+11-27 11:44:51.217 11768 11768 E Capacitor/Console: File: https://localhost/restock-feed.js - Line 41 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.217 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.217 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/help.js","line":87,"col":35,"errorObject":"{}"}}
+11-27 11:44:51.217 11768 11768 E Capacitor/Console: File: https://localhost/help.js - Line 87 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.218 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:44:51.218 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app-actions.js","line":39,"col":45,"errorObject":"{}"}}
+11-27 11:44:51.218 11768 11768 E Capacitor/Console: File: https://localhost/app-actions.js - Line 39 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:44:51.219 11768 11768 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:44:51.219 11768 11854 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/dom-i18n.js","line":42,"col":150,"errorObject":"{}"}}
+11-27 11:44:51.219 11768 11768 E Capacitor/Console: File: https://localhost/dom-i18n.js - Line 42 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:44:51.231 11768 11821 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:44:51.232 11768 11821 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:45:54.977 11885 11885 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:45:54.978 11885 11885 I AndroidRuntime: Using default boot image
+11-27 11:45:54.979 11885 11885 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:45:55.019 11885 11885 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:45:56.036 11885 11885 D AndroidRuntime: Shutting down VM
+11-27 11:45:56.132 11905 11905 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:45:56.133 11905 11905 I AndroidRuntime: Using default boot image
+11-27 11:45:56.133 11905 11905 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:45:56.171 11905 11905 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:45:57.194 11905 11905 D AndroidRuntime: Shutting down VM
+11-27 11:45:58.783 11922 11922 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:45:58.785 11922 11922 I AndroidRuntime: Using default boot image
+11-27 11:45:58.785 11922 11922 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:45:58.822 11922 11922 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:45:58.827 11922 11922 D AndroidRuntime: Shutting down VM
+11-27 11:46:01.031 11803 11803 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 11:46:01.042  7998 10947 I ActivityManager: Killing 11803:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0a147i1 (adj 0): isolated not needed
+11-27 11:46:02.203 11952 11952 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:46:02.237 11952 11952 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-27 11:46:02.256  7998  8031 I ActivityManager: Start proc 11988:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0i2 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0}
+11-27 11:46:02.370 11952 11952 D Capacitor: Starting BridgeActivity
+11-27 11:46:02.377 11952 11952 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:46:02.378 11952 11952 D Capacitor: Registering plugin instance: WebView
+11-27 11:46:02.381 11952 11952 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:46:02.381 11952 11952 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:46:02.382 11952 11952 D Capacitor: Registering plugin instance: AppReview
+11-27 11:46:02.383 11952 11952 D Capacitor: Registering plugin instance: App
+11-27 11:46:02.385 11952 11952 D Capacitor: Registering plugin instance: Browser
+11-27 11:46:02.385 11952 11952 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:46:02.391 11952 11952 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:46:02.392 11952 11952 D Capacitor: Registering plugin instance: Share
+11-27 11:46:02.393 11952 11952 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:46:02.402 11952 11952 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:46:02.403 11952 11952 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:46:02.403 11952 11952 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:46:02.403 11952 11952 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:46:02.403 11952 11952 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:46:02.411 11952 11952 W Capacitor: Unable to read file at path public/plugins
+11-27 11:46:02.411 11952 11952 D Capacitor: Loading app at https://localhost
+11-27 11:46:02.424 11952 12009 D Capacitor: Handling local request: https://localhost/
+11-27 11:46:02.435 11952 11952 D Capacitor: App started
+11-27 11:46:02.436 11952 11952 D Capacitor/AppPlugin: Firing change: true
+11-27 11:46:02.436 11952 11952 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:46:02.436 11952 11952 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:46:02.444 11952 11952 D Capacitor: App resumed
+11-27 11:46:02.457 11988 12005 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:46:02.613 11952 12009 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:46:02.666 11952 11985 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:46:02.666 11952 12009 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:46:02.667 11952 11984 D Capacitor: Handling local request: https://localhost/assets/empty/empty-watches.webp
+11-27 11:46:02.678 11952 11984 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:46:02.679 11952 12009 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:46:02.679 11952 11984 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:46:02.686 11952 11987 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:46:02.687 11952 12010 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:46:02.687 11952 12009 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:46:02.696 11952 12009 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:46:02.696 11952 12038 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:46:02.699 11952 12038 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:46:02.700 11952 12010 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:46:02.700 11952 11984 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:46:02.700 11952 11987 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:46:02.700 11952 11985 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:46:02.700 11952 12009 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:46:02.702 11952 12010 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:46:02.703 11952 11985 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:46:02.703 11952 11987 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:46:02.703 11952 12009 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:46:02.703 11952 11984 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:46:02.703 11952 12038 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:46:02.704 11952 11985 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:46:02.705 11952 12010 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:46:02.716 11952 11985 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:46:02.716 11952 12038 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:46:02.716 11952 12010 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:46:02.717 11952 11984 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:46:02.717 11952 12009 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:46:02.717 11952 11987 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:46:02.719 11952 11984 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:46:02.719 11952 11987 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:46:02.720 11952 12010 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:46:02.720 11952 12010 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:46:02.720 11952 11987 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:46:02.722 11952 11987 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:46:02.722 11952 11985 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:46:02.722 11952 11984 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:46:02.723 11952 12038 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:46:02.723 11952 11984 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:46:02.723 11952 12009 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:46:02.725 11952 11987 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:46:02.725 11952 11985 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:46:02.725 11952 11985 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:46:02.735 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.736 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/native-bridge.js","line":27,"col":141,"errorObject":"{}"}}
+11-27 11:46:02.736 11952 11952 E Capacitor/Console: File: https://localhost/native-bridge.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.737 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:46:02.737 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/pictures.js","line":9,"col":23,"errorObject":"{}"}}
+11-27 11:46:02.737 11952 11952 E Capacitor/Console: File: https://localhost/pictures.js - Line 9 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:46:02.737 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.737 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/card-lookup.js","line":10,"col":80,"errorObject":"{}"}}
+11-27 11:46:02.738 11952 11952 E Capacitor/Console: File: https://localhost/card-lookup.js - Line 10 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.739 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.739 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app.js","line":7,"col":46,"errorObject":"{}"}}
+11-27 11:46:02.739 11952 11952 E Capacitor/Console: File: https://localhost/app.js - Line 7 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.739 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.739 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/market-reference.js","line":15,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.740 11952 11952 E Capacitor/Console: File: https://localhost/market-reference.js - Line 15 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.740 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.740 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/deal.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.741 11952 11952 E Capacitor/Console: File: https://localhost/deal.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.741 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.741 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-pricing.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.741 11952 11952 E Capacitor/Console: File: https://localhost/ebay-pricing.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.742 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.742 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sealed-guide.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.742 11952 11952 E Capacitor/Console: File: https://localhost/sealed-guide.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.744 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.744 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/affiliate.js","line":21,"col":10,"errorObject":"{}"}}
+11-27 11:46:02.744 11952 11952 E Capacitor/Console: File: https://localhost/affiliate.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.748 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.748 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ui-i18n.js","line":175,"col":64,"errorObject":"{}"}}
+11-27 11:46:02.748 11952 11952 E Capacitor/Console: File: https://localhost/ui-i18n.js - Line 175 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.748 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.748 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-chart.js","line":11,"col":18,"errorObject":"{}"}}
+11-27 11:46:02.749 11952 11952 E Capacitor/Console: File: https://localhost/price-chart.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.750 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.750 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/pack-ev.js","line":14,"col":22,"errorObject":"{}"}}
+11-27 11:46:02.750 11952 11952 E Capacitor/Console: File: https://localhost/pack-ev.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.750 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.750 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/store-prefs.js","line":22,"col":62,"errorObject":"{}"}}
+11-27 11:46:02.750 11952 11952 E Capacitor/Console: File: https://localhost/store-prefs.js - Line 22 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.751 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.751 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-watch.js","line":65,"col":16,"errorObject":"{}"}}
+11-27 11:46:02.751 11952 11952 E Capacitor/Console: File: https://localhost/ebay-watch.js - Line 65 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.752 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.752 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-live.js","line":29,"col":60,"errorObject":"{}"}}
+11-27 11:46:02.752 11952 11952 E Capacitor/Console: File: https://localhost/ebay-live.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.752 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.752 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-value.js","line":40,"col":22,"errorObject":"{}"}}
+11-27 11:46:02.753 11952 11952 E Capacitor/Console: File: https://localhost/alert-value.js - Line 40 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.753 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.753 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/compare-stores.js","line":26,"col":56,"errorObject":"{}"}}
+11-27 11:46:02.753 11952 11952 E Capacitor/Console: File: https://localhost/compare-stores.js - Line 26 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.754 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.754 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-watch.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.754 11952 11952 E Capacitor/Console: File: https://localhost/restock-watch.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.754 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.754 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-hub.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:46:02.755 11952 11952 E Capacitor/Console: File: https://localhost/alert-hub.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.771 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token =
+11-27 11:46:02.771 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token =","url":"https://localhost/vendor/supabase.min.js","line":1,"col":454,"errorObject":"{}"}}
+11-27 11:46:02.772 11952 11952 E Capacitor/Console: File: https://localhost/vendor/supabase.min.js - Line 1 - Msg: Uncaught SyntaxError: Unexpected token =
+11-27 11:46:02.772 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.772 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/cloud-sync.js","line":14,"col":42,"errorObject":"{}"}}
+11-27 11:46:02.772 11952 11952 E Capacitor/Console: File: https://localhost/cloud-sync.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.772 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.772 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/discord-link.js","line":18,"col":223,"errorObject":"{}"}}
+11-27 11:46:02.772 11952 11952 E Capacitor/Console: File: https://localhost/discord-link.js - Line 18 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.773 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.773 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/push-link.js","line":19,"col":203,"errorObject":"{}"}}
+11-27 11:46:02.773 11952 11952 E Capacitor/Console: File: https://localhost/push-link.js - Line 19 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.773 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.774 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mobile-experience.js","line":4,"col":10,"errorObject":"{}"}}
+11-27 11:46:02.774 11952 11952 E Capacitor/Console: File: https://localhost/mobile-experience.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.774 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.774 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-line.js","line":13,"col":35,"errorObject":"{}"}}
+11-27 11:46:02.774 11952 11952 E Capacitor/Console: File: https://localhost/price-line.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.774 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.774 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/set-completion.js","line":29,"col":49,"errorObject":"{}"}}
+11-27 11:46:02.774 11952 11952 E Capacitor/Console: File: https://localhost/set-completion.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.775 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.775 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sets.js","line":13,"col":67,"errorObject":"{}"}}
+11-27 11:46:02.775 11952 11952 E Capacitor/Console: File: https://localhost/sets.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.775 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.775 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/calendar.js","line":11,"col":21,"errorObject":"{}"}}
+11-27 11:46:02.775 11952 11952 E Capacitor/Console: File: https://localhost/calendar.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.775 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.776 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/product.js","line":21,"col":22,"errorObject":"{}"}}
+11-27 11:46:02.776 11952 11952 E Capacitor/Console: File: https://localhost/product.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.776 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.776 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/collection-value.js","line":27,"col":107,"errorObject":"{}"}}
+11-27 11:46:02.776 11952 11952 E Capacitor/Console: File: https://localhost/collection-value.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.776 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.776 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mycards.js","line":30,"col":22,"errorObject":"{}"}}
+11-27 11:46:02.777 11952 11952 E Capacitor/Console: File: https://localhost/mycards.js - Line 30 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.777 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.777 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/nav.js","line":72,"col":133,"errorObject":"{}"}}
+11-27 11:46:02.777 11952 11952 E Capacitor/Console: File: https://localhost/nav.js - Line 72 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.778 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.778 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/routes.js","line":35,"col":51,"errorObject":"{}"}}
+11-27 11:46:02.778 11952 11952 E Capacitor/Console: File: https://localhost/routes.js - Line 35 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.778 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.778 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-feed.js","line":41,"col":24,"errorObject":"{}"}}
+11-27 11:46:02.779 11952 11952 E Capacitor/Console: File: https://localhost/restock-feed.js - Line 41 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.779 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.779 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/help.js","line":87,"col":35,"errorObject":"{}"}}
+11-27 11:46:02.779 11952 11952 E Capacitor/Console: File: https://localhost/help.js - Line 87 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.780 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:46:02.780 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app-actions.js","line":39,"col":45,"errorObject":"{}"}}
+11-27 11:46:02.780 11952 11952 E Capacitor/Console: File: https://localhost/app-actions.js - Line 39 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:46:02.782 11952 11952 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:46:02.782 11952 12037 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/dom-i18n.js","line":42,"col":150,"errorObject":"{}"}}
+11-27 11:46:02.782 11952 11952 E Capacitor/Console: File: https://localhost/dom-i18n.js - Line 42 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:46:02.794 11952 11987 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:46:02.794 11952 12009 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:06.507 12059 12059 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:06.508 12059 12059 I AndroidRuntime: Using default boot image
+11-27 11:47:06.508 12059 12059 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:06.546 12059 12059 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:47:07.576 12059 12059 D AndroidRuntime: Shutting down VM
+11-27 11:47:07.670 12080 12080 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:07.671 12080 12080 I AndroidRuntime: Using default boot image
+11-27 11:47:07.671 12080 12080 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:07.710 12080 12080 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:47:08.740 12080 12080 D AndroidRuntime: Shutting down VM
+11-27 11:47:10.293 11952 11987 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:13.898 12105 12105 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:13.899 12105 12105 I AndroidRuntime: Using default boot image
+11-27 11:47:13.899 12105 12105 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:13.937 12105 12105 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:47:13.944 12105 12105 D AndroidRuntime: Shutting down VM
+11-27 11:47:17.646 12156 12156 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:17.656 12156 12156 I AndroidRuntime: Using default boot image
+11-27 11:47:17.656 12156 12156 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:17.696 12156 12156 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:47:17.710 12156 12156 D AndroidRuntime: Shutting down VM
+11-27 11:47:19.204 12172 12172 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:19.206 12172 12172 I AndroidRuntime: Using default boot image
+11-27 11:47:19.206 12172 12172 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:19.262 12172 12172 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+11-27 11:47:19.340 12172 12172 D AndroidRuntime: Shutting down VM
+11-27 11:47:21.636 11952 11987 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:25.522 11952 11987 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:29.457 11952 11987 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:47:31.000 12213 12213 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:31.001 12213 12213 I AndroidRuntime: Using default boot image
+11-27 11:47:31.001 12213 12213 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:31.039 12213 12213 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+11-27 11:47:31.044 12213 12213 D AndroidRuntime: Shutting down VM
+11-27 11:47:31.046 12213 12224 I AndroidRuntime: NOTE: attach of thread 'Binder:12213_2' failed
+11-27 11:47:31.153 12227 12227 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:31.154 12227 12227 I AndroidRuntime: Using default boot image
+11-27 11:47:31.154 12227 12227 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:31.211 12227 12227 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+11-27 11:47:31.213 12227 12227 D AndroidRuntime: Shutting down VM
+11-27 11:47:31.241 12227 12241 I AndroidRuntime: NOTE: attach of thread 'Binder:12227_1' failed
+11-27 11:47:31.347  9001  9930 W chromium: [1127/114731.347258:WARNING:net/dns/dns_config_service_android.cc:69] Failed to read DnsConfig.
+11-27 11:47:31.347  8956  9203 W chromium: [1127/114731.347450:WARNING:net/dns/dns_config_service_android.cc:69] Failed to read DnsConfig.
+11-27 11:47:31.347 10875 11052 W chromium: [1127/114731.347603:WARNING:net/dns/dns_config_service_android.cc:69] Failed to read DnsConfig.
+11-27 11:47:31.349  8982 11140 W chromium: [1127/114731.349624:WARNING:net/dns/dns_config_service_android.cc:69] Failed to read DnsConfig.
+11-27 11:47:34.336 12291 12291 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:34.338 12291 12291 I AndroidRuntime: Using default boot image
+11-27 11:47:34.338 12291 12291 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:34.374 12291 12291 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+11-27 11:47:34.375 12291 12291 D AndroidRuntime: Shutting down VM
+11-27 11:47:34.380 12291 12302 I AndroidRuntime: NOTE: attach of thread 'Binder:12291_2' failed
+11-27 11:47:34.449 12304 12304 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:47:34.450 12304 12304 I AndroidRuntime: Using default boot image
+11-27 11:47:34.450 12304 12304 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:47:34.490 12304 12304 D AndroidRuntime: Calling main entry com.android.commands.svc.Svc
+11-27 11:47:34.498 12304 12304 D AndroidRuntime: Shutting down VM
+11-27 11:47:34.537 12304 12316 I AndroidRuntime: NOTE: attach of thread 'Binder:12304_2' failed
+11-27 11:47:53.249 11988 11988 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 11:47:53.287  7998  8823 I ActivityManager: Killing 11988:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0a147i2 (adj 0): isolated not needed
+11-27 11:47:54.449 12413 12413 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:47:54.462 12413 12413 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-27 11:47:54.484  7998  8031 I ActivityManager: Start proc 12449:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0i3 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0}
+11-27 11:47:54.582 12413 12413 D Capacitor: Starting BridgeActivity
+11-27 11:47:54.603 12413 12413 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:47:54.605 12413 12413 D Capacitor: Registering plugin instance: WebView
+11-27 11:47:54.605 12413 12413 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:47:54.606 12413 12413 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:47:54.607 12413 12413 D Capacitor: Registering plugin instance: AppReview
+11-27 11:47:54.607 12413 12413 D Capacitor: Registering plugin instance: App
+11-27 11:47:54.608 12413 12413 D Capacitor: Registering plugin instance: Browser
+11-27 11:47:54.609 12413 12413 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:47:54.612 12413 12413 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:47:54.613 12413 12413 D Capacitor: Registering plugin instance: Share
+11-27 11:47:54.614 12413 12413 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:47:54.623 12413 12413 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:47:54.625 12413 12413 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:47:54.625 12413 12413 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:47:54.625 12413 12413 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:47:54.625 12413 12413 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:47:54.635 12413 12413 W Capacitor: Unable to read file at path public/plugins
+11-27 11:47:54.636 12413 12413 D Capacitor: Loading app at https://localhost
+11-27 11:47:54.674 12413 12470 D Capacitor: Handling local request: https://localhost/
+11-27 11:47:54.676 12413 12413 D Capacitor: App started
+11-27 11:47:54.679 12413 12413 D Capacitor/AppPlugin: Firing change: true
+11-27 11:47:54.683 12413 12413 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:47:54.683 12413 12413 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:47:54.685 12413 12413 D Capacitor: App resumed
+11-27 11:47:54.719 12449 12465 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:47:54.842 12413 12444 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:47:54.847 12413 12470 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:47:54.887 12413 12470 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:47:54.888 12413 12444 D Capacitor: Handling local request: https://localhost/assets/empty/empty-watches.webp
+11-27 11:47:54.896 12413 12447 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:47:54.897 12413 12447 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:47:54.898 12413 12470 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:47:54.898 12413 12448 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:47:54.899 12413 12447 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:47:54.899 12413 12447 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:47:54.917 12413 12471 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:47:54.917 12413 12444 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:47:54.917 12413 12448 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:47:54.918 12413 12445 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:47:54.918 12413 12447 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:47:54.918 12413 12470 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:47:54.920 12413 12447 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:47:54.921 12413 12448 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:47:54.921 12413 12471 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:47:54.922 12413 12445 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:47:54.922 12413 12447 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:47:54.923 12413 12470 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:47:54.923 12413 12470 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:47:54.924 12413 12447 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:47:54.925 12413 12447 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:47:54.925 12413 12471 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:47:54.925 12413 12445 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:47:54.926 12413 12448 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:47:54.926 12413 12445 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:47:54.933 12413 12445 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:47:54.934 12413 12448 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:47:54.934 12413 12444 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:47:54.935 12413 12470 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:47:54.935 12413 12447 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:47:54.936 12413 12445 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:47:54.937 12413 12447 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:47:54.937 12413 12448 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:47:54.937 12413 12444 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:47:54.937 12413 12447 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:47:54.937 12413 12471 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:47:54.938 12413 12444 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:47:54.938 12413 12447 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:47:54.939 12413 12448 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:47:54.939 12413 12445 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:47:54.940 12413 12470 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:47:54.940 12413 12470 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:47:54.961 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.962 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/native-bridge.js","line":27,"col":141,"errorObject":"{}"}}
+11-27 11:47:54.962 12413 12413 E Capacitor/Console: File: https://localhost/native-bridge.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.963 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:47:54.963 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/pictures.js","line":9,"col":23,"errorObject":"{}"}}
+11-27 11:47:54.963 12413 12413 E Capacitor/Console: File: https://localhost/pictures.js - Line 9 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:47:54.963 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.963 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/card-lookup.js","line":10,"col":80,"errorObject":"{}"}}
+11-27 11:47:54.964 12413 12413 E Capacitor/Console: File: https://localhost/card-lookup.js - Line 10 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.965 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.965 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app.js","line":7,"col":46,"errorObject":"{}"}}
+11-27 11:47:54.965 12413 12413 E Capacitor/Console: File: https://localhost/app.js - Line 7 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.966 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.966 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/market-reference.js","line":15,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.966 12413 12413 E Capacitor/Console: File: https://localhost/market-reference.js - Line 15 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.967 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.967 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/deal.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.967 12413 12413 E Capacitor/Console: File: https://localhost/deal.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.967 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-pricing.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.967 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.968 12413 12413 E Capacitor/Console: File: https://localhost/ebay-pricing.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.968 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.969 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sealed-guide.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.969 12413 12413 E Capacitor/Console: File: https://localhost/sealed-guide.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.970 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.970 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/affiliate.js","line":21,"col":10,"errorObject":"{}"}}
+11-27 11:47:54.970 12413 12413 E Capacitor/Console: File: https://localhost/affiliate.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.974 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.974 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ui-i18n.js","line":175,"col":64,"errorObject":"{}"}}
+11-27 11:47:54.974 12413 12413 E Capacitor/Console: File: https://localhost/ui-i18n.js - Line 175 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.974 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-chart.js","line":11,"col":18,"errorObject":"{}"}}
+11-27 11:47:54.975 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.975 12413 12413 E Capacitor/Console: File: https://localhost/price-chart.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.976 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.976 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/pack-ev.js","line":14,"col":22,"errorObject":"{}"}}
+11-27 11:47:54.976 12413 12413 E Capacitor/Console: File: https://localhost/pack-ev.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.976 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.976 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/store-prefs.js","line":22,"col":62,"errorObject":"{}"}}
+11-27 11:47:54.976 12413 12413 E Capacitor/Console: File: https://localhost/store-prefs.js - Line 22 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.977 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.977 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-watch.js","line":65,"col":16,"errorObject":"{}"}}
+11-27 11:47:54.977 12413 12413 E Capacitor/Console: File: https://localhost/ebay-watch.js - Line 65 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.977 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-live.js","line":29,"col":60,"errorObject":"{}"}}
+11-27 11:47:54.977 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.978 12413 12413 E Capacitor/Console: File: https://localhost/ebay-live.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.978 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.978 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-value.js","line":40,"col":22,"errorObject":"{}"}}
+11-27 11:47:54.978 12413 12413 E Capacitor/Console: File: https://localhost/alert-value.js - Line 40 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.979 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.979 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/compare-stores.js","line":26,"col":56,"errorObject":"{}"}}
+11-27 11:47:54.979 12413 12413 E Capacitor/Console: File: https://localhost/compare-stores.js - Line 26 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.979 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.980 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-watch.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.980 12413 12413 E Capacitor/Console: File: https://localhost/restock-watch.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.980 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.980 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-hub.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:47:54.981 12413 12413 E Capacitor/Console: File: https://localhost/alert-hub.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.996 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token =","url":"https://localhost/vendor/supabase.min.js","line":1,"col":454,"errorObject":"{}"}}
+11-27 11:47:54.996 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token =
+11-27 11:47:54.996 12413 12413 E Capacitor/Console: File: https://localhost/vendor/supabase.min.js - Line 1 - Msg: Uncaught SyntaxError: Unexpected token =
+11-27 11:47:54.997 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.997 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/cloud-sync.js","line":14,"col":42,"errorObject":"{}"}}
+11-27 11:47:54.997 12413 12413 E Capacitor/Console: File: https://localhost/cloud-sync.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.997 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.997 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/discord-link.js","line":18,"col":223,"errorObject":"{}"}}
+11-27 11:47:54.998 12413 12413 E Capacitor/Console: File: https://localhost/discord-link.js - Line 18 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.998 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.998 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/push-link.js","line":19,"col":203,"errorObject":"{}"}}
+11-27 11:47:54.999 12413 12413 E Capacitor/Console: File: https://localhost/push-link.js - Line 19 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:54.999 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:54.999 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mobile-experience.js","line":4,"col":10,"errorObject":"{}"}}
+11-27 11:47:55.000 12413 12413 E Capacitor/Console: File: https://localhost/mobile-experience.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.000 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.000 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-line.js","line":13,"col":35,"errorObject":"{}"}}
+11-27 11:47:55.000 12413 12413 E Capacitor/Console: File: https://localhost/price-line.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.000 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.000 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/set-completion.js","line":29,"col":49,"errorObject":"{}"}}
+11-27 11:47:55.000 12413 12413 E Capacitor/Console: File: https://localhost/set-completion.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.001 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.001 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sets.js","line":13,"col":67,"errorObject":"{}"}}
+11-27 11:47:55.001 12413 12413 E Capacitor/Console: File: https://localhost/sets.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.001 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.001 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/calendar.js","line":11,"col":21,"errorObject":"{}"}}
+11-27 11:47:55.001 12413 12413 E Capacitor/Console: File: https://localhost/calendar.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.002 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.002 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/product.js","line":21,"col":22,"errorObject":"{}"}}
+11-27 11:47:55.002 12413 12413 E Capacitor/Console: File: https://localhost/product.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.002 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.002 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/collection-value.js","line":27,"col":107,"errorObject":"{}"}}
+11-27 11:47:55.002 12413 12413 E Capacitor/Console: File: https://localhost/collection-value.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.002 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.003 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mycards.js","line":30,"col":22,"errorObject":"{}"}}
+11-27 11:47:55.003 12413 12413 E Capacitor/Console: File: https://localhost/mycards.js - Line 30 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.003 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.003 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/nav.js","line":72,"col":133,"errorObject":"{}"}}
+11-27 11:47:55.003 12413 12413 E Capacitor/Console: File: https://localhost/nav.js - Line 72 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.004 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.004 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/routes.js","line":35,"col":51,"errorObject":"{}"}}
+11-27 11:47:55.004 12413 12413 E Capacitor/Console: File: https://localhost/routes.js - Line 35 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.004 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-feed.js","line":41,"col":24,"errorObject":"{}"}}
+11-27 11:47:55.004 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.005 12413 12413 E Capacitor/Console: File: https://localhost/restock-feed.js - Line 41 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.005 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.005 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/help.js","line":87,"col":35,"errorObject":"{}"}}
+11-27 11:47:55.006 12413 12413 E Capacitor/Console: File: https://localhost/help.js - Line 87 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.006 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:47:55.006 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app-actions.js","line":39,"col":45,"errorObject":"{}"}}
+11-27 11:47:55.006 12413 12413 E Capacitor/Console: File: https://localhost/app-actions.js - Line 39 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:47:55.007 12413 12497 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/dom-i18n.js","line":42,"col":150,"errorObject":"{}"}}
+11-27 11:47:55.007 12413 12413 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:47:55.008 12413 12413 E Capacitor/Console: File: https://localhost/dom-i18n.js - Line 42 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:47:55.020 12413 12447 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:47:55.020 12413 12447 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:48:58.804 12531 12531 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:48:58.805 12531 12531 I AndroidRuntime: Using default boot image
+11-27 11:48:58.805 12531 12531 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:48:58.862 12531 12531 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:48:59.879 12531 12531 D AndroidRuntime: Shutting down VM
+11-27 11:48:59.971 12551 12551 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:48:59.972 12551 12551 I AndroidRuntime: Using default boot image
+11-27 11:48:59.972 12551 12551 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:49:00.010 12551 12551 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:49:01.036 12551 12551 D AndroidRuntime: Shutting down VM
+11-27 11:49:02.919 12449 12449 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-27 11:49:02.951  7998 10585 I ActivityManager: Killing 12449:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0a147i3 (adj 0): isolated not needed
+11-27 11:49:04.132 12588 12588 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:49:04.141 12588 12588 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-27 11:49:04.156  7998  8031 I ActivityManager: Start proc 12616:com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0/u0i4 for  {top.kcaron.cardstudio/org.chromium.content.app.SandboxedProcessService0}
+11-27 11:49:04.269 12588 12588 D Capacitor: Starting BridgeActivity
+11-27 11:49:04.278 12588 12588 D Capacitor: Registering plugin instance: CapacitorCookies
+11-27 11:49:04.280 12588 12588 D Capacitor: Registering plugin instance: WebView
+11-27 11:49:04.281 12588 12588 D Capacitor: Registering plugin instance: CapacitorHttp
+11-27 11:49:04.281 12588 12588 D Capacitor: Registering plugin instance: SystemBars
+11-27 11:49:04.282 12588 12588 D Capacitor: Registering plugin instance: AppReview
+11-27 11:49:04.283 12588 12588 D Capacitor: Registering plugin instance: App
+11-27 11:49:04.283 12588 12588 D Capacitor: Registering plugin instance: Browser
+11-27 11:49:04.285 12588 12588 D Capacitor: Registering plugin instance: LocalNotifications
+11-27 11:49:04.296 12588 12588 D Capacitor: Registering plugin instance: PushNotifications
+11-27 11:49:04.297 12588 12588 D Capacitor: Registering plugin instance: Share
+11-27 11:49:04.297 12588 12588 D Capacitor: Registering plugin instance: SplashScreen
+11-27 11:49:04.302 12588 12588 D Capacitor: Registering plugin instance: StatusBar
+11-27 11:49:04.303 12588 12588 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:04.303 12588 12588 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:04.303 12588 12588 V Capacitor/StatusBarPlugin: Notifying listeners for event statusBarOverlayChanged
+11-27 11:49:04.303 12588 12588 D Capacitor/StatusBarPlugin: No listeners found for event statusBarOverlayChanged
+11-27 11:49:04.311 12588 12588 W Capacitor: Unable to read file at path public/plugins
+11-27 11:49:04.311 12588 12588 D Capacitor: Loading app at https://localhost
+11-27 11:49:04.319 12588 12624 D Capacitor: Handling local request: https://localhost/
+11-27 11:49:04.321 12588 12588 D Capacitor: App started
+11-27 11:49:04.323 12588 12588 D Capacitor/AppPlugin: Firing change: true
+11-27 11:49:04.323 12588 12588 V Capacitor/AppPlugin: Notifying listeners for event appStateChange
+11-27 11:49:04.323 12588 12588 D Capacitor/AppPlugin: No listeners found for event appStateChange
+11-27 11:49:04.329 12588 12588 D Capacitor: App resumed
+11-27 11:49:04.347 12616 12638 I chromium: [INFO:library_loader_hooks.cc(50)] Chromium logging enabled: level = 0, default verbosity = 0
+11-27 11:49:04.472 12588 12626 D Capacitor: Handling local request: https://localhost/studio-theme.css
+11-27 11:49:04.472 12588 12624 D Capacitor: Handling local request: https://localhost/mobile-lab.css
+11-27 11:49:04.497 12588 12623 D Capacitor: Handling local request: https://localhost/studio-mark.svg
+11-27 11:49:04.498 12588 12626 D Capacitor: Handling local request: https://localhost/assets/empty/empty-watches.webp
+11-27 11:49:04.506 12588 12623 D Capacitor: Handling local request: https://localhost/native-bridge.js
+11-27 11:49:04.506 12588 12626 D Capacitor: Handling local request: https://localhost/fcm-config.js
+11-27 11:49:04.507 12588 12642 D Capacitor: Handling local request: https://localhost/pictures.js
+11-27 11:49:04.507 12588 12623 D Capacitor: Handling local request: https://localhost/card-lookup.js
+11-27 11:49:04.508 12588 12623 D Capacitor: Handling local request: https://localhost/app.js
+11-27 11:49:04.508 12588 12623 D Capacitor: Handling local request: https://localhost/market-reference.js
+11-27 11:49:04.516 12588 12642 D Capacitor: Handling local request: https://localhost/deal.js
+11-27 11:49:04.517 12588 12642 D Capacitor: Handling local request: https://localhost/ebay-pricing.js
+11-27 11:49:04.518 12588 12642 D Capacitor: Handling local request: https://localhost/sealed-guide.js
+11-27 11:49:04.519 12588 12670 D Capacitor: Handling local request: https://localhost/canada-shops.js
+11-27 11:49:04.520 12588 12624 D Capacitor: Handling local request: https://localhost/affiliate.js
+11-27 11:49:04.521 12588 12670 D Capacitor: Handling local request: https://localhost/canada-retailers.js
+11-27 11:49:04.524 12588 12642 D Capacitor: Handling local request: https://localhost/ui-i18n.js
+11-27 11:49:04.533 12588 12623 D Capacitor: Handling local request: https://localhost/price-chart.js
+11-27 11:49:04.533 12588 12623 D Capacitor: Handling local request: https://localhost/pack-ev-rates.js
+11-27 11:49:04.533 12588 12642 D Capacitor: Handling local request: https://localhost/pack-ev.js
+11-27 11:49:04.533 12588 12642 D Capacitor: Handling local request: https://localhost/store-prefs.js
+11-27 11:49:04.534 12588 12623 D Capacitor: Handling local request: https://localhost/ebay-watch.js
+11-27 11:49:04.534 12588 12642 D Capacitor: Handling local request: https://localhost/ebay-live.js
+11-27 11:49:04.535 12588 12623 D Capacitor: Handling local request: https://localhost/alert-value.js
+11-27 11:49:04.536 12588 12642 D Capacitor: Handling local request: https://localhost/compare-stores.js
+11-27 11:49:04.536 12588 12669 D Capacitor: Handling local request: https://localhost/restock-watch.js
+11-27 11:49:04.537 12588 12669 D Capacitor: Handling local request: https://localhost/alert-hub.js
+11-27 11:49:04.537 12588 12624 D Capacitor: Handling local request: https://localhost/vendor/supabase.min.js
+11-27 11:49:04.538 12588 12626 D Capacitor: Handling local request: https://localhost/cloud-sync.js
+11-27 11:49:04.539 12588 12642 D Capacitor: Handling local request: https://localhost/discord-link.js
+11-27 11:49:04.539 12588 12624 D Capacitor: Handling local request: https://localhost/push-link.js
+11-27 11:49:04.540 12588 12642 D Capacitor: Handling local request: https://localhost/mobile-experience.js
+11-27 11:49:04.540 12588 12624 D Capacitor: Handling local request: https://localhost/price-line.js
+11-27 11:49:04.549 12588 12624 D Capacitor: Handling local request: https://localhost/set-completion.js
+11-27 11:49:04.550 12588 12642 D Capacitor: Handling local request: https://localhost/sets.js
+11-27 11:49:04.550 12588 12642 D Capacitor: Handling local request: https://localhost/calendar.js
+11-27 11:49:04.550 12588 12626 D Capacitor: Handling local request: https://localhost/product.js
+11-27 11:49:04.550 12588 12669 D Capacitor: Handling local request: https://localhost/collection-value.js
+11-27 11:49:04.553 12588 12642 D Capacitor: Handling local request: https://localhost/nav.js
+11-27 11:49:04.553 12588 12670 D Capacitor: Handling local request: https://localhost/routes.js
+11-27 11:49:04.553 12588 12623 D Capacitor: Handling local request: https://localhost/restock-feed.js
+11-27 11:49:04.554 12588 12626 D Capacitor: Handling local request: https://localhost/help.js
+11-27 11:49:04.554 12588 12669 D Capacitor: Handling local request: https://localhost/app-actions.js
+11-27 11:49:04.554 12588 12624 D Capacitor: Handling local request: https://localhost/mycards.js
+11-27 11:49:04.555 12588 12642 D Capacitor: Handling local request: https://localhost/i18n-fr.js
+11-27 11:49:04.556 12588 12670 D Capacitor: Handling local request: https://localhost/dom-i18n.js
+11-27 11:49:04.565 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.566 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/native-bridge.js","line":27,"col":141,"errorObject":"{}"}}
+11-27 11:49:04.567 12588 12588 E Capacitor/Console: File: https://localhost/native-bridge.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.567 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:49:04.567 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/pictures.js","line":9,"col":23,"errorObject":"{}"}}
+11-27 11:49:04.568 12588 12588 E Capacitor/Console: File: https://localhost/pictures.js - Line 9 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:49:04.568 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.568 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/card-lookup.js","line":10,"col":80,"errorObject":"{}"}}
+11-27 11:49:04.568 12588 12588 E Capacitor/Console: File: https://localhost/card-lookup.js - Line 10 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.569 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.569 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app.js","line":7,"col":46,"errorObject":"{}"}}
+11-27 11:49:04.569 12588 12588 E Capacitor/Console: File: https://localhost/app.js - Line 7 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.570 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.570 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/market-reference.js","line":15,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.570 12588 12588 E Capacitor/Console: File: https://localhost/market-reference.js - Line 15 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.570 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.570 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/deal.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.571 12588 12588 E Capacitor/Console: File: https://localhost/deal.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.574 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.574 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-pricing.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.574 12588 12588 E Capacitor/Console: File: https://localhost/ebay-pricing.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.574 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.574 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sealed-guide.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.574 12588 12588 E Capacitor/Console: File: https://localhost/sealed-guide.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.576 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.576 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/affiliate.js","line":21,"col":10,"errorObject":"{}"}}
+11-27 11:49:04.576 12588 12588 E Capacitor/Console: File: https://localhost/affiliate.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.579 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.580 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ui-i18n.js","line":175,"col":64,"errorObject":"{}"}}
+11-27 11:49:04.580 12588 12588 E Capacitor/Console: File: https://localhost/ui-i18n.js - Line 175 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.580 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.580 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-chart.js","line":11,"col":18,"errorObject":"{}"}}
+11-27 11:49:04.580 12588 12588 E Capacitor/Console: File: https://localhost/price-chart.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.581 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.581 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/pack-ev.js","line":14,"col":22,"errorObject":"{}"}}
+11-27 11:49:04.582 12588 12588 E Capacitor/Console: File: https://localhost/pack-ev.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.582 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.582 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/store-prefs.js","line":22,"col":62,"errorObject":"{}"}}
+11-27 11:49:04.582 12588 12588 E Capacitor/Console: File: https://localhost/store-prefs.js - Line 22 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.583 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.583 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-watch.js","line":65,"col":16,"errorObject":"{}"}}
+11-27 11:49:04.583 12588 12588 E Capacitor/Console: File: https://localhost/ebay-watch.js - Line 65 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.584 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.584 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/ebay-live.js","line":29,"col":60,"errorObject":"{}"}}
+11-27 11:49:04.584 12588 12588 E Capacitor/Console: File: https://localhost/ebay-live.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.584 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.584 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-value.js","line":40,"col":22,"errorObject":"{}"}}
+11-27 11:49:04.585 12588 12588 E Capacitor/Console: File: https://localhost/alert-value.js - Line 40 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.585 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.585 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/compare-stores.js","line":26,"col":56,"errorObject":"{}"}}
+11-27 11:49:04.586 12588 12588 E Capacitor/Console: File: https://localhost/compare-stores.js - Line 26 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.586 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.586 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-watch.js","line":5,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.586 12588 12588 E Capacitor/Console: File: https://localhost/restock-watch.js - Line 5 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.587 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.587 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/alert-hub.js","line":4,"col":41,"errorObject":"{}"}}
+11-27 11:49:04.587 12588 12588 E Capacitor/Console: File: https://localhost/alert-hub.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.593 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token =
+11-27 11:49:04.593 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token =","url":"https://localhost/vendor/supabase.min.js","line":1,"col":454,"errorObject":"{}"}}
+11-27 11:49:04.593 12588 12588 E Capacitor/Console: File: https://localhost/vendor/supabase.min.js - Line 1 - Msg: Uncaught SyntaxError: Unexpected token =
+11-27 11:49:04.593 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.594 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/cloud-sync.js","line":14,"col":42,"errorObject":"{}"}}
+11-27 11:49:04.594 12588 12588 E Capacitor/Console: File: https://localhost/cloud-sync.js - Line 14 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.594 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.594 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/discord-link.js","line":18,"col":223,"errorObject":"{}"}}
+11-27 11:49:04.594 12588 12588 E Capacitor/Console: File: https://localhost/discord-link.js - Line 18 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.594 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.594 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/push-link.js","line":19,"col":203,"errorObject":"{}"}}
+11-27 11:49:04.595 12588 12588 E Capacitor/Console: File: https://localhost/push-link.js - Line 19 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.595 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.595 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mobile-experience.js","line":4,"col":10,"errorObject":"{}"}}
+11-27 11:49:04.595 12588 12588 E Capacitor/Console: File: https://localhost/mobile-experience.js - Line 4 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.595 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.595 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/price-line.js","line":13,"col":35,"errorObject":"{}"}}
+11-27 11:49:04.595 12588 12588 E Capacitor/Console: File: https://localhost/price-line.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.596 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.596 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/set-completion.js","line":29,"col":49,"errorObject":"{}"}}
+11-27 11:49:04.596 12588 12588 E Capacitor/Console: File: https://localhost/set-completion.js - Line 29 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.596 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.596 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/sets.js","line":13,"col":67,"errorObject":"{}"}}
+11-27 11:49:04.596 12588 12588 E Capacitor/Console: File: https://localhost/sets.js - Line 13 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.597 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.597 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/calendar.js","line":11,"col":21,"errorObject":"{}"}}
+11-27 11:49:04.597 12588 12588 E Capacitor/Console: File: https://localhost/calendar.js - Line 11 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.597 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.597 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/product.js","line":21,"col":22,"errorObject":"{}"}}
+11-27 11:49:04.597 12588 12588 E Capacitor/Console: File: https://localhost/product.js - Line 21 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.598 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/collection-value.js","line":27,"col":107,"errorObject":"{}"}}
+11-27 11:49:04.598 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.598 12588 12588 E Capacitor/Console: File: https://localhost/collection-value.js - Line 27 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.598 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.598 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/mycards.js","line":30,"col":22,"errorObject":"{}"}}
+11-27 11:49:04.598 12588 12588 E Capacitor/Console: File: https://localhost/mycards.js - Line 30 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.599 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.599 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/nav.js","line":72,"col":133,"errorObject":"{}"}}
+11-27 11:49:04.599 12588 12588 E Capacitor/Console: File: https://localhost/nav.js - Line 72 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.599 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.599 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/routes.js","line":35,"col":51,"errorObject":"{}"}}
+11-27 11:49:04.599 12588 12588 E Capacitor/Console: File: https://localhost/routes.js - Line 35 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/restock-feed.js","line":41,"col":24,"errorObject":"{}"}}
+11-27 11:49:04.600 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/help.js","line":87,"col":35,"errorObject":"{}"}}
+11-27 11:49:04.600 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12588 E Capacitor/Console: File: https://localhost/restock-feed.js - Line 41 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12588 E Capacitor/Console: File: https://localhost/help.js - Line 87 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token .
+11-27 11:49:04.600 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token .","url":"https://localhost/app-actions.js","line":39,"col":45,"errorObject":"{}"}}
+11-27 11:49:04.601 12588 12588 E Capacitor/Console: File: https://localhost/app-actions.js - Line 39 - Msg: Uncaught SyntaxError: Unexpected token .
+11-27 11:49:04.602 12588 12588 E Capacitor/Console: File: https://localhost/ - Line 811 - Msg: SyntaxError: Unexpected token ?
+11-27 11:49:04.602 12588 12668 E Capacitor: JavaScript Error: {"type":"js.error","error":{"message":"Uncaught SyntaxError: Unexpected token ?","url":"https://localhost/dom-i18n.js","line":42,"col":150,"errorObject":"{}"}}
+11-27 11:49:04.602 12588 12588 E Capacitor/Console: File: https://localhost/dom-i18n.js - Line 42 - Msg: Uncaught SyntaxError: Unexpected token ?
+11-27 11:49:04.615 12588 12623 D Capacitor: Handling local request: https://localhost/favicon.ico
+11-27 11:49:04.616 12588 12624 D Capacitor: Handling local request: https://localhost/icon.svg
+11-27 11:50:08.450 12690 12690 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:50:08.451 12690 12690 I AndroidRuntime: Using default boot image
+11-27 11:50:08.451 12690 12690 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:50:08.497 12690 12690 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:50:09.514 12690 12690 D AndroidRuntime: Shutting down VM
+11-27 11:50:09.520 12690 12704 I AndroidRuntime: NOTE: attach of thread 'Binder:12690_3' failed
+11-27 11:50:09.605 12709 12709 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 11:50:09.606 12709 12709 I AndroidRuntime: Using default boot image
+11-27 11:50:09.606 12709 12709 I AndroidRuntime: Leaving lock profiling enabled
+11-27 11:50:09.643 12709 12709 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+11-27 11:50:10.669 12709 12709 D AndroidRuntime: Shutting down VM
+11-27 11:50:12.202 12588 12623 D Capacitor: Handling local request: https://localhost/icon.svg
