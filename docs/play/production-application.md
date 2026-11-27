@@ -5,6 +5,7 @@ Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Prepared 
 ## When
 
 - Closed testing (Alpha) on 26 Nov 2026: the Dashboard says **12 testers opted in for 2 days continuously**. Google requires 12 testers for 14 days in a row.
+- On 27 Nov 2026: **12 testers opted in for 3 days continuously**.
 - Earliest date to apply: **8 Dec 2026**, if the count never drops under 12. Apply when **Dashboard → Apply for production** becomes clickable.
 - With exactly 12 testers, one person leaving puts the requirement at risk. A few extra testers are a cheap buffer.
 - Google says its review usually takes 7 days or less.
@@ -16,17 +17,17 @@ Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Prepared 
 | 4.3.2 (40302) | Released 23 Nov 2026 |
 | 4.4.0 (40400) | Approved and available to testers 26 Nov 2026 |
 | 4.4.1 (40401) | Sent for review 26 Nov 2026 (on internal testing since 26 Nov) |
-| 4.6.0 (40600) | On internal testing 26 Nov 2026; sent for closed testing review the same day |
+| 4.6.0 (40600) | On internal testing 26 Nov 2026; closed testing release **published** (submitted 26 Nov, 2:07 PM; seen 27 Nov) |
 
 4.6.0 renames My cards to Watchlist and adds set checklists, search across every listed set, recent restocks and typical asking prices at Canadian shops, optional price alerts, account deletion in the app and price fixes. 4.5.0 was never uploaded. 4.4.1 added pictures and fixed eBay alerts and the notification permission.
 
-Play Console → Monitor and improve → Ratings and reviews → **Testing feedback** showed no feedback on 26 Nov 2026.
+Play Console → Monitor and improve → Ratings and reviews → **Testing feedback** showed no feedback on 26 Nov 2026. On 27 Nov the page did not finish loading, so it was not read again.
 
 ## Before you apply (during the 14 days)
 
 Google asks about tester use and feedback, so collect them now.
 
-1. Once 4.6.0 is approved, send testers a short task list: search a card, open its card page, add it to the Watchlist with a target price, tick cards in a set, open Recent restocks, add a drop watch, and turn on drop alerts if they want. Ask them to reply by email or Play's private feedback.
+1. Now that 4.6.0 is published, send testers a short task list: search a card, open its card page, add it to the Watchlist with a target price, tick cards in a set, open Recent restocks, add a drop watch, and turn on drop alerts if they want. Ask them to reply by email or Play's private feedback.
 2. Write down each reply with its date, and what you changed because of it.
 3. Test on your own Android phone with the Play build (table below).
 4. Keep every `[bracket]` below out of the form: replace it with a fact or delete the sentence. Do not describe feedback or testing that did not happen.
@@ -139,7 +140,9 @@ Sent for review together and published the same day (7 changes): the 4.4.0 close
 
 The 4.4.1 closed release was sent for review separately later that day, then the 4.6.0 closed release.
 
-The 4.6.0 store listing (English and French (Canada), new icon, feature graphic and screenshots) was then sent for review, with the icon and feature graphic labelled as AI: see [store-listing.md](store-listing.md). Play restarted the 4.6.0 release review to include it. Approval of either was not seen.
+The 4.6.0 store listing (English and French (Canada), new icon, feature graphic and screenshots) was then sent for review, with the icon and feature graphic labelled as AI: see [store-listing.md](store-listing.md). Play restarted the 4.6.0 release review to include it. On 27 Nov Submission activity showed that submission as **Published**.
+
+On 27 Nov a search-optimised listing was saved as a draft only, to be sent with 4.7.0.
 
 Checked, not changed: content rating (IARC, 23 Nov: Everyone / PEGI 3), privacy policy address `https://pokeflip-studio.vercel.app/privacy.html`.
 

@@ -2,9 +2,9 @@
 
 Package `top.kcaron.cardstudio`, Play Console app 4973209881069245345. Change the text here first, then in the console.
 
-**Status, 27 Nov 2026:** the title and texts below are the **search-optimised draft**. It is not saved in Play Console yet. **Do not send it** while the 4.6.0 release and the 26 Nov listing are in review. Send it together with the 4.7.0 build.
+**Status, 27 Nov 2026:** the title and texts below are the **search-optimised draft**. It is **saved as a draft** in the Default store listing (both languages, read back and matching this file on 27 Nov). Nothing is waiting to be sent in Publishing overview. **Do not send it** while the 4.6.0 release and the 26 Nov listing are in review. Send it together with the 4.7.0 build.
 
-The text sent for review on 26 Nov is the version of this file at commit `17e8d65`.
+The live listing is the one sent on 26 Nov (this file at commit `17e8d65`): Submission activity showed it **Published**, together with the 4.6.0 closed release (submitted 26 Nov, 2:07 PM).
 
 **AI asset declaration** (26 Nov, answered with the owner's approval): "Label assets as created or edited using AI", with only the **app icon** and the **feature graphic** ticked. Both were generated with ChatGPT image generation. The screenshots are real captures and are **not** labelled.
 
@@ -44,12 +44,14 @@ Cardstead : prix de cartes TCG
 
 The name under the icon on the phone stays "Cardstead".
 
+The new short descriptions avoid "$". On 27 Nov the editor said the app may not be promoted on Google Play because the short description should not contain special characters; it appeared with the live "CA$ …" text, and was gone after the new texts were saved and the page reloaded. That "$" was the cause is an inference. The live listing keeps the old text until the draft is sent.
+
 ## English (United States), default
 
 ### Short description (80 characters at most; 77)
 
 <!-- short:start -->
-Check TCG card prices in CA$: watchlist, set checklists, restocks and alerts.
+Check TCG card prices in Canadian dollars, track your sets and spot restocks.
 <!-- short:end -->
 
 ### Full description (4,000 characters at most; 3235)
@@ -104,10 +106,10 @@ Cardstead is an independent app. It is not affiliated with, endorsed or sponsore
 
 ## French (Canada)
 
-### Short description (77)
+### Short description (74)
 
 <!-- short-fr:start -->
-Trouve le prix de cartes TCG en $ CA : suivi, extensions, arrivages, alertes.
+Trouve le prix de cartes TCG en dollars canadiens et repère les arrivages.
 <!-- short-fr:end -->
 
 ### Full description (3659)
@@ -171,6 +173,7 @@ Cardstead est une application indépendante, sans affiliation, approbation ni co
 
 ## Keep true
 
+- Before sending: 4.7.0 is on the track, the draft still matches this file, and the AI declaration still labels the icon and feature graphic if Play asks again.
 - The text describes **4.6.0**. Add 4.7.0 features only once that build is on the track and they were seen working.
 - **Drop alerts and price alerts** are described because app push is switched on in the released build, `/api/config` offers price alerts (`priceAlerts`), and a shop checker is installed. **Delivery to a phone has not been verified.** Test it, or remove the OPTIONAL ALERTS section.
 - **Restocks and typical asking price** depend on the shop checker (`docs/SHOP-CHECKER-WINDOWS.md`). On 26 Nov most requests were refused (429), and no product had a typical price (it needs three shops).
